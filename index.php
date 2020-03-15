@@ -6,6 +6,6 @@
     <title>Black Line</title>
 </head>
 <body>
-    <h1>Hej Kochanie <3</h1>
+    <h1></h1>
 </body>
 </html>
