@@ -1,10 +1,12 @@
 header {
     width: 100vw;
+    height: 200px;
     font-family: Raleway;
     margin-top: 20px;
 
     display: grid;
     grid-template-columns: 39% 22% 39%;
+    margin-bottom: 30px;
 }
 
 #help-and-contact > a {

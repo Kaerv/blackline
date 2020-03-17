@@ -1,27 +1,29 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-16 16:24:38
+/* Smarty version 3.1.34-dev-7, created on 2020-03-17 10:09:08
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e6fa8467a27d9_45490108',
+  'unifunc' => 'content_5e70a1c4c49413_80841717',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1584375869,
+      1 => 1584439292,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:page_header.tpl' => 1,
+    'file:hero_image.tpl' => 1,
+    'file:quote_section.tpl' => 1,
   ),
 ),false)) {
-function content_5e6fa8467a27d9_45490108 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e70a1c4c49413_80841717 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -34,9 +36,19 @@ function content_5e6fa8467a27d9_45490108 (Smarty_Internal_Template $_smarty_tpl)
 /general.css">
     <link rel="stylesheet" href="<?php echo STYLES_PATH;?>
 /page-header.css">
+    <link rel="stylesheet" href="<?php echo STYLES_PATH;?>
+/page-nav.css">
+    <link rel="stylesheet" href="<?php echo STYLES_PATH;?>
+/hero-image.css">
+    <link rel="stylesheet" href="<?php echo STYLES_PATH;?>
+/quote-section.css">
 </head>
 <body>
     <?php $_smarty_tpl->_subTemplateRender('file:page_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+    <?php $_smarty_tpl->_subTemplateRender('file:hero_image.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+    <?php $_smarty_tpl->_subTemplateRender('file:quote_section.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 </body>
 </html><?php }

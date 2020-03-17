@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="{STYLES_PATH}/normalize.css">
     <link rel="stylesheet" href="{STYLES_PATH}/general.css">
     <link rel="stylesheet" href="{STYLES_PATH}/page-header.css">
+    <link rel="stylesheet" href="{STYLES_PATH}/page-nav.css">
+    <link rel="stylesheet" href="{STYLES_PATH}/hero-image.css">
+    <link rel="stylesheet" href="{STYLES_PATH}/quote-section.css">
 </head>
 <body>
     {include file='page_header.tpl'}
+    {include file='hero_image.tpl'}
+    {include file='quote_section.tpl'}
 </body>
 </html>
