@@ -10,10 +10,8 @@ header {
 }
 
 #help-and-contact > a {
-    color: #000;
     font-size: 12px;
     margin-left: 25px;
-    text-decoration: none;
     border-bottom: solid 1px black;
 }
 
