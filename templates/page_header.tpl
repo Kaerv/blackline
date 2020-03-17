@@ -19,4 +19,5 @@
             <img id="header-cart-ico" class="header-ico" src="{$cart_ico_url}" alt="">
         </a>
     </div>
+    {include file='page_nav.tpl'}
 </header>

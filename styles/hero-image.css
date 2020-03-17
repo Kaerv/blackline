@@ -1,0 +1,5 @@
+#hero-image {
+    width: 100vw;
+    height: calc(100vh - 250px);
+    background-color: #000;
+}
