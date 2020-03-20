@@ -1,0 +1,39 @@
+#preamble-wrap, #preamble {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#preamble-wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#preamble {
+    width: 80%;
+    height: 90%;
+}
+
+#preamble > h1 {
+    font-family: Raleway;
+    width: 100%;
+    text-align: center;
+    margin-top: 70px;
+    font-size: 32px;
+}
+
+#preamble > p {
+    width: 77%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 18px;
+    line-height: 130%;
+}
+
+#preamble > p:first-of-type {
+    margin-top: 50px;
+}

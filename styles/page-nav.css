@@ -1,6 +1,6 @@
 #main-nav {
-    display: flex;
-    width: 100vw;
+    display: inline-flex;
+    width: 100%;
     justify-content: space-around;
     align-items: center;
     margin-top: 40px;

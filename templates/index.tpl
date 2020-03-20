@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="{STYLES_PATH}/page-nav.css">
     <link rel="stylesheet" href="{STYLES_PATH}/hero-image.css">
     <link rel="stylesheet" href="{STYLES_PATH}/quote-section.css">
+    <link rel="stylesheet" href="{STYLES_PATH}/preamble.css">
 </head>
 <body>
     {include file='page_header.tpl'}
     {include file='hero_image.tpl'}
     {include file='quote_section.tpl'}
+    {include file='preamble.tpl'}
 </body>
 </html>
