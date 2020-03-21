@@ -1,0 +1,113 @@
+.section {
+    width: 100%;
+}
+
+.section-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 97vw;
+    height: 100px;
+
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-title {
+    margin: 0 30px 0 30px;
+}
+
+.header-line {
+    height: 5px;
+    border-bottom: solid 2px #000;
+}
+
+/* HERO IMAGE */
+
+#hero-image {
+    height: calc(100vh - 250px);
+    background-color: #000;
+}
+
+/* QUOTES */
+
+#quote_section {
+    margin-top: 20px;
+    height: 97vh;
+}
+
+#quotation-link {
+    display: block;
+    height: 25px;
+
+    text-align: right;
+}
+#quotation-link > a {
+    margin-right: 40px;
+    font-size: 20px;
+}
+
+#quotes {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+
+    height: calc(100vh - 275px);
+    margin-top: 100px;
+}
+
+.quote-container {
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+}
+
+.quote-sign { font-size: 64px; }
+
+.quote {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* PREAMBLE */
+
+#preamble-wrap, #preamble {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#preamble-wrap {
+    height: 100vh;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#preamble {
+    width: 80%;
+    height: 90%;
+}
+
+#preamble > h1 {
+    width: 100%;
+    margin-top: 70px;
+
+    text-align: center;
+}
+
+#preamble > p {
+    width: 77%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    text-align: center;
+    line-height: 130%;
+}
+
+#preamble > p:first-of-type {
+    margin-top: 50px;
+}

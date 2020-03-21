@@ -1,5 +1,8 @@
-header {
+header, header > * {
     width: 100%;
+}
+
+header {
     height: 200px;
     font-family: Raleway;
     margin-top: 20px;
@@ -7,7 +10,6 @@ header {
 }
 
 #header-top-wrap {
-    width: 100%;
     display: grid;
     grid-template-columns: 39% 22% 39%;
 }
@@ -66,4 +68,25 @@ header {
 
 #header-cart {
     margin-right: 60px;
+}
+
+/* Navigation style */
+
+#main-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.menu-option {
+    font-size: 18px;
+    text-align: center;
+    width: 240px;
+}
+
+.nav-line {
+    width: 3px;
+    border-left: solid 2px #000;
+    height: 28px;
 }

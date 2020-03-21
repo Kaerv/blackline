@@ -1,1 +1,0 @@
-<section id="hero-image"></section>
