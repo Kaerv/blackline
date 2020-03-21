@@ -16,32 +16,32 @@
     <section id="quote_section" class="section">
         <div id="quotation-link" class="section header-text"><a href="#cytaty">CYTATY Z GŁĘBI STRON</a></div>
 
-        {include file='section_header.tpl' title='Słowa są ukrytą siłą życia...' subtitle='ILE MASZ JEJ W SOBIE?' style='margin-top:50px;'}
+        {include 
+            file='section_header.tpl' 
+            title='Słowa są ukrytą siłą życia...'
+            link = '#cytaty' 
+            subtitle='ILE MASZ JEJ W SOBIE?' style='margin-top:50px;'}
     
+        {assign var=authors value=[
+            '- BERTOLD BRECHT -',
+            '- JOHANN WOLFGANG VON GOETHE -',
+            '- ANTOINE DE SAINT EXUPÉRY -',
+            '- ALEKSANDER DUMAS -'
+        ]} 
+        {assign var=quotes value=[
+            'Kto walczy, może przegrać. Kto nie walczy, już przegrał.',
+            'Talent rośnie w samotności, charakter wśród ludzi.',
+            'Mowa jest źródłem nieporozumień.',
+            '[...] zła najczęściej nie da się naprawić; możemy je tylko pomścić.'
+        ]}
         <div id="quotes" class="text">
-            <div class="quote-container">
+            {for $i = 0 to 3}
+            <div class="quote-container center-position">
                 <div class="quote-sign">,,</div>
-                <div class="quote">Kto walczy, może przegrać. Kto nie walczy, już przegrał.</div>
-                <div class="quote-author">- BERTOLD BRECHT -</div>
+                <div class="quote">{$quotes[$i]}</div>
+                <div class="quote-author">{$authors[$i]}</div>
             </div>
-    
-            <div class="quote-container">
-                <div class="quote-sign">,,</div>
-                <div class="quote">Talent rośnie w samotności, charakter wśród ludzi.</div>
-                <div class="quote-author">- JOHANN WOLFGANG VON GOETHE -</div>
-            </div>
-    
-            <div class="quote-container">
-                <div class="quote-sign">,,</div>
-                <div class="quote">Mowa jest źródłem nieporozumień.</div>
-                <div class="quote-author">- ANTOINE DE SAINT EXUPÉRY -</div>
-            </div>
-    
-            <div class="quote-container">
-                <div class="quote-sign">,,</div>
-                <div class="quote">[...] zła najczęściej nie da się naprawić; możemy je tylko pomścić.</div>
-                <div class="quote-author">- ALEKSANDER DUMAS -</div>
-            </div>
+            {/for}
         </div>
     </section>
 
@@ -68,6 +68,36 @@
                 Zajrzyj w nasz pejzaż myśli ulotnej i posmakuj cytatów z głębi stron, a znajdziesz wszystko, co świat powinien wiedzieć o Tobie. Powodzenia!
             </p>
         </div>
+    </section>
+    <section id="shop-preview" class="section text">
+        {include file='section_header.tpl' 
+        title='GALERIA MOJEGO EGO'
+        link = '#galeria' 
+    }
+        <div class="shop-note">
+            <p>
+                Witaj wędrowcze! Oto sens i cel naszej manufaktury. Tutaj określisz siebie, a cytat Twój podziwiany będzie za szczerość i odwagę. Słowa wybrane z głębi mądrości wrażliwej, poprzez technologię zaklętą w ciśnieniu i temperaturze naniesione na materiał zostaną. Ty zaś z dumą przywdziejesz materiał ten w formie bluzy, koszulki, apaszki i ogólny zachwyt wywołasz. I nie myśl wędrowcze, że to kupczenie dukatami złotymi za bycie sobą… - To tylko odzienia fragment dukaty kosztuje… - Sens w słowach zawarty – jest bezcenny…
+            </p>
+            <p style="font-size:16px;">
+                (Wykonanie zleconego cytatu na wybranym nośniku poprzez najnowocześniejszą technikę termosublimacji zapewniającą niespotykaną dotąd jakość nadruku na materiale)
+            </p>
+        </div>
+        <div id="products-categories">
+            {assign var=categories value = [
+                'BLUZY',
+                'KOSZULKI',
+                'APASZKI',
+                'CZAPECZKI',
+                'INNE'
+                ]}
+            {for $i = 0 to 4}
+            <div class="category">
+                <div class="category-img"></div>
+                <div class="category-name">{$categories[$i]}</div>
+            </div>
+            {/for}
+        </div>
+
     </section>
 </body>
 </html>

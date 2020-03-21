@@ -1,28 +1,28 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-21 16:22:10
+/* Smarty version 3.1.34-dev-7, created on 2020-03-21 19:45:15
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e763f328e34e8_83696469',
+  'unifunc' => 'content_5e766ecb7024b9_80955143',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1584807729,
+      1 => 1584819894,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:page_header.tpl' => 1,
-    'file:section_header.tpl' => 1,
+    'file:section_header.tpl' => 2,
   ),
 ),false)) {
-function content_5e763f328e34e8_83696469 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e766ecb7024b9_80955143 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -46,33 +46,27 @@ function content_5e763f328e34e8_83696469 (Smarty_Internal_Template $_smarty_tpl)
     <section id="quote_section" class="section">
         <div id="quotation-link" class="section header-text"><a href="#cytaty">CYTATY Z GŁĘBI STRON</a></div>
 
-        <?php $_smarty_tpl->_subTemplateRender('file:section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'Słowa są ukrytą siłą życia...','subtitle'=>'ILE MASZ JEJ W SOBIE?','style'=>'margin-top:50px;'), 0, false);
+        <?php $_smarty_tpl->_subTemplateRender('file:section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'Słowa są ukrytą siłą życia...','link'=>'#cytaty','subtitle'=>'ILE MASZ JEJ W SOBIE?','style'=>'margin-top:50px;'), 0, false);
 ?>
     
+        <?php $_smarty_tpl->_assignInScope('authors', array('- BERTOLD BRECHT -','- JOHANN WOLFGANG VON GOETHE -','- ANTOINE DE SAINT EXUPÉRY -','- ALEKSANDER DUMAS -'));?> 
+        <?php $_smarty_tpl->_assignInScope('quotes', array('Kto walczy, może przegrać. Kto nie walczy, już przegrał.','Talent rośnie w samotności, charakter wśród ludzi.','Mowa jest źródłem nieporozumień.','[...] zła najczęściej nie da się naprawić; możemy je tylko pomścić.'));?>
         <div id="quotes" class="text">
-            <div class="quote-container">
+            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 3+1 - (0) : 0-(3)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 0, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
+            <div class="quote-container center-position">
                 <div class="quote-sign">,,</div>
-                <div class="quote">Kto walczy, może przegrać. Kto nie walczy, już przegrał.</div>
-                <div class="quote-author">- BERTOLD BRECHT -</div>
+                <div class="quote"><?php echo $_smarty_tpl->tpl_vars['quotes']->value[$_smarty_tpl->tpl_vars['i']->value];?>
+</div>
+                <div class="quote-author"><?php echo $_smarty_tpl->tpl_vars['authors']->value[$_smarty_tpl->tpl_vars['i']->value];?>
+</div>
             </div>
-    
-            <div class="quote-container">
-                <div class="quote-sign">,,</div>
-                <div class="quote">Talent rośnie w samotności, charakter wśród ludzi.</div>
-                <div class="quote-author">- JOHANN WOLFGANG VON GOETHE -</div>
-            </div>
-    
-            <div class="quote-container">
-                <div class="quote-sign">,,</div>
-                <div class="quote">Mowa jest źródłem nieporozumień.</div>
-                <div class="quote-author">- ANTOINE DE SAINT EXUPÉRY -</div>
-            </div>
-    
-            <div class="quote-container">
-                <div class="quote-sign">,,</div>
-                <div class="quote">[...] zła najczęściej nie da się naprawić; możemy je tylko pomścić.</div>
-                <div class="quote-author">- ALEKSANDER DUMAS -</div>
-            </div>
+            <?php }
+}
+?>
         </div>
     </section>
 
@@ -101,6 +95,35 @@ function content_5e763f328e34e8_83696469 (Smarty_Internal_Template $_smarty_tpl)
                 Zajrzyj w nasz pejzaż myśli ulotnej i posmakuj cytatów z głębi stron, a znajdziesz wszystko, co świat powinien wiedzieć o Tobie. Powodzenia!
             </p>
         </div>
+    </section>
+    <section id="shop-preview" class="section text">
+        <?php $_smarty_tpl->_subTemplateRender('file:section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'GALERIA MOJEGO EGO','link'=>'#galeria'), 0, true);
+?>
+        <div class="shop-note">
+            <p>
+                Witaj wędrowcze! Oto sens i cel naszej manufaktury. Tutaj określisz siebie, a cytat Twój podziwiany będzie za szczerość i odwagę. Słowa wybrane z głębi mądrości wrażliwej, poprzez technologię zaklętą w ciśnieniu i temperaturze naniesione na materiał zostaną. Ty zaś z dumą przywdziejesz materiał ten w formie bluzy, koszulki, apaszki i ogólny zachwyt wywołasz. I nie myśl wędrowcze, że to kupczenie dukatami złotymi za bycie sobą… - To tylko odzienia fragment dukaty kosztuje… - Sens w słowach zawarty – jest bezcenny…
+            </p>
+            <p style="font-size:16px;">
+                (Wykonanie zleconego cytatu na wybranym nośniku poprzez najnowocześniejszą technikę termosublimacji zapewniającą niespotykaną dotąd jakość nadruku na materiale)
+            </p>
+        </div>
+        <div id="products-categories">
+            <?php $_smarty_tpl->_assignInScope('categories', array('BLUZY','KOSZULKI','APASZKI','CZAPECZKI','INNE'));?>
+            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 4+1 - (0) : 0-(4)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 0, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
+            <div class="category">
+                <div class="category-img"></div>
+                <div class="category-name"><?php echo $_smarty_tpl->tpl_vars['categories']->value[$_smarty_tpl->tpl_vars['i']->value];?>
+</div>
+            </div>
+            <?php }
+}
+?>
+        </div>
+
     </section>
 </body>
 </html><?php }
