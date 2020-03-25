@@ -5,19 +5,19 @@
         </div>
         <div id="header-centre">
             <a href="#index">
-                <img id="main-logo" src="{$logo_url}">
+                <img id="main-logo" src="assets/logo/logo.png">
             </a>
         </div>
         <div id="header-buttons-container">
             <div id="search-wrap">
-                <img id="header-search" class="header-ico" src="{$search_ico_url}" alt="">
+                <img id="header-search" class="header-ico" src="assets/icons/search.svg" alt="">
                 <input id="search-input" type="text" placeholder="W poszukiwaniu... znajdź">
             </div>
             <a href="#account" id="header-account">
-                <img id="header-account-ico" class="header-ico" src="{$account_ico_url}" alt="">
+                <img id="header-account-ico" class="header-ico" src="assets/icons/person.svg" alt="">
             </a>
             <a href="cart" id="header-cart">
-                <img id="header-cart-ico" class="header-ico" src="{$cart_ico_url}" alt="">
+                <img id="header-cart-ico" class="header-ico" src="assets/icons/gift.svg" alt="">
             </a>
         </div>
     </div>

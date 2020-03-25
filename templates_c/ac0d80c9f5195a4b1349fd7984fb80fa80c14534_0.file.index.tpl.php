@@ -1,28 +1,28 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-21 19:45:15
+/* Smarty version 3.1.34-dev-7, created on 2020-03-25 21:20:43
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e766ecb7024b9_80955143',
+  'unifunc' => 'content_5e7bcb2b02df97_82881628',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1584819894,
+      1 => 1585171240,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:page_header.tpl' => 1,
-    'file:section_header.tpl' => 2,
+    'file:section_header.tpl' => 3,
   ),
 ),false)) {
-function content_5e766ecb7024b9_80955143 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e7bcb2b02df97_82881628 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -70,10 +70,8 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
         </div>
     </section>
 
-    <section id="preamble-wrap" class="section text" style="background-image:url(<?php echo $_smarty_tpl->tpl_vars['preamble_bg_url']->value;?>
-)">
-        <div id="preamble" style="background-image:url(<?php echo $_smarty_tpl->tpl_vars['preamble_paper_url']->value;?>
-)">
+    <section id="preamble-wrap" class="section text" style="background-image:url(assets/images/preambula-tlo.png)">
+        <div id="preamble" style="background-image:url(assets/images/preambula-kartka.png)">
             <h1 class="header-text">PREAMBUŁA MYŚLI ULOTNEJ</h1>
             <p> Zadajesz sobie pytanie: co to za strona i właściwie, po co istnieje? <br>
                 Czym są te dziwnie brzmiące stwierdzenia, określające często znane Ci już stany Twojej osobowości? <br>
@@ -98,7 +96,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
     </section>
     <section id="shop-preview" class="section text">
         <?php $_smarty_tpl->_subTemplateRender('file:section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'GALERIA MOJEGO EGO','link'=>'#galeria'), 0, true);
-?>
+?>   
         <div class="shop-note">
             <p>
                 Witaj wędrowcze! Oto sens i cel naszej manufaktury. Tutaj określisz siebie, a cytat Twój podziwiany będzie za szczerość i odwagę. Słowa wybrane z głębi mądrości wrażliwej, poprzez technologię zaklętą w ciśnieniu i temperaturze naniesione na materiał zostaną. Ty zaś z dumą przywdziejesz materiał ten w formie bluzy, koszulki, apaszki i ogólny zachwyt wywołasz. I nie myśl wędrowcze, że to kupczenie dukatami złotymi za bycie sobą… - To tylko odzienia fragment dukaty kosztuje… - Sens w słowach zawarty – jest bezcenny…
@@ -123,7 +121,41 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
 }
 ?>
         </div>
-
+    </section>
+    <section id="youtube-preview" class="section text">
+        <?php $_smarty_tpl->_subTemplateRender('file:section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'AKADEMIA MYŚLI ULOTNEJ','link'=>'#galeria'), 0, true);
+?> 
+        <div class="youtube-note">
+            <div class="youtube-sign">
+                <a href="#youtube">
+                    <img src="/assets/icons/youtube.svg" class="youtube-ico">
+                    <p>YOUTUBE </p>
+                </a>
+                <div style="clear:both"></div>
+            </div>
+            <p class="note-content">
+                To wielki zaszczyt gościć was w przestrzeni wizji i fonii. Zasiądźcie wygodnie z kubkiem kawy i głodem ciekawości niezaspokojonej. Filmów tu kilka odnajdziecie, a wykłady w nich ukryte niech odpowiedzią będą na pytania Wasze najważniejsze. Czym jest ta psychologia, czym miłość, czym samotność, filozofia, cierpienie. I dlaczego tak często zastanawiacie się czy w ogóle warto rano wstać…?
+            </p>
+        </div>
+        <div class="separate-line"></div>
+        <div class="social-media-wrap">
+            <div class="social-media-desc" style="grid-area: desc1;">Chciałbyś więcej?</div>
+            <div class="social-media-desc" style="grid-area: desc2;">ŚLEDŹ NAS NA INSTAGRAMIE I FACEBOOKU!</div>
+            <div class="links-container" style="grid-area: links;">
+                <div class="social-media-link">
+                    <a href="#instagram">
+                        <img src="/assets/icons/instagram.svg">
+                        <p>INSTAGRAM</p>
+                    </a>
+                </div>
+                <div class="social-media-link">
+                    <a href="#facebook">
+                        <img src="/assets/icons/facebook.svg">
+                        <p>FACEBOOK</p>
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 </body>
 </html><?php }

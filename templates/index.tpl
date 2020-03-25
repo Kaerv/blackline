@@ -26,14 +26,12 @@
             '- BERTOLD BRECHT -',
             '- JOHANN WOLFGANG VON GOETHE -',
             '- ANTOINE DE SAINT EXUPÉRY -',
-            '- ALEKSANDER DUMAS -'
-        ]} 
+            '- ALEKSANDER DUMAS -']} 
         {assign var=quotes value=[
             'Kto walczy, może przegrać. Kto nie walczy, już przegrał.',
             'Talent rośnie w samotności, charakter wśród ludzi.',
             'Mowa jest źródłem nieporozumień.',
-            '[...] zła najczęściej nie da się naprawić; możemy je tylko pomścić.'
-        ]}
+            '[...] zła najczęściej nie da się naprawić; możemy je tylko pomścić.']}
         <div id="quotes" class="text">
             {for $i = 0 to 3}
             <div class="quote-container center-position">
@@ -45,8 +43,8 @@
         </div>
     </section>
 
-    <section id="preamble-wrap" class="section text" style="background-image:url({$preamble_bg_url})">
-        <div id="preamble" style="background-image:url({$preamble_paper_url})">
+    <section id="preamble-wrap" class="section text" style="background-image:url(assets/images/preambula-tlo.png)">
+        <div id="preamble" style="background-image:url(assets/images/preambula-kartka.png)">
             <h1 class="header-text">PREAMBUŁA MYŚLI ULOTNEJ</h1>
             <p> Zadajesz sobie pytanie: co to za strona i właściwie, po co istnieje? <br>
                 Czym są te dziwnie brzmiące stwierdzenia, określające często znane Ci już stany Twojej osobowości? <br>
@@ -72,8 +70,7 @@
     <section id="shop-preview" class="section text">
         {include file='section_header.tpl' 
         title='GALERIA MOJEGO EGO'
-        link = '#galeria' 
-    }
+        link = '#galeria'}   
         <div class="shop-note">
             <p>
                 Witaj wędrowcze! Oto sens i cel naszej manufaktury. Tutaj określisz siebie, a cytat Twój podziwiany będzie za szczerość i odwagę. Słowa wybrane z głębi mądrości wrażliwej, poprzez technologię zaklętą w ciśnieniu i temperaturze naniesione na materiał zostaną. Ty zaś z dumą przywdziejesz materiał ten w formie bluzy, koszulki, apaszki i ogólny zachwyt wywołasz. I nie myśl wędrowcze, że to kupczenie dukatami złotymi za bycie sobą… - To tylko odzienia fragment dukaty kosztuje… - Sens w słowach zawarty – jest bezcenny…
@@ -97,7 +94,42 @@
             </div>
             {/for}
         </div>
-
+    </section>
+    <section id="youtube-preview" class="section text">
+        {include file='section_header.tpl' 
+        title='AKADEMIA MYŚLI ULOTNEJ'
+        link = '#galeria'} 
+        <div class="youtube-note">
+            <div class="youtube-sign">
+                <a href="#youtube">
+                    <img src="/assets/icons/youtube.svg" class="youtube-ico">
+                    <p>YOUTUBE </p>
+                </a>
+                <div style="clear:both"></div>
+            </div>
+            <p class="note-content">
+                To wielki zaszczyt gościć was w przestrzeni wizji i fonii. Zasiądźcie wygodnie z kubkiem kawy i głodem ciekawości niezaspokojonej. Filmów tu kilka odnajdziecie, a wykłady w nich ukryte niech odpowiedzią będą na pytania Wasze najważniejsze. Czym jest ta psychologia, czym miłość, czym samotność, filozofia, cierpienie. I dlaczego tak często zastanawiacie się czy w ogóle warto rano wstać…?
+            </p>
+        </div>
+        <div class="separate-line"></div>
+        <div class="social-media-wrap">
+            <div class="social-media-desc" style="grid-area: desc1;">Chciałbyś więcej?</div>
+            <div class="social-media-desc" style="grid-area: desc2;">ŚLEDŹ NAS NA INSTAGRAMIE I FACEBOOKU!</div>
+            <div class="links-container" style="grid-area: links;">
+                <div class="social-media-link">
+                    <a href="#instagram">
+                        <img src="/assets/icons/instagram.svg">
+                        <p>INSTAGRAM</p>
+                    </a>
+                </div>
+                <div class="social-media-link">
+                    <a href="#facebook">
+                        <img src="/assets/icons/facebook.svg">
+                        <p>FACEBOOK</p>
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 </body>
 </html>
