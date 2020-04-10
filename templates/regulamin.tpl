@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regulamin - Black Line</title>
-    <link rel="stylesheet" href="{STYLES_PATH}/normalize.css">
-    <link rel="stylesheet" href="{STYLES_PATH}/general.css">
-    <link rel="stylesheet" href="{STYLES_PATH}/page-header.css">
-    <link rel="stylesheet" href="{STYLES_PATH}/regulamin.css">
-    <link rel="stylesheet" href="{STYLES_PATH}/page-footer.css">
-</head>
-<body>
-    {include file='modules/page_header.tpl'}
     <div id="menu-separate-line"></div>
     {assign var=rules value=[
         'Dokonujesz zakupu świadomie i uczciwie przyznajesz, że chcesz i wiesz, że chcesz tego, co kupujesz.',
@@ -63,6 +49,3 @@
             zali zważ swe postanowienie umowy słownej formularzem potwierdzonej 
             i odpowiedzialnie u posłańca z paczką Twą, należność ureguluj.</p>
     </section>
-    {include file='modules/page_footer.tpl'}
-</body>
-</html>

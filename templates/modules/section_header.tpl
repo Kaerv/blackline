@@ -1,4 +1,4 @@
-<div class="section-header center-position" style={$style}>
+<div class="section-header center-position" style="{$style}">
     <div class="header-line"></div>
 
     <a href="{$link}"> 

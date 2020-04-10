@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Line</title>
-    <link rel="stylesheet" href="{STYLES_PATH}/normalize.css">
-    <link rel="stylesheet" href="{STYLES_PATH}/general.css">
-    <link rel="stylesheet" href="{STYLES_PATH}/page-header.css">
-    <link rel="stylesheet" href="{STYLES_PATH}/index.css">
-    <link rel="stylesheet" href="{STYLES_PATH}/page-footer.css">
-</head>
-<body>
-    {include file='modules/page_header.tpl'}
     <section id="hero-image" class="section"></section>
 
     <section id="quote_section" class="section">
@@ -139,6 +125,3 @@
             <div class="sm-decoration-dot"></div>
         </div>
     </section>
-    {include file='modules/page_footer.tpl'}
-</body>
-</html>
