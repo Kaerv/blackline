@@ -17,8 +17,8 @@ header {
 #help-and-contact > a {
     font-size: 12px;
     margin-left: 25px;
-    border-bottom: solid 1px black;
 }
+
 
 #header-buttons-container {
     display: flex;
@@ -63,7 +63,7 @@ header {
 }
 
 #header-account {
-    margin-right: 12px;
+    margin-right: 18px;
 }
 
 #header-cart {

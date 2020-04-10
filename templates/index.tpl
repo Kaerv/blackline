@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="{STYLES_PATH}/page-footer.css">
 </head>
 <body>
-    {include file='page_header.tpl'}
+    {include file='modules/page_header.tpl'}
     <section id="hero-image" class="section"></section>
 
     <section id="quote_section" class="section">
-        <div id="quotation-link" class="section header-text"><a href="#cytaty">CYTATY Z GŁĘBI STRON</a></div>
+        <div id="quotation-link" class="section header-text"><a href="#cytaty" class="dashed">CYTATY Z GŁĘBI STRON</a></div>
 
         {include 
-            file='section_header.tpl' 
-            title='Słowa są ukrytą siłą życia...'
+            file='modules/section_header.tpl' 
+            title='SŁOWA SĄ UKRYTĄ SIŁA ŻYCIA...'
             link = '#cytaty' 
-            subtitle='ILE MASZ JEJ W SOBIE?' style='margin-top:50px;'}
+            subtitle='Ile masz jej w sobie?' style='margin-top:50px;'}
     
         {assign var=authors value=[
             '- BERTOLD BRECHT -',
@@ -69,7 +69,7 @@
         </div>
     </section>
     <section id="shop-preview" class="section text">
-        {include file='section_header.tpl' 
+        {include file='modules/section_header.tpl' 
         title='GALERIA MOJEGO EGO'
         link = '#galeria'}   
         <div class="shop-note">
@@ -90,14 +90,16 @@
                 ]}
             {for $i = 0 to 4}
             <div class="category">
+                <a href="#produkt">
                 <div class="category-img"></div>
                 <div class="category-name">{$categories[$i]}</div>
+                </a>
             </div>
             {/for}
         </div>
     </section>
     <section id="youtube-preview" class="section text">
-        {include file='section_header.tpl' 
+        {include file='modules/section_header.tpl' 
         title='AKADEMIA MYŚLI ULOTNEJ'
         link = '#galeria'} 
         <div class="youtube-note">
@@ -137,6 +139,6 @@
             <div class="sm-decoration-dot"></div>
         </div>
     </section>
-    {include file='page_footer.tpl'}
+    {include file='modules/page_footer.tpl'}
 </body>
 </html>

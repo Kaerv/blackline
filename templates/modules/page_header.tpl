@@ -1,10 +1,10 @@
 <header>
     <div id="header-top-wrap">
         <div id="help-and-contact">
-            <a href="#help-and-contact">POMOC I KONTAKT</a>
+            <a href="#help-and-contact" class="dashed">POMOC I KONTAKT</a>
         </div>
         <div id="header-centre">
-            <a href="#index">
+            <a href="index.php">
                 <img id="main-logo" src="assets/logo/logo.png">
             </a>
         </div>
@@ -23,14 +23,14 @@
     </div>
     
     <nav id="main-nav">
-        <a class="menu-option" href="#galeria">GALERIA <br>MOJEGO EGO</a>
+        <a class="menu-option" href="PrestaShop">GALERIA <br>MOJEGO EGO</a>
         <div class="nav-line"></div>
         <a class="menu-option" href="#akademia">AKADEMIA <br>MYŚLI ULOTNEJ</a>
         <div class="nav-line"></div>
         <a class="menu-option" href="#cytaty">CYTATY <br>Z GŁĘBI STRON</a>
         <div class="nav-line"></div>
-        <a class="menu-option" href="#encyklopedia">ENCYKLOPEDIA <br>DEFINICJI ZAPOMNIANYCH</a>
+        <a class="menu-option" href="#encyklopedia">AKADEMIA <br>DEFINICJI ZAPOMNIANYCH</a>
         <div class="nav-line"></div>
-        <a class="menu-option" href="#regulamin">REGULAMIN <br>METAFIZYKA ZASAD</a>
+        <a class="menu-option" href="index.php?page=regulamin">REGULAMIN <br>METAFIZYKA ZASAD</a>
     </nav>
 </header>

@@ -1,29 +1,29 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-04-10 09:50:57
+/* Smarty version 3.1.34-dev-7, created on 2020-04-10 13:13:36
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e9041819347b5_75803805',
+  'unifunc' => 'content_5e90710092c957_12185910',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1586511984,
+      1 => 1586524415,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:page_header.tpl' => 1,
-    'file:section_header.tpl' => 3,
-    'file:page_footer.tpl' => 1,
+    'file:modules/page_header.tpl' => 1,
+    'file:modules/section_header.tpl' => 3,
+    'file:modules/page_footer.tpl' => 1,
   ),
 ),false)) {
-function content_5e9041819347b5_75803805 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e90710092c957_12185910 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -42,14 +42,14 @@ function content_5e9041819347b5_75803805 (Smarty_Internal_Template $_smarty_tpl)
 /page-footer.css">
 </head>
 <body>
-    <?php $_smarty_tpl->_subTemplateRender('file:page_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+    <?php $_smarty_tpl->_subTemplateRender('file:modules/page_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <section id="hero-image" class="section"></section>
 
     <section id="quote_section" class="section">
-        <div id="quotation-link" class="section header-text"><a href="#cytaty">CYTATY Z GŁĘBI STRON</a></div>
+        <div id="quotation-link" class="section header-text"><a href="#cytaty" class="dashed">CYTATY Z GŁĘBI STRON</a></div>
 
-        <?php $_smarty_tpl->_subTemplateRender('file:section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'Słowa są ukrytą siłą życia...','link'=>'#cytaty','subtitle'=>'ILE MASZ JEJ W SOBIE?','style'=>'margin-top:50px;'), 0, false);
+        <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'SŁOWA SĄ UKRYTĄ SIŁA ŻYCIA...','link'=>'#cytaty','subtitle'=>'Ile masz jej w sobie?','style'=>'margin-top:50px;'), 0, false);
 ?>
     
         <?php $_smarty_tpl->_assignInScope('authors', array('- BERTOLD BRECHT -','- JOHANN WOLFGANG VON GOETHE -','- ANTOINE DE SAINT EXUPÉRY -','- ALEKSANDER DUMAS -'));?> 
@@ -98,7 +98,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
         </div>
     </section>
     <section id="shop-preview" class="section text">
-        <?php $_smarty_tpl->_subTemplateRender('file:section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'GALERIA MOJEGO EGO','link'=>'#galeria'), 0, true);
+        <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'GALERIA MOJEGO EGO','link'=>'#galeria'), 0, true);
 ?>   
         <div class="shop-note">
             <p>
@@ -116,9 +116,11 @@ if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 0, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
             <div class="category">
+                <a href="#produkt">
                 <div class="category-img"></div>
                 <div class="category-name"><?php echo $_smarty_tpl->tpl_vars['categories']->value[$_smarty_tpl->tpl_vars['i']->value];?>
 </div>
+                </a>
             </div>
             <?php }
 }
@@ -126,7 +128,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
         </div>
     </section>
     <section id="youtube-preview" class="section text">
-        <?php $_smarty_tpl->_subTemplateRender('file:section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'AKADEMIA MYŚLI ULOTNEJ','link'=>'#galeria'), 0, true);
+        <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'AKADEMIA MYŚLI ULOTNEJ','link'=>'#galeria'), 0, true);
 ?> 
         <div class="youtube-note">
             <div class="youtube-sign">
@@ -165,7 +167,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
             <div class="sm-decoration-dot"></div>
         </div>
     </section>
-    <?php $_smarty_tpl->_subTemplateRender('file:page_footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+    <?php $_smarty_tpl->_subTemplateRender('file:modules/page_footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 </body>
 </html><?php }

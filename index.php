@@ -4,5 +4,10 @@
 
     define('STYLES_PATH', 'styles');
 
-    $smarty->display('index.tpl');
+    if(isset($_GET["page"])) {
+        $smarty->display($_GET["page"] . '.tpl');
+    }
+    else {
+        $smarty->display('index.tpl');
+    }
 ?>

@@ -30,7 +30,13 @@ a {
     color: black;
     text-decoration: none;
 }
+.dashed {
+    border-bottom: dashed 1px black;
+}
 
+.dashed:hover {
+    border-bottom: solid 1px black;
+}
 .text {
     font-family: Overpass;
     font-size: 18px;
@@ -43,4 +49,27 @@ a {
 
 .decoration-text {
     font-family: Dancing Script;
+}
+
+
+.section-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 97vw;
+    height: 100px;
+}
+
+.section-title {
+    margin: 0 30px 0 30px;
+}
+
+.header-line {
+    height: 5px;
+    border-bottom: solid 2px #000;
+}
+
+.center-position, p {
+    margin-left: auto;
+    margin-right: auto;
 }
