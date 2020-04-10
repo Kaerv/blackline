@@ -189,3 +189,20 @@
     width: 100px;
     height: 100px;
 }
+
+#social-media-decoration {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 60px;
+}
+ .sm-decoration-dot {
+     width: 20px;
+     height: 20px;
+     background-color: black;
+     border-radius: 100%;
+ }
+
+ .sm-decoration-dot:nth-child(2) {
+     margin: 0 64px 0 64px
+ }

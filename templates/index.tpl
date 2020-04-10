@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{STYLES_PATH}/general.css">
     <link rel="stylesheet" href="{STYLES_PATH}/page-header.css">
     <link rel="stylesheet" href="{STYLES_PATH}/index.css">
+    <link rel="stylesheet" href="{STYLES_PATH}/page-footer.css">
 </head>
 <body>
     {include file='page_header.tpl'}
@@ -130,6 +131,12 @@
                 </div>
             </div>
         </div>
+        <div id="social-media-decoration">
+            <div class="sm-decoration-dot"></div>
+            <div class="sm-decoration-dot"></div>
+            <div class="sm-decoration-dot"></div>
+        </div>
     </section>
+    {include file='page_footer.tpl'}
 </body>
 </html>
