@@ -1,0 +1,16 @@
+.section-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 97vw;
+    height: 100px;
+}
+
+.header-line {
+    height: 5px;
+    border-bottom: solid 2px #000;
+}
+
+.section-title {
+    margin: 0 30px 0 30px;
+}

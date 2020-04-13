@@ -67,7 +67,7 @@
 }
 
 #preamble {
-    width: 80%;
+    width: 70%;
     height: 90%;
 }
 
@@ -77,8 +77,8 @@
 }
 
 #preamble > p {
-    width: 77%;
-    line-height: 160%;
+    width: 87%;
+    line-height: 130%;
 }
 
 #preamble > p:first-of-type {
@@ -120,7 +120,7 @@
     grid-template-columns: 40% 60%;
     align-items: center;
 
-    width: 60%;
+    width: 70%;
     margin: 40px auto 0 auto;
 }
 

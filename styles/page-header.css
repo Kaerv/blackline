@@ -83,6 +83,11 @@ header {
     font-size: 18px;
     text-align: center;
     width: 240px;
+    transition: all 200ms linear 0s;
+}
+
+.menu-option:hover {
+    opacity: 0.5;
 }
 
 .nav-line {

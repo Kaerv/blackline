@@ -4,8 +4,7 @@
         {include 
             file='modules/section_header.tpl' 
             title='CYTATY Z GŁĘBI STRON'
-            link = '#cytaty' 
-            style='margin-top:50px;'}
+            link = '#cytaty'}
 
             {include 
                 file='modules/fancy_border.tpl'
@@ -108,7 +107,7 @@
                 </a>
                 <div style="clear:both"></div>
             </div>
-            <p class="note-content">
+            <p class="note-content" style="font-size:24px">
                 To wielki zaszczyt gościć was w przestrzeni wizji i fonii. Zasiądźcie wygodnie z kubkiem kawy i głodem ciekawości niezaspokojonej. Filmów tu kilka odnajdziecie, a wykłady w nich ukryte niech odpowiedzią będą na pytania Wasze najważniejsze. Czym jest ta psychologia, czym miłość, czym samotność, filozofia, cierpienie. I dlaczego tak często zastanawiacie się czy w ogóle warto rano wstać…?
             </p>
         </div>
