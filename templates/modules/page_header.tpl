@@ -1,3 +1,4 @@
+<style>@import "/styles/page-header.css";</style>
 <header>
     <div id="header-top-wrap">
         <div id="help-and-contact">
@@ -29,7 +30,7 @@
         <div class="nav-line"></div>
         <a class="menu-option" href="#cytaty">CYTATY <br>Z GŁĘBI STRON</a>
         <div class="nav-line"></div>
-        <a class="menu-option" href="#encyklopedia">AKADEMIA <br>DEFINICJI ZAPOMNIANYCH</a>
+        <a class="menu-option" href="#encyklopedia">ENCYKLOPEDIA <br>DEFINICJI ZAPOMNIANYCH</a>
         <div class="nav-line"></div>
         <a class="menu-option" href="index.php?page=regulamin">REGULAMIN <br>METAFIZYKA ZASAD</a>
     </nav>

@@ -1,14 +1,21 @@
     <section id="hero-image" class="section"></section>
 
     <section id="quote_section" class="section">
-        <div id="quotation-link" class="section header-text"><a href="#cytaty" class="dashed">CYTATY Z GŁĘBI STRON</a></div>
-
         {include 
             file='modules/section_header.tpl' 
-            title='SŁOWA SĄ UKRYTĄ SIŁA ŻYCIA...'
+            title='CYTATY Z GŁĘBI STRON'
             link = '#cytaty' 
-            subtitle='Ile masz jej w sobie?' style='margin-top:50px;'}
-    
+            style='margin-top:50px;'}
+
+            {include 
+                file='modules/fancy_border.tpl'
+                content='
+                <div class="quotes-section-title">SŁOWA SĄ UKRYTĄ SIŁA ŻYCIA...</div>
+                <div class="quotes-section-title quotes-title-fancy">Ile masz jej w sobie?</div>'
+                style='margin-top:40px;'
+            }
+
+
         {assign var=authors value=[
             '- BERTOLD BRECHT -',
             '- JOHANN WOLFGANG VON GOETHE -',
@@ -59,13 +66,18 @@
         title='GALERIA MOJEGO EGO'
         link = '#galeria'}   
         <div class="shop-note">
-            <p>
-                Witaj wędrowcze! Oto sens i cel naszej manufaktury. Tutaj określisz siebie, a cytat Twój podziwiany będzie za szczerość i odwagę. Słowa wybrane z głębi mądrości wrażliwej, poprzez technologię zaklętą w ciśnieniu i temperaturze naniesione na materiał zostaną. Ty zaś z dumą przywdziejesz materiał ten w formie bluzy, koszulki, apaszki i ogólny zachwyt wywołasz. I nie myśl wędrowcze, że to kupczenie dukatami złotymi za bycie sobą… - To tylko odzienia fragment dukaty kosztuje… - Sens w słowach zawarty – jest bezcenny…
+            <p style="font-size:24px;">
+                Witaj wędrowcze! Oto sens i cel naszej manufaktury. <br>
+                Tutaj określisz siebie, a cytat Twój podziwiany będzie za szczerość i odwagę. <br>
+                Słowa wybrane z głębi mądrości wrażliwej, poprzez technologię zaklętą w ciśnieniu i temperaturze naniesione na materiał zostaną. Ty zaś z dumą przywdziejesz materiał ten w formie bluzy, koszulki, apaszki i ogólny zachwyt wywołasz.<br>
+                I nie myśl wędrowcze, że to kupczenie dukatami złotymi za bycie sobą… - To tylko odzienia fragment dukaty kosztuje… <br>
+                Sens w słowach zawarty – jest bezcenny…
             </p>
-            <p style="font-size:16px;">
+            <p style="font-size:19px; margin-top: 40px;">
                 (Wykonanie zleconego cytatu na wybranym nośniku poprzez najnowocześniejszą technikę termosublimacji zapewniającą niespotykaną dotąd jakość nadruku na materiale)
             </p>
         </div>
+        <div class="separate-line"></div>
         <div id="products-categories">
             {assign var=categories value = [
                 'BLUZY',

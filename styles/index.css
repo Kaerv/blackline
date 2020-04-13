@@ -17,24 +17,31 @@
     margin-top: 20px;
 }
 
+.quotes-section-title {
+    font-size: 32px;
+    font-family: Overpass;
+}
+
+.quotes-title-fancy {
+    font-family: Dancing Script;
+    font-size: 40px;
+    margin-top: -16px;
+}
+
 #quotation-link {
     display: block;
     height: 25px;
 
     text-align: right;
 }
-#quotation-link > a {
-    margin-right: 40px;
-    font-size: 20px;
-}
 
 #quotes {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 45% 50%;
 
     height: calc(100vh - 275px);
-    margin-top: 100px;
+    margin-top: 90px;
 }
 
 .quote-sign { font-size: 64px; }
@@ -82,10 +89,12 @@
 
 #shop-preview p {
     width: 76%;
+    line-height: 120%;
 }
 
 .shop-note {
-    margin-top: 150px;
+    margin-top: 60px;
+    margin-bottom: 90px;
 }
 
 #products-categories {
@@ -93,7 +102,7 @@
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     justify-content: space-evenly;
-    margin-top: 150px;
+    margin-top: 100px;
     font-size: 20px;
 }
 
@@ -124,6 +133,10 @@
     height: 200px;
 }
 
+.youtube-ico:hover + p {
+    margin-top: -16px;
+}
+
 .youtube-ico {
     width: 200px;
     height: auto;
@@ -132,7 +145,8 @@
 .youtube-sign  p {
     font-size: 24px;
     margin: 0;
-    margin-top: -20px;
+    margin-top: -10px;
+    transition: all 200ms ease-in-out 0s;
 }
 
 .separate-line {
@@ -157,6 +171,7 @@
 .links-container {
     display: flex;
     justify-content: space-around;
+    height: 163px;
 }
 
 .social-media-link > a {
@@ -166,6 +181,14 @@
 .social-media-link img {
     width: 100px;
     height: 100px;
+}
+
+.social-media-link p {
+    transition: all 200ms ease-in-out 0s;
+}
+
+.social-media-link > a:hover > p {
+    margin-top: 10px;
 }
 
 #social-media-decoration {

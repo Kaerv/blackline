@@ -1,35 +1,40 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-04-10 16:59:29
+/* Smarty version 3.1.34-dev-7, created on 2020-04-13 10:02:26
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e90a5f1b793e0_35630635',
+  'unifunc' => 'content_5e9438b2bc3f82_32332221',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1586537887,
+      1 => 1586772145,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:modules/section_header.tpl' => 3,
+    'file:modules/fancy_border.tpl' => 1,
   ),
 ),false)) {
-function content_5e90a5f1b793e0_35630635 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e9438b2bc3f82_32332221 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <section id="hero-image" class="section"></section>
 
     <section id="quote_section" class="section">
-        <div id="quotation-link" class="section header-text"><a href="#cytaty" class="dashed">CYTATY Z GŁĘBI STRON</a></div>
-
-        <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'SŁOWA SĄ UKRYTĄ SIŁA ŻYCIA...','link'=>'#cytaty','subtitle'=>'Ile masz jej w sobie?','style'=>'margin-top:50px;'), 0, false);
+        <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'CYTATY Z GŁĘBI STRON','link'=>'#cytaty','style'=>'margin-top:50px;'), 0, false);
 ?>
-    
+
+            <?php $_smarty_tpl->_subTemplateRender('file:modules/fancy_border.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('content'=>'
+                <div class="quotes-section-title">SŁOWA SĄ UKRYTĄ SIŁA ŻYCIA...</div>
+                <div class="quotes-section-title quotes-title-fancy">Ile masz jej w sobie?</div>','style'=>'margin-top:40px;'), 0, false);
+?>
+
+
         <?php $_smarty_tpl->_assignInScope('authors', array('- BERTOLD BRECHT -','- JOHANN WOLFGANG VON GOETHE -','- ANTOINE DE SAINT EXUPÉRY -','- ALEKSANDER DUMAS -'));?> 
         <?php $_smarty_tpl->_assignInScope('quotes', array('Kto walczy, może przegrać. Kto nie walczy, już przegrał.','Talent rośnie w samotności, charakter wśród ludzi.','Mowa jest źródłem nieporozumień.','[...] zła najczęściej nie da się naprawić; możemy je tylko pomścić.'));?>
         <div id="quotes" class="text">
@@ -79,13 +84,18 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
         <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'GALERIA MOJEGO EGO','link'=>'#galeria'), 0, true);
 ?>   
         <div class="shop-note">
-            <p>
-                Witaj wędrowcze! Oto sens i cel naszej manufaktury. Tutaj określisz siebie, a cytat Twój podziwiany będzie za szczerość i odwagę. Słowa wybrane z głębi mądrości wrażliwej, poprzez technologię zaklętą w ciśnieniu i temperaturze naniesione na materiał zostaną. Ty zaś z dumą przywdziejesz materiał ten w formie bluzy, koszulki, apaszki i ogólny zachwyt wywołasz. I nie myśl wędrowcze, że to kupczenie dukatami złotymi za bycie sobą… - To tylko odzienia fragment dukaty kosztuje… - Sens w słowach zawarty – jest bezcenny…
+            <p style="font-size:24px;">
+                Witaj wędrowcze! Oto sens i cel naszej manufaktury. <br>
+                Tutaj określisz siebie, a cytat Twój podziwiany będzie za szczerość i odwagę. <br>
+                Słowa wybrane z głębi mądrości wrażliwej, poprzez technologię zaklętą w ciśnieniu i temperaturze naniesione na materiał zostaną. Ty zaś z dumą przywdziejesz materiał ten w formie bluzy, koszulki, apaszki i ogólny zachwyt wywołasz.<br>
+                I nie myśl wędrowcze, że to kupczenie dukatami złotymi za bycie sobą… - To tylko odzienia fragment dukaty kosztuje… <br>
+                Sens w słowach zawarty – jest bezcenny…
             </p>
-            <p style="font-size:16px;">
+            <p style="font-size:19px; margin-top: 40px;">
                 (Wykonanie zleconego cytatu na wybranym nośniku poprzez najnowocześniejszą technikę termosublimacji zapewniającą niespotykaną dotąd jakość nadruku na materiale)
             </p>
         </div>
+        <div class="separate-line"></div>
         <div id="products-categories">
             <?php $_smarty_tpl->_assignInScope('categories', array('BLUZY','KOSZULKI','APASZKI','CZAPECZKI','INNE'));?>
             <?php

@@ -1,3 +1,4 @@
+<style>@import "/styles/page-footer.css";</style>
 <section id="footer">
     <div id="footer-menu">
         <ul>
