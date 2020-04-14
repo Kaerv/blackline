@@ -83,7 +83,7 @@ header {
     font-size: 18px;
     text-align: center;
     width: 240px;
-    transition: all 200ms linear 0s;
+    transition: all 160ms linear 0s;
 }
 
 .menu-option:hover {
@@ -94,4 +94,14 @@ header {
     width: 3px;
     border-left: solid 2px #000;
     height: 28px;
+}
+
+@media only screen and (max-width: 1600px) {
+    header { margin-bottom: 10px; }
+    #main-logo { width: 300px; }
+    #header-search { width: 20px; }
+    #search-wrap { height: 25px; }
+    #search-input { height: 20px; width: 190px;  font-size: 15px; }
+    .header-ico { width: 32px; }
+    .menu-option { width: 230px; }
 }

@@ -8,7 +8,7 @@
 
 #hero-image {
     height: calc(100vh - 250px);
-    background-color: #000;
+    background-color: #BBB;
 }
 
 /* QUOTES */
@@ -26,13 +26,6 @@
     font-family: Dancing Script;
     font-size: 40px;
     margin-top: -16px;
-}
-
-#quotation-link {
-    display: block;
-    height: 25px;
-
-    text-align: right;
 }
 
 #quotes {
@@ -73,11 +66,11 @@
 
 #preamble > h1 {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 #preamble > p {
-    width: 87%;
+    width: 80ch;
     line-height: 130%;
 }
 
@@ -88,13 +81,20 @@
 /* SHOP PREVIEW */
 
 #shop-preview p {
-    width: 76%;
     line-height: 120%;
 }
 
 .shop-note {
     margin-top: 60px;
     margin-bottom: 90px;
+}
+
+.shop-note > p:first-of-type {
+    font-size:24px;
+}
+.shop-note > p:nth-of-type(2) {
+    font-size:19px;
+    margin-top: 40px;
 }
 
 #products-categories {
@@ -109,101 +109,159 @@
 .category-img {
     width: 200px;
     height: 200px;
-    background-color: #000;
+    background-color: #BBB;
     margin-bottom: 20px;
 }
 
-/* YOUTUBE PREVIEW */ 
-
-.youtube-note {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    align-items: center;
-
-    width: 70%;
-    margin: 40px auto 0 auto;
-}
-
-.youtube-sign {
-    height: 250px;
-}
-
-.youtube-sign > a {
-    width: 200px;
-    height: 200px;
-}
-
-.youtube-ico:hover + p {
-    margin-top: -16px;
-}
-
-.youtube-ico {
-    width: 200px;
-    height: auto;
-}
-
-.youtube-sign  p {
-    font-size: 24px;
-    margin: 0;
-    margin-top: -10px;
-    transition: all 200ms ease-in-out 0s;
-}
-
+/* SLIDER */ 
 .separate-line {
     width: 25%;
     border-bottom: solid 2px black;
     margin: 40px auto 0 auto;
 }
 
-.social-media-wrap {
-    width: 60%;
-    display: grid;
-    grid-template-areas: 
-    'desc1 links' 
-    'desc2 links';
-    margin: 180px auto 0 auto;
+ #slider {
+     position: relative;
+     height: calc(100vh - 100px);
+ }
+
+ .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+ }
+
+ #slide-dots-container {
+     position: absolute;
+     bottom: 40px;
+     left: 50%;
+     transform: translateX(-50%);
+     display: flex;
+     width: 300px;
+     justify-content: space-evenly;
+ }
+
+ .slide-dot {
+     width: 22px;
+     height: 22px;
+     border-radius: 100%;
+     background-color: black;
+     opacity: 0.3;
+     transition: all 50ms linear 0s;
+ }
+
+ .slide-dot:hover {
+    opacity: 0.6;
+ }
+
+ .slide-dot-active {
+     opacity: 1;
+ }
+
+#youtube-note {
+     width: 700px;
+     margin-top: 100px;
+     margin-bottom: 100px;
+ }
+
+.youtube-summary-1 {
+    font-size: 20px;
+    margin-top: 50px;
+}
+.youtube-summary-2 {
+    font-size: 22px;
 }
 
-.social-media-desc {
-    font-size: 26px;
-}
-
-.links-container {
-    display: flex;
-    justify-content: space-around;
-    height: 163px;
-}
-
-.social-media-link > a {
-    height: 220px;
-}
-
-.social-media-link img {
+#first-slide-youtube-ico {
     width: 100px;
-    height: 100px;
+    height: auto;
 }
 
-.social-media-link p {
+#slide-2-content-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 45% 55%;
+}
+
+#slide-2-left-content {
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+#slide-2-youtube-desc {
+    font-size: 24px;
+    width: 50%;
+}
+
+#slide-2-youtube-button:hover > #slide-2-youtube-button-text {
+    margin-top: -15px;
+}
+
+#slide-2-youtube-ico {
+    width: 120px;
+    height: auto;
+}
+
+#slide-2-youtube-button-text {
+    margin-top: -10px;
     transition: all 200ms ease-in-out 0s;
 }
 
-.social-media-link > a:hover > p {
-    margin-top: 10px;
+#slide-2-lb {
+    font-size: 24px;
 }
 
-#social-media-decoration {
+#subscribe-button {
+    background-color: black;
+    color: white;
+    width: 180px;
+    height: 36px;
+    font-size: 22px;
+    padding-top: 3px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    width: 100%;
-    margin-top: 60px;
+    border-radius: 7px;
+    margin-left: auto;
+    margin-right: auto;
 }
- .sm-decoration-dot {
-     width: 20px;
-     height: 20px;
-     background-color: black;
-     border-radius: 100%;
+
+ @media only screen and (max-width: 1600px) {
+    #preamble { width: 80%; }
+    .shop-note { margin-top: 40px; }
+    .shop-note > p:first-of-type { font-size: 22px; }
+    .shop-note > p:nth-of-type(2) { font-size: 18px; }
+    .category-img {width: 180px; height: 180px;}
  }
 
- .sm-decoration-dot:nth-child(2) {
-     margin: 0 64px 0 64px
+ @media only screen and (max-width: 1370px) {
+     #hero-image { height: calc(100vh - 230px);}
+     #quote_section { margin-top: 0px; }
+     .quotes-section-title { font-size: 26px; }
+     .quotes-title-fancy { font-size: 30px;}
+     .quote-sign { font-size: 56px; }
+     #quotes { margin-top: 50px; }
+
+     #preamble > p:first-of-type { margin-top: 30px; }
+
+     .shop-note { margin-top: 30px; margin-bottom: 50px;}
+     .shop-note > p:first-of-type { font-size: 20px; }
+     .shop-note > p:nth-of-type(2) { font-size: 17px; }
+     #products-categories {margin-top: 50px; font-size: 18px;}
+     .category-img {width: 160px; height: 160px;}
+
+     .youtube-note { width: 80%; grid-template-columns: 35% 65%;}
+     .note-content { font-size: 20px; }
+     .youtube-sign { height: 180px; }
+     .youtube-sign > a { width: 160px; height: 160px; }
+     .youtube-ico {width: 160px;}
+     .social-media-wrap { margin-top: 100px; width: 80%; }
+     .social-media-desc { font-size: 22px; }
+     .links-container { justify-content: space-evenly; }
+     .social-media-link img { width: 70px; height: 70px; }
+     .social-media-link > a > p { margin-top: 10px; }
+     .social-media-link > a:hover > p { margin-top: 5px; }
+     .youtube-ico + p { margin-top: -16px; }
+    .youtube-ico:hover + p { margin-top: -20px; }
  }

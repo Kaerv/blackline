@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-04-10 16:59:28
+/* Smarty version 3.1.34-dev-7, created on 2020-04-13 14:56:57
   from '/var/www/html/templates/regulamin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e90a5f090bf51_22112395',
+  'unifunc' => 'content_5e947db9cc4172_27011949',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54574f10b17dfebf77fbf2a1499d84c94cb3cddb' => 
     array (
       0 => '/var/www/html/templates/regulamin.tpl',
-      1 => 1586537900,
+      1 => 1586788015,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/section_header.tpl' => 1,
   ),
 ),false)) {
-function content_5e90a5f090bf51_22112395 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e947db9cc4172_27011949 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <div id="menu-separate-line"></div>
     <?php $_smarty_tpl->_assignInScope('rules', array('Dokonujesz zakupu świadomie i uczciwie przyznajesz, że chcesz i wiesz, że chcesz tego, co kupujesz.','Przekazujesz środki materialne w postaci fenicjańskich pieniędzy – a polskich złotówek, amerykańskich dolarów, brytyjskich funtów i europejskich euro, 
         na rzecz zmaterializowania wytworów manufaktury - dzieł rzeczywistych w postaci nadruków, na podłożu wybranym przez Ciebie.','A podłoże to na Tobie spoczywać będzie, w formie fizycznego odzienia: bluza, koszulka, apaszka, czapeczka, narzuta, ponczo.','Jasno i świadomie określasz swój rozmiar - wielkość Ciebie, poprzez kwadrat intencji i metafizykę potrzeb wrażliwości, rozmiar – S, M, L, XL, XXL, XXXXL... lub inny.','Jasno i z podniesionym czołem opisujesz siebie, swoje poglądy, uczucia, stany, emocje, instynkty, nawyki, potrzeby, fochy, sukcesy, porażki, intencje, fabuły, popędy poprzez jasne komunikaty w formie cytatów, definicji lub opisów w języku polskim, angielskim, niemiecki, fińskim, hiszpańskim, koreańskim, ukraińskim, bułgarskim, tureckim i hutu.','I przyznajesz iż treść Ciebie samego na fizyczności okrycia twego, będzie ostateczna i niestety niezmienialna z powodów techniczno-fizycznych. Podłoże i nadruk stanowią od momentu połączenia, nierozerwalną jedność, niepodlegającą zmianom w przeszłości, a jedynie przyszłości z powodu…','…możliwości dodania kolejnych form cytatów na już istniejącym okryciu z istniejącymi już stwierdzeniami lub cytatami  (tylko w polu, gdzie to będzie możliwe po uprzedniej konsultacji).','A cytaty Twe i poglądy na odzieniu Twym będą dwojako prawnie interpretowane: a) jako treść wytwóru ludzkiej myśli niepodlegającej prawom autorskim, majątkowym, azali tylko osobistym (prawa autorskie osobiste i majątkowe, zgodnie z obowiązującymi zasadami prawnymi) b) jako Twe prawa autorskie, jednorodnie osobiste i tylko Tobie immanentne oraz Tobie z woli praw wszelakich – przysługującej,  a w formie materialnej nam do realizacji przekazanej.','A forma piękna dzieła tego, zawarta będzie w samym podłożu bluzy, koszulki tej, w połączeniu z wyśmienitym smakiem nadruku czerni prawdziwej  z czeluści otchłani pobranej.','A upragnione swe prawdziwe „ja”, odziejesz, kiedy posłaniec dostarczy Ci szczęście to w paczce prawdziwie pięknej,  z papieru i sznura złożonej, z pieczęcią na froncie dodaną.','I naprawdę upraszamy Ciebie o świadome dzieła tworzenie, gdyż zwrotów jako takich nie będzie ze względu na nieodwracalną ingerencję farby w materiał odzienia Twego.  A jeszcze nikt nie wymyślił maszyny czasu by go cofnąć i zmiany dokonać.'));?>

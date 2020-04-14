@@ -4,7 +4,7 @@
     justify-content: space-evenly;
     align-items: center;
 
-    width: 50%;
+    width: 55%;
     height: 100px;
     margin-left: auto;
     margin-right: auto;
@@ -28,3 +28,8 @@
     border-bottom: var(--border-style);
     border-left: var(--border-style);
 }
+
+@media only screen and (max-width:1600px) {
+    .fancy-div { width: 60%; }
+}
+
