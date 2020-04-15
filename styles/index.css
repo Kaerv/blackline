@@ -53,7 +53,6 @@
 }
 
 #preamble-wrap {
-
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -92,6 +91,7 @@
 .shop-note > p:first-of-type {
     font-size:24px;
 }
+
 .shop-note > p:nth-of-type(2) {
     font-size:19px;
     margin-top: 40px;
@@ -120,68 +120,63 @@
     margin: 40px auto 0 auto;
 }
 
- #slider {
-     position: relative;
-     height: calc(100vh - 100px);
- }
+#slider {
+    position: relative;
+    height: calc(100% - 100px);
+}
 
- .slide {
+.slide {
     position: absolute;
     width: 100%;
     height: 100%;
     display: none;
- }
+}
 
- #slide-dots-container {
-     position: absolute;
-     bottom: 40px;
-     left: 50%;
-     transform: translateX(-50%);
-     display: flex;
-     width: 300px;
-     justify-content: space-evenly;
- }
+#slide-dots-container {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+    transform: translateX(-50%);
+}
 
- .slide-dot {
-     width: 22px;
-     height: 22px;
-     border-radius: 100%;
-     background-color: black;
-     opacity: 0.3;
-     transition: all 50ms linear 0s;
- }
-
- .slide-dot:hover {
-    opacity: 0.6;
- }
-
- .slide-dot-active {
-     opacity: 1;
- }
+.slide-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 100%;
+    background-color: black;
+    opacity: 0.3;
+    transition: all 50ms linear 0s;
+}
+.slide-dot:hover { opacity: 0.6; }
+.slide-dot-active { opacity: 1; }
 
 #youtube-note {
-     width: 700px;
-     margin-top: 100px;
-     margin-bottom: 100px;
- }
-
-.youtube-summary-1 {
-    font-size: 20px;
-    margin-top: 50px;
-}
-.youtube-summary-2 {
+    width: 800px;
+    margin-top: 100px;
+    margin-bottom: 100px;
     font-size: 22px;
 }
 
+.youtube-summary-1 {
+    font-size: 22px;
+    margin-top: 50px;
+}
+.youtube-summary-2 {
+    font-size: 24px;
+}
+
 #first-slide-youtube-ico {
-    width: 100px;
+    width: 120px;
     height: auto;
 }
 
 #slide-2-content-container {
     height: 100%;
     display: grid;
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 50% 50%;
 }
 
 #slide-2-left-content {
@@ -192,6 +187,7 @@
 #slide-2-youtube-desc {
     font-size: 24px;
     width: 50%;
+    margin-top: 50px;
 }
 
 #slide-2-youtube-button:hover > #slide-2-youtube-button-text {
@@ -212,6 +208,13 @@
     font-size: 24px;
 }
 
+#subscribe {
+    display: flex;
+    justify-content: flex-start;
+    width: 260px;
+    margin-left: 38%;
+}
+
 #subscribe-button {
     background-color: black;
     color: white;
@@ -227,41 +230,112 @@
     margin-right: auto;
 }
 
- @media only screen and (max-width: 1600px) {
+#subscribe-click {
+    width: 40px;
+    height: auto;
+}
+
+#slide-2-right-content {
+    position: relative;
+}
+#slide-2-right-content > * {
+    position: absolute;
+}
+
+.preview {
+    width: 360px;
+    height: 220px;
+    background-color: #DDD;
+}
+
+#preview-1 {
+    bottom: 40%;
+}
+
+#preview-2 {
+    bottom: 60%;
+    left: 80px;
+}
+
+#preview-title-1 {
+    left: 460px;
+    top: 26%;
+}
+
+#preview-title-2 {
+    left: 380px;
+    top: 46%;
+}
+
+#slide-3-content-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-areas: 
+    'title title title title title'
+    'insta-account insta-link space fb-link fb-account';
+    grid-row-gap: 160px;
+    align-items: center;
+    width: 60%;
+}
+
+#social-note {
+    font-size: 28px;
+}
+
+.slider-3-social-ico {
+    width: 100px;
+    height: auto;
+}
+
+.slider-3-social-title {
+    margin-top: 10px;
+}
+
+.slider-3-blackline-link {
+    font-family: Dancing Script;
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 1600px) {
     #preamble { width: 80%; }
     .shop-note { margin-top: 40px; }
     .shop-note > p:first-of-type { font-size: 22px; }
     .shop-note > p:nth-of-type(2) { font-size: 18px; }
     .category-img {width: 180px; height: 180px;}
- }
+    
+}
 
- @media only screen and (max-width: 1370px) {
-     #hero-image { height: calc(100vh - 230px);}
-     #quote_section { margin-top: 0px; }
-     .quotes-section-title { font-size: 26px; }
-     .quotes-title-fancy { font-size: 30px;}
-     .quote-sign { font-size: 56px; }
-     #quotes { margin-top: 50px; }
+@media only screen and (max-width: 1370px) {
+    #hero-image { height: calc(100vh - 230px);}
+    #quote_section { margin-top: 0px; }
+    .quotes-section-title { font-size: 26px; }
+    .quotes-title-fancy { font-size: 30px;}
+    .quote-sign { font-size: 56px; }
+    #quotes { margin-top: 50px; }
 
-     #preamble > p:first-of-type { margin-top: 30px; }
+    #preamble > p:first-of-type { margin-top: 30px; }
 
-     .shop-note { margin-top: 30px; margin-bottom: 50px;}
-     .shop-note > p:first-of-type { font-size: 20px; }
-     .shop-note > p:nth-of-type(2) { font-size: 17px; }
-     #products-categories {margin-top: 50px; font-size: 18px;}
-     .category-img {width: 160px; height: 160px;}
+    .shop-note { margin-top: 30px; margin-bottom: 50px;}
+    .shop-note > p:first-of-type { font-size: 20px; }
+    .shop-note > p:nth-of-type(2) { font-size: 17px; }
+    #products-categories {margin-top: 50px; font-size: 18px;}
+    .category-img {width: 160px; height: 160px;}
 
-     .youtube-note { width: 80%; grid-template-columns: 35% 65%;}
-     .note-content { font-size: 20px; }
-     .youtube-sign { height: 180px; }
-     .youtube-sign > a { width: 160px; height: 160px; }
-     .youtube-ico {width: 160px;}
-     .social-media-wrap { margin-top: 100px; width: 80%; }
-     .social-media-desc { font-size: 22px; }
-     .links-container { justify-content: space-evenly; }
-     .social-media-link img { width: 70px; height: 70px; }
-     .social-media-link > a > p { margin-top: 10px; }
-     .social-media-link > a:hover > p { margin-top: 5px; }
-     .youtube-ico + p { margin-top: -16px; }
+    .youtube-note { width: 80%; grid-template-columns: 35% 65%;}
+    .note-content { font-size: 20px; }
+    .youtube-sign { height: 180px; }
+    .youtube-sign > a { width: 160px; height: 160px; }
+    .youtube-ico {width: 160px;}
+    .social-media-wrap { margin-top: 100px; width: 80%; }
+    .social-media-desc { font-size: 22px; }
+    .links-container { justify-content: space-evenly; }
+    .social-media-link img { width: 70px; height: 70px; }
+    .social-media-link > a > p { margin-top: 10px; }
+    .social-media-link > a:hover > p { margin-top: 5px; }
+    .youtube-ico + p { margin-top: -16px; }
     .youtube-ico:hover + p { margin-top: -20px; }
- }
+}

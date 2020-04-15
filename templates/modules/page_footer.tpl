@@ -36,6 +36,6 @@
         <a href="#instagram"><img src="./assets/icons/instagram.svg" alt=""></a>
     </div>
     <div id="footer-logo">
-        <a href="index.php"><img src="./assets/logo/logo.jpg" alt=""></a>
+        <a href="index.php"><img src="./assets/logo/logo.png" alt=""></a>
     </div>
 </section>

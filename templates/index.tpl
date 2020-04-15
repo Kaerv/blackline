@@ -124,15 +124,39 @@
                             </a>
                         </div>
                         <div id="slide-2-lb">
-                            <p>Nie przegap żadnej odpowiedzi <br> i</p>
-                            <div id="subscribe-button">SUBSKRYBUJ</div>
+                            <p style="margin-bottom: 10px">Nie przegap żadnej odpowiedzi</p>
+                            <p style="margin: 0; margin-bottom: 10px;">i</p>
+                            <div id="subscribe">
+                                <div id="subscribe-button">SUBSKRYBUJ</div> 
+                                <img id="subscribe-click" src="/assets/icons/click.svg" alt="">
+                            </div>
                         </div>
                     </div>
                     <div id="slide-2-right-content">
+                        <div id="preview-1"  class="preview"></div>
+                        <div id="preview-2" class="preview"></div>
+                        <p id="preview-title-1">Czym jest ta <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">psychologia</span>?</p>
+                        <p id="preview-title-2">A co to właściwie jest <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">miłość</span>?</p>
                     </div>
                 </div>
             </div>
-            <div id="slide-3" class="slide"><h1>A nastepnie trzeci slajd</h1></div>
+            <div id="slide-3" class="slide">
+                <div id="slide-3-content-container">
+                    <div id="social-note"  style="grid-area:title;">
+                        ŚLEDŹ NAS NA INSTAGRAMIE I FACEBOOKU!
+                    </div>
+                    <div class="slider-3-blackline-link" style="grid-area:insta-account;">@blackline</div>
+                    <div class="slider-3-social-link"  style="grid-area:insta-link;">
+                        <img class="slider-3-social-ico" src="/assets/icons/instagram.svg" alt="">
+                        <p class="slider-3-social-title">INSTAGRAM</p>
+                    </div>
+                    <div class="slider-3-social-link"  style="grid-area:fb-link;">
+                        <img class="slider-3-social-ico" src="/assets/icons/facebook.svg" alt="">
+                        <p class="slider-3-social-title" >FACEBOOK</p>
+                    </div>
+                    <div class="slider-3-blackline-link"  style="grid-area:fb-account;">@Blackline</div>
+                </div>
+            </div>
 
             <div id="slide-dots-container">
                 {for $i=1 to 3}
@@ -176,6 +200,12 @@
                 
                 changeSlide(slide) {
                     if(slide != this.actualSlide) {
+                        if(slide == 3)
+                            $("#youtube-preview").find(".section-title-text").html("CHCIAŁBYŚ WIĘCEJ?");
+                        if(this.actualSlide == 3)
+                        $("#youtube-preview").find(".section-title-text").html("AKADEMIA MYŚLI ULOTNEJ");
+
+
                         this.deactivateSlide(this.actualSlide);
                         this.actualSlide = slide;
                         this.activateSlide(this.actualSlide);
@@ -192,10 +222,9 @@
                     $(`#slide-${slide}`).fadeIn();
                 }
             }
-            $("#slide-2").show();
-            /*
-            let slider = new Slider(1, 3000);
-            $("#slider").ready(slider.start());*/
+            //$("#slide-3").show();
+            let slider = new Slider(1, 10000);
+            $("#slider").ready(slider.start());
         </script>
         {/literal}
         <!--
