@@ -3,6 +3,7 @@ header, header > * {
 }
 
 header {
+    position: relative;
     height: 200px;
     font-family: Raleway;
     margin-top: 20px;
@@ -73,10 +74,13 @@ header {
 /* Navigation style */
 
 #main-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 40px;
 }
 
 .menu-option {
@@ -104,4 +108,10 @@ header {
     #search-input { height: 20px; width: 190px;  font-size: 15px; }
     .header-ico { width: 32px; }
     .menu-option { width: 230px; }
+}
+
+@media only screen and (max-width: 1290px) {
+    #main-nav { bottom: 20px;  width: 95%;}
+    .menu-option { font-size: 15px; width: 180px;}
+    .nav-line { height: 24px; }
 }

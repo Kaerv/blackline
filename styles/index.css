@@ -2,6 +2,7 @@
     width: 100%;
     height: 100vh;
     text-align: center;
+    position: relative;
 }
 
 /* HERO IMAGE */
@@ -32,9 +33,12 @@
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 45% 50%;
+    align-items: center;
 
     height: calc(100vh - 275px);
-    margin-top: 90px;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
 }
 
 .quote-sign { font-size: 64px; }
@@ -315,7 +319,6 @@
     .quotes-section-title { font-size: 26px; }
     .quotes-title-fancy { font-size: 30px;}
     .quote-sign { font-size: 56px; }
-    #quotes { margin-top: 50px; }
 
     #preamble > p:first-of-type { margin-top: 30px; }
 
@@ -338,4 +341,41 @@
     .social-media-link > a:hover > p { margin-top: 5px; }
     .youtube-ico + p { margin-top: -16px; }
     .youtube-ico:hover + p { margin-top: -20px; }
+}
+
+@media only screen and (max-width: 1290px) {
+    .text { font-size: 16px; }
+    .header-text { font-size: 22px; }
+
+    #preamble > h1 { margin-top: 50px; }
+    #preamble > p:first-of-type { margin-top: 26px; }
+    #preamble > p { line-height: 115%; }
+
+    .shop-note > p:first-of-type { font-size: 18px; }
+    .shop-note > p:nth-of-type(2) { font-size: 16px; }
+
+    .category-img { width: 140px; height: 140px; }
+
+    #slide-dots-container { width: 240px; }
+    .slide-dot { width: 20px; height: 20px; }
+
+    #youtube-note {margin-top: 20px; margin-bottom: 40px; font-size: 20px;}
+    .youtube-summary-1 { font-size: 20px; margin-top: 26px; }
+    .youtube-summary-2 { font-size: 22px; }
+    #first-slide-youtube-ico { width: 80px; }
+
+    #slide-2-youtube-desc { font-size: 22px; margin-top: 30px; }
+    #slide-2-youtube-ico { width: 100px; }
+    #slide-2-lb { font-size: 22 px;}
+    #subscribe { margin-left: 32%; }
+    .preview {width: 320px; height: 180px; }
+    #preview-2 { bottom: 54%; left: 80px; }
+    #preview-1 { bottom: 25%; }
+    #preview-title-1 { left: 410px; top: 26%; }
+    #preview-title-2 { left: 341px; top: 57%; }
+
+    #social-note { font-size: 26px; }
+    .slider-3-social-ico { width: 72px;}
+    .slider-3-blackline-link { font-size: 40px; }
+    #slide-3-content-container { width: 50%; }
 }
