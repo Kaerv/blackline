@@ -11,7 +11,7 @@
                 content='
                 <div class="quotes-section-title">SŁOWA SĄ UKRYTĄ SIŁA ŻYCIA...</div>
                 <div class="quotes-section-title quotes-title-fancy">Ile masz jej w sobie?</div>'
-                style='margin-top:40px;'
+                style='margin-top:var(--quotes-section-margin-top);'
             }
 
 
@@ -120,7 +120,7 @@
                             <p id="slide-2-youtube-desc">W naszych filmach poznasz odpowiedzi na najtrudniejsze pytania!</p>
                             <a id="slide-2-youtube-button" href="">
                                 <img id="slide-2-youtube-ico" src="/assets/icons/youtube.svg" alt="">
-                                <p id="slide-2-youtube-button-text">Youtube</p>
+                                <p id="slide-2-youtube-button-text">YOUTUBE</p>
                             </a>
                         </div>
                         <div id="slide-2-lb">
@@ -228,42 +228,4 @@
             console.log(`${window.innerWidth}x${window.innerHeight}`)
         </script>
         {/literal}
-        <!--
-        <div class="youtube-note">
-            <div class="youtube-sign">
-                <a href="#youtube">
-                    <img src="/assets/icons/youtube.svg" class="youtube-ico">
-                    <p>YOUTUBE </p>
-                </a>
-                <div style="clear:both"></div>
-            </div>
-            <p class="note-content">
-                To wielki zaszczyt gościć was w&nbsp;przestrzeni wizji i&nbsp;fonii. <br> Zasiądźcie wygodnie z&nbsp;kubkiem kawy i&nbsp;głodem ciekawości niezaspokojonej. Filmów tu kilka odnajdziecie, a&nbsp;wykłady w&nbsp;nich ukryte niech odpowiedzią będą na pytania Wasze najważniejsze.<br> Czym jest ta psychologia, czym miłość, czym samotność, filozofia, cierpienie? <br> I&nbsp;dlaczego tak często zastanawiacie się czy w&nbsp;ogóle warto rano wstać..?
-            </p>
-        </div>
-        <div class="separate-line"></div>
-        <div class="social-media-wrap">
-            <div class="social-media-desc" style="grid-area: desc1;">Chciałbyś więcej?</div>
-            <div class="social-media-desc" style="grid-area: desc2;">ŚLEDŹ NAS NA INSTAGRAMIE I&nbsp;FACEBOOKU!</div>
-            <div class="links-container" style="grid-area: links;">
-                <div class="social-media-link">
-                    <a href="#instagram">
-                        <img src="/assets/icons/instagram.svg">
-                        <p>INSTAGRAM</p>
-                    </a>
-                </div>
-                <div class="social-media-link">
-                    <a href="#facebook">
-                        <img src="/assets/icons/facebook.svg">
-                        <p>FACEBOOK</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="social-media-decoration">
-            <div class="sm-decoration-dot"></div>
-            <div class="sm-decoration-dot"></div>
-            <div class="sm-decoration-dot"></div>
-        </div>
-        -->
     </section>

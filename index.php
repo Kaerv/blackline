@@ -12,5 +12,10 @@
     }
     
     $smarty->assign('page', $page);
-    $smarty->display('page.tpl');
+    if($page == "zarzadzanie_cytatami") {
+        $smarty->display('zarzadzanie_cytatami.tpl');
+    }
+    else {
+        $smarty->display('page.tpl');
+    }
 ?>

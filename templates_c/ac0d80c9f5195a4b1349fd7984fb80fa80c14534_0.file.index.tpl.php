@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-04-16 13:31:55
+/* Smarty version 3.1.34-dev-7, created on 2020-04-20 11:47:30
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e985e4b6d4383_81216515',
+  'unifunc' => 'content_5e9d8bd25d5464_95763638',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1587043914,
+      1 => 1587383249,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/fancy_border.tpl' => 1,
   ),
 ),false)) {
-function content_5e985e4b6d4383_81216515 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e9d8bd25d5464_95763638 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <section id="hero-image" class="section"></section>
 
     <section id="quote_section" class="section">
@@ -31,7 +31,7 @@ function content_5e985e4b6d4383_81216515 (Smarty_Internal_Template $_smarty_tpl)
 
             <?php $_smarty_tpl->_subTemplateRender('file:modules/fancy_border.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('content'=>'
                 <div class="quotes-section-title">SŁOWA SĄ UKRYTĄ SIŁA ŻYCIA...</div>
-                <div class="quotes-section-title quotes-title-fancy">Ile masz jej w sobie?</div>','style'=>'margin-top:40px;'), 0, false);
+                <div class="quotes-section-title quotes-title-fancy">Ile masz jej w sobie?</div>','style'=>'margin-top:var(--quotes-section-margin-top);'), 0, false);
 ?>
 
 
@@ -139,7 +139,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
                             <p id="slide-2-youtube-desc">W naszych filmach poznasz odpowiedzi na najtrudniejsze pytania!</p>
                             <a id="slide-2-youtube-button" href="">
                                 <img id="slide-2-youtube-ico" src="/assets/icons/youtube.svg" alt="">
-                                <p id="slide-2-youtube-button-text">Youtube</p>
+                                <p id="slide-2-youtube-button-text">YOUTUBE</p>
                             </a>
                         </div>
                         <div id="slide-2-lb">
@@ -258,43 +258,5 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
         <?php echo '</script'; ?>
 >
         
-        <!--
-        <div class="youtube-note">
-            <div class="youtube-sign">
-                <a href="#youtube">
-                    <img src="/assets/icons/youtube.svg" class="youtube-ico">
-                    <p>YOUTUBE </p>
-                </a>
-                <div style="clear:both"></div>
-            </div>
-            <p class="note-content">
-                To wielki zaszczyt gościć was w&nbsp;przestrzeni wizji i&nbsp;fonii. <br> Zasiądźcie wygodnie z&nbsp;kubkiem kawy i&nbsp;głodem ciekawości niezaspokojonej. Filmów tu kilka odnajdziecie, a&nbsp;wykłady w&nbsp;nich ukryte niech odpowiedzią będą na pytania Wasze najważniejsze.<br> Czym jest ta psychologia, czym miłość, czym samotność, filozofia, cierpienie? <br> I&nbsp;dlaczego tak często zastanawiacie się czy w&nbsp;ogóle warto rano wstać..?
-            </p>
-        </div>
-        <div class="separate-line"></div>
-        <div class="social-media-wrap">
-            <div class="social-media-desc" style="grid-area: desc1;">Chciałbyś więcej?</div>
-            <div class="social-media-desc" style="grid-area: desc2;">ŚLEDŹ NAS NA INSTAGRAMIE I&nbsp;FACEBOOKU!</div>
-            <div class="links-container" style="grid-area: links;">
-                <div class="social-media-link">
-                    <a href="#instagram">
-                        <img src="/assets/icons/instagram.svg">
-                        <p>INSTAGRAM</p>
-                    </a>
-                </div>
-                <div class="social-media-link">
-                    <a href="#facebook">
-                        <img src="/assets/icons/facebook.svg">
-                        <p>FACEBOOK</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="social-media-decoration">
-            <div class="sm-decoration-dot"></div>
-            <div class="sm-decoration-dot"></div>
-            <div class="sm-decoration-dot"></div>
-        </div>
-        -->
     </section><?php }
 }

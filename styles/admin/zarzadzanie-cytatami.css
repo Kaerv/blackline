@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Overpass;
+    font-weight: normal;
+}
+
+input[type="text"] {
+    border: none;
+    outline: none;
+}
+
+#form-container {
+    position: absolute;
+    width: 80%;
+    height: 70%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 100px auto auto auto auto auto 100px;
+    grid-template-rows: 30px 80px;
+    grid-template-areas: 
+    'header blank blank blank blanki blanka blanka'
+    'editExplain editExplain editExplain editExplain blanki search search'
+    'form form form form form form form';
+}
+
+#form-header > * {
+    margin-left: 20px;
+}
+
+#editing-quotes-container, #search-container {
+    display: flex;
+    align-items: center;
+}
+
+#search-wrap {
+    width: 260px;
+    height: 36px;
+    border: solid 1px black;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#quote-search-input {
+    height: 74%;
+    width: 80%;
+    font-size: 18px;
+    margin-left: 8px;
+    margin-right: 5px;
+}
+
+#search-ico {
+    height: 70%;
+    width: auto;
+}
+
+#adding-quotes-header {
+    margin-bottom: 25px;
+}
+
+#content-container {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.input-label {
+    display: inline-block;
+    margin-right: 30px;
+    margin-top: 10px;
+    width: 100px;
+}
+
+#quote-content-input {
+    height: 90%;
+    width: 80%;
+    border: solid 1px black;
+    border-radius: 10px;
+    outline: none;
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-bottom: 6px;
+    font-size: 16px;
+}
+
+#author-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+#author-input-container {
+    position: relative;
+    
+    width: 60%;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+#author-input-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#quote-author-input {
+    width: 90%;
+}
+
+#authors-list {
+    display: none;
+    position: absolute;
+    top: 32px;
+    left: 4px;
+    width: calc(100% - 26px);
+    border: solid 1px black;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 6px;
+}
+
+.list-option:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.list-dropdown-button {
+    height: 90%;
+    width: auto;
+}
+
+#keyboard-ico {
+    height: 50px;
+    width: auto;
+}
+
