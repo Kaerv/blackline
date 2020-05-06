@@ -11,7 +11,7 @@
 <body>
     <div id="form-container">
         <div id="form-header" style="grid-area: header;">
-            <h3>CYTATY</h3>
+            <h2>ZARZĄDZANIE CYTATAMI</h2>
         </div>
 
         <div id="editing-quotes-container" style="grid-area: editExplain;">
@@ -76,9 +76,8 @@
                 <span>Znaki specjalne</span>
                 <img src="assets/icons/keyboard.svg" alt="" id="keyboard-ico">
             </div>
-
-            <input type="button" name="confirm" id="confirm-quote">
             -->
+            <input type="button" name="confirm" id="confirm-quote" value="DODAJ NOWY CYTAT">
         </div>
     </div>
 </body>

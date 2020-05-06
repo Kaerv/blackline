@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-04 17:40:04
+/* Smarty version 3.1.34-dev-7, created on 2020-05-05 14:52:57
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5eb053741a1356_99650440',
+  'unifunc' => 'content_5eb17dc93832c1_21128337',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1588614002,
+      1 => 1588690376,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eb053741a1356_99650440 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eb17dc93832c1_21128337 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +34,7 @@ function content_5eb053741a1356_99650440 (Smarty_Internal_Template $_smarty_tpl)
 <body>
     <div id="form-container">
         <div id="form-header" style="grid-area: header;">
-            <h3>CYTATY</h3>
+            <h2>ZARZĄDZANIE CYTATAMI</h2>
         </div>
 
         <div id="editing-quotes-container" style="grid-area: editExplain;">
@@ -103,9 +103,8 @@ function content_5eb053741a1356_99650440 (Smarty_Internal_Template $_smarty_tpl)
                 <span>Znaki specjalne</span>
                 <img src="assets/icons/keyboard.svg" alt="" id="keyboard-ico">
             </div>
-
-            <input type="button" name="confirm" id="confirm-quote">
             -->
+            <input type="button" name="confirm" id="confirm-quote" value="DODAJ NOWY CYTAT">
         </div>
     </div>
 </body>
