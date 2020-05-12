@@ -164,7 +164,7 @@ input[type="text"] {
     font-size: 12px;
     padding-left: 6px;
     padding-right: 6px;
-    padding-top: 2px;
+    padding-top: 4px;
     padding-bottom: 2px;
     border-radius: 6px;
     background-color: #CCC;
@@ -211,4 +211,28 @@ input[type="text"] {
     background-color: #000;
     border: solid 2px #FFF;
     color: #FFF;
+}
+
+.description {
+    position: absolute;
+    bottom: 0;
+}
+
+#categories-warning {
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+    display: none;
+}
+
+#log {
+    display: none;
+    position: absolute;
+    left: 50px;
+    bottom: 5%;
+    font-size: 18px;
+    color: white;
+    background-color: #333;
+    padding: 12px;
+    border-radius: 10px;
 }

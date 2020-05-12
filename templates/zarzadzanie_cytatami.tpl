@@ -37,7 +37,7 @@
                 <span class="input-label">Autor:</span>
                 <div id="author-input-container" class="input-container">
                     <div id="author-input-wrap" class="input-wrap">
-                        <input type="text" name="quote-author" id="quote-author-input" class="input">
+                        <input type="text" name="quote-author" id="quote-author-input" class="input" placeholder="Nieznany">
                         <img src="../assets/icons/down-arrow.svg" alt="" class="list-dropdown-button">
                     </div>
                     <div id="authors-list" class="input-list">
@@ -55,11 +55,11 @@
                 <span class="input-label">Kategorie:</span>
                 <div id="category-input-container" class="input-container">
                     <div id="category-input-wrap" class="input-wrap">
-                        <div id="selected-categories">
-                        </div>
+                        <div id="selected-categories"><!-- Generated with js --></div>
                         <input type="text" name="quote-category" id="quote-category-input" class="input">
                         <img src="../assets/icons/down-arrow.svg" alt="" class="list-dropdown-button">
                     </div>
+                    <div id="categories-warning"><!-- Generated with js --></div>
                     <div id="categories-list" class="input-list">
                         <div class="list-option">Miłość</div>
                         <div class="list-option">Miłość</div>
@@ -80,5 +80,6 @@
             <input type="button" name="confirm" id="confirm-quote" value="DODAJ NOWY CYTAT">
         </div>
     </div>
+    <div id="log"></div>
 </body>
 </html>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-05 14:52:57
+/* Smarty version 3.1.34-dev-7, created on 2020-05-12 16:31:36
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5eb17dc93832c1_21128337',
+  'unifunc' => 'content_5ebacf68ce9199_46516335',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1588690376,
+      1 => 1589301030,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eb17dc93832c1_21128337 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ebacf68ce9199_46516335 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +60,7 @@ function content_5eb17dc93832c1_21128337 (Smarty_Internal_Template $_smarty_tpl)
                 <span class="input-label">Autor:</span>
                 <div id="author-input-container" class="input-container">
                     <div id="author-input-wrap" class="input-wrap">
-                        <input type="text" name="quote-author" id="quote-author-input" class="input">
+                        <input type="text" name="quote-author" id="quote-author-input" class="input" placeholder="Nieznany">
                         <img src="../assets/icons/down-arrow.svg" alt="" class="list-dropdown-button">
                     </div>
                     <div id="authors-list" class="input-list">
@@ -78,11 +78,11 @@ function content_5eb17dc93832c1_21128337 (Smarty_Internal_Template $_smarty_tpl)
                 <span class="input-label">Kategorie:</span>
                 <div id="category-input-container" class="input-container">
                     <div id="category-input-wrap" class="input-wrap">
-                        <div id="selected-categories">
-                        </div>
+                        <div id="selected-categories"><!-- Generated with js --></div>
                         <input type="text" name="quote-category" id="quote-category-input" class="input">
                         <img src="../assets/icons/down-arrow.svg" alt="" class="list-dropdown-button">
                     </div>
+                    <div id="categories-warning"><!-- Generated with js --></div>
                     <div id="categories-list" class="input-list">
                         <div class="list-option">Miłość</div>
                         <div class="list-option">Miłość</div>
@@ -107,6 +107,7 @@ function content_5eb17dc93832c1_21128337 (Smarty_Internal_Template $_smarty_tpl)
             <input type="button" name="confirm" id="confirm-quote" value="DODAJ NOWY CYTAT">
         </div>
     </div>
+    <div id="log"></div>
 </body>
 </html><?php }
 }
