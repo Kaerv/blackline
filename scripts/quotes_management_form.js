@@ -15,9 +15,13 @@ $(document).ready(() => {
 function getQuotes(count) {
     $.ajax({
         method: "GET",
-        url: "../helpers/getQuotes.php",
-        data: {count: count},
+        url: "../helpers/quoteGetter.php",
+        data: {
+            token: token,
+            count: count
+        },
         success: (msg) => {
+            console.log(msg);
             let bigData = msg.split("*");
             let quotes = [];
             
@@ -54,7 +58,8 @@ function getQuotes(count) {
                 }
                 let categories = "";
                 for(let j = 0; j < quotes[i].categories.length; j++) {
-                    categories += quotes[i].categories[j];
+                    categories += quotes[i].categories[j].toLowerCase();
+
                     categories += ";"
                 }
                 $("#all-quotes").find("tbody").append(`

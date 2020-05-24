@@ -82,7 +82,7 @@ html, body {
 
 #search {
     height: 30px;
-    width: 60%;
+    width: 300px;
     border-bottom: solid 2px black;
     display: flex;
     justify-content: space-evenly;
@@ -233,6 +233,7 @@ html, body {
     border: none;
     outline: none;
     width: 90%;
+    margin-bottom: 1px;
 }
 
 #dropdown-search-button {
@@ -285,10 +286,26 @@ html, body {
 }
 
 #all-quotes td > img {
-    height: 75%;
+    height: 60%;
     width: auto;
     margin-left: 4px;
     margin-right: 4px;
+}
+
+#all-quotes td > img:nth-child(1) {
+    height: 60%;
+}
+#all-quotes td > img:nth-child(2) {
+    height: 75%;
+}
+
+
+#all-quotes tr:nth-child(2) th {
+    padding-top: 10px;
+}
+
+#all-quotes .checkbox-container {
+    bottom: 2px;
 }
 
 @media only screen and (max-width: 1366px) {
@@ -296,7 +313,7 @@ html, body {
     .checkbox-container { width: 10px; height: 10px;}
     #site-content-container { margin-top: 26px; }
     #site-title { font-size: 20px; }
-    #search { height: 26px; }
+    #search { height: 26px; width: 250px; }
     #search-input { font-size: 16px; }
     #search-button { width: 20px; }
     #panel-navigation > #titles { font-size: 16px; }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-05-20 18:56:53
+/* Smarty version 3.1.34-dev-7, created on 2020-05-24 12:06:30
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ec57d753a9ab4_28712858',
+  'unifunc' => 'content_5eca6346b24401_61296068',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1590001012,
+      1 => 1590321989,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec57d753a9ab4_28712858 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eca6346b24401_61296068 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,8 +139,13 @@ function content_5ec57d753a9ab4_28712858 (Smarty_Internal_Template $_smarty_tpl)
   crossorigin="anonymous"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
+>let token = "<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
+";<?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
  src="../scripts/quotes_management_form.js"><?php echo '</script'; ?>
 >
+  
   <?php echo '<script'; ?>
 >
       function changePanelSite(which) {
@@ -148,20 +153,32 @@ function content_5ec57d753a9ab4_28712858 (Smarty_Internal_Template $_smarty_tpl)
             $($(".pusher")[0]).css("width", "0%");
             $($(".pusher")[1]).css("width", "0%");
             $($(".pusher")[2]).css("width", "25%");
+            $("#all-quotes-panel").css({"position": "absolute"});
+            $("#add-quote-panel").css({"position": "absolute"});
             $("#all-quotes-panel").fadeIn(500);
-            $("#add-quote-panel").fadeOut(500);
+            $("#add-quote-panel").fadeOut(500, () => {
+                $("#all-quotes-panel").css({"position": "relative"});
+                $("#add-quote-panel").css({"position": "relative"});
+            });
+
           } 
           else {
             $($(".pusher")[0]).css("width", "25%");
             $($(".pusher")[1]).css("width", "25%");
             $($(".pusher")[2]).css("width", "0%");
+            $("#all-quotes-panel").css({"position": "absolute"});
+            $("#add-quote-panel").css({"position": "absolute"});
             $("#all-quotes-panel").fadeOut(500);
-            $("#add-quote-panel").fadeIn(500);
-          }
-          
+            $("#add-quote-panel").fadeIn(500, () => {
+                $("#all-quotes-panel").css({"position": "relative"});
+                $("#add-quote-panel").css({"position": "relative"});
+            });
+            
+          }    
       }
   <?php echo '</script'; ?>
 >
+
 </body>
 </html><?php }
 }
