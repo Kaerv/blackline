@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2018 PrestaShop
+ * 2007-2019 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -16,10 +16,10 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2019 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
@@ -79,7 +79,11 @@ function withWidget($params, callable $cb)
 function smartyWidget($params, &$smarty)
 {
     return withWidget($params, function ($widget, $params) {
-        return $widget->renderWidget(isset($params['hook']) ? $params['hook'] : null, $params);
+        return Hook::coreRenderWidget(
+            $widget,
+            isset($params['hook']) ? $params['hook'] : null,
+            $params
+        );
     });
 }
 
@@ -171,7 +175,7 @@ function smartyTranslate($params, $smarty)
         $params['d'] = null;
     }
 
-    if (!is_null($params['d'])) {
+    if (null !== $params['d']) {
         if (isset($params['tags'])) {
             $backTrace = debug_backtrace();
 

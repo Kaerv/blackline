@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2018 PrestaShop
+ * 2007-2019 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -16,20 +16,21 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2019 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
+
 namespace PrestaShopBundle\Form\Admin\Configure\AdvancedParameters\Administration;
 
 use PrestaShopBundle\Form\Admin\Type\SwitchType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class GeneralType extends TranslatorAwareType
 {
@@ -39,19 +40,18 @@ class GeneralType extends TranslatorAwareType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('check_modules_update', SwitchType::class, array(
+            ->add('check_modules_update', SwitchType::class, [
                 'required' => true,
-            ))
-            ->add('check_ip_address', SwitchType::class, array(
+            ])
+            ->add('check_ip_address', SwitchType::class, [
                 'required' => true,
-            ))
-            ->add('front_cookie_lifetime', TextType::class, array(
+            ])
+            ->add('front_cookie_lifetime', TextType::class, [
                 'required' => true,
-            ))
-            ->add('back_cookie_lifetime', TextType::class, array(
+            ])
+            ->add('back_cookie_lifetime', TextType::class, [
                 'required' => true,
-            ))
-        ;
+            ]);
     }
 
     /**
@@ -59,9 +59,9 @@ class GeneralType extends TranslatorAwareType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'translation_domain' => 'Admin.Advparameters.Feature',
-        ));
+        ]);
     }
 
     /**
