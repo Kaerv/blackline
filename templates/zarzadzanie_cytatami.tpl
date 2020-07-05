@@ -106,7 +106,6 @@
                         <input type="text" id="add-quote-author" placeholder="autor">
                         <input type="text" id="add-quote-category" placeholder="kategoria">
                         <div id="add-quote-selected-categories">
-                            <div class="selected-category">Milosc</div>
                         </div>
                         <input type="button" value="dodaj" id="add-quote-button">
                     </div>
@@ -123,6 +122,7 @@
   crossorigin="anonymous"></script>
   <script>let token = "{$token}";</script>
   <script src="../scripts/quotes_getter.js"></script>
+  <script src="../scripts/adding_quote_panel_control.js"></script>
   <script src="../scripts/quotes_management_panels_control.js"></script>
   {literal}
   <script>
