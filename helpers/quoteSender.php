@@ -41,9 +41,9 @@
         private function validateAuthor() {
             $author = $this->author;
             if($author == "") {
-                $author = "Autor nieznany";
+                
             }
-
+            echo $author;
             $response = $this->mysqli->query("SELECT author_id FROM quotes_authors WHERE author_name = '$author'");
             
             if($this->mysqli->error) {
@@ -90,12 +90,19 @@
         }
 
         private function addAuthor() {
-            $query = "INSERT INTO quotes_authors (author_name) VALUES ('$this->author')";
-            if(!$this->mysqli->query($query)) {
-                $error = $this->mysqli->error;
-                $this->reportError("Adding author $author failed: $error;");
+            if(!isset($this->existingSameAuthorId)) {
+                $query = "INSERT INTO quotes_authors (author_name) VALUES ('$this->author')";
+                if(!$this->mysqli->query($query)) {
+                    $error = $this->mysqli->error;
+                    $this->reportError("Adding author $author failed: $error;");
+                }
+                $this->newAuthorId = $this->mysqli->insert_id;
             }
-            $this->newAuthorId = $this->mysqli->insert_id;
+
+            else {
+                $this->newAuthorId = $this->existingSameAuthorId;
+            }
+
         }
 
         private function addCategories() {
