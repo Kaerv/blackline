@@ -102,12 +102,26 @@
                     </div>
 
                     <div id="add-quote-panel">
-                        <textarea id="add-quote-content" cols="30" rows="10"></textarea>
-                        <input type="text" id="add-quote-author" placeholder="autor">
-                        <input type="text" id="add-quote-category" placeholder="kategoria">
-                        <div id="add-quote-selected-categories">
+                        <div id="add-quote-panel-wrap">
+                            <div class="adding-quote-label">Treść</div>
+                            <textarea id="add-quote-content" cols="30" rows="10"></textarea>
+                            <div class="adding-quote-label">Autor</div>
+                            <div>
+                                <div class="add-quote-input">
+                                    <input type="text" id="add-quote-author">
+                                </div>
+                            </div>
+                            <div class="adding-quote-label">Kategorie</div>
+                            <div>
+                                <div class="add-quote-input">
+                                    <input type="text" id="add-quote-category">
+                                    <div id="add-quote-selected-categories"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="button" value="DODAJ" id="add-quote-button">
+                            </div>
                         </div>
-                        <input type="button" value="dodaj" id="add-quote-button">
                     </div>
                 </div>
 
@@ -122,11 +136,8 @@
   crossorigin="anonymous"></script>
   <script>let token = "{$token}";</script>
   <script src="../scripts/quotes_getter.js"></script>
+  <script src="../scripts/quotes_sender.js"></script>
   <script src="../scripts/adding_quote_panel_control.js"></script>
   <script src="../scripts/quotes_management_panels_control.js"></script>
-  {literal}
-  <script>
-  </script>
-{/literal}
 </body>
 </html>

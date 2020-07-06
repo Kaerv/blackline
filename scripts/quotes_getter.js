@@ -15,10 +15,8 @@ function getQuotes(count) {
 }
 
 function generateCategoriesDOM(msg) {
-    console.log(msg);
     let bigData = msg.split("*");
     let quotes = convertRawToObjects(bigData);
-    console.log(quotes);
     showQuotesInPanel(quotes);
 }
 
@@ -55,6 +53,22 @@ function createNewQuoteObject(data) {
 }
 
 function showQuotesInPanel(quotes) {
+    $("#all-quotes").find("tbody").html(`
+        <tr>
+            <th rowspan="2"></th>
+            <th rowspan="2"><div class="border">Treść</div></th>
+            <th rowspan="2"><div class="border">Autor</div></th>
+            <th rowspan="2"><div class="border">Kategoria</div></th>
+            <th rowspan="2"><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data dodania</div></th>
+            <th colspan="3">Wizyty</th>
+        </tr>
+        <tr>
+            <th>Dziennie</th>
+            <th>Miesięcznie</th>
+            <th>Rocznie</th>
+        </tr>
+    `);
+    
     for(let i = 0; i < quotes.length; i++) {
         let actualAuthor = quotes[i].author;
         quotes[i].author = actualAuthor == "" ? "Autor nieznany" : actualAuthor;
@@ -64,7 +78,7 @@ function showQuotesInPanel(quotes) {
             categories += quotes[i].categories[j].toLowerCase();
             categories += ";"
         }
-        
+
         $("#all-quotes").find("tbody").append(`
         <tr>
                         <td>

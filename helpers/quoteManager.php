@@ -18,7 +18,12 @@
 
         public function checkValidateToken() {
             session_start();
-            $token = $_GET['token'];
+            if(isset($_GET['token']))
+                $token = $_GET['token'];
+            
+            else
+                $token = $_POST['token'];
+            
             if(empty($_SESSION['token']) || $_SESSION['token'] != $token) {
                 $this->reportError("Error with validate connection");
                 die();
@@ -35,6 +40,7 @@
         public function endWork($message) {
             echo "0";
             echo "$message";
+            $this->mysqli->commit();
             $this->mysqli->close();
             die();
         }

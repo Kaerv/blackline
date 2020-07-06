@@ -32,3 +32,10 @@ function addRemoveEvent(obj) {
         $(obj).remove();
     });
 }
+
+function clearForm() {
+    $("#add-quote-content").val("");
+    $("#add-quote-author").val("");
+    $("#add-quote-category").val("");
+    $("#add-quote-selected-categories").html("");
+}
