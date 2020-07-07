@@ -8,7 +8,6 @@ function removeQuote(id) {
         },
         success: (msg) => {
             let result = msg.split(";");
-            console.log(msg);
             if(result[0] == "0") {
                 $(`.quote-${id}`).parent().remove();
             }
@@ -21,6 +20,7 @@ function removeQuote(id) {
 }
 
 function removeSelectedQuotes() {
+    $("#check-all").prop("checked", false);
     $(".check-quote").each(function() {
         if($(this).prop("checked")) {
             let id = $(this).parent().parent().attr("class").split("-")[1];

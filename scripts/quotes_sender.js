@@ -21,7 +21,8 @@ function sendQuote() {
                 else {
                     console.log(result[1]);
                 }
-            }
+            },
+            async: false
         });
     }
     else {
@@ -60,4 +61,13 @@ function dataIsValid(data) {
     }
 
     return isValid;
+}
+
+function createRandomQuotes(count) {
+    for(let i = 0; i < count; i++) {
+        $("#add-quote-content").val(Math.random());
+        $("#add-quote-author").val(Math.random());
+        $("#add-quote-category").val(Math.random());
+        sendQuote();
+    }
 }
