@@ -3,11 +3,7 @@ $(document).ready(() => {
 });
 
 function sendQuote() {
-    let data = {
-        content: Math.random(),
-        author: Math.random(),
-        categories: [Math.random()]
-    };
+    let data = prepareDataToSend();
     if(data) {
         $.ajax({
             method: "POST",
