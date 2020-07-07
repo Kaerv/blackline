@@ -1,5 +1,3 @@
-$(document).ready(() => { getQuotes(50) });
-
 function getQuotes(count) {
     $.ajax({
         method: "GET",
@@ -10,7 +8,8 @@ function getQuotes(count) {
         },
         success: (msg) => {
             generateCategoriesDOM(msg);
-        }
+        },
+        async: false
     });
 }
 
@@ -81,13 +80,13 @@ function showQuotesInPanel(quotes) {
 
         $("#all-quotes").find("tbody").append(`
         <tr>
-                        <td>
+                        <td class="quote-${quotes[i].id}">
                             <div class="checkbox-container">
-                                <input type="checkbox" name="check-all" id="check-all">
+                                <input type="checkbox" class="check-quote">
                                 <img src="../assets/icons/checked.svg" alt="">
                             </div>
                             <img src="../assets/icons/edit.svg" alt="">
-                            <img src="../assets/icons/close.svg" alt="">
+                            <img src="../assets/icons/close.svg" alt="" class="remove">
                         </td>
                         <td>${quotes[i].content}</td>
                         <td>${quotes[i].author}</td>

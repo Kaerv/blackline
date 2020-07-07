@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-07-06 10:05:50
+/* Smarty version 3.1.34-dev-7, created on 2020-07-07 09:16:39
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f02f77e3c93f4_68659487',
+  'unifunc' => 'content_5f043d775eb381_07178156',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1594029947,
+      1 => 1594113398,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f02f77e3c93f4_68659487 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f043d775eb381_07178156 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,6 +121,9 @@ function content_5f02f77e3c93f4_68659487 (Smarty_Internal_Template $_smarty_tpl)
                                 <th>Miesięcznie</th>
                                 <th>Rocznie</th>
                             </tr>
+                            <tr>
+                                <td colspan="8">Ładowanie...</td>
+                            </tr>
                         </table>
                     </div>
 
@@ -168,6 +171,12 @@ function content_5f02f77e3c93f4_68659487 (Smarty_Internal_Template $_smarty_tpl)
 >
   <?php echo '<script'; ?>
  src="../scripts/quotes_sender.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="../scripts/quotes_remover.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="../scripts/all_quotes_panel_control.js"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
  src="../scripts/adding_quote_panel_control.js"><?php echo '</script'; ?>

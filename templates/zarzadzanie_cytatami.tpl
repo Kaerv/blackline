@@ -98,6 +98,9 @@
                                 <th>Miesięcznie</th>
                                 <th>Rocznie</th>
                             </tr>
+                            <tr>
+                                <td colspan="8">Ładowanie...</td>
+                            </tr>
                         </table>
                     </div>
 
@@ -137,6 +140,8 @@
   <script>let token = "{$token}";</script>
   <script src="../scripts/quotes_getter.js"></script>
   <script src="../scripts/quotes_sender.js"></script>
+  <script src="../scripts/quotes_remover.js"></script>
+  <script src="../scripts/all_quotes_panel_control.js"></script>
   <script src="../scripts/adding_quote_panel_control.js"></script>
   <script src="../scripts/quotes_management_panels_control.js"></script>
 </body>
