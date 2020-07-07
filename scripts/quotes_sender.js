@@ -31,7 +31,7 @@ function sendQuote() {
 }
 
 function prepareDataToSend() {
-    addCategoryToList();
+    addCategoryToList(false);
     
     let data = {
         content: $("#add-quote-content").val(),
@@ -70,4 +70,8 @@ function createRandomQuotes(count) {
         $("#add-quote-category").val(Math.random());
         sendQuote();
     }
+}
+
+function sendChanges() {
+    
 }

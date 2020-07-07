@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-07-07 11:11:00
+/* Smarty version 3.1.34-dev-7, created on 2020-07-07 15:43:49
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f045844926537_80331986',
+  'unifunc' => 'content_5f049835d0d102_24965513',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1594120177,
+      1 => 1594136628,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f045844926537_80331986 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f049835d0d102_24965513 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,13 +149,38 @@ function content_5f045844926537_80331986 (Smarty_Internal_Template $_smarty_tpl)
                             </div>
                         </div>
                     </div>
+
+                    
                 </div>
 
             </div>
         </div>
         
     </div>
-    
+    <div id="edit-quote-background"></div>
+    <div id="edit-quote-panel">
+        <div id="edit-quote-title">Edycja cytatu</div>
+        <div id="edit-quote-panel-wrap">
+            <div class="editing-quote-label">Treść</div>
+            <textarea id="edit-quote-content" cols="30" rows="10"></textarea>
+            <div class="editing-quote-label">Autor</div>
+            <div>
+                <div class="edit-quote-input">
+                    <input type="text" id="edit-quote-author">
+                </div>
+            </div>
+            <div class="editing-quote-label">Kategorie</div>
+            <div>
+                <div class="edit-quote-input">
+                    <input type="text" id="edit-quote-category">
+                    <div id="edit-quote-selected-categories"></div>
+                </div>
+            </div>
+            <div>
+                <input type="button" value="ZAPISZ" id="edit-quote-button">
+            </div>
+        </div>
+    </div>
     <?php echo '<script'; ?>
 
   src="https://code.jquery.com/jquery-3.5.1.min.js"

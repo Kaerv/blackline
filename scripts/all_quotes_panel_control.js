@@ -6,13 +6,6 @@ $(document).ready(() => {
         $(".check-quote").prop("checked", checked);
     });
 
-    $(".remove").each(function() {
-        let selfId = $(this).parent().attr("class").split("-")[1]
-        $(this).click(function() {
-            removeQuote(selfId);
-        });
-    });
-
     $("#delete-checked").click(() => {removeSelectedQuotes()});
 
     let left = Date.now() - start;

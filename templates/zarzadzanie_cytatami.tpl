@@ -126,13 +126,38 @@
                             </div>
                         </div>
                     </div>
+
+                    
                 </div>
 
             </div>
         </div>
         
     </div>
-    
+    <div id="edit-quote-background"></div>
+    <div id="edit-quote-panel">
+        <div id="edit-quote-title">Edycja cytatu</div>
+        <div id="edit-quote-panel-wrap">
+            <div class="editing-quote-label">Treść</div>
+            <textarea id="edit-quote-content" cols="30" rows="10"></textarea>
+            <div class="editing-quote-label">Autor</div>
+            <div>
+                <div class="edit-quote-input">
+                    <input type="text" id="edit-quote-author">
+                </div>
+            </div>
+            <div class="editing-quote-label">Kategorie</div>
+            <div>
+                <div class="edit-quote-input">
+                    <input type="text" id="edit-quote-category">
+                    <div id="edit-quote-selected-categories"></div>
+                </div>
+            </div>
+            <div>
+                <input type="button" value="ZAPISZ" id="edit-quote-button">
+            </div>
+        </div>
+    </div>
     <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="

@@ -308,7 +308,34 @@ html, body {
     bottom: 2px;
 }
 
-#add-quote-panel-wrap {
+#edit-quote-panel {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    background-color: white;
+    border-radius: 20px;
+    display: none;
+}
+
+#edit-quote-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.3);
+    display: none;
+}
+
+#edit-quote-title {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#add-quote-panel-wrap, #edit-quote-panel-wrap {
     display: grid;
     grid-template-columns: 10% 60%;
     grid-row-gap: 40px;
@@ -317,35 +344,35 @@ html, body {
     margin-top: 20px;
 }
 
-.adding-quote-label {
+.adding-quote-label, .editing-quote-label {
     font-size: 16px;
 }
 
-#add-quote-content {
+#add-quote-content, #edit-quote-content {
     border: solid 2px black;
     border-radius: 10px;
     outline: none;
     padding: 4px;
 }
 
-.add-quote-input {
+.add-quote-input, .edit-quote-input {
     border-bottom: solid 2px black;
     width: 60%;
     display: flex;
 }
 
-.add-quote-input input {
+.add-quote-input input, .edit-quote-input input {
     border: none;
     outline: none;
     width: 60%;
     font-size: 16px;
 }
 
-#add-quote-selected-categories {
+#add-quote-selected-categories, #edit-quote-selected-categories {
     display: flex;
 }
 
-.selected-category {
+.selected-category, .selected-edited-category {
     background-color: #666;
     color: white;
     font-size: 11px;
@@ -354,7 +381,7 @@ html, body {
     margin-right: 3px;
 }
 
-#add-quote-button {
+#add-quote-button, #edit-quote-button {
     border: solid 1px black;
     width: 120px;
     height: 40px;
@@ -363,7 +390,7 @@ html, body {
     cursor: pointer;
 }
 
-#add-quote-button:hover {
+#add-quote-button:hover, #edit-quote-button:hover {
     color: white;
     background-color: black;
 }

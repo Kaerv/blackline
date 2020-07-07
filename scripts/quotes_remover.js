@@ -9,7 +9,7 @@ function removeQuote(id) {
         success: (msg) => {
             let result = msg.split(";");
             if(result[0] == "0") {
-                $(`.quote-${id}`).parent().remove();
+                getQuotes(100);
             }
             else {
                 console.log(result[1]);

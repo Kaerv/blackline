@@ -8,6 +8,18 @@ function getQuotes(count) {
         },
         success: (msg) => {
             generateCategoriesDOM(msg);
+            $(".remove").each(function() {
+                let selfId = $(this).parent().attr("class").split("-")[1]
+                $(this).click(function() {
+                    removeQuote(selfId);
+                });
+            });
+            $(".edit-button").each(function() {
+                let selfId = $(this).parent().attr("class").split("-")[1]
+                $(this).click(function() {
+                    editQuote(selfId);
+                });
+            });
         },
         async: false
     });
@@ -85,7 +97,7 @@ function showQuotesInPanel(quotes) {
                                 <input type="checkbox" class="check-quote">
                                 <img src="../assets/icons/checked.svg" alt="">
                             </div>
-                            <img src="../assets/icons/edit.svg" alt="">
+                            <img src="../assets/icons/edit.svg" alt="" class="edit-button">
                             <img src="../assets/icons/close.svg" alt="" class="remove">
                         </td>
                         <td>${quotes[i].content}</td>
