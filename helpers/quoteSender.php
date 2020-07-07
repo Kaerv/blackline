@@ -40,10 +40,6 @@
         
         private function validateAuthor() {
             $author = $this->author;
-            if($author == "") {
-                
-            }
-            echo $author;
             $response = $this->mysqli->query("SELECT author_id FROM quotes_authors WHERE author_name = '$author'");
             
             if($this->mysqli->error) {

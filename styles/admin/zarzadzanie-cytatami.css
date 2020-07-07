@@ -368,6 +368,14 @@ html, body {
     background-color: black;
 }
 
+.remove {
+    cursor: pointer;
+}
+
+#delete-checked {
+    cursor: pointer;
+}
+
 
 @media only screen and (max-width: 1366px) {
     * {font-size: 14px;}

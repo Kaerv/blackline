@@ -52,7 +52,7 @@
                                     </div>
                                     <label for="check-all" id="check-all-label">Zaznacz wszystko</label>
                                 </div>
-                                <div>
+                                <div id="delete-checked">
                                     <img src="/assets/icons/close.svg" id="delete-all-ico">
                                     <span>Usuń</span>
                                 </div>

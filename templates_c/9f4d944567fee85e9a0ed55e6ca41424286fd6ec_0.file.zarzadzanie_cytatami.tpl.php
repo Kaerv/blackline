@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-07-07 09:16:39
+/* Smarty version 3.1.34-dev-7, created on 2020-07-07 11:11:00
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f043d775eb381_07178156',
+  'unifunc' => 'content_5f045844926537_80331986',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1594113398,
+      1 => 1594120177,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f043d775eb381_07178156 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f045844926537_80331986 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +75,7 @@ function content_5f043d775eb381_07178156 (Smarty_Internal_Template $_smarty_tpl)
                                     </div>
                                     <label for="check-all" id="check-all-label">Zaznacz wszystko</label>
                                 </div>
-                                <div>
+                                <div id="delete-checked">
                                     <img src="/assets/icons/close.svg" id="delete-all-ico">
                                     <span>Usuń</span>
                                 </div>

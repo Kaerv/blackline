@@ -1,6 +1,6 @@
 $(document).ready(() => {
     let start = Date.now();
-    getQuotes(50);
+    getQuotes(100);
     $("#check-all").change(function() {
         let checked = $(this).prop("checked");
         $(".check-quote").prop("checked", checked);
@@ -11,7 +11,9 @@ $(document).ready(() => {
         $(this).click(function() {
             removeQuote(selfId);
         });
-    })
+    });
+
+    $("#delete-checked").click(() => {removeSelectedQuotes()});
 
     let left = Date.now() - start;
     console.log(`%c${left}ms`, "color: #0A0");
