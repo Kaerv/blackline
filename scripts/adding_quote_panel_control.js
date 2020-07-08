@@ -84,6 +84,9 @@ function editQuote(id) {
     $("#edit-quote-content").val(content);
     $("#edit-quote-author").val(author);
 
+    $("#add-quote-content").val(content);
+    $("#add-quote-author").val(author);
+
     categories = categories.split(";");
     categories.pop();
 
@@ -92,6 +95,10 @@ function editQuote(id) {
         let newCategoryDom = $(`<div class="selected-edited-category">${category.toUpperCase()}</div>`);
         $("#edit-quote-selected-categories").append($(newCategoryDom));
         addRemoveEvent(newCategoryDom);
+
+        let newCategoryDom2 = $(`<div class="selected-category">${category.toUpperCase()}</div>`);
+        $("#add-quote-selected-categories").append($(newCategoryDom2));
+        addRemoveEvent(newCategoryDom2);
     });
     
     $("#edit-quote-background").show();
@@ -101,4 +108,5 @@ function editQuote(id) {
 function cancelEditing() {
     $("#edit-quote-background").fadeOut(200);
     $("#edit-quote-panel").hide();
+    clearForm();
 }

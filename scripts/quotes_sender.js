@@ -92,9 +92,11 @@ function sendChanges() {
                 let result = msg.split(";");
                 if(result[0] == "0") {
                     getQuotes(50);
+                    clearForm();
                 }
                 else {
                     console.log(result[1]);
+                    sendQuote();
                 }
                 cancelEditing();
             },
