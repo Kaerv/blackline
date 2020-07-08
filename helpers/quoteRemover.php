@@ -94,13 +94,6 @@
                 }
             }
         }
-
-        private function reportErrorIfOccured() {
-            if($this->mysqli->error) {
-                $error = $this->mysqli->error;
-                $this->reportError("Deleting record failed: $error");
-            }
-        }
     }
 
     $remover = new QuoteRemover($_POST["id"]);

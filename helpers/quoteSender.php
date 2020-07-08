@@ -30,8 +30,7 @@
             }
 
             $response = $this->mysqli->query("SELECT quote_id FROM quotes WHERE content = '$content'");
-            if($this->mysqli->error)
-                $this->reportError("Checking quote failed");
+            $this->reportErrorIfOccured();
             
             if($response->num_rows != 0) 
                 $this->reportError("Quote already exists");
@@ -42,10 +41,7 @@
             $author = $this->author;
             $response = $this->mysqli->query("SELECT author_id FROM quotes_authors WHERE author_name = '$author'");
             
-            if($this->mysqli->error) {
-                $error = $this->mysqli->error;
-                $this->reportError("Checking author failed: $error");
-            }
+            $this->reportErrorIfOccured();
             
             if($response->num_rows > 0) {
                 while($row = $response->fetch_row()) {

@@ -30,6 +30,13 @@
             }
         }
 
+        public function reportErrorIfOccured() {
+            if($this->mysqli->error) {
+                $error = $this->mysqli->error;
+                $this->reportError("Houston, we have a problem: $error");
+            }
+        }
+
         public function reportError($message) {
             echo "-1;";
             echo "$message;";

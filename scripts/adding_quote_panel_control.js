@@ -80,6 +80,7 @@ function editQuote(id) {
     let categories = $(cells[3]).text();
 
     $("#edit-quote-title").text(`Edycja cytatu nr #${id}`);
+    $("#edit-quote-title").attr("class", id);
     $("#edit-quote-content").val(content);
     $("#edit-quote-author").val(author);
 
@@ -88,7 +89,7 @@ function editQuote(id) {
 
     $("#edit-quote-selected-categories").html("");
     categories.forEach((category) => {
-        let newCategoryDom = $(`<div class="selected-edited-category">${category}</div>`);
+        let newCategoryDom = $(`<div class="selected-edited-category">${category.toUpperCase()}</div>`);
         $("#edit-quote-selected-categories").append($(newCategoryDom));
         addRemoveEvent(newCategoryDom);
     });

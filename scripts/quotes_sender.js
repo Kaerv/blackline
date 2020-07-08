@@ -3,7 +3,7 @@ $(document).ready(() => {
 });
 
 function sendQuote() {
-    let data = prepareDataToSend();
+    let data = prepareDataToSend(false);
     if(data) {
         $.ajax({
             method: "POST",
@@ -30,16 +30,20 @@ function sendQuote() {
     }
 }
 
-function prepareDataToSend() {
-    addCategoryToList(false);
+function prepareDataToSend(existingQuote) {
+    addCategoryToList(existingQuote);
     
     let data = {
-        content: $("#add-quote-content").val(),
-        author: $("#add-quote-author").val(),
+        content: $(`#${existingQuote? "edit" : "add"}-quote-content`).val(),
+        author: $(`#${existingQuote? "edit" : "add"}-quote-author`).val(),
         categories: []
     };
 
-    $(".selected-category").each(function() {
+    if(existingQuote) {
+        data.id = $("#edit-quote-title").attr("class");
+    }
+
+    $(`.selected${existingQuote? "-edited" : ""}-category`).each(function() {
         data.categories.push( $(this).text() );
     });
 
@@ -73,5 +77,32 @@ function createRandomQuotes(count) {
 }
 
 function sendChanges() {
-    
+    let data = prepareDataToSend(true);
+    removeQuote(data.id);
+
+    if(data) {
+        $.ajax({
+            method: "POST",
+            url: "../helpers/quoteSender.php",
+            data: {
+                token: token,
+                data: data
+            },
+            success: (msg) => {
+                let result = msg.split(";");
+                if(result[0] == "0") {
+                    getQuotes(50);
+                }
+                else {
+                    console.log(result[1]);
+                }
+                cancelEditing();
+            },
+            async: false
+        });
+    }
+    else {
+        alert("Ups :(");
+    }
+
 }

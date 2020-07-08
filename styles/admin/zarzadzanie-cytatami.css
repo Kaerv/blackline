@@ -349,14 +349,14 @@ html, body {
 }
 
 #add-quote-content, #edit-quote-content {
-    border: solid 2px black;
+    border: solid 2px #C0C0C0;
     border-radius: 10px;
     outline: none;
     padding: 4px;
 }
 
 .add-quote-input, .edit-quote-input {
-    border-bottom: solid 2px black;
+    border-bottom: solid 2px #C0C0C0;
     width: 60%;
     display: flex;
 }
@@ -379,6 +379,12 @@ html, body {
     border-radius: 5px;
     padding: 4px 5px 0px 5px;
     margin-right: 3px;
+    transition: all 100ms linear 0s;
+    cursor: pointer;
+}
+
+.selected-category:hover, .selected-edited-category:hover {
+    color: red;
 }
 
 #add-quote-button, #edit-quote-button {
@@ -400,6 +406,10 @@ html, body {
 }
 
 #delete-checked {
+    cursor: pointer;
+}
+
+.edit-button {
     cursor: pointer;
 }
 
