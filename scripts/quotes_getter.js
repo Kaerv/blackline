@@ -8,18 +8,7 @@ function getQuotes(count) {
         },
         success: (msg) => {
             generateCategoriesDOM(msg);
-            $(".remove").each(function() {
-                let selfId = $(this).parent().attr("class").split("-")[1]
-                $(this).click(function() {
-                    removeQuote(selfId);
-                });
-            });
-            $(".edit-button").each(function() {
-                let selfId = $(this).parent().attr("class").split("-")[1]
-                $(this).click(function() {
-                    editQuote(selfId);
-                });
-            });
+            addEventsToQuotes();
         },
         async: false
     });
@@ -110,5 +99,20 @@ function showQuotesInPanel(quotes) {
                     </tr>
         `);
     }
+}
+
+function addEventsToQuotes() {
+    $(".remove").each(function() {
+        let selfId = $(this).parent().attr("class").split("-")[1]
+        $(this).click(function() {
+            removeQuote(selfId);
+        });
+    });
+    $(".edit-button").each(function() {
+        let selfId = $(this).parent().attr("class").split("-")[1]
+        $(this).click(function() {
+            editQuote(selfId);
+        });
+    });
 }
 

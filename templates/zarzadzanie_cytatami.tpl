@@ -15,6 +15,7 @@
     <div id="site-content-container">
         <h1 id="site-title">Zarządzanie cytatami</h1>
         <div id="search-wrap">
+            <img src="/assets/icons/close.svg" id="cancel-search">
             <div id="search">
                 <input type="text" id="search-input" placeholder="Wyszukaj cytat">
                 <img src="../assets/icons/search.svg" id="search-button">
@@ -62,19 +63,20 @@
                                     <span id="search-label">Szukaj: </span>
                                     <div id="author-option">
                                         <div class="checkbox-container">
-                                            <input type="checkbox" name="check-all" id="check-all">
+                                            <input type="checkbox" name="check-all" id="search-by-author">
                                             <img src="../assets/icons/checked.svg" alt="">
                                         </div>
                                         <label for="search-author">Autor</label>
                                     </div>
                                     <div id="category-option">
                                         <div class="checkbox-container">
-                                            <input type="checkbox" name="check-all" id="check-all">
+                                            <input type="checkbox" name="check-all" id="search-by-category">
                                             <img src="../assets/icons/checked.svg" alt="">
                                         </div>
                                         <label for="search-category">Kategoria</label>
                                     </div>                                  
                                 </div>
+                                <img src="/assets/icons/close.svg" id="cancel-second-search">
                                 <div id="second-search">
                                     <input type="text" name="second-search" id="second-search-input">
                                     <img id="dropdown-search-button" src="../assets/icons/down-arrow.svg" alt="">
@@ -164,6 +166,7 @@
   crossorigin="anonymous"></script>
   <script>let token = "{$token}";</script>
   <script src="../scripts/quotes_getter.js"></script>
+  <script src="../scripts/quotes_finder.js"></script>
   <script src="../scripts/quotes_sender.js"></script>
   <script src="../scripts/quotes_remover.js"></script>
   <script src="../scripts/all_quotes_panel_control.js"></script>

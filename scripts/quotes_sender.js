@@ -15,7 +15,7 @@ function sendQuote() {
             success: (msg) => {
                 let result = msg.split(";");
                 if(result[0] == "0") {
-                    getQuotes(50);
+                    getQuotes(displayedQuotes);
                     clearForm();
                 }
                 else {
@@ -91,7 +91,7 @@ function sendChanges() {
             success: (msg) => {
                 let result = msg.split(";");
                 if(result[0] == "0") {
-                    getQuotes(50);
+                    getQuotes(displayedQuotes);
                     clearForm();
                 }
                 else {

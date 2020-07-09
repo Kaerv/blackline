@@ -80,6 +80,27 @@ html, body {
     justify-content: flex-end;
 }
 
+#cancel-search, #cancel-second-search {
+    width: 16px;
+    height: 16px;
+    margin-top: 8px;
+    margin-right: 10px;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: all 200ms linear 0s;
+    display: none;
+}
+
+#cancel-second-search {
+    margin-top: 0px;
+    margin-right: 0px;
+}
+
+#cancel-search:hover, #cancel-second-search:hover {
+    opacity: 1;
+    filter: invert(1) brightness(50%) sepia(100%) saturate(10000%);
+}
+
 #search {
     height: 30px;
     width: 300px;
