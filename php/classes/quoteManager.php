@@ -2,7 +2,9 @@
     class QuoteManager {
         public $mysqli;
 
-        public function __construct() {
+        public function __construct($token) {
+            $this->token = $token;
+
             $this->createDBConnection();
             $this->checkValidateToken();
         }
@@ -18,13 +20,8 @@
 
         public function checkValidateToken() {
             session_start();
-            if(isset($_GET['token']))
-                $token = $_GET['token'];
-            
-            else
-                $token = $_POST['token'];
-            
-            if(empty($_SESSION['token']) || $_SESSION['token'] != $token) {
+
+            if(empty($_SESSION['token']) || $_SESSION['token'] != $this->token) {
                 $this->reportError("Error with validate connection");
                 die();
             }

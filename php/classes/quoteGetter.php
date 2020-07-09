@@ -1,14 +1,11 @@
 <?php 
     require_once 'quoteManager.php';
     class QuoteGetter extends QuoteManager {
-        public function __construct($count) {
-            parent::__construct();
-            $this->count = $count;
-            $this->getQuotes();
+        public function __construct($token) {
+            parent::__construct($token);
         }
 
-        public function getQuotes() {
-            $count = $this->count;
+        public function getQuotes($count) {
             $query = 
             "SELECT 
                 quotes.quote_id AS id, 
@@ -41,7 +38,5 @@
             }
         }
     }
-
-    $getter = new QuoteGetter($_GET["count"]);
 ?>
 

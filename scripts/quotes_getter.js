@@ -1,7 +1,7 @@
 function getQuotes(count) {
     $.ajax({
         method: "GET",
-        url: "../helpers/quoteGetter.php",
+        url: "../php/scripts/getQuote.php",
         data: {
             token: token,
             count: count

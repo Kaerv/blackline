@@ -2,17 +2,15 @@
     require_once 'quoteManager.php';
 
     class QuoteSender extends QuoteManager {
-        public function __construct($data) {
-            parent::__construct();
-            
+        public function __construct($token) {
+            parent::__construct($token);
+        }
+
+        public function sendQuote($data) {
             $this->content = $data["content"];
             $this->author = $data["author"];
             $this->categories = $data["categories"];
 
-            $this->sendQuote();
-        }
-
-        private function sendQuote() {
             $this->validateData();
             $this->addToDatabase();
         }
@@ -125,10 +123,6 @@
                     $this->reportError("Adding categories sets failed, $error");
                 }
             }
-        }
-
-        
+        } 
     }
-
-    $sender = new QuoteSender($_POST["data"]);
 ?>

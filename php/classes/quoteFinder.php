@@ -2,18 +2,16 @@
      require_once 'quoteManager.php';
 
      class QuoteFinder extends QuoteManager {
-         public function __construct($data) {
-             parent::__construct();
-
-             $this->phrase = $data["phrase"];
-             $this->byContent = $data["byContent"];
-             $this->byAuthor = $data["byAuthor"];
-             $this->byCategory = $data["byCategory"];
-
-             $this->findQuotes();
+         public function __construct($token) {
+             parent::__construct($token);
          }
  
-         public function findQuotes() {
+         public function findQuotes($data) {
+            $this->phrase = $data["phrase"];
+            $this->byContent = $data["byContent"];
+            $this->byAuthor = $data["byAuthor"];
+            $this->byCategory = $data["byCategory"];
+
              $query = 
              "SELECT 
                  quotes.quote_id AS id, 
@@ -69,7 +67,4 @@
             }
          }
      }
- 
-     $finder = new QuoteFinder($_GET["data"]);
-
 ?>

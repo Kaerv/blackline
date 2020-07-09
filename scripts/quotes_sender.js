@@ -7,7 +7,7 @@ function sendQuote() {
     if(data) {
         $.ajax({
             method: "POST",
-            url: "../helpers/quoteSender.php",
+            url: "../php/scripts/sendQuote.php",
             data: {
                 token: token,
                 data: data
@@ -83,7 +83,7 @@ function sendChanges() {
     if(data) {
         $.ajax({
             method: "POST",
-            url: "../helpers/quoteSender.php",
+            url: "../php/scripts/sendQuote.php",
             data: {
                 token: token,
                 data: data

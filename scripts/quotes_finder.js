@@ -38,7 +38,7 @@ function findQuote(phrase, byContent = false, byAuthor = false, byCategory = fal
     
         $.ajax({
             method: "GET",
-            url: "../helpers/quoteFinder.php",
+            url: "../php/scripts/findQuote.php",
             data: {
                 token: token,
                 data: data

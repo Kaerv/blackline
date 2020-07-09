@@ -2,13 +2,13 @@
     require_once 'quoteManager.php';
 
     class QuoteRemover extends QuoteManager {
-        public function __construct($id) {
-            parent::__construct();
-            $this->id = $id;
-            $this->removeQuote();
+        public function __construct($token) {
+            parent::__construct($token);
         }
 
-        private function removeQuote() {
+        public function removeQuote($id) {
+            $this->id = $id;
+
             $author = $this->checkAuthorIsNecessary();
             $categories = $this->checkcategoriesAreNecessary();
 
@@ -95,6 +95,4 @@
             }
         }
     }
-
-    $remover = new QuoteRemover($_POST["id"]);
 ?>

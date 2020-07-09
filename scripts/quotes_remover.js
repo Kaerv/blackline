@@ -1,7 +1,7 @@
 function removeQuote(id) {
     $.ajax({
         method: "POST",
-        url: "../helpers/quoteRemover.php",
+        url: "../php/scripts/removeQuote.php",
         data: {
             token: token,
             id: id
