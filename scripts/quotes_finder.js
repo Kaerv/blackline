@@ -16,13 +16,16 @@ $("#second-search-input").on("keydown", function(e) {
 });
 
 $("#cancel-search").on("click", function() {
-    getQuotes(displayedQuotes);
+    console.log(displayedQuotes);
+    resetQuotesPanel();
+    getQuotes(0);
     $("#search-input").val("");
     $("#cancel-search").hide();
 });
 
 $("#cancel-second-search").on("click", function() {
-    getQuotes(displayedQuotes);
+    resetQuotesPanel();
+    getQuotes(0);
     $("#second-search-input").val("");
     $("#cancel-second-search").hide();
 });
@@ -45,7 +48,8 @@ function findQuote(phrase, byContent = false, byAuthor = false, byCategory = fal
             },
             success: (msg) => {
                 if(msg != "") {
-                    generateCategoriesDOM(msg);
+                    resetQuotesPanel();
+                    generateQuotesDOM(msg);
                     addEventsToQuotes();
                 }
             },

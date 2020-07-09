@@ -5,7 +5,7 @@
             parent::__construct($token);
         }
 
-        public function getQuotes($count) {
+        public function getQuotes($start) {
             $query = 
             "SELECT 
                 quotes.quote_id AS id, 
@@ -22,7 +22,7 @@
                 quotes.author_id = quotes_authors.author_id AND 
                 quotes_categories_sets.category_id = quotes_categories.category_id AND 
                 quotes_categories_sets.quote_id = quotes.quote_id 
-            LIMIT $count";
+            LIMIT $start, 25";
         
             $quotes = $this->mysqli->query($query);
             while($quote = $quotes->fetch_assoc()) {
@@ -36,6 +36,18 @@
                 $visitYearly = $quote["visit_yearly"];
                 echo "$id;$content;$author;$category;$dateAdded;$visitDaily;$visitMonthly;$visitYearly*";
             }
+        }
+
+        public function getQuotesCount() {
+            $query = "SELECT COUNT(*) AS c FROM quotes";
+            $response = $this->mysqli->query($query);
+
+            $count = NULL;
+            while($c = $response->fetch_assoc()) {
+                $count = $c["c"];
+            }
+
+            $this->endWork($count);
         }
     }
 ?>

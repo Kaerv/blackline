@@ -42,7 +42,7 @@
         }
 
         public function endWork($message) {
-            echo "0";
+            echo "0;";
             echo "$message";
             $this->mysqli->commit();
             $this->mysqli->close();

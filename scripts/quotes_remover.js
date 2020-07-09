@@ -1,4 +1,4 @@
-function removeQuote(id) {
+function removeQuote(id, oneQuote) {
     $.ajax({
         method: "POST",
         url: "../php/scripts/removeQuote.php",
@@ -9,7 +9,10 @@ function removeQuote(id) {
         success: (msg) => {
             let result = msg.split(";");
             if(result[0] == "0") {
-                getQuotes(displayedQuotes);
+                if(oneQuote) {
+                    resetQuotesPanel();
+                    getQuotes(0);
+                }
             }
             else {
                 console.log(result[1]);
@@ -24,7 +27,9 @@ function removeSelectedQuotes() {
     $(".check-quote").each(function() {
         if($(this).prop("checked")) {
             let id = $(this).parent().parent().attr("class").split("-")[1];
-            removeQuote(id);
+            removeQuote(id, false);
         }
     });
+    resetQuotesPanel();
+    getQuotes(0);
 }

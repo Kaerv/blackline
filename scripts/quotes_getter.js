@@ -1,23 +1,48 @@
-function getQuotes(count) {
+function getQuotes(start) {
+    getQuotesCount();
     $.ajax({
         method: "GET",
         url: "../php/scripts/getQuote.php",
         data: {
             token: token,
-            count: count
+            start: start
         },
         success: (msg) => {
-            generateCategoriesDOM(msg);
+            displayedQuotes += 25;
+            generateQuotesDOM(msg);
             addEventsToQuotes();
+            if(displayedQuotes < allQuotesCount - 1) {
+                addLoadMoreButton();
+            }
         },
         async: false
     });
 }
 
-function generateCategoriesDOM(msg) {
+function getQuotesCount() {
+    $.ajax({
+        method: "GET",
+        url: "../php/scripts/getQuotesCount.php",
+        data: {
+            token: token
+        },
+        success: (msg) => {
+            result = msg.split(";");
+            if(result[0] == 0) {
+                allQuotesCount = parseInt(result[1]);
+            }
+            else {
+                console.log(result[1]);
+            }
+        },
+        async: false
+    });
+}
+
+function generateQuotesDOM(msg) {
     let bigData = msg.split("*");
     let quotes = convertRawToObjects(bigData);
-    showQuotesInPanel(quotes);
+    addQuotesToPanel(quotes);
 }
 
 function convertRawToObjects(bigData) {
@@ -52,22 +77,7 @@ function createNewQuoteObject(data) {
     return quote;
 }
 
-function showQuotesInPanel(quotes) {
-    $("#all-quotes").find("tbody").html(`
-        <tr>
-            <th rowspan="2"></th>
-            <th rowspan="2"><div class="border">Treść</div></th>
-            <th rowspan="2"><div class="border">Autor</div></th>
-            <th rowspan="2"><div class="border">Kategoria</div></th>
-            <th rowspan="2"><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data dodania</div></th>
-            <th colspan="3">Wizyty</th>
-        </tr>
-        <tr>
-            <th>Dziennie</th>
-            <th>Miesięcznie</th>
-            <th>Rocznie</th>
-        </tr>
-    `);
+function addQuotesToPanel(quotes) {
     
     for(let i = 0; i < quotes.length; i++) {
         let actualAuthor = quotes[i].author;
@@ -101,11 +111,29 @@ function showQuotesInPanel(quotes) {
     }
 }
 
+function resetQuotesPanel() {
+    $("#all-quotes").find("tbody").html(`
+    <tr>
+        <th rowspan="2"></th>
+        <th rowspan="2"><div class="border">Treść</div></th>
+        <th rowspan="2"><div class="border">Autor</div></th>
+        <th rowspan="2"><div class="border">Kategoria</div></th>
+        <th rowspan="2"><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data dodania</div></th>
+        <th colspan="3">Wizyty</th>
+    </tr>
+    <tr>
+        <th>Dziennie</th>
+        <th>Miesięcznie</th>
+        <th>Rocznie</th>
+    </tr>
+`);
+}
+
 function addEventsToQuotes() {
     $(".remove").each(function() {
         let selfId = $(this).parent().attr("class").split("-")[1]
         $(this).click(function() {
-            removeQuote(selfId);
+            removeQuote(selfId, true);
         });
     });
     $(".edit-button").each(function() {
@@ -114,5 +142,19 @@ function addEventsToQuotes() {
             editQuote(selfId);
         });
     });
+}
+
+function addLoadMoreButton() {
+    $("#all-quotes").find("tbody").append(`
+    <tr>
+        <td colspan=8><input type="button" id="load-more-button" value="Wczytaj więcej"></td>`
+    );
+
+    $("#load-more-button").on("click", function() {
+        $("#load-more-button").parent().remove();
+        getQuotes(displayedQuotes);
+        console.log(displayedQuotes, allQuotesCount);
+    });
+    
 }
 

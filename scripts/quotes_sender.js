@@ -15,7 +15,8 @@ function sendQuote() {
             success: (msg) => {
                 let result = msg.split(";");
                 if(result[0] == "0") {
-                    getQuotes(displayedQuotes);
+                    resetQuotesPanel();
+                    getQuotes(0);
                     clearForm();
                 }
                 else {
@@ -69,9 +70,9 @@ function dataIsValid(data) {
 
 function createRandomQuotes(count) {
     for(let i = 0; i < count; i++) {
-        $("#add-quote-content").val(Math.random());
-        $("#add-quote-author").val(Math.random());
-        $("#add-quote-category").val(Math.random());
+        $("#add-quote-content").val(`${i}`);
+        $("#add-quote-author").val(`${i}`);
+        $("#add-quote-category").val(`${i}`);
         sendQuote();
     }
 }
@@ -91,7 +92,8 @@ function sendChanges() {
             success: (msg) => {
                 let result = msg.split(";");
                 if(result[0] == "0") {
-                    getQuotes(displayedQuotes);
+                    resetQuotesPanel();
+                    getQuotes(0);
                     clearForm();
                 }
                 else {

@@ -1,8 +1,10 @@
 let displayedQuotes = 25;
+let allQuotesCount;
 
 $(document).ready(() => {
     let start = Date.now();
-    getQuotes(displayedQuotes);
+    resetQuotesPanel();
+    getQuotes(0);
     $("#check-all").change(function() {
         let checked = $(this).prop("checked");
         $(".check-quote").prop("checked", checked);
