@@ -454,6 +454,43 @@ html, body {
     opacity: 1;
 }
 
+#cancel-edit {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+#logs-container {
+    width: 240px;
+    min-height: 100px; 
+    position: fixed;
+    left: 26px;
+    bottom: 20px;
+    display: none;
+}
+
+.log-message {
+    background-color: #444;
+    color: white;
+    font-size: 32px;
+    height: 80px;
+    width: 100%;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+.log-content {
+    text-align: center;
+    user-select: none;
+}
+
 
 @media only screen and (max-width: 1366px) {
     * {font-size: 14px;}

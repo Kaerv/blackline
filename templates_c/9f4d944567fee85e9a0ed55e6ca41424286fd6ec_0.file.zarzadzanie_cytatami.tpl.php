@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-07-09 07:21:50
+/* Smarty version 3.1.34-dev-7, created on 2020-07-10 10:52:46
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f06c58ea78999_07341201',
+  'unifunc' => 'content_5f08487eb7a9c4_44417371',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1594279309,
+      1 => 1594378365,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f06c58ea78999_07341201 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f08487eb7a9c4_44417371 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,12 +156,15 @@ function content_5f06c58ea78999_07341201 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
 
             </div>
-        </div>
-        
+        </div>    
+    </div>
+    <div id="logs-container">
+        <div></div>
     </div>
     <div id="edit-quote-background"></div>
     <div id="edit-quote-panel">
         <div id="edit-quote-title">Edycja cytatu</div>
+        <img src="/assets/icons/close.svg" id="cancel-edit">
         <div id="edit-quote-panel-wrap">
             <div class="editing-quote-label">Treść</div>
             <textarea id="edit-quote-content" cols="30" rows="10"></textarea>
@@ -192,6 +195,9 @@ function content_5f06c58ea78999_07341201 (Smarty_Internal_Template $_smarty_tpl)
   <?php echo '<script'; ?>
 >let token = "<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
 ";<?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="../scripts/logger.js"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
  src="../scripts/quotes_getter.js"><?php echo '</script'; ?>

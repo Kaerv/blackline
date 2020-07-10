@@ -15,20 +15,21 @@ function sendQuote() {
             success: (msg) => {
                 let result = msg.split(";");
                 if(result[0] == "0") {
+                    logger.log("Dodano cytat!");
                     getQuotesCount();
                     resetQuotesPanel();
                     getQuotes(0);
                     clearForm();
                 }
                 else {
-                    console.log(result[1]);
+                    logger.error(`Wystąpił błąd podczas dodawania cytatu: ${result[1]}`);
                 }
             },
             async: false
         });
     }
     else {
-        alert("Ups :(");
+        logger.error(`Wprowadzone dane są niepoprawne!`);
     }
 }
 
@@ -96,9 +97,10 @@ function sendChanges() {
                     resetQuotesPanel();
                     getQuotes(0);
                     clearForm();
+                    logger.log("Edytowano cytat!");
                 }
                 else {
-                    console.log(result[1]);
+                    logger.error(`Wystąpił błąd podczas edytowania cytatu: ${result[1]}`);
                     sendQuote();
                 }
                 cancelEditing();

@@ -85,10 +85,10 @@ function addQuotesToPanel(quotes) {
             categories += quotes[i].categories[j].toLowerCase();
             categories += ";"
         }
-
+        let id = quotes[i].id.trim();
         $("#all-quotes").find("tbody").append(`
         <tr>
-                        <td class="quote-${quotes[i].id}">
+                        <td class="quote-${id}">
                             <div class="checkbox-container">
                                 <input type="checkbox" class="check-quote">
                                 <img src="../assets/icons/checked.svg" alt="">

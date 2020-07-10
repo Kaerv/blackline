@@ -133,12 +133,15 @@
                 </div>
 
             </div>
-        </div>
-        
+        </div>    
+    </div>
+    <div id="logs-container">
+        <div></div>
     </div>
     <div id="edit-quote-background"></div>
     <div id="edit-quote-panel">
         <div id="edit-quote-title">Edycja cytatu</div>
+        <img src="/assets/icons/close.svg" id="cancel-edit">
         <div id="edit-quote-panel-wrap">
             <div class="editing-quote-label">Treść</div>
             <textarea id="edit-quote-content" cols="30" rows="10"></textarea>
@@ -165,6 +168,7 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
   <script>let token = "{$token}";</script>
+  <script src="../scripts/logger.js"></script>
   <script src="../scripts/quotes_getter.js"></script>
   <script src="../scripts/quotes_finder.js"></script>
   <script src="../scripts/quotes_sender.js"></script>

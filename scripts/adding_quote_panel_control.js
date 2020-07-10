@@ -14,24 +14,18 @@ let formNames = [
 ]
 
 $("#add-quote-category").on("keydown", (e) => {
-    if(e.keyCode == 13) {
+    if(e.keyCode == 13)
         addCategoryToList(false);
-    }
 });
 
 $("#edit-quote-category").on("keydown", (e) => {
-    if(e.keyCode == 13) {
+    if(e.keyCode == 13)
         addCategoryToList(true);
-    }
 });
 
-$("#edit-quote-background").on("click", function() {
-    cancelEditing();
-});
-
-$("#edit-quote-button").on("click", function() {
-    sendChanges();
-});
+$("#edit-quote-background").on("click", function() { cancelEditing() });
+$("#cancel-edit").on("click", function() { cancelEditing() });
+$("#edit-quote-button").on("click", function() { sendChanges() });
 
 function addCategoryToList(existingQuote) {
     let selectedNames = existingQuote? formNames[1] : formNames[0];

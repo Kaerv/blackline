@@ -13,10 +13,12 @@ function removeQuote(id, oneQuote) {
                     getQuotesCount();
                     resetQuotesPanel();
                     getQuotes(0);
+                    logger.log("Usunięto cytat!");
                 }
             }
             else {
                 console.log(result[1]);
+                logger.error(`Wystąpił błąd podczas usuwania cytatu: ${result[1]}`);
             }
         },
         async: false
