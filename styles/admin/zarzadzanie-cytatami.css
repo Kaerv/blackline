@@ -80,7 +80,7 @@ html, body {
     justify-content: flex-end;
 }
 
-#cancel-search, #cancel-second-search {
+#cancel-search {
     width: 16px;
     height: 16px;
     margin-top: 8px;
@@ -91,12 +91,7 @@ html, body {
     display: none;
 }
 
-#cancel-second-search {
-    margin-top: 0px;
-    margin-right: 0px;
-}
-
-#cancel-search:hover, #cancel-second-search:hover {
+#cancel-search:hover {
     opacity: 1;
     filter: invert(1) brightness(50%) sepia(100%) saturate(10000%);
 }
@@ -218,7 +213,7 @@ html, body {
 #delete-all-container {
     display: flex;
     justify-content: space-around;
-    width: 22%;
+    width: 30%;
 }
 
 #check-all-label {
@@ -241,31 +236,6 @@ html, body {
     display: flex;
     justify-content: space-evenly;
     width: 40%;
-}
-
-#second-search {
-    width: 45%;
-    border-bottom: solid 1px black;
-    display: flex;
-    justify-content: space-around;
-}
-
-#second-search-input {
-    border: none;
-    outline: none;
-    width: 90%;
-    margin-bottom: 1px;
-}
-
-#dropdown-search-button {
-    width: 6%;
-    height: auto;
-}
-
-#second-search-button img {
-    width: 26px;
-    height: auto;
-    margin-left: -30px;
 }
 
 #all-quotes {
@@ -410,6 +380,8 @@ html, body {
 
 #add-quote-button, #edit-quote-button {
     border: solid 1px black;
+    border-radius: 10px;
+    outline: none;
     width: 120px;
     height: 40px;
     background-color: white;
@@ -494,7 +466,6 @@ html, body {
 
 @media only screen and (max-width: 1366px) {
     * {font-size: 14px;}
-    .checkbox-container { width: 10px; height: 10px;}
     #site-content-container { margin-top: 26px; }
     #site-title { font-size: 20px; }
     #search { height: 26px; width: 250px; }
@@ -503,5 +474,4 @@ html, body {
     #panel-navigation > #titles { font-size: 16px; }
     #delete-all-ico {width: 10px;}
     #search-tool { height: 20px; }
-    #second-search-button img { width: 20px; }
 }

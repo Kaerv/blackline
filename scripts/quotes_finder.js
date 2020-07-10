@@ -1,22 +1,13 @@
 $("#search-input").on("keydown", function(e) {
     if(e.keyCode == 13) {
-        findQuote($(this).val(), true, false, false);
-        $("#cancel-second-search").hide();
-        $("#cancel-search").hide();
+        findQuote($(this).val());
         $("#cancel-search").show();
     }
 });
 
-$("#second-search-input").on("keydown", function(e) {
-    if(e.keyCode == 13) {
-        let byAuthor = $("#search-by-author").prop("checked");
-        let byCategory = $("#search-by-category").prop("checked");
-
-        $("#cancel-second-search").hide();
-        $("#cancel-search").hide();
-        $("#cancel-second-search").show();
-        findQuote($(this).val(), false, byAuthor, byCategory);
-    }
+$("#search-button").on("click", function(e) {
+    findQuote($(this).val());
+    $("#cancel-search").show();
 });
 
 $("#cancel-search").on("click", function() {
@@ -26,20 +17,10 @@ $("#cancel-search").on("click", function() {
     $("#cancel-search").hide();
 });
 
-$("#cancel-second-search").on("click", function() {
-    resetQuotesPanel();
-    getQuotes(0);
-    $("#second-search-input").val("");
-    $("#cancel-second-search").hide();
-});
-
-function findQuote(phrase, byContent = false, byAuthor = false, byCategory = false) {
+function findQuote(phrase) {
     if(phrase != "") {
         let data = {
             phrase: phrase,
-            byContent: byContent,
-            byAuthor: byAuthor,
-            byCategory: byCategory
         }
     
         $.ajax({

@@ -58,33 +58,6 @@
                                     <span>Usuń</span>
                                 </div>
                             </div>
-                            <div id="search-tool">
-                                <div id="search-options">
-                                    <span id="search-label">Szukaj: </span>
-                                    <div id="author-option">
-                                        <div class="checkbox-container">
-                                            <input type="checkbox" name="check-all" id="search-by-author">
-                                            <img src="../assets/icons/checked.svg" alt="">
-                                        </div>
-                                        <label for="search-author">Autor</label>
-                                    </div>
-                                    <div id="category-option">
-                                        <div class="checkbox-container">
-                                            <input type="checkbox" name="check-all" id="search-by-category">
-                                            <img src="../assets/icons/checked.svg" alt="">
-                                        </div>
-                                        <label for="search-category">Kategoria</label>
-                                    </div>                                  
-                                </div>
-                                <img src="/assets/icons/close.svg" id="cancel-second-search">
-                                <div id="second-search">
-                                    <input type="text" name="second-search" id="second-search-input">
-                                    <img id="dropdown-search-button" src="../assets/icons/down-arrow.svg" alt="">
-                                </div>
-                                <div id="second-search-button">
-                                    <img src="../assets/icons/search.svg" alt="">
-                                </div>
-                            </div>
                         </div>
                         <table id="all-quotes">
                             <tr>

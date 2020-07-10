@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-07-10 10:52:46
+/* Smarty version 3.1.34-dev-7, created on 2020-07-10 11:52:44
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f08487eb7a9c4_44417371',
+  'unifunc' => 'content_5f08568c665359_87490596',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1594378365,
+      1 => 1594381863,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f08487eb7a9c4_44417371 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f08568c665359_87490596 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,33 +79,6 @@ function content_5f08487eb7a9c4_44417371 (Smarty_Internal_Template $_smarty_tpl)
                                 <div id="delete-checked">
                                     <img src="/assets/icons/close.svg" id="delete-all-ico">
                                     <span>Usuń</span>
-                                </div>
-                            </div>
-                            <div id="search-tool">
-                                <div id="search-options">
-                                    <span id="search-label">Szukaj: </span>
-                                    <div id="author-option">
-                                        <div class="checkbox-container">
-                                            <input type="checkbox" name="check-all" id="search-by-author">
-                                            <img src="../assets/icons/checked.svg" alt="">
-                                        </div>
-                                        <label for="search-author">Autor</label>
-                                    </div>
-                                    <div id="category-option">
-                                        <div class="checkbox-container">
-                                            <input type="checkbox" name="check-all" id="search-by-category">
-                                            <img src="../assets/icons/checked.svg" alt="">
-                                        </div>
-                                        <label for="search-category">Kategoria</label>
-                                    </div>                                  
-                                </div>
-                                <img src="/assets/icons/close.svg" id="cancel-second-search">
-                                <div id="second-search">
-                                    <input type="text" name="second-search" id="second-search-input">
-                                    <img id="dropdown-search-button" src="../assets/icons/down-arrow.svg" alt="">
-                                </div>
-                                <div id="second-search-button">
-                                    <img src="../assets/icons/search.svg" alt="">
                                 </div>
                             </div>
                         </div>
