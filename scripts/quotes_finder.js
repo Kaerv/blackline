@@ -1,6 +1,8 @@
 $("#search-input").on("keydown", function(e) {
     if(e.keyCode == 13) {
         findQuote($(this).val(), true, false, false);
+        $("#cancel-second-search").hide();
+        $("#cancel-search").hide();
         $("#cancel-search").show();
     }
 });
@@ -10,13 +12,14 @@ $("#second-search-input").on("keydown", function(e) {
         let byAuthor = $("#search-by-author").prop("checked");
         let byCategory = $("#search-by-category").prop("checked");
 
+        $("#cancel-second-search").hide();
+        $("#cancel-search").hide();
         $("#cancel-second-search").show();
         findQuote($(this).val(), false, byAuthor, byCategory);
     }
 });
 
 $("#cancel-search").on("click", function() {
-    console.log(displayedQuotes);
     resetQuotesPanel();
     getQuotes(0);
     $("#search-input").val("");

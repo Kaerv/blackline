@@ -10,6 +10,7 @@ function removeQuote(id, oneQuote) {
             let result = msg.split(";");
             if(result[0] == "0") {
                 if(oneQuote) {
+                    getQuotesCount();
                     resetQuotesPanel();
                     getQuotes(0);
                 }
@@ -23,13 +24,13 @@ function removeQuote(id, oneQuote) {
 }
 
 function removeSelectedQuotes() {
-    $("#check-all").prop("checked", false);
     $(".check-quote").each(function() {
         if($(this).prop("checked")) {
             let id = $(this).parent().parent().attr("class").split("-")[1];
             removeQuote(id, false);
         }
     });
+    $("#check-all").prop("checked", false);
     resetQuotesPanel();
     getQuotes(0);
 }

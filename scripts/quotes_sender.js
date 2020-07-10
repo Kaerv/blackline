@@ -15,6 +15,7 @@ function sendQuote() {
             success: (msg) => {
                 let result = msg.split(";");
                 if(result[0] == "0") {
+                    getQuotesCount();
                     resetQuotesPanel();
                     getQuotes(0);
                     clearForm();

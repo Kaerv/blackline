@@ -8,12 +8,9 @@ function getQuotes(start) {
             start: start
         },
         success: (msg) => {
-            displayedQuotes += 25;
             generateQuotesDOM(msg);
             addEventsToQuotes();
-            if(displayedQuotes < allQuotesCount - 1) {
-                addLoadMoreButton();
-            }
+            addLoadMoreButton();
         },
         async: false
     });
@@ -112,6 +109,7 @@ function addQuotesToPanel(quotes) {
 }
 
 function resetQuotesPanel() {
+    displayedQuotes = 25;
     $("#all-quotes").find("tbody").html(`
     <tr>
         <th rowspan="2"></th>
@@ -145,16 +143,17 @@ function addEventsToQuotes() {
 }
 
 function addLoadMoreButton() {
-    $("#all-quotes").find("tbody").append(`
-    <tr>
-        <td colspan=8><input type="button" id="load-more-button" value="Wczytaj więcej"></td>`
-    );
+    if(displayedQuotes + 25 < allQuotesCount - 1) {
+        $("#all-quotes").find("tbody").append(`
+        <tr>
+            <td colspan=8><input type="button" id="load-more-button" value="Wczytaj więcej"></td>`
+        );
 
-    $("#load-more-button").on("click", function() {
-        $("#load-more-button").parent().remove();
-        getQuotes(displayedQuotes);
-        console.log(displayedQuotes, allQuotesCount);
-    });
-    
+        $("#load-more-button").on("click", function() {
+            $("#load-more-button").parent().remove();
+            getQuotes(displayedQuotes);
+            displayedQuotes += 25;
+        });
+    }
 }
 
