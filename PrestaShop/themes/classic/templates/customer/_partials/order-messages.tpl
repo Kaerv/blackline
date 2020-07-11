@@ -1,5 +1,5 @@
 {**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -15,67 +15,68 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to https://www.prestashop.com for more information.
+ * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='order_messages_table'}
   {if $order.messages}
-    <div class="box messages">
-      <h3>{l s='Messages' d='Shop.Theme.Customeraccount'}</h3>
+    <h3>{l s='Messages' d='Shop.Theme.Customeraccount'}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>{l s='From' d='Shop.Forms.Labels'}</th>
+          <th>{l s='Message' d='Shop.Forms.Labels'}</th>
+        </tr>
+      </thead>
+      <tbody>
       {foreach from=$order.messages item=message}
-        <div class="message row">
-          <div class="col-sm-4">
-            {$message.name}<br/>
+        <tr>
+          <td>
+            {$message.name}<br>
             {$message.message_date}
-          </div>
-          <div class="col-sm-8">
-            {$message.message nofilter}
-          </div>
-        </div>
+          </td>
+          <td>{$message.message nofilter}</td>
+        </tr>
       {/foreach}
-    </div>
+      </tbody>
+    </table>
   {/if}
 {/block}
 
 {block name='order_message_form'}
-  <section class="order-message-form box">
+  <section class="order-message-form">
     <form action="{$urls.pages.order_detail}" method="post">
 
       <header>
-        <h3>{l s='Add a message' d='Shop.Theme.Customeraccount'}</h3>
+        <h1 class="h3">{l s='Add a message' d='Shop.Theme.Customeraccount'}</h1>
         <p>{l s='If you would like to add a comment about your order, please write it in the field below.' d='Shop.Theme.Customeraccount'}</p>
       </header>
 
       <section class="form-fields">
 
-        <div class="form-group row">
-          <label class="col-md-3 form-control-label">{l s='Product' d='Shop.Forms.Labels'}</label>
-          <div class="col-md-5">
-            <select name="id_product" class="form-control form-control-select">
-              <option value="0">{l s='-- please choose --' d='Shop.Forms.Labels'}</option>
-              {foreach from=$order.products item=product}
-                <option value="{$product.id_product}">{$product.name}</option>
-              {/foreach}
-            </select>
-          </div>
-        </div>
+        <label>
+          <span>{l s='Product' d='Shop.Forms.Labels'}</span>
+          <select name="id_product">
+            <option value="0">{l s='-- Choose --' d='Shop.Forms.Labels'}</option>
+            {foreach from=$order.products item=product}
+              <option value="{$product.product_id}">{$product.product_name}</option>
+            {/foreach}
+          </select>
+        </label>
 
-        <div class="form-group row">
-          <label class="col-md-3 form-control-label"></label>
-          <div class="col-md-9">
-            <textarea rows="3" name="msgText" class="form-control"></textarea>
-          </div>
-        </div>
+        <label>
+          <textarea cols="67" rows="3" name="msgText"></textarea>
+        </label>
 
       </section>
 
-      <footer class="form-footer text-sm-center">
+      <footer class="form-footer">
         <input type="hidden" name="id_order" value="{$order.details.id}">
-        <button type="submit" name="submitMessage" class="btn btn-primary form-control-submit">
+        <button type="submit" name="submitMessage">
           {l s='Send' d='Shop.Theme.Actions'}
         </button>
       </footer>

@@ -1,5 +1,5 @@
 {**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -15,10 +15,10 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to https://www.prestashop.com for more information.
+ * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -29,17 +29,17 @@
 {/block}
 
 {block name='page_content'}
-  <h6>{l s='Here are the orders you\'ve placed since your account was created.' d='Shop.Theme.Customeraccount'}</h6>
+  <h2>{l s='Here are the orders you\'ve placed since your account was created.' d='Shop.Theme.Customeraccount'}</h2>
 
   {if $orders}
-    <table class="table table-striped table-bordered table-labeled hidden-sm-down">
-      <thead class="thead-default">
+    <table>
+      <thead>
         <tr>
           <th>{l s='Order reference' d='Shop.Theme.Checkout'}</th>
           <th>{l s='Date' d='Shop.Theme.Checkout'}</th>
           <th>{l s='Total price' d='Shop.Theme.Checkout'}</th>
-          <th class="hidden-md-down">{l s='Payment' d='Shop.Theme.Checkout'}</th>
-          <th class="hidden-md-down">{l s='Status' d='Shop.Theme.Checkout'}</th>
+          <th>{l s='Payment' d='Shop.Theme.Checkout'}</th>
+          <th>{l s='Status' d='Shop.Theme.Checkout'}</th>
           <th>{l s='Invoice' d='Shop.Theme.Checkout'}</th>
           <th>&nbsp;</th>
         </tr>
@@ -47,73 +47,37 @@
       <tbody>
         {foreach from=$orders item=order}
           <tr>
-            <th scope="row">{$order.details.reference}</th>
+            <td>{$order.details.reference}</td>
             <td>{$order.details.order_date}</td>
-            <td class="text-xs-right">{$order.totals.total.value}</td>
-            <td class="hidden-md-down">{$order.details.payment}</td>
+            <td>{$order.totals.total.value}</td>
+            <td>{$order.details.payment}</td>
             <td>
               <span
-                class="label label-pill {$order.history.current.contrast}"
+                class="order-status-label {$order.history.current.contrast}"
                 style="background-color:{$order.history.current.color}"
               >
                 {$order.history.current.ostate_name}
               </span>
             </td>
-            <td class="text-sm-center hidden-md-down">
+            <td>
               {if $order.details.invoice_url}
-                <a href="{$order.details.invoice_url}"><i class="material-icons">&#xE415;</i></a>
+                <a href="{$order.details.invoice_url}" class="order-invoice-link">{l s='PDF' d='Shop.Theme.Customeraccount'}</a>
               {else}
                 -
               {/if}
             </td>
-            <td class="text-sm-center order-actions">
+            <td>
               <a href="{$order.details.details_url}" data-link-action="view-order-details">
                 {l s='Details' d='Shop.Theme.Customeraccount'}
               </a>
               {if $order.details.reorder_url}
-                <a href="{$order.details.reorder_url}">{l s='Reorder' d='Shop.Theme.Actions'}</a>
+                <a href="{$order.details.reorder_url}" class="order-reorder-link">{l s='Reorder' d='Shop.Theme.Actions'}</a>
               {/if}
             </td>
           </tr>
         {/foreach}
       </tbody>
     </table>
-
-    <div class="orders hidden-md-up">
-      {foreach from=$orders item=order}
-        <div class="order">
-          <div class="row">
-            <div class="col-xs-10">
-              <a href="{$order.details.details_url}"><h3>{$order.details.reference}</h3></a>
-              <div class="date">{$order.details.order_date}</div>
-              <div class="total">{$order.totals.total.value}</div>
-              <div class="status">
-                <span
-                  class="label label-pill {$order.history.current.contrast}"
-                  style="background-color:{$order.history.current.color}"
-                >
-                  {$order.history.current.ostate_name}
-                </span>
-              </div>
-            </div>
-            <div class="col-xs-2 text-xs-right">
-                <div>
-                  <a href="{$order.details.details_url}" data-link-action="view-order-details" title="{l s='Details' d='Shop.Theme.Customeraccount'}">
-                    <i class="material-icons">&#xE8B6;</i>
-                  </a>
-                </div>
-                {if $order.details.reorder_url}
-                  <div>
-                    <a href="{$order.details.reorder_url}" title="{l s='Reorder' d='Shop.Theme.Actions'}">
-                      <i class="material-icons">&#xE863;</i>
-                    </a>
-                  </div>
-                {/if}
-            </div>
-          </div>
-        </div>
-      {/foreach}
-    </div>
-
   {/if}
+
 {/block}

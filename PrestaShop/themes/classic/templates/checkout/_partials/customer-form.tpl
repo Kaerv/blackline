@@ -1,5 +1,5 @@
 {**
- * 2007-2019 PrestaShop and Contributors
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -15,10 +15,10 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to https://www.prestashop.com for more information.
+ * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA and Contributors
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -26,25 +26,17 @@
 
 {block "form_field"}
   {if $field.name === 'password' and $guest_allowed}
-      <p>
-        <span class="font-weight-bold">{l s='Create an account' d='Shop.Theme.Checkout'}</span> <span class="font-italic">{l s='(optional)' d='Shop.Theme.Checkout'}</span>
-        <br>
-        <span class="text-muted">{l s='And save time on your next order!' d='Shop.Theme.Checkout'}</span>
-      </p>
+    <div>
+      <p>{l s='Choose a password to create an account and save time on your next order (optional)' d='Shop.Theme.Checkout'}</p>
       {$smarty.block.parent}
+    </div>
   {else}
     {$smarty.block.parent}
   {/if}
 {/block}
 
 {block "form_buttons"}
-    <button
-      class="continue btn btn-primary float-xs-right"
-      name="continue"
-      data-link-action="register-new-customer"
-      type="submit"
-      value="1"
-    >
-        {l s='Continue' d='Shop.Theme.Actions'}
-    </button>
+  <button class="continue" name="continue" data-link-action="register-new-customer" type="submit" value="1">
+    {l s='Continue' d='Shop.Theme.Actions'}
+  </button>
 {/block}

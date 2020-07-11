@@ -42,20 +42,23 @@ function generateQuotesDOM(msg) {
     addQuotesToPanel(quotes);
 }
 
-function convertRawToObjects(bigData) {
+function convertRawToObjects(row) {
     let quotes = [];
-    for(let i = 0; i < bigData.length - 1; i++) {
+    for(let i = 0; i < row.length - 1; i++) {
         let isRepeat = false;
-        let data = bigData[i].split(";");
+        let quote = row[i].split(";");
+        quote[0] = parseInt(quote[0]);
+
+        console.log(quotes);
         for(let j = 0; j < quotes.length; j++) {
-            if(quotes[j].id == data[0]) {
-                quotes[j].categories.push(data[3]);
+            if(quotes[j].id == quote[0]) {
+                quotes[j].categories.push(quote[3]);
                 isRepeat = true;
             }
         }
 
         if(!isRepeat) 
-            quotes.push(createNewQuoteObject(data));
+            quotes.push(createNewQuoteObject(quote));
     }
     return quotes;
 }
@@ -85,7 +88,7 @@ function addQuotesToPanel(quotes) {
             categories += quotes[i].categories[j].toLowerCase();
             categories += ";"
         }
-        let id = quotes[i].id.trim();
+        let id = quotes[i].id;
         $("#all-quotes").find("tbody").append(`
         <tr>
                         <td class="quote-${id}">

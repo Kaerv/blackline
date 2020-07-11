@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-07-10 11:52:44
+/* Smarty version 3.1.34-dev-7, created on 2020-07-10 12:40:16
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f08568c665359_87490596',
+  'unifunc' => 'content_5f0861b0ab6574_89074333',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1594381863,
+      1 => 1594384815,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f08568c665359_87490596 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f0861b0ab6574_89074333 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,8 +115,8 @@ function content_5f08568c665359_87490596 (Smarty_Internal_Template $_smarty_tpl)
                             <div class="adding-quote-label">Kategorie</div>
                             <div>
                                 <div class="add-quote-input">
-                                    <input type="text" id="add-quote-category">
                                     <div id="add-quote-selected-categories"></div>
+                                    <input type="text" id="add-quote-category">
                                 </div>
                             </div>
                             <div>
@@ -150,8 +150,8 @@ function content_5f08568c665359_87490596 (Smarty_Internal_Template $_smarty_tpl)
             <div class="editing-quote-label">Kategorie</div>
             <div>
                 <div class="edit-quote-input">
-                    <input type="text" id="edit-quote-category">
                     <div id="edit-quote-selected-categories"></div>
+                    <input type="text" id="edit-quote-category">
                 </div>
             </div>
             <div>

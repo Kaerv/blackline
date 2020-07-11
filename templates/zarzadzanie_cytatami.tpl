@@ -92,8 +92,8 @@
                             <div class="adding-quote-label">Kategorie</div>
                             <div>
                                 <div class="add-quote-input">
-                                    <input type="text" id="add-quote-category">
                                     <div id="add-quote-selected-categories"></div>
+                                    <input type="text" id="add-quote-category">
                                 </div>
                             </div>
                             <div>
@@ -127,8 +127,8 @@
             <div class="editing-quote-label">Kategorie</div>
             <div>
                 <div class="edit-quote-input">
-                    <input type="text" id="edit-quote-category">
                     <div id="edit-quote-selected-categories"></div>
+                    <input type="text" id="edit-quote-category">
                 </div>
             </div>
             <div>
