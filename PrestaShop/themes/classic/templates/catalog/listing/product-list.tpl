@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -34,23 +34,17 @@
     <section id="products">
       {if $listing.products|count}
 
-        <div id="">
-          {block name='product_list_top'}
-            {include file='catalog/_partials/products-top.tpl' listing=$listing}
-          {/block}
-        </div>
-
-        {block name='product_list_active_filters'}
-          <div id="" class="hidden-sm-down">
-            {$listing.rendered_active_filters nofilter}
-          </div>
+        {block name='product_list_top'}
+          {include file='catalog/_partials/products-top.tpl' listing=$listing}
         {/block}
 
-        <div id="">
-          {block name='product_list'}
-            {include file='catalog/_partials/products.tpl' listing=$listing}
-          {/block}
-        </div>
+        {block name='product_list_active_filters'}
+          {$listing.rendered_active_filters nofilter}
+        {/block}
+
+        {block name='product_list'}
+          {include file='catalog/_partials/products.tpl' listing=$listing}
+        {/block}
 
         <div id="js-product-list-bottom">
           {block name='product_list_bottom'}

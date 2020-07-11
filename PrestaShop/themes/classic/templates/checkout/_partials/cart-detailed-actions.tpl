@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,28 +18,20 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='cart_detailed_actions'}
-  <div class="checkout cart-detailed-actions card-block">
+  <div class="checkout cart-detailed-actions">
     {if $cart.minimalPurchaseRequired}
       <div class="alert alert-warning" role="alert">
         {$cart.minimalPurchaseRequired}
       </div>
-      <div class="text-sm-center">
-        <button type="button" class="btn btn-primary disabled" disabled>{l s='Proceed to checkout' d='Shop.Theme.Actions'}</button>
-      </div>
-    {elseif empty($cart.products) }
-      <div class="text-sm-center">
-        <button type="button" class="btn btn-primary disabled" disabled>{l s='Proceed to checkout' d='Shop.Theme.Actions'}</button>
-      </div>
+      <button type="button" disabled>{l s='Checkout' d='Shop.Theme.Actions'}</button>
     {else}
-      <div class="text-sm-center">
-        <a href="{$urls.pages.order}" class="btn btn-primary">{l s='Proceed to checkout' d='Shop.Theme.Actions'}</a>
-        {hook h='displayExpressCheckout'}
-      </div>
+      <a href="{$urls.pages.order}">{l s='Checkout' d='Shop.Theme.Actions'}</a>
+      {hook h='displayExpressCheckout'}
     {/if}
   </div>
 {/block}

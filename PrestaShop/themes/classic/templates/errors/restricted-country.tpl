@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -30,8 +30,8 @@
 
     {block name='page_header_container'}
       <header class="page-header">
-        <div class="logo"><img src="{$shop.logo}" alt="logo"></div>
         {block name='page_header'}
+          {block name='page_header_logo'}<div class="logo"><img src="{$shop.logo}" alt="logo"></div>{/block}
           <h1>{block name='page_title'}{$shop.name}{/block}</h1>
         {/block}
       </header>

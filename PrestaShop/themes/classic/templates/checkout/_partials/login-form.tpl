@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,20 +18,14 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file='customer/_partials/login-form.tpl'}
 
 {block name='form_buttons'}
-  <button
-    class="continue btn btn-primary float-xs-right"
-    name="continue"
-    data-link-action="sign-in"
-    type="submit"
-    value="1"
-  >
+  <button type="submit" class="continue" data-link-action="sign-in" name="continue" value="1">
     {l s='Continue' d='Shop.Theme.Actions'}
   </button>
 {/block}

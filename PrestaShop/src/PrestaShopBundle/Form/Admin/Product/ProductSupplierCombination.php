@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2018 PrestaShop
+ * 2007-2019 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -16,23 +16,24 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2019 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
+
 namespace PrestaShopBundle\Form\Admin\Product;
 
 use PrestaShopBundle\Form\Admin\Type\CommonAbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type as FormType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * This form class is responsible to generate the basic product suppliers form
+ * This form class is responsible to generate the basic product suppliers form.
  */
 class ProductSupplierCombination extends CommonAbstractType
 {
@@ -41,7 +42,7 @@ class ProductSupplierCombination extends CommonAbstractType
     private $currencyAdapter;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param object $translator
      * @param object $contextLegacy
@@ -64,36 +65,37 @@ class ProductSupplierCombination extends CommonAbstractType
         $builder->add(
             'supplier_reference',
             FormType\TextType::class,
-            array(
+            [
                 'required' => false,
-                'label' => null
-            )
+                'label' => null,
+                'empty_data' => '',
+            ]
         )
-        ->add(
-            'product_price',
-            FormType\MoneyType::class,
-            array(
-                'required' => false,
-                'constraints' => array(
-                    new Assert\NotBlank(),
-                    new Assert\Type(array('type' => 'float'))
-                )
+            ->add(
+                'product_price',
+                FormType\MoneyType::class,
+                [
+                    'required' => false,
+                    'constraints' => [
+                        new Assert\NotBlank(),
+                        new Assert\Type(['type' => 'float']),
+                    ],
+                ]
             )
-        )
-        ->add(
-            'product_price_currency',
-            FormType\ChoiceType::class,
-            array(
-                'choices'  => $this->formatDataChoicesList($this->currencyAdapter->getCurrencies(), 'id_currency'),
-                'required' => true,
-                'attr' => array(
-                    'class' => 'custom-select',
-                ),
+            ->add(
+                'product_price_currency',
+                FormType\ChoiceType::class,
+                [
+                    'choices' => $this->formatDataChoicesList($this->currencyAdapter->getCurrencies(), 'id_currency'),
+                    'required' => true,
+                    'attr' => [
+                        'class' => 'custom-select',
+                    ],
+                ]
             )
-        )
-        ->add('id_product_attribute', FormType\HiddenType::class)
-        ->add('product_id', FormType\HiddenType::class)
-        ->add('supplier_id', FormType\HiddenType::class);
+            ->add('id_product_attribute', FormType\HiddenType::class)
+            ->add('product_id', FormType\HiddenType::class)
+            ->add('supplier_id', FormType\HiddenType::class);
 
         //set default minimal values for collection prototype
         $builder->setData([
@@ -102,14 +104,15 @@ class ProductSupplierCombination extends CommonAbstractType
             'product_price_currency' => $this->contextLegacy->currency->id,
         ]);
     }
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'id_supplier' => null,
-        ));
+        ]);
     }
 
     /**

@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -29,16 +29,15 @@
   <section id="main">
 
     {block name='page_header_container'}
-      {block name='page_title' hide}
-        <header class="page-header">
-          <h1>{$smarty.block.child}</h1>
-        </header>
-      {/block}
+      <header class="page-header">
+        {block name='page_header'}
+          <h1>{block name='page_title'}{/block}</h1>
+        {/block}
+      </header>
     {/block}
 
     {block name='page_content_container'}
-      <section id="content" class="page-content card card-block">
-        {block name='page_content_top'}{/block}
+      <section id="content" class="page-content">
         {block name='page_content'}
           <!-- Page content -->
         {/block}

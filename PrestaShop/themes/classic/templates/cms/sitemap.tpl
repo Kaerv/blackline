@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,35 +18,29 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file='page.tpl'}
 
 {block name='page_title'}
-  <span class="sitemap-title">{l s='Sitemap' d='Shop.Theme.Global'}</span>
+  {l s='Sitemap' d='Shop.Theme.Global'}
 {/block}
 
 {block name='page_content_container'}
-  <div class="container-fluid">
-    <div class="row sitemap col-xs-12">
-        <div class="col-md-3">
-          <h2>{$our_offers}</h2>
-          {include file='cms/_partials/sitemap-nested-list.tpl' links=$links.offers}
-        </div>
-        <div class="col-md-3">
-          <h2>{$categories}</h2>
-          {include file='cms/_partials/sitemap-nested-list.tpl' links=$links.categories}
-        </div>
-        <div class="col-md-3">
-          <h2>{$your_account}</h2>
-          {include file='cms/_partials/sitemap-nested-list.tpl' links=$links.user_account}
-        </div>
-        <div class="col-md-3">
-          <h2>{$pages}</h2>
-          {include file='cms/_partials/sitemap-nested-list.tpl' links=$links.pages}
-        </div>
+  <div id="sitemap-tree" class="sitemap">
+    <div class="tree-top">
+      <a href="{$urls.base_url}" title="{$shop.name}"></a>
     </div>
+    <ul class="tree">
+      {foreach $sitemap as $item}
+        {if isset($item.children)}
+          {foreach $item.children as $child}
+            {include file='cms/_partials/sitemap-tree-branch.tpl' node=$child}
+          {/foreach}
+        {/if}
+      {/foreach}
+    </ul>
   </div>
 {/block}

@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -41,9 +41,9 @@
       <header>
         <h1 class="h3">{l s='Transform your guest account into a customer account and enjoy:' d='Shop.Theme.Customeraccount'}</h1>
         <ul>
-          <li> -{l s='Personalized and secure access' d='Shop.Theme.Customeraccount'}</li>
-          <li> -{l s='Fast and easy checkout' d='Shop.Theme.Customeraccount'}</li>
-          <li> -{l s='Easier merchandise return' d='Shop.Theme.Customeraccount'}</li>
+          <li>{l s='Personalized and secure access' d='Shop.Theme.Customeraccount'}</li>
+          <li>{l s='Fast and easy checkout' d='Shop.Theme.Customeraccount'}</li>
+          <li>{l s='Easier merchandise return' d='Shop.Theme.Customeraccount'}</li>
         </ul>
       </header>
 
@@ -62,7 +62,7 @@
         <input type="hidden" name="order_reference" value="{$order.details.reference}">
         <input type="hidden" name="email" value="{$guest_email}">
 
-        <button class="btn btn-primary" type="submit">{l s='Send' d='Shop.Theme.Actions'}</button>
+        <button type="submit">{l s='Send' d='Shop.Theme.Actions'}</button>
       </footer>
 
     </form>

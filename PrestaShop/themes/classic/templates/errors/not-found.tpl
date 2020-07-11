@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,15 +18,13 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <section id="content" class="page-content page-not-found">
   {block name='page_content'}
-
-    <h4>{l s='Sorry for the inconvenience.' d='Shop.Theme.Global'}</h4>
-    <p>{l s='Search again what you are looking for' d='Shop.Theme.Global'}</p>
+    <p>{l s='Sorry for the inconvenience.' d='Shop.Theme.Global'}</p>
 
     {block name='search'}
       {hook h='displaySearch'}
@@ -35,6 +33,5 @@
     {block name='hook_not_found'}
       {hook h='displayNotFound'}
     {/block}
-
   {/block}
 </section>

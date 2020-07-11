@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,25 +18,36 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file='catalog/listing/product-list.tpl'}
 
 {block name='product_list_header'}
-    <div class="block-category card card-block hidden-sm-down">
-      <h1 class="h1">{$category.name}</h1>
-      {if $category.description}
-        <div id="category-description" class="text-muted">{$category.description nofilter}</div>
+
+  <h1>{$category.name}</h1>
+  <div class="category-cover">
+    <img src="{$category.image.large.url}" alt="{$category.image.legend}">
+  </div>
+  <div id="category-description">{$category.description nofilter}</div>
+
+  {block name='category_subcategories'}
+    <aside>
+      {if $subcategories|count}
+        <nav class="subcategories">
+          <ul>
+            {foreach from=$subcategories item="subcategory"}
+              <li>
+                {block name='category_miniature'}
+                  {include file='catalog/_partials/miniatures/category.tpl' category=$subcategory}
+                {/block}
+              </li>
+            {/foreach}
+          </ul>
+        </nav>
       {/if}
-      {if $category.image.large.url}
-        <div class="category-cover">
-          <img src="{$category.image.large.url}" alt="{if !empty($category.image.legend)}{$category.image.legend}{else}{$category.name}{/if}">
-        </div>
-      {/if}
-    </div>
-    <div class="text-sm-center hidden-md-up">
-      <h1 class="h1">{$category.name}</h1>
-    </div>
+    </aside>
+  {/block}
+
 {/block}

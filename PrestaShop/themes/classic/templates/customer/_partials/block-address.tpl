@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,28 +18,33 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='address_block_item'}
   <article id="address-{$address.id}" class="address" data-id-address="{$address.id}">
-    <div class="address-body">
-      <h4>{$address.alias}</h4>
-      <address>{$address.formatted nofilter}</address>
-    </div>
+    <header>
+      <h1 class="h4">{$address.alias}</h1>
+    </header>
 
-    {block name='address_block_item_actions'}
-      <div class="address-footer">
-        <a href="{url entity=address id=$address.id}" data-link-action="edit-address">
-          <i class="material-icons">&#xE254;</i>
-          <span>{l s='Update' d='Shop.Theme.Actions'}</span>
-        </a>
-        <a href="{url entity=address id=$address.id params=['delete' => 1, 'token' => $token]}" data-link-action="delete-address">
-          <i class="material-icons">&#xE872;</i>
-          <span>{l s='Delete' d='Shop.Theme.Actions'}</span>
-        </a>
-      </div>
+    <p>{$address.formatted nofilter}</p>
+
+    {block name='address_block_item'}
+      <footer class="actions address-actions">
+        <ul class="action-list">
+          <li>
+            <a href="{url entity=address id=$address.id}" data-link-action="edit-address">
+              {l s='Update' d='Shop.Theme.Actions'}
+            </a>
+          </li>
+          <li>
+            <a href="{url entity=address id=$address.id params=['delete' => 1, 'token' => $token]}" data-link-action="delete-address">
+              {l s='Delete' d='Shop.Theme.Actions'}
+            </a>
+          </li>
+        </ul>
+      </footer>
     {/block}
   </article>
 {/block}

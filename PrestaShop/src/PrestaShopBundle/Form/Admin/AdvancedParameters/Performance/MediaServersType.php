@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2018 PrestaShop
+ * 2007-2019 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -16,21 +16,23 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2019 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
+
 namespace PrestaShopBundle\Form\Admin\AdvancedParameters\Performance;
 
 use PrestaShopBundle\Form\Admin\Type\CommonAbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * This form class generates the "Media servers" form in Performance page
+ * This form class generates the "Media servers" form in Performance page.
  */
 class MediaServersType extends CommonAbstractType
 {
@@ -40,16 +42,18 @@ class MediaServersType extends CommonAbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('media_server_one', 'Symfony\Component\Form\Extension\Core\Type\TextType', array(
+            ->add('media_server_one', TextType::class, [
                 'required' => false,
-            ))
-            ->add('media_server_two', 'Symfony\Component\Form\Extension\Core\Type\TextType', array(
+                'empty_data' => '',
+            ])
+            ->add('media_server_two', TextType::class, [
                 'required' => false,
-            ))
-            ->add('media_server_three', 'Symfony\Component\Form\Extension\Core\Type\TextType', array(
+                'empty_data' => '',
+            ])
+            ->add('media_server_three', TextType::class, [
                 'required' => false,
-            ))
-        ;
+                'empty_data' => '',
+            ]);
     }
 
     /**
@@ -57,9 +61,9 @@ class MediaServersType extends CommonAbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'translation_domain' => 'Admin.Advparameters.Feature'
-        ));
+        $resolver->setDefaults([
+            'translation_domain' => 'Admin.Advparameters.Feature',
+        ]);
     }
 
     /**

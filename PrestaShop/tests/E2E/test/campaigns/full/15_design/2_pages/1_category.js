@@ -1,5 +1,14 @@
+/**
+ * This script is based on scenarios described in this combination of the following tests link
+ * [id="PS-120"][Name="Create a category"]
+ * [id="PS-121"][Name="Edit a category"]
+ * [id="PS-122"][Name="Delete a category"]
+ **/
+
 const {AccessPageBO} = require('../../../../selectors/BO/access_page');
+const {Menu} = require('../../../../selectors/BO/menu.js');
 const common_scenarios = require('../../../common_scenarios/pages');
+const welcomeScenarios = require('../../../common_scenarios/welcome');
 
 let categoryDataWithoutSubCategory = {
   name: 'Category',
@@ -43,16 +52,31 @@ let newCategoryData = {
   }
 };
 
-scenario('Create, edit, delete and delete with bulk actions page category', () => {
+let pageData = {
+  page_category: 'editCategory',
+  meta_title: 'page1',
+  meta_description: 'page meta description',
+  meta_keyword: ["keyword", "page"],
+  page_content: 'page content'
+};
+
+scenario('Create, edit and delete "CATEGORIES"', () => {
 
   scenario('Login in the Back Office', client => {
     test('should open the browser', () => client.open());
     test('should log in successfully in the Back Office', () => client.signInBO(AccessPageBO));
   }, 'design');
 
+  welcomeScenarios.findAndCloseWelcomeModal();
   common_scenarios.createCategory(categoryDataWithSubCategory);
   common_scenarios.checkCategoryBO(categoryDataWithSubCategory);
   common_scenarios.editCategory(categoryDataWithSubCategory, newCategoryData);
+
+  scenario('go to "Design > Pages" page', client => {
+    test('should go to "Design > Pages" page', () => client.goToSubtabMenuPage(Menu.Improve.Design.design_menu, Menu.Improve.Design.pages_submenu));
+  }, 'design');
+
+  common_scenarios.createAndPreviewPage(pageData);
   common_scenarios.deleteCategory(newCategoryData.name);
   common_scenarios.deleteCategory(newCategoryData.sub_category.name);
   common_scenarios.createCategory(categoryDataWithoutSubCategory);

@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,22 +18,26 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file='page.tpl'}
 
-{block name='page_title'}
-  {l s='Create an account' d='Shop.Theme.Customeraccount'}
-{/block}
+{block name='page_header_container'}{/block}
 
-{block name='page_content'}
+{block name='page_content_container'}
+  <section id="content" class="page-content page-authentication">
     {block name='register_form_container'}
+      <header>
+        <h1 class="h1">{l s='Create an account' d='Shop.Theme.Customeraccount'}</h1>
+      </header>
+      <p>{l s='Already have an account?' d='Shop.Theme.Customeraccount'} <a href="{$urls.pages.authentication}">{l s='Log in instead!' d='Shop.Theme.Customeraccount'}</a></p>
+
       {$hook_create_account_top nofilter}
       <section class="register-form">
-        <p>{l s='Already have an account?' d='Shop.Theme.Customeraccount'} <a href="{$urls.pages.authentication}">{l s='Log in instead!' d='Shop.Theme.Customeraccount'}</a></p>
         {render file='customer/_partials/customer-form.tpl' ui=$register_form}
       </section>
     {/block}
+  </section>
 {/block}

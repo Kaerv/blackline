@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2018 PrestaShop
+ * 2007-2019 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -16,10 +16,10 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2019 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
@@ -46,7 +46,8 @@ class ApiClient
         $locale,
         $isoCode,
         $toolsAdapter,
-        $domain
+        $domain,
+        $shopVersion
     ) {
         $this->addonsApiClient = $addonsApiClient;
         $this->toolsAdapter = $toolsAdapter;
@@ -55,9 +56,8 @@ class ApiClient
 
         $this->setIsoLang($isoLang)
             ->setIsoCode($isoCode)
-            ->setVersion(_PS_VERSION_)
-            ->setShopUrl($domain)
-        ;
+            ->setVersion($shopVersion)
+            ->setShopUrl($domain);
         $this->defaultQueryParameters = $this->queryParameters;
     }
 
@@ -69,6 +69,7 @@ class ApiClient
 
     /**
      * @param Client $client
+     *
      * @return $this
      */
     public function setClient(Client $client)
@@ -79,7 +80,7 @@ class ApiClient
     }
 
     /**
-     * In case you reuse the Client, you may want to clean the previous parameters
+     * In case you reuse the Client, you may want to clean the previous parameters.
      */
     public function reset()
     {
@@ -87,7 +88,8 @@ class ApiClient
     }
 
     /**
-     * Check Addons client account credentials
+     * Check Addons client account credentials.
+     *
      * @return object
      */
     public function getCheckCustomer()
@@ -102,8 +104,7 @@ class ApiClient
     {
         $response = $this->setMethod('listing')
             ->setAction('native')
-            ->getResponse()
-        ;
+            ->getResponse();
 
         $responseArray = json_decode($response);
 
@@ -114,8 +115,7 @@ class ApiClient
     {
         $response = $this->setMethod('listing')
             ->setAction('install-modules')
-            ->getResponse()
-        ;
+            ->getResponse();
         $responseDecoded = json_decode($response);
 
         return isset($responseDecoded->modules) ? $responseDecoded->modules : array();
@@ -125,8 +125,7 @@ class ApiClient
     {
         $response = $this->setMethod('listing')
             ->setAction('must-have')
-            ->getResponse()
-        ;
+            ->getResponse();
 
         $responseArray = json_decode($response);
 
@@ -134,10 +133,11 @@ class ApiClient
     }
 
     /**
-     * Prepare and call API for PrestaTrust integrity and property module details
+     * Prepare and call API for PrestaTrust integrity and property module details.
      *
      * @param string $hash Hash of module files
      * @param string $sc_address Smart contract (Module licence)
+     *
      * @return object List of checks made and their results
      */
     public function getPrestaTrustCheck($hash, $sc_address)
@@ -147,6 +147,7 @@ class ApiClient
 
         $response = $this->setMethod('trust')
             ->getResponse();
+
         return json_decode($response);
     }
 
@@ -154,8 +155,7 @@ class ApiClient
     {
         $response = $this->setMethod('listing')
             ->setAction('service')
-            ->getResponse()
-        ;
+            ->getResponse();
 
         $responseArray = json_decode($response);
 
@@ -166,8 +166,7 @@ class ApiClient
     {
         $response = $this->setMethod('listing')
             ->setAction('categories')
-            ->getResponse()
-        ;
+            ->getResponse();
 
         $responseArray = json_decode($response);
 
@@ -179,8 +178,7 @@ class ApiClient
         $response = $this->setMethod('listing')
             ->setAction('module')
             ->setModuleId($moduleId)
-            ->getResponse()
-        ;
+            ->getResponse();
 
         $responseArray = json_decode($response);
 
@@ -190,17 +188,17 @@ class ApiClient
     }
 
     /**
-     * Call API for module ZIP content (= download)
-     * 
+     * Call API for module ZIP content (= download).
+     *
      * @param int $moduleId
+     *
      * @return string binary content (zip format)
      */
     public function getModuleZip($moduleId)
     {
         return $this->setMethod('module')
             ->setModuleId($moduleId)
-            ->getPostResponse()
-        ;
+            ->getPostResponse();
     }
 
     public function getCustomerModules($userMail, $password)
@@ -209,50 +207,52 @@ class ApiClient
             ->setAction('customer')
             ->setUserMail($userMail)
             ->setPassword($password)
-            ->getPostResponse()
-        ;
+            ->getPostResponse();
 
         $responseArray = json_decode($response);
 
         if (!empty($responseArray->modules)) {
             return $responseArray->modules;
         }
+
         return array();
     }
 
     /**
-     * Get list of themes bought by customer
+     * Get list of themes bought by customer.
+     *
      * @return object
      */
     public function getCustomerThemes()
     {
         $response = $this->setMethod('listing')
             ->setAction('customer-themes')
-            ->getPostResponse()
-        ;
+            ->getPostResponse();
 
         $responseDecoded = json_decode($response);
 
         if (!empty($responseDecoded->themes)) {
             return $responseDecoded->themes;
         }
+
         return array();
     }
 
     public function getResponse()
     {
         return (string) $this->addonsApiClient
-            ->get(null,
+            ->get(
+                null,
                 array('query' => $this->queryParameters,
                 )
-            )->getBody()
-        ;
+            )->getBody();
     }
 
     public function getPostResponse()
     {
         return (string) $this->addonsApiClient
-            ->post(null,
+            ->post(
+                null,
                 array('query' => $this->queryParameters,
                 )
             )->getBody();

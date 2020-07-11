@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,37 +18,19 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='pack_miniature_item'}
   <article>
-    <div class="card">
-      <div class="pack-product-container">
-        <div class="thumb-mask">
-          <div class="mask">
-            <a href="{$product.url}" title="{$product.name}">
-              <img
-                src="{$product.cover.medium.url}"
-                alt="{$product.cover.legend}"
-                data-full-size-image-url="{$product.cover.large.url}"
-              >
-            </a>
-          </div>
-        </div>
-        <div class="pack-product-name">
-          <a href="{$product.url}" title="{$product.name}">
-            {$product.name}
-          </a>
-        </div>
-        <div class="pack-product-price">
-          <strong>{$product.price}</strong>
-        </div>
-        <div class="pack-product-quantity">
-          <span>x {$product.pack_quantity}</span>
-        </div>
-      </div>
-    </div>
+      <h1>{$product.name}</h1>
+      <img
+        src = "{$product.cover.small.url}"
+        alt = "{$product.cover.legend}"
+        data-full-size-image-url = "{$product.cover.large.url}"
+      >
+      {$product.description_short}
+      {$product.description}
   </article>
 {/block}

@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2018 PrestaShop
+ * 2007-2019 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -16,58 +16,76 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2019 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
 
 namespace PrestaShop\PrestaShop\Core\Form;
 
-use PrestaShopBundle\Service\Hook\HookDispatcher;
+use Exception;
+use PrestaShop\PrestaShop\Core\Hook\HookDispatcherInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException;
 
 /**
- * Complete implementation of FormHandlerInterface
+ * Complete implementation of FormHandlerInterface.
  */
 class FormHandler implements FormHandlerInterface
 {
     /**
-     * @var FormBuilderInterface the form builder.
+     * @var FormBuilderInterface the form builder
      */
     protected $formBuilder;
 
     /**
-     * @var FormDataProviderInterface the form data provider.
+     * @var FormDataProviderInterface the form data provider
      */
     protected $formDataProvider;
 
     /**
-     * @var HookDispatcher the event dispatcher.
+     * @var HookDispatcherInterface the event dispatcher
      */
     protected $hookDispatcher;
 
     /**
-     * @var string the hook name.
+     * @var string the hook name
      */
     protected $hookName;
 
     /**
-     * @var array the list of Form Types.
+     * @var array the list of Form Types
      */
     protected $formTypes;
 
+    /**
+     * @var string the form name
+     */
+    protected $formName;
+
+    /**
+     * FormHandler constructor.
+     *
+     * @param FormBuilderInterface $formBuilder
+     * @param HookDispatcherInterface $hookDispatcher
+     * @param FormDataProviderInterface $formDataProvider
+     * @param array $formTypes
+     * @param string $hookName
+     * @param string $formName
+     */
     public function __construct(
         FormBuilderInterface $formBuilder,
-        HookDispatcher $hookDispatcher,
+        HookDispatcherInterface $hookDispatcher,
         FormDataProviderInterface $formDataProvider,
         array $formTypes,
-        $hookName
+        $hookName,
+        $formName = 'form'
     ) {
-        $this->formBuilder = $formBuilder;
+        $this->formName = $formName;
+        $this->formBuilder = $formBuilder->getFormFactory()->createNamedBuilder($formName);
         $this->hookDispatcher = $hookDispatcher;
         $this->formDataProvider = $formDataProvider;
         $this->formTypes = $formTypes;
@@ -76,7 +94,8 @@ class FormHandler implements FormHandlerInterface
 
     /**
      * {@inheritdoc}
-     * @throws \Exception
+     *
+     * @throws Exception
      */
     public function getForm()
     {
@@ -85,7 +104,7 @@ class FormHandler implements FormHandlerInterface
         }
 
         $this->formBuilder->setData($this->formDataProvider->getData());
-        $this->hookDispatcher->dispatchForParameters(
+        $this->hookDispatcher->dispatchWithParameters(
             "action{$this->hookName}Form",
             [
                 'form_builder' => &$this->formBuilder,
@@ -97,14 +116,15 @@ class FormHandler implements FormHandlerInterface
 
     /**
      * {@inheritdoc}
-     * @throws \Exception
+     *
+     * @throws Exception
      * @throws UndefinedOptionsException
      */
     public function save(array $data)
     {
         $errors = $this->formDataProvider->setData($data);
 
-        $this->hookDispatcher->dispatchForParameters(
+        $this->hookDispatcher->dispatchWithParameters(
             "action{$this->hookName}Save",
             [
                 'errors' => &$errors,

@@ -1,6 +1,6 @@
 <?php
 /**
- * 2007-2018 PrestaShop
+ * 2007-2019 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -16,23 +16,24 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2019 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
+
 namespace PrestaShopBundle\Form\Admin\Product;
 
 use PrestaShopBundle\Form\Admin\Type\CommonAbstractType;
 use PrestaShopBundle\Form\Admin\Type\TranslateType;
+use Symfony\Component\Form\Extension\Core\Type as FormType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Form\Extension\Core\Type as FormType;
 
 /**
- * This form class is responsible to generate the product custom fields configuration form
+ * This form class is responsible to generate the product custom fields configuration form.
  */
 class ProductCustomField extends CommonAbstractType
 {
@@ -40,7 +41,7 @@ class ProductCustomField extends CommonAbstractType
     private $locales;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param object $translator
      * @param object $legacyContext
@@ -61,35 +62,35 @@ class ProductCustomField extends CommonAbstractType
         $builder->add(
             'id_customization_field',
             FormType\HiddenType::class,
-            array(
+            [
                 'required' => false,
-            )
+            ]
         )
-        ->add('label', TranslateType::class, array(
-            'type' => FormType\TextType::class,
-            'options' => [ 'constraints' => array(
-                new Assert\NotBlank(),
-                new Assert\Length(array('min' => 2))
-            )],
-            'locales' => $this->locales,
-            'hideTabs' => true,
-            'label' => $this->translator->trans('Label', [], 'Admin.Global')
-        ))
-        ->add('type', FormType\ChoiceType::class, array(
-            'label' => $this->translator->trans('Type', [], 'Admin.Catalog.Feature'),
-            'choices'  => array(
-                $this->translator->trans('Text', [], 'Admin.Global') => 1,
-                $this->translator->trans('File', [], 'Admin.Global') => 0,
-            ),
-            'attr' => array(
-                'class' => 'c-select',
-            ),
-            'required' =>  true
-        ))
-        ->add('require', FormType\CheckboxType::class, array(
-            'label'    => $this->translator->trans('Required', [], 'Admin.Global'),
-            'required' => false,
-        ));
+            ->add('label', TranslateType::class, [
+                'type' => FormType\TextType::class,
+                'options' => ['constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length(['min' => 2]),
+                ]],
+                'locales' => $this->locales,
+                'hideTabs' => true,
+                'label' => $this->translator->trans('Label', [], 'Admin.Global'),
+            ])
+            ->add('type', FormType\ChoiceType::class, [
+                'label' => $this->translator->trans('Type', [], 'Admin.Catalog.Feature'),
+                'choices' => [
+                    $this->translator->trans('Text', [], 'Admin.Global') => 1,
+                    $this->translator->trans('File', [], 'Admin.Global') => 0,
+                ],
+                'attr' => [
+                    'class' => 'c-select',
+                ],
+                'required' => true,
+            ])
+            ->add('require', FormType\CheckboxType::class, [
+                'label' => $this->translator->trans('Required', [], 'Admin.Global'),
+                'required' => false,
+            ]);
     }
 
     /**

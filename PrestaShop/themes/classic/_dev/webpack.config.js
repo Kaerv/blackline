@@ -1,5 +1,5 @@
 /**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,90 +18,71 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
-const webpack = require('webpack');
-const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-let config = {
-  entry: {
-    main: [
-      './js/theme.js',
-      './css/theme.scss'
-    ]
-  },
+var plugins = [];
+
+plugins.push(
+  new ExtractTextPlugin('../css/theme.css')
+);
+
+module.exports = [{
+  // JavaScript
+  entry: [
+    './js/theme.js',
+    './css/normalize.css',
+    './css/example.less',
+    './css/st/dev.styl',
+    './css/theme.scss'
+  ],
   output: {
-    path: path.resolve(__dirname, '../assets/js'),
+    path: '../assets/js',
     filename: 'theme.js'
   },
   module: {
-    rules: [
-      {
-        test: /\.js/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                minimize: true
-              }
-            },
-            'postcss-loader',
-            'sass-loader'
-          ]
-        })
-      },
-      {
-        test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '../css/[hash].[ext]'
-            }
-          }
-        ]
-      },
-      {
-        test : /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
-      }
-    ]
+    loaders:  [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loaders: ['babel-loader']
+    }, {
+      test: /\.scss$/,
+      loader: ExtractTextPlugin.extract(
+          "style",
+          "css-loader?sourceMap!postcss!sass-loader?sourceMap"
+      )
+    }, {
+      test: /\.styl$/,
+      loader: ExtractTextPlugin.extract(
+          "style",
+          "css-loader?sourceMap!postcss!stylus-loader?sourceMap"
+      )
+    }, {
+      test: /\.less$/,
+      loader: ExtractTextPlugin.extract(
+          "style",
+          "css-loader?sourceMap!postcss!less-loader?sourceMap"
+      )
+    }, {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract(
+          'style',
+          'css-loader?sourceMap!postcss-loader'
+      )
+    }, {
+      test: /.(png|woff(2)?|eot|ttf|svg|jpg)(\?[a-z0-9=\.]+)?$/,
+      loader: 'file-loader?name=../css/[hash].[ext]'
+    }]
   },
   externals: {
-    prestashop: 'prestashop',
-    $: '$',
-    jquery: 'jQuery'
+    prestashop: 'prestashop'
   },
-  plugins: [
-    new ExtractTextPlugin(path.join('..', 'css', 'theme.css'))
-  ]
-};
-
-config.plugins.push(
-  new webpack.optimize.UglifyJsPlugin({
-    sourceMap: false,
-    compress: {
-      sequences: true,
-      conditionals: true,
-      booleans: true,
-      if_return: true,
-      join_vars: true,
-      drop_console: true
-    },
-    output: {
-      comments: false
-    },
-    minimize: true
-  })
-);
-
-module.exports = config;
+  plugins: plugins,
+  resolve: {
+    extensions: ['', '.js', '.scss', '.styl', '.less', '.css']
+  }
+}];

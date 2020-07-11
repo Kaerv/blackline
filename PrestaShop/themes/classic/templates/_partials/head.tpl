@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2017 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2017 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -39,11 +39,13 @@
   {if $page.canonical}
     <link rel="canonical" href="{$page.canonical}">
   {/if}
-  {block name='head_hreflang'}
-      {foreach from=$urls.alternative_langs item=pageUrl key=code}
-            <link rel="alternate" href="{$pageUrl}" hreflang="{$code}">
-      {/foreach}
-  {/block}
+{/block}
+
+{block name='head_hreflang'}
+  {assign "alternative_langs" $urls.alternative_langs|default:[]}
+  {foreach from=$alternative_langs item=pageUrl key=code}
+    <link rel="alternate" href="{$pageUrl}" hreflang="{$code}">
+  {/foreach}
 {/block}
 
 {block name='head_viewport'}
