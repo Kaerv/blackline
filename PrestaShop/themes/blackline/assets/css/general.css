@@ -1,0 +1,63 @@
+@font-face {
+    font-family: Raleway;
+    src: url("../../../../../assets/fonts/Raleway-Regular.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Dancing Script;
+    src: url("../../../../../assets/fonts/DancingScript-VariableFont_wght.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Overpass;
+    src: url("../../../../../assets/fonts/Overpass-Regular.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Overpass;
+    src: url("../../../../../assets/fonts/Overpass-Bold.ttf");
+    font-style: normal;
+    font-weight: bold;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+.dashed {
+    border-bottom: dashed 1px black;
+}
+
+.dashed:hover {
+    border-bottom: solid 1px black;
+}
+.text {
+    font-family: Overpass;
+    font-size: 20px;
+}
+
+.header-text {
+    font-family: Raleway;
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.decoration-text {
+    font-family: Dancing Script;
+}
+
+.center-position, p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 1370px) {
+    .text { font-size: 18px; }
+    .header-text { font-size: 28px; }
+}

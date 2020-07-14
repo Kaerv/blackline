@@ -1,0 +1,123 @@
+header, header > * {
+    width: 100%;
+}
+
+header {
+    position: relative;
+    height: 200px;
+    font-family: Raleway;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#header-top-wrap {
+    display: grid;
+    grid-template-columns: 39% 22% 39%;
+}
+
+#help-and-contact > a {
+    font-size: 12px;
+    margin-left: 25px;
+}
+
+
+#header-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+#main-logo {
+    width: 400px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-ico {
+    width: 35px;
+    height: auto;
+}
+
+#search-wrap {
+    height: 31px;
+    margin-right: 30px;
+    border-bottom: solid 2px #000;
+}
+
+#header-search {
+    width: 24px;
+    height: auto;
+}
+
+#search-input {
+    border: none;
+    outline: none;
+    height: 23px;
+    width: 200px;
+    padding: 0;
+}
+
+#search-input::placeholder {
+    opacity: 0.65;
+}
+
+#header-account {
+    margin-right: 18px;
+}
+
+#header-cart {
+    margin-right: 60px;
+}
+
+/* Navigation style */
+
+#main-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-option {
+    font-size: 18px;
+    text-align: center;
+    width: 240px;
+    transition: all 160ms linear 0s;
+}
+
+.menu-option:hover {
+    opacity: 0.5;
+}
+
+.nav-line {
+    width: 3px;
+    border-left: solid 2px #000;
+    height: 28px;
+}
+
+@media only screen and (max-width: 1600px) {
+    header { margin-bottom: 10px; }
+    #main-logo { width: 300px; }
+    #header-search { width: 20px; }
+    #search-wrap { height: 25px; }
+    #search-input { height: 20px; width: 190px;  font-size: 15px; }
+    .header-ico { width: 32px; }
+    .menu-option { width: 230px; }
+}
+
+@media only screen and (max-width: 1290px) {
+    #help-and-contact > a { font-size: 10px; }
+    #search-wrap { margin-right: 16px; }
+    #search-input { font-size: 14px; width: 170px; }
+    #header-account { margin-right: 8px; }
+    #header-cart { margin-right: 8%; }
+    #header-search { width: 18px; }
+    #main-nav { bottom: 20px;  width: 95%;}
+    .menu-option { font-size: 15px; width: 180px;}
+    .nav-line { height: 24px; }
+}

@@ -123,10 +123,6 @@ app/config/config.php
 
 modules/*
 override/*
-themes/*/
-!themes/classic
-!themes/_core
-!themes/_libraries
 themes/classic/assets/css/*_rtl.css
 
 # Vendors and dependencies
