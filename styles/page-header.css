@@ -71,6 +71,10 @@ header {
     margin-right: 60px;
 }
 
+#header-favourite {
+    margin-right: 10px;
+}
+
 /* Navigation style */
 
 #main-nav {

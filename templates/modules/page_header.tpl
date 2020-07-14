@@ -14,6 +14,9 @@
                 <img id="header-search" class="header-ico" src="assets/icons/search.svg" alt="">
                 <input id="search-input" type="text" placeholder="W poszukiwaniu... znajdź">
             </div>
+            <a href="#favourite" id="header-favourite">
+                <img id="header-favourite-ico" class="header-ico" src="assets/icons/heart.svg" alt="">
+            </a>
             <a href="#account" id="header-account">
                 <img id="header-account-ico" class="header-ico" src="assets/icons/person.svg" alt="">
             </a>
