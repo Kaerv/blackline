@@ -36,46 +36,11 @@
     {block name='hook_after_body_opening_tag'}
       {hook h='displayAfterBodyOpeningTag'}
     {/block}
-    <header>
-        <div id="header-top-wrap">
-            <div id="help-and-contact">
-                <a href="#help-and-contact" class="dashed">POMOC I KONTAKT</a>
-            </div>
-            <div id="header-centre">
-                <a href="{$urls.shop_domain_url}">
-                    <img id="main-logo" src="{$shop.logo}">
-                </a>
-            </div>
-            <div id="header-buttons-container">
-                <div id="search-wrap">
-                    <img id="header-search" class="header-ico" src="{$urls.shop_domain_url}/assets/icons/search.svg" alt="">
-                    <input id="search-input" type="text" placeholder="W poszukiwaniu... znajdź">
-                </div>
-                <a href="#favourite" id="header-favourite">
-                  <img id="header-favourite-ico" class="header-ico" src="{$urls.shop_domain_url}/assets/icons/heart.svg" alt="">
-                </a>
-                <a href="#account" id="header-account">
-                    <img id="header-account-ico" class="header-ico" src="{$urls.shop_domain_url}/assets/icons/person.svg" alt="">
-                </a>
-                <a href="cart" id="header-cart">
-                    <img id="header-cart-ico" class="header-ico" src="{$urls.shop_domain_url}/assets/icons/gift.svg" alt="">
-                </a>
-            </div>
-        </div>
-        
-        <nav id="main-nav">
-            <a class="menu-option" href="./index.php">GALERIA <br>MOJEGO EGO</a>
-            <div class="nav-line"></div>
-            <a class="menu-option" href="#akademia">AKADEMIA <br>MYŚLI ULOTNEJ</a>
-            <div class="nav-line"></div>
-            <a class="menu-option" href="#cytaty">CYTATY <br>Z GŁĘBI STRON</a>
-            <div class="nav-line"></div>
-            <a class="menu-option" href="#encyklopedia">ENCYKLOPEDIA <br>DEFINICJI ZAPOMNIANYCH</a>
-            <div class="nav-line"></div>
-            <a class="menu-option" href="{$urls.shop_domain_url}/index.php?page=regulamin">REGULAMIN <br>METAFIZYKA ZASAD</a>
-        </nav>
+    <header id="header">
+      {block name='header'}
+        {include file='_partials/header.tpl'}
+      {/block}
     </header>
-
     {block name='notifications'}
       {include file='_partials/notifications.tpl'}
     {/block}

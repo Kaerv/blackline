@@ -1,3 +1,11 @@
+assets:
+  styl:
+    product:
+      - id: product-extra-style
+        path: _dev/css/st/_layout.styl
+        media: all
+        priority: 100
+
 name: blackline
 display_name: BLACKLINE
 version: 1.0.0

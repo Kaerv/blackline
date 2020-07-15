@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-07-14 09:52:56
+/* Smarty version 3.1.34-dev-7, created on 2020-07-15 15:46:26
   from '/var/www/html/templates/modules/page_header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f0d8078e7aac1_13421048',
+  'unifunc' => 'content_5f0f24d2752fd1_28194281',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4660c8b3a5e6b6124132084d5349c00f9ebd3566' => 
     array (
       0 => '/var/www/html/templates/modules/page_header.tpl',
-      1 => 1594720349,
+      1 => 1594827985,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:./main_nav.tpl' => 1,
   ),
 ),false)) {
-function content_5f0d8078e7aac1_13421048 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f0f24d2752fd1_28194281 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>@import "/styles/page-header.css";</style>
 <header>
     <div id="header-top-wrap">
@@ -49,16 +50,7 @@ function content_5f0d8078e7aac1_13421048 (Smarty_Internal_Template $_smarty_tpl)
         </div>
     </div>
     
-    <nav id="main-nav">
-        <a class="menu-option" href="./PrestaShop/index.php">GALERIA <br>MOJEGO EGO</a>
-        <div class="nav-line"></div>
-        <a class="menu-option" href="#akademia">AKADEMIA <br>MYŚLI ULOTNEJ</a>
-        <div class="nav-line"></div>
-        <a class="menu-option" href="#cytaty">CYTATY <br>Z GŁĘBI STRON</a>
-        <div class="nav-line"></div>
-        <a class="menu-option" href="#encyklopedia">ENCYKLOPEDIA <br>DEFINICJI ZAPOMNIANYCH</a>
-        <div class="nav-line"></div>
-        <a class="menu-option" href="index.php?page=regulamin">REGULAMIN <br>METAFIZYKA ZASAD</a>
-    </nav>
+    <?php $_smarty_tpl->_subTemplateRender('file:./main_nav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 </header><?php }
 }
