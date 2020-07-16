@@ -22,10 +22,15 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
-
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
+<div class="products-sort-order">
+  <span>{if isset($listing.sort_selected)}{$listing.sort_selected}{else}{l s='Sort by:' d='Shop.Theme.Global'}{/if}</span>
+  {foreach from=$sort_orders item=sort_order}
+    <a
+      class="{['current' => $sort_order.current, 'js-search-link' => true]|classnames}"
+      href="{$sort_order.url}"
+      rel="nofollow"
+    >
+      {$sort_order.label}
+    </a>
+  {/foreach}
 </div>

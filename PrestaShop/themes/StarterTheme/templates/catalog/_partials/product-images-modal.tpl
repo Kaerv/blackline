@@ -22,10 +22,9 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
 
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
+<div class="js-product-images-modal">
+  <!--
+    You may use this file for the product images zoom. It's updated in AJAX when you select another combination.
+  -->
 </div>

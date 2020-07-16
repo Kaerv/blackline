@@ -22,10 +22,29 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
+{block name='header_banner'}
+  <div class="header-banner">
+    {hook h='displayBanner'}
+  </div>
+{/block}
 
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
-</div>
+{block name='header_nav'}
+  <div class="header-nav">
+    {hook h='displayNav'}
+  </div>
+{/block}
+
+{block name='header_logo'}
+  <a class="logo" href="{$urls.base_url}" title="{$shop.name}">
+    <img src="{$shop.logo}" alt="{$shop.name}">
+  </a>
+{/block}
+
+{block name='header_top'}
+  <div class="header-top">
+    {hook h='displayTop'}
+  </div>
+
+  {hook h='displayNavFullWidth'}
+
+{/block}

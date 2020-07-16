@@ -22,10 +22,16 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
-
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
-</div>
+{block name='cart_detailed_actions'}
+  <div class="checkout cart-detailed-actions">
+    {if $cart.minimalPurchaseRequired}
+      <div class="alert alert-warning" role="alert">
+        {$cart.minimalPurchaseRequired}
+      </div>
+      <button type="button" disabled>{l s='Checkout' d='Shop.Theme.Actions'}</button>
+    {else}
+      <a href="{$urls.pages.order}">{l s='Checkout' d='Shop.Theme.Actions'}</a>
+      {hook h='displayExpressCheckout'}
+    {/if}
+  </div>
+{/block}

@@ -22,10 +22,17 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
-
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
-</div>
+<nav data-depth="{$breadcrumb.count}">
+  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+    {foreach from=$breadcrumb.links item=path name=breadcrumb}
+      {block name='breadcrumb_item'}
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a itemprop="item" href="{$path.url}">
+            <span itemprop="name">{$path.title}</span>
+          </a>
+          <meta itemprop="position" content="{$smarty.foreach.breadcrumb.iteration}">
+        </li>
+      {/block}
+    {/foreach}
+  </ol>
+</nav>

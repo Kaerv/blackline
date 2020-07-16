@@ -22,10 +22,22 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
+{extends file='page.tpl'}
 
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
-</div>
+{block name='page_header_container'}{/block}
+
+{block name='page_content_container'}
+  <section id="content" class="page-content page-authentication">
+    {block name='register_form_container'}
+      <header>
+        <h1 class="h1">{l s='Create an account' d='Shop.Theme.Customeraccount'}</h1>
+      </header>
+      <p>{l s='Already have an account?' d='Shop.Theme.Customeraccount'} <a href="{$urls.pages.authentication}">{l s='Log in instead!' d='Shop.Theme.Customeraccount'}</a></p>
+
+      {$hook_create_account_top nofilter}
+      <section class="register-form">
+        {render file='customer/_partials/customer-form.tpl' ui=$register_form}
+      </section>
+    {/block}
+  </section>
+{/block}

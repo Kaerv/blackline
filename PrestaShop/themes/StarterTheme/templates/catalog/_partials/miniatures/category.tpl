@@ -22,10 +22,16 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
+{block name='category_miniature_item'}
+  <section class="category-miniature">
+    <a href="{$category.url}">
+      <img src="{$category.image.medium.url}" alt="{$category.image.legend}">
+    </a>
 
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
-</div>
+    <h1 class="h2">
+      <a href="{$category.url}">{$category.name}</a>
+    </h1>
+
+    <div class="category-description">{$category.description nofilter}</div>
+  </section>
+{/block}

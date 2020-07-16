@@ -22,10 +22,9 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
-
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
-</div>
+{block name='cart_summary_product_line'}
+  <span class="product-quantity">{$product.quantity}</span>
+  <span class="product-name">{$product.name}</span>
+  <span class="product-price">{$product.price}</span>
+  {hook h='displayProductPriceBlock' product=$product type="unit_price"}
+{/block}

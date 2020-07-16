@@ -36,27 +36,23 @@
     {block name='hook_after_body_opening_tag'}
       {hook h='displayAfterBodyOpeningTag'}
     {/block}
+
     <header id="header">
       {block name='header'}
         {include file='_partials/header.tpl'}
       {/block}
     </header>
+
     {block name='notifications'}
       {include file='_partials/notifications.tpl'}
     {/block}
 
-    {block name='page_title'}
-    <div style="width:100%; border-bottom: solid 1px rgba(0,0,0,0.2);"></div>
-      {include 
-        file='../../../../../templates/modules/section_header.tpl' 
-        title="GALERIA MOJEGO EGO" 
-        link="" 
-        style=""}
-    <div style="width:100%; border-bottom: solid 1px rgba(0,0,0,0.2);"></div>
-    {/block}
-
     <div id="wrapper">
       {hook h="displayWrapperTop"}
+
+      {block name='breadcrumb'}
+        {include file='_partials/breadcrumb.tpl'}
+      {/block}
 
       {block name='left_column'}
         <div id="left-column">
@@ -91,46 +87,11 @@
       {hook h="displayWrapperBottom"}
     </div>
 
-  <footer id="footer">
-      <div id="footer-menu">
-          <ul>
-              <li><a href="#">POMOC</a>
-                  <ul>
-                      <li><a href="#">Tabele Rozmiarowe</a></li>
-                      <li><a href="#"></a>Jak kupować</a></li>
-                      <li><a href="#"></a>Często zadawane pytania</a></li>
-                  </ul>
-              </li>
-          </ul>
-
-          <ul>
-              <li><a href="#">ZAKUP PRODUKTÓW ON-LINE</a>
-                  <ul>
-                      <li><a href="#"></a>Formy płatności</a></li>
-                      <li><a href="#"></a>Koszt i czas dostawy</a></li>
-                  </ul>
-              </li>
-          </ul>
-
-          <ul>
-              <li><a href="#"></a>INFORMACJE O FIRMIE</a>
-                  <ul>
-                      <li><a href="#">Kontakt</a></li>
-                  </ul>
-              </li>
-              <li><a href="#">POLITYKA PRYWATNOŚCI</a></li>
-              <li><a href="#">REGULAMIN</a></li>
-          </ul>
-      </div>
-      <div id="footer-social">
-          <a href="#facebook"><img src="{$urls.shop_domain_url}/assets/icons/facebook.svg" alt=""></a>
-          <a href="#youtube"><img src="{$urls.shop_domain_url}/assets/icons/youtube.svg" alt=""></a>
-          <a href="#instagram"><img src="{$urls.shop_domain_url}/assets/icons/instagram.svg" alt=""></a>
-      </div>
-      <div id="footer-logo">
-          <a href="index.php"><img src="{$urls.shop_domain_url}/assets/logo/logo.png" alt=""></a>
-      </div>
-  </footer>
+    <footer id="footer">
+      {block name='footer'}
+        {include file='_partials/footer.tpl'}
+      {/block}
+    </footer>
 
     {block name='javascript_bottom'}
       {include file="_partials/javascript.tpl" javascript=$javascript.bottom}

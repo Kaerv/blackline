@@ -22,10 +22,15 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
-
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
-</div>
+{block name='sitemap_item'}
+  <li>
+    <a id="{$node.id}" href="{$node.url}" title="{$node.label}">{$node.label}</a>
+    {if isset($node.children) && $node.children|@count > 0}
+      <ul>
+        {foreach $node.children as $child}
+          {include file='cms/_partials/sitemap-tree-branch.tpl' node=$child}
+        {/foreach}
+      </ul>
+    {/if}
+  </li>
+{/block}

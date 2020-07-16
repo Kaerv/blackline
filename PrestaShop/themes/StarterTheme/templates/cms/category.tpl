@@ -22,10 +22,32 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
+{extends file='page.tpl'}
 
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
+{block name='page_title'}
+  {$cms_category.name}
+{/block}
+
+{block name='page_content'}
+  {block name='cms_sub_categories'}
+    {if $sub_categories}
+      <p>{l s='List of subcategories in %category_name%:' sprintf=['%category_name%' => $cms_category.name] d='Shop.Theme.Global'}</p>
+      <ul>
+        {foreach from=$sub_categories item=sub_category}
+          <li><a href="{$sub_category.link}">{$sub_category.name}</a></li>
+        {/foreach}
+      </ul>
+    {/if}
   {/block}
-</div>
+
+  {block name='cms_sub_pages'}
+    {if $cms_pages}
+      <p>{l s='List of pages in %category_name%:' sprintf=['%category_name%' => $cms_category.name] d='Shop.Theme.Global'}</p>
+      <ul>
+        {foreach from=$cms_pages item=cms_page}
+          <li><a href="{$cms_page.link}">{$cms_page.meta_title}</a></li>
+        {/foreach}
+      </ul>
+    {/if}
+  {/block}
+{/block}

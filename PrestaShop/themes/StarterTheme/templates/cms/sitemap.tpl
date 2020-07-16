@@ -22,10 +22,25 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
+{extends file='page.tpl'}
 
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
-</div>
+{block name='page_title'}
+  {l s='Sitemap' d='Shop.Theme.Global'}
+{/block}
+
+{block name='page_content_container'}
+  <div id="sitemap-tree" class="sitemap">
+    <div class="tree-top">
+      <a href="{$urls.base_url}" title="{$shop.name}"></a>
+    </div>
+    <ul class="tree">
+      {foreach $sitemap as $item}
+        {if isset($item.children)}
+          {foreach $item.children as $child}
+            {include file='cms/_partials/sitemap-tree-branch.tpl' node=$child}
+          {/foreach}
+        {/if}
+      {/foreach}
+    </ul>
+  </div>
+{/block}

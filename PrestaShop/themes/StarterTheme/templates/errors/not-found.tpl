@@ -22,10 +22,16 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
+<section id="content" class="page-content page-not-found">
+  {block name='page_content'}
+    <p>{l s='Sorry for the inconvenience.' d='Shop.Theme.Global'}</p>
 
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
+    {block name='search'}
+      {hook h='displaySearch'}
+    {/block}
+
+    {block name='hook_not_found'}
+      {hook h='displayNotFound'}
+    {/block}
   {/block}
-</div>
+</section>

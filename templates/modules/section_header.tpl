@@ -1,4 +1,4 @@
-<style>@import "styles/section-header.css";</style>
+<style>@import "/styles/section-header.css";</style>
 <div class="section-header center-position" style="{$style}">
     <div class="header-line"></div>
 

@@ -22,10 +22,24 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
+{extends file='checkout/cart.tpl'}
 
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
-</div>
+{block name='content' append}
+  {hook h='displayCrossSellingShoppingCart'}
+{/block}
+
+{block name='cart_overview' append}
+  <a href="{$urls.pages.index}">
+    {l s='Continue shopping' d='Shop.Theme.Actions'}
+  </a>
+{/block}
+
+{block name='cart_actions'}
+  <div class="checkout">
+    <a href="{$urls.pages.order}">{l s='Checkout' d='Shop.Theme.Actions'}</a>
+  </div>
+{/block}
+
+{block name='continue_shopping'}{/block}
+{block name='cart_voucher'}{/block}
+{block name='display_reassurance'}{/block}

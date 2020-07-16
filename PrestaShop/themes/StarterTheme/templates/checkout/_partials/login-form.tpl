@@ -22,10 +22,10 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
+{extends file='customer/_partials/login-form.tpl'}
 
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
-</div>
+{block name='form_buttons'}
+  <button type="submit" class="continue" data-link-action="sign-in" name="continue" value="1">
+    {l s='Continue' d='Shop.Theme.Actions'}
+  </button>
+{/block}

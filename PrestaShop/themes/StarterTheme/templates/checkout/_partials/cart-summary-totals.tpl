@@ -22,10 +22,22 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
+<div class="cart-summary-totals">
+  {block name='cart_summary_body'}
+    <div id="cart-summary">
+      {foreach from=$cart.subtotals item="subtotal"}
+        <div class="{$subtotal.type}">
+          <span class="label">{$subtotal.label}</span>
+          <span class="value">{$subtotal.value}</span>
+        </div>
+      {/foreach}
+    </div>
+  {/block}
 
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
+  {block name='cart_summary_totals'}
+    <div class="cart-summary-totals">
+      <span class="label">{$cart.totals.total.label}</span>
+      <span class="value">{$cart.totals.total.value}</span>
+    </div>
   {/block}
 </div>

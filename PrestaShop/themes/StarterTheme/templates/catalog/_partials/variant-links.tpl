@@ -22,10 +22,19 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="js-product-list-top" class="products-selection">
-  <p>liczba produktów: {$listing.pagination.total_items}</p>
+{block name='variant_links'}
+  <div class="variant-links">
+    {foreach from=$variants item=variant}
 
-  {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
-  {/block}
-</div>
+      {block name='variant_link_item'}
+        <a href="{$variant.url}"
+           class="{$variant.type}"
+          {if $variant.type === "color"} style="background-color: {$variant.html_color_code}" {/if}
+        >
+          {$variant.name}
+        </a>
+      {/block}
+
+    {/foreach}
+  </div>
+{/block}
