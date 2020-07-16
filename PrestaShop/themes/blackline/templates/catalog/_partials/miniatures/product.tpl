@@ -16,30 +16,16 @@
     {/block}
 
     {block name='product_description_short'}
-      <div class="product-description-short" itemprop="description">{$product.description_short nofilter}</div>
     {/block}
 
     {block name='product_list_actions'}
-      <div class="product-list-actions">
-        {if $product.add_to_cart_url}
-            <a
-              class = "add-to-cart"
-              href  = "{$product.add_to_cart_url}"
-              rel   = "nofollow"
-              data-id-product="{$product.id_product}"
-              data-id-product-attribute="{$product.id_product_attribute}"
-              data-link-action="add-to-cart"
-            >{l s='Add to cart' d='Shop.Theme.Actions'}</a>
-        {/if}
-        {hook h='displayProductListFunctionalButtons' product=$product}
-      </div>
     {/block}
 
     {block name='product_quick_view'}
     {/block}
 
     {block name='product_variants'}
-      {include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}
+      
     {/block}
 
     {block name='product_price_and_shipping'}
@@ -68,11 +54,6 @@
     {/block}
 
     {block name='product_flags'}
-      <ul class="product-flags">
-        {foreach from=$product.flags item=flag}
-          <li class="{$flag.type}">{$flag.label}</li>
-        {/foreach}
-      </ul>
     {/block}
 
     {block name='product_availability'}
