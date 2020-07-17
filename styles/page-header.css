@@ -93,8 +93,17 @@ header {
     transition: all 160ms linear 0s;
 }
 
+.disabled {
+    color: #c0c0c0;
+    cursor: default;
+}
+
 .menu-option:hover {
     opacity: 0.5;
+}
+
+.menu-option.disabled:hover {
+    opacity: 1;
 }
 
 .nav-line {
