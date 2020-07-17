@@ -34,4 +34,5 @@
 <link rel="stylesheet" href="{$urls.shop_domain_url}/styles/page-header.css">
 <link rel="stylesheet" href="{$urls.shop_domain_url}/styles/general.css">
 <link rel="stylesheet" href="{$urls.shop_domain_url}/styles/page-footer.css">
+<link rel="stylesheet" href="{$urls.shop_domain_url}/styles/shop-description.css">
 

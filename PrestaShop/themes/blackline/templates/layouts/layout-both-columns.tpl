@@ -55,6 +55,12 @@
     <div style="width:100%; border-bottom: solid 1px rgba(0,0,0,0.2);"></div>
     {/block}
 
+    {block name="shop_description"}
+    {if isset($smarty.get.id_category) && $smarty.get.id_category == 2}
+    {include file="../../../../../templates/modules/shop_description.tpl"}
+    {/if}
+    {/block}
+
     <div id="wrapper">
       {hook h="displayWrapperTop"}
 
