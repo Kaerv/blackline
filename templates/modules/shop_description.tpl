@@ -11,5 +11,11 @@
         (Wykonanie zleconego cytatu na wybranym nośniku poprzez najnowocześniejszą technikę termosublimacji zapewniającą niespotykaną dotąd jakość nadruku na materiale)
       </p>
     </div>
-    <div id="description-right"></div>
+    <div id="description-right">
+      <div id="description-photo-container">
+        <div class="description-photo"></div>
+        <div class="description-photo"></div>
+        <div id="description-title">BLUZY</div>
+      </div>
+    </div>
   </div>

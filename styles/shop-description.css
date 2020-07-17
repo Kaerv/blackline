@@ -19,3 +19,33 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+#description-photo-container {
+    width: 350px;
+    height: 400px;
+    position: relative;
+}
+
+.description-photo {
+    position: absolute;
+    width: 70%;
+    height: 90%;
+    background-color: #dcdcdc;
+    position: absolute;
+}
+
+#description-title {
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+}
+
+.description-photo:first-child {
+    left: 0;
+    bottom: 0;
+}
+
+.description-photo:nth-child(2) {
+    top: 0;
+    right: 0;
+}
