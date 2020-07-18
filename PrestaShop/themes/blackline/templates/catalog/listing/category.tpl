@@ -25,14 +25,16 @@
 {extends file='catalog/listing/product-list.tpl'}
 
 {block name='product_list_header'}
+{if $smarty.get.id_category != 2}
   <h1>{$category.name}</h1>
+{/if}
   <div class="category-cover">
     <img src="{$category.image.large.url}" alt="{$category.image.legend}">
   </div>
   <div id="category-description">{$category.description nofilter}</div>
 
   {block name='category_subcategories'}
-    <aside>
+    <aside style="display: none">
       {if $subcategories|count}
         <nav class="subcategories">
           <ul>
