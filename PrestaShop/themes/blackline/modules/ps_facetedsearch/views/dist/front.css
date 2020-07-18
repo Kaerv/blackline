@@ -1,0 +1,51 @@
+#main {
+    padding-top: 100px;
+}
+
+#search_filters {
+    position: absolute;
+    display: flex;
+    border-bottom: solid 1px rgba(0,0,0,0.3);
+    width: 98%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.material-icons {
+    display: none;
+}
+
+.facet {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.facet-title {
+    margin-right: 4px;
+}
+
+.facet .dropdown {
+    width: 16px;
+    height: auto;
+}
+
+.facet > ul {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: solid 1px #dcdcdc;
+    padding: 16px;
+}
+
+
+.facet > ul > li > label {
+    display: flex;
+}
+
+.facet > ul > li > label > span {
+    margin-right: 3px;
+}
+
+.facet:hover > ul {
+    display: block;
+}

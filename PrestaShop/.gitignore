@@ -288,6 +288,7 @@ nbproject/private/
 /build/
 nbbuild/
 dist/
+!themes/blackline/modules/ps_facetedsearch/views/dist
 nbdist/
 nbactions.xml
 nb-configuration.xml
