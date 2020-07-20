@@ -23,14 +23,22 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div class="products-sort-order">
-  <span>{if isset($listing.sort_selected)}{$listing.sort_selected}{else}{l s='Sort by:' d='Shop.Theme.Global'}{/if}</span>
+  <div id="sort-title-wrap">
+    <span id="sort-title">Sortuj</span> 
+    <img src="/assets/icons/down-arrow.svg" class="dropdown">
+  </div>
+  <ul id="sort-list">
   {foreach from=$sort_orders item=sort_order}
-    <a
-      class="{['current' => $sort_order.current, 'js-search-link' => true]|classnames}"
-      href="{$sort_order.url}"
-      rel="nofollow"
-    >
-      {$sort_order.label}
-    </a>
+    <li>
+      <a
+        class="{['current' => $sort_order.current, 'js-search-link' => true]|classnames}"
+        href="{$sort_order.url}"
+        rel="nofollow"
+      >
+        <div class="custom-radio">{if $sort_order.current}<div class="custom-radio-selected"></div>{/if}</div>
+        <span>{$sort_order.label}</span>
+      </a>
+    </li>
   {/foreach}
+  </ul>
 </div>

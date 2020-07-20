@@ -26,6 +26,6 @@
   <p>liczba produktów: {$listing.pagination.total_items}</p>
 
   {block name='sort_by'}
-    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
+    
   {/block}
 </div>

@@ -22,7 +22,7 @@
     * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
     * International Registered Trademark & Property of PrestaShop SA
     *}
-  <section id="js-active-search-filters" class="{if $activeFilters|count}active_filters{else}hide{/if}">
+  <section id="js-active-search-filters" style="display: none;" class="{if $activeFilters|count}active_filters{else}hide{/if}">
     {block name='active_filters_title'}
       <p class="h6 {if $activeFilters|count}active-filter-title{else}hidden-xs-up{/if}">{l s='Active filters' d='Shop.Theme.Global'}</p>
     {/block}

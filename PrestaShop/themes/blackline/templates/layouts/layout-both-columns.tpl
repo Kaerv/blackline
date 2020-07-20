@@ -66,11 +66,14 @@
 
       {block name='left_column'}
         <div id="left-column">
-          {if $page.page_name == 'product'}
-            {hook h='displayLeftColumnProduct'}
-          {else}
-            {hook h="displayLeftColumn"}
-          {/if}
+          <div id="panel-wrap">
+              {if $page.page_name == 'product'}
+                {hook h='displayLeftColumnProduct'}
+              {else}
+                {hook h="displayLeftColumn"}
+              {/if}
+              {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
+          </div>
         </div>
       {/block}
 
