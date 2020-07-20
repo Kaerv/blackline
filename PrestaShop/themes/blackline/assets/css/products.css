@@ -58,6 +58,11 @@
     display: block;
 }
 
+.products-selection {
+    position: absolute;
+    right: 22px;
+}
+
 .dropdown {
     width: 16px;
     height: auto;

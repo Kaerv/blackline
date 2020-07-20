@@ -104,7 +104,7 @@
                       >
                         {$filter.label}
                         {if $filter.magnitude and $show_quantities}
-                          <span class="magnitude">({$filter.magnitude})</span>
+                          <span class="magnitude" style="display: none">{$filter.magnitude}</span>
                         {/if}
                       </a>
                     </label>

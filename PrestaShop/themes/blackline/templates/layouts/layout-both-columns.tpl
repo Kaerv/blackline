@@ -73,6 +73,10 @@
                 {hook h="displayLeftColumn"}
               {/if}
               {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
+              
+              {block name='product_list_top'}
+                {include file='catalog/_partials/products-top.tpl' listing=$listing}
+              {/block}
           </div>
         </div>
       {/block}
