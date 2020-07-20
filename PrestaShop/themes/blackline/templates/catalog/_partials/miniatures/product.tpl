@@ -1,6 +1,5 @@
 {block name='product_miniature_item'}
   <article class="product-miniature" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}" itemscope itemtype="http://schema.org/Product">
-
     {block name='product_thumbnail'}
       <a href="{$product.url}" class="thumbnail product-thumbnail">
         <img
@@ -12,7 +11,7 @@
     {/block}
 
     {block name='product_name'}
-      <h1 class="h2" itemprop="name"><a href="{$product.url}">{$product.name}</a></h1>
+      <a href="{$product.url}" class="product-title">{$product.name}</a>
     {/block}
 
     {block name='product_description_short'}
@@ -31,9 +30,16 @@
     {block name='product_price_and_shipping'}
       {if $product.show_price}
         <div class="product-price-and-shipping">
-          {if $product.has_discount}
             {hook h='displayProductPriceBlock' product=$product type="old_price"}
 
+            {hook h='displayProductPriceBlock' product=$product type="before_price"}
+            
+            <span itemprop="price" class="price {if $product.has_discount}new-price{/if}">{$product.price}</span>
+
+            {hook h='displayProductPriceBlock' product=$product type="unit_price"}
+
+            {hook h='displayProductPriceBlock' product=$product type="weight"}
+          {if $product.has_discount}
             <span class="regular-price">{$product.regular_price}</span>
             {if $product.discount_type === 'percentage'}
               <span class="discount-percentage discount-product" style="display: none">{$product.discount_percentage}</span>
@@ -41,14 +47,6 @@
               <span class="discount-amount discount-product">{$product.discount_amount_to_display}</span>
             {/if}
           {/if}
-
-          {hook h='displayProductPriceBlock' product=$product type="before_price"}
-
-          <span itemprop="price" class="price">{$product.price}</span>
-
-          {hook h='displayProductPriceBlock' product=$product type="unit_price"}
-
-          {hook h='displayProductPriceBlock' product=$product type="weight"}
         </div>
       {/if}
     {/block}

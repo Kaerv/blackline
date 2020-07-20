@@ -91,6 +91,7 @@ header {
     text-align: center;
     width: 240px;
     transition: all 160ms linear 0s;
+    font-family: Raleway;
 }
 
 .disabled {
