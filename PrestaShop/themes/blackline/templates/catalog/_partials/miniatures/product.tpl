@@ -44,7 +44,7 @@
             {if $product.discount_type === 'percentage'}
               <span class="discount-percentage discount-product" style="display: none">{$product.discount_percentage}</span>
             {elseif $product.discount_type === 'amount'}
-              <span class="discount-amount discount-product">{$product.discount_amount_to_display}</span>
+              <span class="discount-amount discount-product" style="display: none;">{$product.discount_amount_to_display}</span>
             {/if}
           {/if}
         </div>
