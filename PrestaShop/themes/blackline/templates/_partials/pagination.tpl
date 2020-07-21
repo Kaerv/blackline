@@ -23,34 +23,71 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <nav class="pagination">
-  {block name='pagination_summary'}
-    {l s='Showing %from%-%to% of %total% item(s)' sprintf=['%from%' => $pagination.items_shown_from ,'%to%' => $pagination.items_shown_to, '%total%' => $pagination.total_items] d='Shop.Theme.Catalog'}
-  {/block}
+  <div id="pagination-separate-line"></div>
 
   {block name='pagination_page_list'}
-    <ul>
+  {assign var=pages_urls value=[]}
+
+  {foreach from=$pagination.pages item="page"}
+    {if strpos($page.url, "page") !== false}
+        {$pages_urls[] = $page.url}
+        {break}
+    {/if}
+  {/foreach}
+
+  <div id="pagination-buttons">
       {foreach from=$pagination.pages item="page"}
-        <li {if $page.current} class="current" {/if}>
-          {if $page.type === 'spacer'}
-            <span class="spacer">&hellip;</span>
-          {else}
+          {if $page.type === 'previous' || $page.type === 'next'}
             <a
-              rel="{if $page.type === 'previous'}prev{elseif $page.type === 'next'}next{else}nofollow{/if}"
+              rel="{if $page.type === 'previous'}prev{elseif $page.type === 'next'}next{/if}"
               href="{$page.url}"
               class="{['disabled' => !$page.clickable, 'js-search-link' => true]|classnames}"
             >
               {if $page.type === 'previous'}
-                {l s='Previous' d='Shop.Theme.Actions'}
+                Poprzednia strona
               {elseif $page.type === 'next'}
-                {l s='Next' d='Shop.Theme.Actions'}
-              {else}
-                {$page.page}
+                Następna strona
               {/if}
             </a>
           {/if}
-        </li>
       {/foreach}
-    </ul>
+    </div>
+
+  {foreach from=$pagination.pages item="page"}
+    {if $page.current} 
+      <div id="page-input">
+        <input value="{$page.page}" id="select-page">
+        <span>z</span>
+        <span>{$pagination.pages_count}</span>
+      </div>
+    {/if}
+  {/foreach}
+
+    <script>
+    let allPages = {$pagination.pages_count};
+
+    let validatePage = "{$pages_urls[0]}".replace(/&amp;/g, "&");
+    validatePage = validatePage.substring(0, validatePage.length - 1);
+    validatePage = validatePage.replace("&page=", "");
+
+    let pagination_urls = [validatePage, validatePage];
+
+      {literal}
+      for(let i =2; i <= allPages; i++) {
+        pagination_urls[i] = validatePage + "&page=" + i;
+      }
+
+      $("#select-page").keydown(function(e) {
+        if(e.keyCode == 13) {
+          let selectedPage = $("#select-page").val();
+          if(selectedPage >= 0 && selectedPage < pagination_urls.length - 1) {
+            window.location.href = pagination_urls[selectedPage];
+          }
+        }
+      });
+      {/literal}
+      
+    </script>
   {/block}
 
 </nav>
