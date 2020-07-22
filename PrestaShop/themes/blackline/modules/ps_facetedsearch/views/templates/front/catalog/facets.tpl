@@ -76,6 +76,7 @@
                             type="checkbox"
                             {if $filter.active }checked{/if}
                           >
+                          <img src="/assets/icons/checked.svg">
                           {if isset($filter.properties.color)}
                             <span class="color" style="background-color:{$filter.properties.color}"></span>
                           {elseif isset($filter.properties.texture)}
@@ -184,6 +185,21 @@
           {/if}
         </section>
       {/foreach}
+      <script>
+      $(".custom-checkbox").find("input").each(function() {
+        if($(this).prop("checked")) {
+          $(this).parent().addClass("checked-checkbox");
+        }
+      })
+        $(".custom-checkbox").find("input").change(function() {
+          if($(this).prop("checked")) {
+            $(this).parent().addClass("checked-checkbox");
+          }
+          else {
+            $(this).parent().removeClass("checked-checkbox");
+          }
+        });
+      </script>
     </div>
   {/if}
   

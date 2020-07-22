@@ -80,7 +80,7 @@
       $("#select-page").keydown(function(e) {
         if(e.keyCode == 13) {
           let selectedPage = $("#select-page").val();
-          if(selectedPage >= 0 && selectedPage < pagination_urls.length - 1) {
+          if(selectedPage >= 0 && selectedPage < pagination_urls.length) {
             window.location.href = pagination_urls[selectedPage];
           }
         }

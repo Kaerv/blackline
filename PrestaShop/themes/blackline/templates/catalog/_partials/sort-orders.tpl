@@ -29,6 +29,7 @@
   </div>
   <ul id="sort-list">
   {foreach from=$sort_orders item=sort_order}
+    {if $sort_order.field != "name" && $sort_order.field != "position"}
     <li>
       <a
         class="{['current' => $sort_order.current, 'js-search-link' => true]|classnames}"
@@ -39,6 +40,7 @@
         <span>{$sort_order.label}</span>
       </a>
     </li>
+    {/if}
   {/foreach}
   </ul>
 </div>

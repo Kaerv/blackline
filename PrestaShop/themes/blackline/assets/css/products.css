@@ -42,7 +42,7 @@
 .regular-price {
     font-size: 16px;
 }
-/* SORT AND FILTER PANEL */
+/* SORT */
 #panel-wrap {
     width: 100%;
     display: flex;
@@ -95,6 +95,8 @@
     border: solid 1px #dcdcdc;
     padding: 16px;
     margin: 0;
+    width: 200px;
+    height: 220px;
 }
 
 #sort-title-wrap {

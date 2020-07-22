@@ -1,5 +1,5 @@
 {**
- * 2007-2017 PrestaShop
+ * 2007-2019 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -15,10 +15,10 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @copyright 2007-2019 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -29,34 +29,51 @@
 {/block}
 
 {block name='page_content'}
-  {block name='guest_login_form'}
-    <form id="guestOrderTrackingForm" action="{$urls.pages.guest_tracking}" method="get">
-      <header>
-        <p>{l s='To track your order, please enter the following information:' d='Shop.Theme.Customeraccount'}</p>
-      </header>
+  <form id="guestOrderTrackingForm" action="{$urls.pages.guest_tracking}" method="get">
+    <header>
+      <p>{l s='To track your order, please enter the following information:' d='Shop.Theme.Customeraccount'}</p>
+    </header>
 
-    {block name='guest_login_form_fields'}
-      <section class="form-fields">
+    <section class="form-fields">
 
-        <label>
-          <span>{l s='Order Reference:' d='Shop.Forms.Labels'}</span>
-          <input type="text" name="order_reference" value="{if isset($smarty.request.id_order)}{$smarty.request.id_order}{/if}" size="8">
-          <i>{l s='For example: QIIXJXNUI or QIIXJXNUI#1' d='Shop.Theme.Customeraccount'}</i>
+      <div class="form-group row">
+        <label class="col-md-3 form-control-label required">
+          {l s='Order Reference:' d='Shop.Forms.Labels'}
         </label>
+        <div class="col-md-6">
+          <input
+            class="form-control"
+            name="order_reference"
+            type="text"
+            size="8"
+            value="{if isset($smarty.request.order_reference)}{$smarty.request.order_reference}{/if}"
+          >
+          <div class="form-control-comment">
+            {l s='For example: QIIXJXNUI or QIIXJXNUI#1' d='Shop.Theme.Customeraccount'}
+          </div>
+        </div>
+      </div>
 
-        <label>
-          <span>{l s='Email:' d='Shop.Forms.Labels'}</span>
-          <input type="email" name="email" value="{if isset($smarty.request.email)}{$smarty.request.email}{/if}">
+      <div class="form-group row">
+        <label class="col-md-3 form-control-label required">
+          {l s='Email:' d='Shop.Forms.Labels'}
         </label>
+        <div class="col-md-6">
+          <input
+            class="form-control"
+            name="email"
+            type="email"
+            value="{if isset($smarty.request.email)}{$smarty.request.email}{/if}"
+          >
+        </div>
+      </div>
 
-      </section>
-    {/block}
+    </section>
 
-      <footer class="form-footer">
-        <input type="hidden" name="submitGuestTracking" value="1">
-
-        <button type="submit">{l s='Send' d='Shop.Theme.Actions'}</button>
-      </footer>
-    </form>
-  {/block}
+    <footer class="form-footer text-sm-center clearfix">
+      <button class="btn btn-primary" type="submit">
+        {l s='Send' d='Shop.Theme.Actions'}
+      </button>
+    </footer>
+  </form>
 {/block}

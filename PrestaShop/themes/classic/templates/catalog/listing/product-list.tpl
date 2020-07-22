@@ -1,5 +1,5 @@
 {**
- * 2007-2017 PrestaShop
+ * 2007-2019 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -15,10 +15,10 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @copyright 2007-2019 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -28,23 +28,29 @@
   <section id="main">
 
     {block name='product_list_header'}
-      <h2 class="h2">{$listing.label}</h2>
+      <h2 id="js-product-list-header" class="h2">{$listing.label}</h2>
     {/block}
 
     <section id="products">
       {if $listing.products|count}
 
-        {block name='product_list_top'}
-          {include file='catalog/_partials/products-top.tpl' listing=$listing}
-        {/block}
+        <div>
+          {block name='product_list_top'}
+            {include file='catalog/_partials/products-top.tpl' listing=$listing}
+          {/block}
+        </div>
 
         {block name='product_list_active_filters'}
-          {$listing.rendered_active_filters nofilter}
+          <div id="" class="hidden-sm-down">
+            {$listing.rendered_active_filters nofilter}
+          </div>
         {/block}
 
-        {block name='product_list'}
-          {include file='catalog/_partials/products.tpl' listing=$listing}
-        {/block}
+        <div>
+          {block name='product_list'}
+            {include file='catalog/_partials/products.tpl' listing=$listing}
+          {/block}
+        </div>
 
         <div id="js-product-list-bottom">
           {block name='product_list_bottom'}
@@ -53,9 +59,13 @@
         </div>
 
       {else}
+        <div id="js-product-list-top"></div>
 
-        {include file='errors/not-found.tpl'}
+        <div id="js-product-list">
+          {include file='errors/not-found.tpl'}
+        </div>
 
+        <div id="js-product-list-bottom"></div>
       {/if}
     </section>
 

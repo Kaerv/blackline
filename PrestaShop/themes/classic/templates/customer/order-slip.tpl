@@ -1,5 +1,5 @@
 {**
- * 2007-2017 PrestaShop
+ * 2007-2019 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -15,10 +15,10 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @copyright 2007-2019 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -29,32 +29,52 @@
 {/block}
 
 {block name='page_content'}
-  <h2>{l s='Credit slips you have received after canceled orders.' d='Shop.Theme.Customeraccount'}</h2>
-
-  {block name='credit_slip_table'}
-    {if $credit_slips}
-      <table id="credit-slips">
-        <thead>
+  <h6>{l s='Credit slips you have received after canceled orders.' d='Shop.Theme.Customeraccount'}</h6>
+  {if $credit_slips}
+    <table class="table table-striped table-bordered hidden-sm-down">
+      <thead class="thead-default">
+        <tr>
+          <th>{l s='Order' d='Shop.Theme.Customeraccount'}</th>
+          <th>{l s='Credit slip' d='Shop.Theme.Customeraccount'}</th>
+          <th>{l s='Date issued' d='Shop.Theme.Customeraccount'}</th>
+          <th>{l s='View credit slip' d='Shop.Theme.Customeraccount'}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {foreach from=$credit_slips item=slip}
           <tr>
-            <th>{l s='Credit slip' d='Shop.Theme.Customeraccount'}</th>
-            <th>{l s='Order' d='Shop.Theme.Customeraccount'}</th>
-            <th>{l s='Date issued' d='Shop.Theme.Customeraccount'}</th>
-            <th>{l s='View credit slip' d='Shop.Theme.Customeraccount'}</th>
+            <td><a href="{$slip.order_url_details}" data-link-action="view-order-details">{$slip.order_reference}</a></td>
+            <td scope="row">{$slip.credit_slip_number}</td>
+            <td>{$slip.credit_slip_date}</td>
+            <td class="text-sm-center">
+              <a href="{$slip.url}"><i class="material-icons">&#xE415;</i></a>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {foreach from=$credit_slips item=slip}
-            <tr>
-              <td>{$slip.credit_slip_number}</td>
-              <td><a href="{$slip.order_url_details}" data-link-action="view-order-details">{$slip.order_reference}</a></td>
-              <td>{$slip.credit_slip_date}</td>
-              <td><a href="{$slip.url}">{l s='PDF' d='Shop.Theme.Customeraccount'}</a></td>
-            </tr>
-          {/foreach}
-        </tbody>
-      </table>
-    {/if}
-  {/block}
-
-
+        {/foreach}
+      </tbody>
+    </table>
+    <div class="credit-slips hidden-md-up">
+      {foreach from=$credit_slips item=slip}
+        <div class="credit-slip">
+          <ul>
+            <li>
+              <strong>{l s='Order' d='Shop.Theme.Customeraccount'}</strong>
+              <a href="{$slip.order_url_details}" data-link-action="view-order-details">{$slip.order_reference}</a>
+            </li>
+            <li>
+              <strong>{l s='Credit slip' d='Shop.Theme.Customeraccount'}</strong>
+              {$slip.credit_slip_number}
+            </li>
+            <li>
+              <strong>{l s='Date issued' d='Shop.Theme.Customeraccount'}</strong>
+              {$slip.credit_slip_date}
+            </li>
+            <li>
+              <a href="{$slip.url}">{l s='View credit slip' d='Shop.Theme.Customeraccount'}</a>
+            </li>
+          </ul>
+        </div>
+      {/foreach}
+    </div>
+  {/if}
 {/block}

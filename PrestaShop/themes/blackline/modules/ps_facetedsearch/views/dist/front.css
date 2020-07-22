@@ -30,17 +30,58 @@
     background-color: white;
     border: solid 1px #dcdcdc;
     padding: 16px;
+    width: 200px;
+    height: 220px;
 }
 
+.facet > ul > li {
+    margin-left: 14px;
+}
 
 .facet > ul > li > label {
     display: flex;
+    margin-top: 4px;
 }
 
 .facet > ul > li > label > span {
-    margin-right: 3px;
+    margin-right: 6px;
 }
 
 .facet:hover > ul {
     display: block;
+}
+
+.custom-checkbox {
+    border: solid 1px #DCDCDC;
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    transition: all 120ms linear 0s;
+}
+
+.custom-checkbox > input {
+    opacity: 0;
+    position: absolute;
+}
+
+.custom-checkbox > input:checked ~ img {
+    display: block;
+}
+
+.checked-checkbox {
+    background-color: black;
+    border-color: black;
+}
+
+.custom-checkbox > img {
+    filter: invert(100%);
+    position: absolute;
+    display: none;
+    width: 85%;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 120ms linear 50ms;
 }

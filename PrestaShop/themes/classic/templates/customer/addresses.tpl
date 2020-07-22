@@ -1,5 +1,5 @@
 {**
- * 2007-2017 PrestaShop
+ * 2007-2019 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
  *
@@ -15,33 +15,32 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @copyright 2007-2019 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-{extends file='page.tpl'}
+{extends file='customer/page.tpl'}
 
 {block name='page_title'}
   {l s='Your addresses' d='Shop.Theme.Customeraccount'}
 {/block}
 
-{block name='page_content_container'}
-<section id="content" class="page-content page-addresses">
-
+{block name='page_content'}
   {foreach $customer.addresses as $address}
+    <div class="col-lg-4 col-md-6 col-sm-6">
     {block name='customer_address'}
       {include file='customer/_partials/block-address.tpl' address=$address}
     {/block}
+    </div>
   {/foreach}
-
-  <footer>
+  <div class="clearfix"></div>
+  <div class="addresses-footer">
     <a href="{$urls.pages.address}" data-link-action="add-address">
-      {l s='Create new address' d='Shop.Theme.Actions'}
+      <i class="material-icons">&#xE145;</i>
+      <span>{l s='Create new address' d='Shop.Theme.Actions'}</span>
     </a>
-  </footer>
-
-</section>
+  </div>
 {/block}
