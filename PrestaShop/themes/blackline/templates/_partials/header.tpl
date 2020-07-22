@@ -38,6 +38,7 @@
 
 {block name='header_nav'}
   <div class="header-nav">
+  
     {hook h='displayNav'}
   </div>
 {/block}

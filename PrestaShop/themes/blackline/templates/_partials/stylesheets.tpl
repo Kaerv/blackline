@@ -32,7 +32,8 @@
   </style>
 {/foreach}
 <link rel="stylesheet" href="/styles/general.css">
-<link rel="stylesheet" href="http://localhost/PrestaShop/themes/blackline/assets/css/products.css">
+<link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline/assets/css/products.css">
+<link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline/assets/css/header.css">
 <link rel="stylesheet" href="/styles/page-header.css">
 <link rel="stylesheet" href="/styles/page-footer.css">
 <link rel="stylesheet" href="/styles/shop-description.css">
