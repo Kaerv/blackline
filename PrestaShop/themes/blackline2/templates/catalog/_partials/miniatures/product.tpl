@@ -56,17 +56,17 @@
               {if $product.has_discount}
                 {hook h='displayProductPriceBlock' product=$product type="old_price"}
 
-                <span class="regular-price">{$product.regular_price}</span>
                 {if $product.discount_type === 'percentage'}
-                  <span class="discount-percentage discount-product">{$product.discount_percentage}</span>
+                  <span class="discount-percentage discount-product" style="display: none">{$product.discount_percentage}</span>
                 {elseif $product.discount_type === 'amount'}
-                  <span class="discount-amount discount-product">{$product.discount_amount_to_display}</span>
+                  <span class="discount-amount discount-product" style="display: none">{$product.discount_amount_to_display}</span>
                 {/if}
               {/if}
 
               {hook h='displayProductPriceBlock' product=$product type="before_price"}
 
-              <span itemprop="price" class="price">{$product.price}</span>
+              <span itemprop="price" class="price new-price">{$product.price}</span>
+              <span class="regular-price">{$product.regular_price}</span>
 
               {hook h='displayProductPriceBlock' product=$product type='unit_price'}
 

@@ -4,6 +4,10 @@
 
 /* PRODUCTS */
 
+#left-column {
+    display: flex;
+}
+
 #js-product-list {
     display: flex;
     flex-wrap: wrap;
@@ -43,13 +47,11 @@
     font-size: 16px;
 }
 /* SORT */
-#panel-wrap {
-    width: 100%;
-    display: flex;
+.panel-wrap {
     border-bottom: solid 1px rgba(0,0,0,0.3);
     width: 98%;
-    margin-left: auto;
-    margin-right: auto;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .products-sort-order {
@@ -61,11 +63,10 @@
 }
 
 .products-selection {
-    position: absolute;
     right: 22px;
 }
 
-.dropdown {
+img.dropdown {
     width: 16px;
     height: auto;
     display: block;
@@ -100,6 +101,7 @@
 }
 
 #sort-title-wrap {
+    position:absolute;
     display: flex;
     height: 100%;
     align-items: center;
@@ -108,6 +110,10 @@
 #sort-title {
     display: block;
     margin-right: 4px;
+}
+.total-products{
+    position:absolute;
+    right: 16px;
 }
 
 #sort-list > li > a {

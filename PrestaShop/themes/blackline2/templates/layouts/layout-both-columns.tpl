@@ -76,13 +76,12 @@
           {/block}
 
           {block name="left_column"}
-            <div id="left-column" class="col-xs-12 col-sm-4 col-md-3">
+            <div id="left-column" class="col-xs-12 col-sm-4 col-md-3 panel-wrap">
               {if $page.page_name == 'product'}
                 {hook h='displayLeftColumnProduct'}
               {else}
                 {hook h="displayLeftColumn"}
               {/if}
-              {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
               {block name='product_list_top'}
                   {include file='catalog/_partials/products-top.tpl' listing=$listing}
               {/block}

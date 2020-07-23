@@ -23,26 +23,28 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div id="js-product-list-top" class="row products-selection">
-  <div class="col-md-6 hidden-sm-down total-products">
-    <p>liczba produktów: {$listing.pagination.total_items}</p>
-  </div>
   <div class="col-md-6">
     <div class="row sort-by-row">
-
+      {block name='sort_by'}
+    {include file='catalog/_partials/sort-orders.tpl' sort_orders=$listing.sort_orders}
+  {/block}
       {if !empty($listing.rendered_facets)}
         <div class="col-sm-3 col-xs-4 hidden-md-up filter-button">
-          <button id="search_filter_toggler" class="btn btn-secondary">
+          <button id="search_filter_toggler" class="btn btn-secondary" style="display: none">
             {l s='Filter' d='Shop.Theme.Actions'}
           </button>
         </div>
       {/if}
     </div>
   </div>
-  <div class="col-sm-12 hidden-md-up text-sm-center showing">
+  <div class="col-sm-12 hidden-md-up text-sm-center showing" style="display: none;">
     {l s='Showing %from%-%to% of %total% item(s)' d='Shop.Theme.Catalog' sprintf=[
     '%from%' => $listing.pagination.items_shown_from ,
     '%to%' => $listing.pagination.items_shown_to,
     '%total%' => $listing.pagination.total_items
     ]}
+  </div>
+    <div class="col-md-6 hidden-sm-down total-products">
+    <p>liczba produktów: {$listing.pagination.total_items}</p>
   </div>
 </div>

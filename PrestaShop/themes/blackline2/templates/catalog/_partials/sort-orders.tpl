@@ -22,25 +22,38 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div class="products-sort-order">
+<div class="{if !empty($listing.rendered_facets)}col-sm-9 col-xs-8{else}col-sm-12 col-xs-12{/if} col-md-9 products-sort-order dropdown">
+  <button
+  style="display: none"
+    class="btn-unstyle select-title"
+    rel="nofollow"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false">
+    {if isset($listing.sort_selected)}{$listing.sort_selected}{else}{l s='Select' d='Shop.Theme.Actions'}{/if}
+    <i class="material-icons float-xs-right">&#xE5C5;</i>
+  </button>
   <div id="sort-title-wrap">
     <span id="sort-title">Sortuj</span> 
     <img src="/assets/icons/down-arrow.svg" class="dropdown">
   </div>
   <ul id="sort-list">
-  {foreach from=$sort_orders item=sort_order}
-    {if $sort_order.field != "name" && $sort_order.field != "position"}
-    <li>
+    {foreach from=$listing.sort_orders item=sort_order}
+      {if $sort_order.field != "name" && $sort_order.field != "position"}
+      <li>
       <a
-        class="{['current' => $sort_order.current, 'js-search-link' => true]|classnames}"
-        href="{$sort_order.url}"
         rel="nofollow"
+        href="{$sort_order.url}"
+        class="select-list {['current' => $sort_order.current, 'js-search-link' => true]|classnames}"
       >
         <div class="custom-radio">{if $sort_order.current}<div class="custom-radio-selected"></div>{/if}</div>
-        <span>{$sort_order.label}</span>
+        {$sort_order.label}
       </a>
-    </li>
-    {/if}
-  {/foreach}
+      </li>
+      {/if}
+    {/foreach}
   </ul>
+  <script>
+    $("#sort-list").css("top", $("#left-column").css("height"));
+  </script>
 </div>
