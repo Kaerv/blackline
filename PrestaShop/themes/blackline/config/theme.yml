@@ -7,7 +7,7 @@ assets:
         priority: 100
 
 name: blackline
-display_name: BLACKLINE
+display_name: BLACKLINE (źródło StarterTheme)
 version: 1.0.0
 author:
   name: "Krystian Kordal"
