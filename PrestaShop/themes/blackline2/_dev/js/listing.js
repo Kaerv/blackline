@@ -145,7 +145,7 @@ $(document).ready(() => {
 
   prestashop.on('updateProductList', (data) => {
     updateProductListDOM(data);
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
   });
 });
 

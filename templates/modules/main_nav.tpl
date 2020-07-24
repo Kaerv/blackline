@@ -7,5 +7,5 @@
     <div class="nav-line"></div>
     <a class="menu-option disabled">ENCYKLOPEDIA <br>DEFINICJI ZAPOMNIANYCH</a>
     <div class="nav-line"></div>
-    <a class="menu-option" href="index.php?page=regulamin">REGULAMIN <br>METAFIZYKA ZASAD</a>
+    <a class="menu-option" href="/index.php?page=regulamin">REGULAMIN <br>METAFIZYKA ZASAD</a>
 </nav>
