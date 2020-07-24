@@ -108,6 +108,9 @@
                     </label>
                   </li>
                 {/foreach}
+                <li class="filter-button-container">
+                  <input type="button" value="FILTRUJ" class="filter-action-button">
+                </li>
               </ul>
             {/block}
   

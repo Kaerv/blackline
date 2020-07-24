@@ -27,6 +27,7 @@ import prestashop from 'prestashop';
 import 'velocity-animate';
 
 import ProductMinitature from './components/product-miniature';
+import AdvancedFilter from './components/advanced-filter';
 
 $(document).ready(() => {
   prestashop.on('clickQuickView', function (elm) {
@@ -141,6 +142,25 @@ $(document).ready(() => {
   $('body').on('change', '#search_filters select', function (event) {
     const form = $(event.target).closest('form');
     prestashop.emit('updateFacets', '?' + form.serialize());
+  });
+
+  /*
+  * CUSTOM UPDATE FACETS AFTER BUTTON CLICK
+  */
+
+  $(".filter-action-button").on('click', function () {
+    console.log("Hejo");
+  });
+
+  $('body').on('click', function() {
+    console.log("xd");
+  })
+
+  $('body').on('click','.filter-action-button', function (event) {
+    console.log(event);
+    $("body").css("background-color", "red");
+    //const filter = new AdvancedFilter();
+    //filter.filter();
   });
 
   prestashop.on('updateProductList', (data) => {
