@@ -173,11 +173,18 @@
                   data-slider-encoded-url="{$filter.nextEncodedFacetsURL}"
                 >
                   <li>
-                    <p id="facet_label_{$_expand_id}">
+                    <p id="facet_label_{$_expand_id}" style="display: none;">
                       {$filter.label}
                     </p>
   
-                    <div id="slider-range_{$_expand_id}"></div>
+                    <div id="slider-range_{$_expand_id}" style="display: none;"></div>
+                    <p class="price-label">Cena od</p>
+                    <input type="text" id="price-min" class="price-filter">
+                    <p class="price-label">Cena do</p>
+                    <input type="text" id="price-max" class="price-filter">
+                  </li>
+                  <li class="filter-button-container">
+                    <input type="button" value="FILTRUJ" class="filter-action-button">
                   </li>
                 </ul>
               {/foreach}
