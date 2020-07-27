@@ -126,9 +126,9 @@ $(document).ready(() => {
     return $(event.target).parent()[0].dataset.searchUrl;
   };
 
-  $('body').on('change', '#search_filters input[data-search-url]', function (event) {
+  /*$('body').on('change', '#search_filters input[data-search-url]', function (event) {
     prestashop.emit('updateFacets', parseSearchUrl(event));
-  });
+  });*/
 
   $('body').on('click', '.js-search-filters-clear-all', function (event) {
     prestashop.emit('updateFacets', parseSearchUrl(event));
@@ -147,20 +147,9 @@ $(document).ready(() => {
   /*
   * CUSTOM UPDATE FACETS AFTER BUTTON CLICK
   */
-
-  $(".filter-action-button").on('click', function () {
-    console.log("Hejo");
-  });
-
-  $('body').on('click', function() {
-    console.log("xd");
-  })
-
   $('body').on('click','.filter-action-button', function (event) {
-    console.log(event);
-    $("body").css("background-color", "red");
-    //const filter = new AdvancedFilter();
-    //filter.filter();
+    const filter = new AdvancedFilter();
+    filter.filter();
   });
 
   prestashop.on('updateProductList', (data) => {
