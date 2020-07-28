@@ -179,9 +179,11 @@
   
                     <div id="slider-range_{$_expand_id}" style="display: none;"></div>
                     <p class="price-label">Cena od</p>
-                    <input type="text" id="price-min" class="price-filter">
+                    <input type="text" id="price-min" class="price-filter" value="{$filter.value[0]}">
                     <p class="price-label">Cena do</p>
-                    <input type="text" id="price-max" class="price-filter">
+                    <input type="text" id="price-max" class="price-filter" value="{$filter.value[1]}">
+                    <script>
+                    </script>
                   </li>
                   <li class="filter-button-container">
                     <input type="button" value="FILTRUJ" class="filter-action-button">

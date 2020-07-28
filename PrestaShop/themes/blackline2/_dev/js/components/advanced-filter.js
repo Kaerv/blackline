@@ -1,22 +1,17 @@
 import $, { data } from 'jquery';
 
-function log(msg) {
-    window.console.log(msg);
-}
-
-//index.php?id_category=2&controller=category&q=Rozmiar-S-M/Kolor-Bia%C5%82y
-
 export default class AdvancedFilter {
     constructor() {
         this.baseUrl = this.getBaseUrl();
 
         let params = this.getActiveCheckboxes();
         this.url = this.prepareFilterUrl(params);
+        
+        this.url += this.addPriceFilterToUrl();
     }
 
     getBaseUrl() {
-        let firstFacet = $(".facet-label")[0];
-        let url = $(firstFacet).find("a")[0].href;
+        let url = window.location.href;
         if(url.includes("q=")) {
             url = url.substring(0, url.indexOf("q=") - 1);
         }
@@ -61,6 +56,33 @@ export default class AdvancedFilter {
             });
         });
         return url;
+    }
+
+    addPriceFilterToUrl() {
+        let filter = $(".faceted-slider")[0];
+        let min = $("#price-min").val();
+        let max = $("#price-max").val();
+
+        if(min || max) {
+            let label = $(filter).data("slider-label");
+            let unit = $(filter).data("slider-unit");
+             min = min? min : $(filter).data("slider-min");
+             max = max? max : $(filter).data("slider-max");
+
+             if(parseInt(min) && parseInt(max)) {
+                if(min > max)
+                    [min, max] = [max, min];
+
+                let url = ""
+                if(this.url[this.url.length - 1] != "=") 
+                    url += "/";
+
+                url += `${label}-${unit}-${min}-${max}`;
+                return url;
+             }
+
+        }
+        return "";
     }
 
     filter() {

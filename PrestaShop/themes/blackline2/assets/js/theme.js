@@ -1358,12 +1358,6 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-function log(msg) {
-    window.console.log(msg);
-}
-
-//index.php?id_category=2&controller=category&q=Rozmiar-S-M/Kolor-Bia%C5%82y
-
 var AdvancedFilter = (function () {
     function AdvancedFilter() {
         _classCallCheck(this, AdvancedFilter);
@@ -1372,13 +1366,14 @@ var AdvancedFilter = (function () {
 
         var params = this.getActiveCheckboxes();
         this.url = this.prepareFilterUrl(params);
+
+        this.url += this.addPriceFilterToUrl();
     }
 
     _createClass(AdvancedFilter, [{
         key: "getBaseUrl",
         value: function getBaseUrl() {
-            var firstFacet = (0, _jquery2["default"])(".facet-label")[0];
-            var url = (0, _jquery2["default"])(firstFacet).find("a")[0].href;
+            var url = window.location.href;
             if (url.includes("q=")) {
                 url = url.substring(0, url.indexOf("q=") - 1);
             }
@@ -1424,6 +1419,35 @@ var AdvancedFilter = (function () {
                 });
             });
             return url;
+        }
+    }, {
+        key: "addPriceFilterToUrl",
+        value: function addPriceFilterToUrl() {
+            var filter = (0, _jquery2["default"])(".faceted-slider")[0];
+            var min = (0, _jquery2["default"])("#price-min").val();
+            var max = (0, _jquery2["default"])("#price-max").val();
+
+            if (min || max) {
+                var label = (0, _jquery2["default"])(filter).data("slider-label");
+                var unit = (0, _jquery2["default"])(filter).data("slider-unit");
+                min = min ? min : (0, _jquery2["default"])(filter).data("slider-min");
+                max = max ? max : (0, _jquery2["default"])(filter).data("slider-max");
+
+                if (parseInt(min) && parseInt(max)) {
+                    if (min > max) {
+                        ;
+
+                        var _ref = [max, min];
+                        min = _ref[0];
+                        max = _ref[1];
+                    }var url = "";
+                    if (this.url[this.url.length - 1] != "=") url += "/";
+
+                    url += label + "-" + unit + "-" + min + "-" + max;
+                    return url;
+                }
+            }
+            return "";
         }
     }, {
         key: "filter",
