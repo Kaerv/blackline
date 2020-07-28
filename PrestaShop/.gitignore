@@ -122,6 +122,7 @@ app/config/config.php
 # Themes, modules and overrides
 
 modules/*
+!modules/ps_facetedsearch
 override/*
 themes/classic/assets/css/*_rtl.css
 
