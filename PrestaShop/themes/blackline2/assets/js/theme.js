@@ -1434,7 +1434,7 @@ var AdvancedFilter = (function () {
                 max = max ? max : (0, _jquery2["default"])(filter).data("slider-max");
 
                 if (parseInt(min) && parseInt(max)) {
-                    if (min > max) {
+                    if (parseInt(min) > parseInt(max)) {
                         ;
 
                         var _ref = [max, min];

@@ -70,7 +70,7 @@ export default class AdvancedFilter {
              max = max? max : $(filter).data("slider-max");
 
              if(parseInt(min) && parseInt(max)) {
-                if(min > max)
+                if(parseInt(min) > parseInt(max))
                     [min, max] = [max, min];
 
                 let url = ""
