@@ -2,10 +2,10 @@
 <header>
     <div id="header-top-wrap">
         <div id="help-and-contact">
-            <a href="#help-and-contact" class="dashed">POMOC I KONTAKT</a>
+            <a href="/PrestaShop/index.php?controller=contact" class="dashed">POMOC I KONTAKT</a>
         </div>
         <div id="header-centre">
-            <a href="index.php">
+            <a href="/">
                 <img id="main-logo" src="assets/logo/logo.png">
             </a>
         </div>
@@ -17,10 +17,10 @@
             <a href="#favourite" id="header-favourite">
                 <img id="header-favourite-ico" class="header-ico" src="assets/icons/heart.svg" alt="">
             </a>
-            <a href="#account" id="header-account">
+            <a href="/PrestaShop/index.php?controller=authentication&back=my-account" id="header-account">
                 <img id="header-account-ico" class="header-ico" src="assets/icons/person.svg" alt="">
             </a>
-            <a href="cart" id="header-cart">
+            <a href="/PrestaShop/index.php?controller=cart" id="header-cart">
                 <img id="header-cart-ico" class="header-ico" src="assets/icons/gift.svg" alt="">
             </a>
         </div>

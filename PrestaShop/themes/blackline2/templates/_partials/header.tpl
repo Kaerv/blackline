@@ -22,63 +22,33 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-{block name='header_banner'}
-  <div class="header-banner">
-    {hook h='displayBanner'}
-  </div>
-{/block}
-
-  <div id="header-centre">
-    <a class="logo" href="{$urls.shop_domain_url}" title="{$shop.name}">
-      <img class="logo img-responsive" src="{$shop.logo}" alt="{$shop.name}" id="main-logo">
-    </a>
-  </div>
-
-{block name='header_nav'}
-  <nav class="header-nav">
-    <div class="container">
-      <div class="row">
-        <div class="hidden-sm-down">
-          <div class="col-md-5 col-xs-12">
-            {hook h='displayNav1'}
-          </div>
-          <div class="col-md-7 right-nav">
-              {hook h='displayNav2'}
-          </div>
+ <style>@import "/styles/page-header.css";</style>
+<header>
+    <div id="header-top-wrap">
+        <div id="help-and-contact">
+            <a href="{$urls.pages.contact}" class="dashed">POMOC I KONTAKT</a>
         </div>
-        <div class="hidden-md-up text-sm-center mobile">
-          <div class="float-xs-left" id="menu-icon">
-            <i class="material-icons d-inline">&#xE5D2;</i>
-          </div>
-          <div class="float-xs-right" id="_mobile_cart"></div>
-          <div class="float-xs-right" id="_mobile_user_info"></div>
-          <div class="top-logo" id="_mobile_logo"></div>
-          <div class="clearfix"></div>
+        <div id="header-centre">
+            <a href="/">
+                <img id="main-logo" src="{$shop.logo}" alt="{$shop.name}">
+            </a>
         </div>
-      </div>
+        <div id="header-buttons-container">
+            <div id="search-wrap">
+                <img id="header-search" class="header-ico" src="/assets/icons/search.svg" alt="">
+                <input id="search-input" type="text" placeholder="W poszukiwaniu... znajdź">
+            </div>
+            <a href="#favourite" id="header-favourite">
+                <img id="header-favourite-ico" class="header-ico" src="/assets/icons/heart.svg" alt="">
+            </a>
+            <a href="{$urls.pages.my_account}" id="header-account">
+                <img id="header-account-ico" class="header-ico" src="/assets/icons/person.svg" alt="">
+            </a>
+            <a href="{if $cart.products_count > 0}{$urls.pages.cart} {else}{$urls.pages.cart} {/if}" id="header-cart">
+                <img id="header-cart-ico" class="header-ico" src="/assets/icons/gift.svg" alt="">
+            </a>
+        </div>
     </div>
-  </nav>
-{/block}
-
-{block name='header_top'}
-  <div class="header-top">
-    <div class="container">
-       <div class="row">
-        <div class="col-md-10 col-sm-12 position-static">
-          {hook h='displayTop'}
-          <div class="clearfix"></div>
-        </div>
-      </div>
-      <div id="mobile_top_menu_wrapper" class="row hidden-md-up" style="display:none;">
-        <div class="js-top-menu mobile" id="_mobile_top_menu"></div>
-        <div class="js-top-menu-bottom">
-          <div id="_mobile_currency_selector"></div>
-          <div id="_mobile_language_selector"></div>
-          <div id="_mobile_contact_link"></div>
-        </div>
-      </div>
-    </div>
-      {include file="../../../../../templates/modules/main_nav.tpl"}
-  </div>
-  {hook h='displayNavFullWidth'}
-{/block}
+    
+    {include file='../../../../../templates/modules/main_nav.tpl'}
+ 
