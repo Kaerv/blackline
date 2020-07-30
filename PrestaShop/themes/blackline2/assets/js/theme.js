@@ -2450,10 +2450,10 @@ var _componentsAdvancedFilter2 = _interopRequireDefault(_componentsAdvancedFilte
     _prestashop2['default'].emit('updateFacets', parseSearchUrl(event));
   });
 
-  (0, _jquery2['default'])('body').on('click', '.js-search-link', function (event) {
+  /*(0, _jquery2['default'])('body').on('click', '.js-search-link', function (event) {
     event.preventDefault();
     _prestashop2['default'].emit('updateFacets', (0, _jquery2['default'])(event.target).closest('a').get(0).href);
-  });
+  });*/
 
   (0, _jquery2['default'])('body').on('change', '#search_filters select', function (event) {
     var form = (0, _jquery2['default'])(event.target).closest('form');

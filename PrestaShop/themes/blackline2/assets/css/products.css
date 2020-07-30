@@ -116,7 +116,11 @@ img.dropdown {
     right: 16px;
 }
 
-#sort-list > li > a {
+#sort-list > li {
+    margin-bottom: 10px;
+}
+
+#sort-list > li > div {
     display: flex;
     align-items: center;
 }

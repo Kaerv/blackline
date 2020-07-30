@@ -41,19 +41,46 @@
     {foreach from=$listing.sort_orders item=sort_order}
       {if $sort_order.field != "name" && $sort_order.field != "position"}
       <li>
-      <a
+      <div
         rel="nofollow"
-        href="{$sort_order.url}"
-        class="select-list {['current' => $sort_order.current, 'js-search-link' => true]|classnames}"
+        data-url="{$sort_order.url}"
+        class="select-list {['current' => $sort_order.current]|classnames}"
       >
         <div class="custom-radio">{if $sort_order.current}<div class="custom-radio-selected"></div>{/if}</div>
         {$sort_order.label}
-      </a>
+      </div>
       </li>
       {/if}
     {/foreach}
+      <li>
+        <div
+          rel="nofollow"
+          data-url="{$listing.sort_orders[0].url}"
+          class="select-list current"
+        >
+          <div class="custom-radio">{if $listing.sort_orders[0].current}<div class="custom-radio-selected"></div>{/if}</div>
+          Domyślnie
+        </div>
+      </li>
+    <li class="filter-button-container">
+      <input type="button" value="SORTUJ" class="sort-action-button" id="sort-button">
+    </li>
   </ul>
   <script>
     $("#sort-list").css("top", $("#left-column").css("height"));
+    $(".select-list").on("click", function() {
+      $(".select-list.current").find(".custom-radio-selected").remove();
+      $(".select-list.current").removeClass("current");
+
+      $(this).addClass("current");
+      $(this).find(".custom-radio").append("<div class='custom-radio-selected'></div>");
+
+    });
+
+    $("#sort-button").on("click", function() {
+      let url = $(".current").data("url");
+
+      prestashop.emit('updateFacets', url);
+    });
   </script>
 </div>
