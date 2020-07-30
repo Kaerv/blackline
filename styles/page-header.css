@@ -40,6 +40,10 @@ header {
     height: auto;
 }
 
+#header-favourite-ico {
+    height: 28px;
+}
+
 #search-wrap {
     height: 31px;
     margin-right: 30px;

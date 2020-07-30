@@ -144,9 +144,20 @@ $(document).ready(() => {
     prestashop.emit('updateFacets', '?' + form.serialize());
   });
 
-  /*
-  * CUSTOM UPDATE FACETS AFTER BUTTON CLICK
-  */
+  $(".select-list").on("click", function() {
+    $(".select-list.current").find(".custom-radio-selected").remove();
+    $(".select-list.current").removeClass("current");
+
+    $(this).addClass("current");
+    $(this).find(".custom-radio").append("<div class='custom-radio-selected'></div>");
+  });
+
+  $("#sort-button").on("click", function() {
+    let url = $(".current").data("url");
+
+    prestashop.emit('updateFacets', url);
+  });
+
   $('body').on('click','.filter-action-button', function (event) {
     const filter = new AdvancedFilter();
     filter.filter();
@@ -154,7 +165,6 @@ $(document).ready(() => {
 
   prestashop.on('updateProductList', (data) => {
     updateProductListDOM(data);
-    //window.scrollTo(0, 0);
   });
 });
 

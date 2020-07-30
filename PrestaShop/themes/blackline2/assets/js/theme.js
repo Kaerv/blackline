@@ -2450,19 +2450,30 @@ var _componentsAdvancedFilter2 = _interopRequireDefault(_componentsAdvancedFilte
     _prestashop2['default'].emit('updateFacets', parseSearchUrl(event));
   });
 
-  /*(0, _jquery2['default'])('body').on('click', '.js-search-link', function (event) {
+  (0, _jquery2['default'])('body').on('click', '.js-search-link', function (event) {
     event.preventDefault();
     _prestashop2['default'].emit('updateFacets', (0, _jquery2['default'])(event.target).closest('a').get(0).href);
-  });*/
+  });
 
   (0, _jquery2['default'])('body').on('change', '#search_filters select', function (event) {
     var form = (0, _jquery2['default'])(event.target).closest('form');
     _prestashop2['default'].emit('updateFacets', '?' + form.serialize());
   });
 
-  /*
-  * CUSTOM UPDATE FACETS AFTER BUTTON CLICK
-  */
+  (0, _jquery2['default'])(".select-list").on("click", function () {
+    (0, _jquery2['default'])(".select-list.current").find(".custom-radio-selected").remove();
+    (0, _jquery2['default'])(".select-list.current").removeClass("current");
+
+    (0, _jquery2['default'])(this).addClass("current");
+    (0, _jquery2['default'])(this).find(".custom-radio").append("<div class='custom-radio-selected'></div>");
+  });
+
+  (0, _jquery2['default'])("#sort-button").on("click", function () {
+    var url = (0, _jquery2['default'])(".current").data("url");
+
+    _prestashop2['default'].emit('updateFacets', url);
+  });
+
   (0, _jquery2['default'])('body').on('click', '.filter-action-button', function (event) {
     var filter = new _componentsAdvancedFilter2['default']();
     filter.filter();
@@ -2470,7 +2481,6 @@ var _componentsAdvancedFilter2 = _interopRequireDefault(_componentsAdvancedFilte
 
   _prestashop2['default'].on('updateProductList', function (data) {
     updateProductListDOM(data);
-    //window.scrollTo(0, 0);
   });
 });
 

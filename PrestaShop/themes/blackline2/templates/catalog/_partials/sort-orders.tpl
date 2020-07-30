@@ -68,19 +68,5 @@
   </ul>
   <script>
     $("#sort-list").css("top", $("#left-column").css("height"));
-    $(".select-list").on("click", function() {
-      $(".select-list.current").find(".custom-radio-selected").remove();
-      $(".select-list.current").removeClass("current");
-
-      $(this).addClass("current");
-      $(this).find(".custom-radio").append("<div class='custom-radio-selected'></div>");
-
-    });
-
-    $("#sort-button").on("click", function() {
-      let url = $(".current").data("url");
-
-      prestashop.emit('updateFacets', url);
-    });
   </script>
 </div>
