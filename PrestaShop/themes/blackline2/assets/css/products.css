@@ -173,3 +173,21 @@ img.dropdown {
     margin-right: 10px;
 }
 
+.clear-all-ico {
+    height: 10px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.js-search-filters-clear-all {
+    font-size: 14px;
+    padding: 2px 6px 2px 6px;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    background: #DCDCDC;
+    position:absolute;
+    top: 49%;
+    transform: translate(100px, -50%);
+}
