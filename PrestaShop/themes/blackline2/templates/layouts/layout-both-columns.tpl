@@ -24,15 +24,34 @@
  *}
 <!doctype html>
 <html lang="{$language.iso_code}">
-
   <head>
     {block name='head'}
       {include file='_partials/head.tpl'}
     {/block}
   </head>
-
   <body id="{$page.page_name}" class="{$page.body_classes|classnames}">
-
+  {if $cart.products_count > 0}
+  {assign var=lastProduct value=$cart.products[count($cart.products) - 1]}
+  {get_cart_to_session
+    cart=$cart 
+    productImg=$lastProduct.cover.bySize.cart_default.url
+    productName=$lastProduct.name
+    productPrice=$lastProduct.total
+    productQuantity=$lastProduct.quantity
+    cartLink=$urls.pages.cart
+    summaryLink=$urls.pages.order
+  }
+  {else}
+  {get_cart_to_session
+    cart="" 
+    productImg=""
+    productName=""
+    productPrice=""
+    productQuantity=""
+    cartLink=$urls.pages.cart
+    summaryLink=$urls.pages.order
+  }
+  {/if}
     {block name='hook_after_body_opening_tag'}
       {hook h='displayAfterBodyOpeningTag'}
     {/block}

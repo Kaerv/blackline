@@ -20,9 +20,15 @@
             <a href="/PrestaShop/index.php?controller=authentication&back=my-account" id="header-account">
                 <img id="header-account-ico" class="header-ico" src="assets/icons/person.svg" alt="">
             </a>
-            <a href="/PrestaShop/index.php?controller=cart" id="header-cart">
-                <img id="header-cart-ico" class="header-ico" src="assets/icons/gift.svg" alt="">
-            </a>
+            <div id="header-cart">
+                <div id="cart-button-container">
+                    <img id="header-cart-ico" class="header-ico" src="assets/icons/gift.svg" alt="">
+                    {if $smarty.session.cart.products_count > 0}
+                    <div id="products-amount"><span id="cart-products-amount">{$smarty.session.cart.products_count}</span></div>
+                    {/if}
+                </div>
+                {include file="./cart_preview.tpl"}
+            </div>
         </div>
     </div>
     

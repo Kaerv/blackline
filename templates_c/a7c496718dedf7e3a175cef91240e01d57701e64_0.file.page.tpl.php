@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-04-12 17:41:40
+/* Smarty version 3.1.34-dev-7, created on 2020-08-02 05:47:22
   from '/var/www/html/templates/page.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e9352d4b59865_74834381',
+  'unifunc' => 'content_5f26536a8352c9_80767599',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a7c496718dedf7e3a175cef91240e01d57701e64' => 
     array (
       0 => '/var/www/html/templates/page.tpl',
-      1 => 1586713299,
+      1 => 1596347241,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/page_footer.tpl' => 1,
   ),
 ),false)) {
-function content_5e9352d4b59865_74834381 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f26536a8352c9_80767599 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['page']->value != 'index') {?>
     <?php ob_start();
 echo ucfirst($_smarty_tpl->tpl_vars['page']->value);
@@ -45,7 +45,14 @@ $_smarty_tpl->_assignInScope('page_title', $_prefixVariable1.$_prefixVariable2);
 </title>
     <link rel="stylesheet" href="/styles/normalize.css">
     <link rel="stylesheet" href="/styles/general.css">
+    <link rel="stylesheet" href="/styles/cart-preview.css">
     <link rel="stylesheet" href=<?php echo "/styles/".((string)$_smarty_tpl->tpl_vars['page']->value).".css";?>
+>
+    <?php echo '<script'; ?>
+
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"><?php echo '</script'; ?>
 >
 </head>
 <body>

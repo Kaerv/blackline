@@ -36,4 +36,5 @@
 <link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/header.css">
 <link rel="stylesheet" href="/styles/page-header.css">
 <link rel="stylesheet" href="/styles/page-footer.css">
+<link rel="stylesheet" href="/styles/cart-preview.css">
 <link rel="stylesheet" href="/styles/shop-description.css">

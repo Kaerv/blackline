@@ -1,0 +1,96 @@
+#header-cart:hover #cart-preview {
+    display: block;
+}
+
+#cart-preview {
+    position:absolute;
+    width: 224px;
+    height: 216px;
+    right: 0px;
+    display: none;
+    background-color: white;
+    border: solid 1px #DCDCDC;
+    z-index: 100;
+    font-family: Overpass;
+}
+
+#last-added-product {
+    height: 50%;
+    font-size: 14px;
+}
+
+#last-added-title {
+    font-size: 12px;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+
+#last-added-product-preview {
+    display: flex;
+    align-items: center;
+    height: 70%;
+    margin-top: 10px;
+}
+
+#last-added-product-thumbnail {
+    height: 100%;
+    width: auto;
+    margin-left: 6px;
+    margin-right: 10px;
+}
+
+#last-added-price-name > span {
+    display: block;
+}
+
+#cart-separate-line {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: solid 1px #DCDCDC;
+    margin-bottom: 10px;
+}
+
+#cart-preview-action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#summary-button, #cart-button {
+    width: 80%;
+    height: 28px;
+    border: solid 1px black;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 200ms linear 0s;
+}
+
+#summary-button {
+    background-color: black;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#summary-button:hover {
+    background-color: white;
+    color: black;
+}
+
+#cart-button {
+    background-color: white;
+    color: black;
+}
+
+#cart-button:hover {
+    background-color: black;
+    color: white;
+}
+
+#there-is-no-products {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}

@@ -5,3 +5,10 @@
     width: 40%;
 }
 
+#products-amount {
+    bottom: 10px !important;
+}
+
+#cart-products-amount {
+    margin-top: 2px;
+}

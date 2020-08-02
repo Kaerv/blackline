@@ -22,7 +22,6 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
- <style>@import "/styles/page-header.css";</style>
 <header>
     <div id="header-top-wrap">
         <div id="help-and-contact">
@@ -44,9 +43,13 @@
             <a href="{$urls.pages.my_account}" id="header-account">
                 <img id="header-account-ico" class="header-ico" src="/assets/icons/person.svg" alt="">
             </a>
-            <a href="{if $cart.products_count > 0}{$urls.pages.cart} {else}{$urls.pages.cart} {/if}" id="header-cart">
+            <div id="header-cart">
                 <img id="header-cart-ico" class="header-ico" src="/assets/icons/gift.svg" alt="">
-            </a>
+                {if isset($smarty.session.cart.products_count) && $smarty.session.cart.products_count > 0}
+                    <div id="products-amount"><span id="cart-products-amount">{$smarty.session.cart.products_count}</span></div>
+                {/if}
+                {include file='../../../../../templates/modules/cart_preview.tpl'}
+            </div>
         </div>
     </div>
     
