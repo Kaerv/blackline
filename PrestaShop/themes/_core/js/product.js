@@ -216,7 +216,7 @@ function updateProduct(event, eventType, updateUrl) {
         currentRequestDelayedId = null;
       },
     });
-  }).bind(currentRequest, currentRequestDelayedId)),
+  })),
   updateDelay;
 }
 
