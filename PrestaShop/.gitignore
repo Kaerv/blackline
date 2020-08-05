@@ -123,6 +123,7 @@ app/config/config.php
 
 modules/*
 !modules/ps_facetedsearch
+!modules/blackline_featuredproducts
 override/*
 themes/classic/assets/css/*_rtl.css
 

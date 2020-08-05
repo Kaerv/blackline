@@ -182,5 +182,6 @@
       <p>W budowie</p>
     </div>
   </section>
+  {hook h='displayFeaturedProducts'}
 
 {/block}
