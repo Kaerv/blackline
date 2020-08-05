@@ -114,4 +114,33 @@ $(document).ready(function () {
       });
     });
   }
+  $(document).on("click", function(event) {hideSizeList(event)});
+  $(".size-select").on("click", showSizeList);
+  $(".options-list li").on("click", function(){selectSize(this)});
+  
+  prestashop.on("updatedProduct", function() {
+      $(document).on("click", function(event) {hideSizeList(event)});
+      $(".size-select").on("click", showSizeList);
+      $(".options-list li").on("click", function(){selectSize(this)});
+  })
+  
+  function showSizeList() {
+      $(".options-list").show();
+  }
+  
+  function hideSizeList(event) {
+      if(event.target != $(".size-select")[0] && event.target != $(".current-size")[0] && event.target != $(".size-select img")[0])
+          $(".options-list").hide();
+  }
+  
+  function selectSize(el) {
+      let id = $(el).data("id");
+      console.log(id);
+      $(".selected").removeClass("selected");
+      $(el).addClass("selected");
+      $(".size-select .form-control").val(id);
+  
+      let newValue = $(".size-select .form-control").children("option:selected").text();
+      $(".current-size").text(newValue);
+  }
 });

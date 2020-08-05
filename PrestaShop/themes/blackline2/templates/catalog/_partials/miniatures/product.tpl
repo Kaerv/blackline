@@ -64,10 +64,12 @@
               {/if}
 
               {hook h='displayProductPriceBlock' product=$product type="before_price"}
-
+              {if $product.has_discount}
               <span itemprop="price" class="price new-price">{$product.price}</span>
               <span class="regular-price">{$product.regular_price}</span>
-
+              {else}
+                <span itemprop="price" class="price">{$product.price}</span>
+              {/if}
               {hook h='displayProductPriceBlock' product=$product type='unit_price'}
 
               {hook h='displayProductPriceBlock' product=$product type='weight'}

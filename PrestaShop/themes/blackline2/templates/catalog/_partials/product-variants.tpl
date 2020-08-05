@@ -26,8 +26,10 @@
   {foreach from=$groups key=id_attribute_group item=group}
     {if !empty($group.attributes)}
     <div class="clearfix product-variants-item">
-      <span class="control-label">{$group.name}</span>
+      <span class="control-label" style="display: none">{$group.name}</span>
       {if $group.group_type == 'select'}
+      <div class="size-select">
+        <span class="current-size">{foreach from=$group.attributes key=id_attribute item=group_attribute}{if $group_attribute.selected}{$group_attribute.name}{/if}{/foreach}</span>
         <select
           class="form-control form-control-select"
           id="group_{$id_attribute_group}"
@@ -37,17 +39,25 @@
             <option value="{$id_attribute}" title="{$group_attribute.name}"{if $group_attribute.selected} selected="selected"{/if}>{$group_attribute.name}</option>
           {/foreach}
         </select>
-      {elseif $group.group_type == 'color'}
-        <ul id="group_{$id_attribute_group}">
+        <img src="/assets/icons/down-arrow.svg">
+        <ul class="options-list">
           {foreach from=$group.attributes key=id_attribute item=group_attribute}
-            <li class="float-xs-left input-container">
-              <label>
+          <li data-id="{$id_attribute}">{$group_attribute.name}</li>
+          {/foreach}
+        </ul>
+      </div>
+      {elseif $group.group_type == 'color'}
+        <ul id="group_{$id_attribute_group}" class="color-list">
+          {foreach from=$group.attributes key=id_attribute item=group_attribute}
+            <li class="float-xs-left input-container {if $group_attribute.selected}selected-option{/if}">
+              <label class="color-container">
                 <input class="input-color" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}"{if $group_attribute.selected} checked="checked"{/if}>
                 <span
                   {if $group_attribute.html_color_code && !$group_attribute.texture}class="color" style="background-color: {$group_attribute.html_color_code}" {/if}
                   {if $group_attribute.texture}class="color texture" style="background-image: url({$group_attribute.texture})" {/if}
-                ><span class="sr-only">{$group_attribute.name}</span></span>
+                ></span>
               </label>
+              <div class="selected-color-check"><img src="/assets/icons/checked.svg"></div>
             </li>
           {/foreach}
         </ul>

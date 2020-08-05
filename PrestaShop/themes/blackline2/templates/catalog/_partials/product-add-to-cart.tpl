@@ -24,11 +24,11 @@
  *}
 <div class="product-add-to-cart">
   {if !$configuration.is_catalog}
-    <span class="control-label">{l s='Quantity' d='Shop.Theme.Catalog'}</span>
+    <span class="control-label" style="display: none;">{l s='Quantity' d='Shop.Theme.Catalog'}</span>
 
     {block name='product_quantity'}
       <div class="product-quantity clearfix">
-        <div class="qty">
+        <div class="qty" style="display: none;">
           <input
             type="number"
             name="qty"
@@ -39,7 +39,10 @@
             aria-label="{l s='Quantity' d='Shop.Theme.Actions'}"
           >
         </div>
-
+          <div class="add-quote-button">
+              <span>Umieść tekst</span>
+              <img src="/assets/icons/edit.svg">
+          </div>
         <div class="add">
           <button
             class="btn btn-primary add-to-cart"
