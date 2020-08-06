@@ -179,8 +179,8 @@
       <div class="product-section-line"></div>
       <div class="product-section-title-content">Dostawa i płatność</div>
       <div class="product-section-line"></div>
-      <p>W budowie</p>
     </div>
+          <p>W budowie</p>
   </section>
   {hook h='displayFeaturedProducts'}
 

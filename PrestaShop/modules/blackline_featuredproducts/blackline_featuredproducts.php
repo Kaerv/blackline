@@ -3,6 +3,8 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
+include_once _PS_MODULE_DIR_ . 'ps_featuredproducts/ps_featuredproducts.php';
+
 class Blackline_FeaturedProducts extends Module
 {
     public function __construct() {
@@ -27,7 +29,8 @@ class Blackline_FeaturedProducts extends Module
 
     public function install() {
         if (!parent::install() ||
-        !$this->registerHook('displayFeaturedProducts')) {
+        !$this->registerHook('displayFeaturedProducts') ||
+        !$this->registerHook('actionFrontControllerSetMedia')) {
         return false;
         }
 
@@ -39,26 +42,20 @@ class Blackline_FeaturedProducts extends Module
     }
 
     public function hookDisplayFeaturedProducts($params) {
+        $ps_featured = new Ps_FeaturedProducts();
+        $variables = $ps_featured->getWidgetVariables();
+        $this->smarty->assign($variables);
+        
         return $this->display(__FILE__, 'featured.tpl');
     }
 
     public function hookActionFrontControllerSetMedia() {
-        $this->context->controller->registerStylesheet(
-            'featured-style',
-            $this->_path.'views/css/featured.css',
-            [
-                'media' => 'all',
-                'priority' => 1000,
-            ]
+        $this->context->controller->addCSS(
+            $this->_path.'views/css/featured.css', 'all'
         );
 
-        $this->context->controller->registerJavascript(
-            'featured-javascript',
-            $this->_path.'views/js/featured.js',
-            [
-                'position' => 'bottom',
-                'priority' => 1000,
-            ]
+        $this->context->controller->addJS(
+            $this->_path.'views/js/featured.js', 'all'
         );
     }
 
