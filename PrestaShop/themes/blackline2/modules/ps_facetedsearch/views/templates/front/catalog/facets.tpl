@@ -64,9 +64,9 @@
                           >
                           <img src="/assets/icons/checked.svg">
                           {if isset($filter.properties.color)}
-                            <span class="color" style="background-color:{$filter.properties.color}"></span>
+                            <span style="background-color:{$filter.properties.color}"></span>
                           {elseif isset($filter.properties.texture)}
-                            <span class="color texture" style="background-image:url({$filter.properties.texture})"></span>
+                            <span class=" texture" style="background-image:url({$filter.properties.texture})"></span>
                           {else}
                             <span {if !$js_enabled} class="ps-shown-by-js" {/if}><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
                           {/if}
