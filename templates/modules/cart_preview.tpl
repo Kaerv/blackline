@@ -1,4 +1,4 @@
-<div id="cart-preview">
+<div id="cart-preview" style="display: none">
     <div id="last-added-product">
     {if isset($smarty.session.cart.products_count)}
         <div id="last-added-title">Ostatnio dodane produkty:</div>
