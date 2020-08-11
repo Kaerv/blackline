@@ -7,7 +7,7 @@
 
   {block name='product_quantities'}
     {if $product.show_quantities}
-      <div class="product-quantities">
+      <div class="product-quantities" style="display: none">
         <label class="label">{l s='In stock' d='Shop.Theme.Catalog'}</label>
         <span data-stock="{$product.quantity}" data-allow-oosp="{$product.allow_oosp}">{$product.quantity} {$product.quantity_label}</span>
       </div>
@@ -44,7 +44,7 @@
   {/block}
   {block name='product_reference'}
   {if isset($product_manufacturer->id)}
-    <div class="product-manufacturer">
+    <div class="product-manufacturer" style="display: none">
       {if isset($manufacturer_image_url)}
         <a href="{$product_brand_url}">
           <img src="{$manufacturer_image_url}" class="img img-thumbnail manufacturer-logo" alt="{$product_manufacturer->name}">

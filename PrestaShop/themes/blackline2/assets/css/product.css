@@ -158,6 +158,7 @@
     border: solid 1px #DCDCDC;
     padding-top: 4px !important;
     padding-bottom: 12px !important;
+    z-index: 100
 }
 
 .options-list li {

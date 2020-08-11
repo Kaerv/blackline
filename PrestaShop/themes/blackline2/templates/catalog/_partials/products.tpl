@@ -35,3 +35,7 @@
     {include file='_partials/pagination.tpl' pagination=$listing.pagination}
   {/block}
 </div>
+
+  {block name='newsletter'}
+    {hook h="displayNewsletter"}
+  {/block}
