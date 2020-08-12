@@ -31,14 +31,14 @@
   </div>
 
   <!--  product left body: description -->
-  <div class="product-line-grid-body col-md-4 col-xs-8">
+  <div class="product-line-grid-body col-md-4 col-xs-8 cart-product-left">
     <div class="product-line-info">
-      <a class="label" href="{$product.url}" data-id_customization="{$product.id_customization|intval}">{$product.name}</a>
+      <a class="label product-cart-title" href="{$product.url}" data-id_customization="{$product.id_customization|intval}">{$product.name}</a>
     </div>
 
     <div class="product-line-info product-price h5 {if $product.has_discount}has-discount{/if}">
       {if $product.has_discount}
-        <div class="product-discount">
+        <div class="product-discount" style="display: none">
           <span class="regular-price">{$product.regular_price}</span>
           {if $product.discount_type === 'percentage'}
             <span class="discount discount-percentage">
@@ -51,7 +51,7 @@
           {/if}
         </div>
       {/if}
-      <div class="current-price">
+      <div class="current-price" style="display: none">
         <span class="price">{$product.price}</span>
         {if $product.unit_price_full}
           <div class="unit-price-cart">{$product.unit_price_full}</div>
@@ -59,10 +59,8 @@
       </div>
     </div>
 
-    <br/>
-
     {foreach from=$product.attributes key="attribute" item="value"}
-      <div class="product-line-info">
+      <div class="product-line-info product-cart-attribute">
         <span class="label">{$attribute}:</span>
         <span class="value">{$value}</span>
       </div>
@@ -108,44 +106,39 @@
         {/foreach}
       {/block}
     {/if}
+    <div class="col-md-6 col-xs-6 qty quantity-container">
+      {if isset($product.is_gift) && $product.is_gift}
+        <span class="gift-quantity">{$product.quantity}</span>
+      {else}
+        <div class="cart-quantity-select">
+          <span class="cart-selected-quantity">{$product.quantity}</span>
+          <input
+            class="js-cart-line-product-quantity"
+            data-down-url="{$product.down_quantity_url}"
+            data-up-url="{$product.up_quantity_url}"
+            data-update-url="{$product.update_quantity_url}"
+            data-product-id="{$product.id_product}"
+            type="number"
+            value="{$product.quantity}"
+            name="product-quantity-spin"
+            min="{$product.minimal_quantity}"
+          />
+          <img src="/assets/icons/down-arrow.svg">
+          <div class="quantity-select-list">
+            <ul >
+            {for $i=1 to 10}
+              <li class="quantity-select-option">{$i}</li>
+            {/for}
+            </ul>
+          </div>
+        </div>
+      {/if}
+    </div>
   </div>
 
   <!--  product left body: description -->
   <div class="product-line-grid-right product-line-actions col-md-5 col-xs-12">
     <div class="row">
-      <div class="col-xs-4 hidden-md-up"></div>
-      <div class="col-md-10 col-xs-6">
-        <div class="row">
-          <div class="col-md-6 col-xs-6 qty">
-            {if isset($product.is_gift) && $product.is_gift}
-              <span class="gift-quantity">{$product.quantity}</span>
-            {else}
-              <input
-                class="js-cart-line-product-quantity"
-                data-down-url="{$product.down_quantity_url}"
-                data-up-url="{$product.up_quantity_url}"
-                data-update-url="{$product.update_quantity_url}"
-                data-product-id="{$product.id_product}"
-                type="number"
-                value="{$product.quantity}"
-                name="product-quantity-spin"
-                min="{$product.minimal_quantity}"
-              />
-            {/if}
-          </div>
-          <div class="col-md-6 col-xs-2 price">
-            <span class="product-price">
-              <strong>
-                {if isset($product.is_gift) && $product.is_gift}
-                  <span class="gift">{l s='Gift' d='Shop.Theme.Checkout'}</span>
-                {else}
-                  {$product.total}
-                {/if}
-              </strong>
-            </span>
-          </div>
-        </div>
-      </div>
       <div class="col-md-2 col-xs-2 text-xs-right">
         <div class="cart-line-product-actions">
           <a
@@ -158,7 +151,7 @@
               data-id-customization   	  = "{$product.id_customization|escape:'javascript'}"
           >
             {if !isset($product.is_gift) || !$product.is_gift}
-            <i class="material-icons float-xs-left">delete</i>
+            Usun
             {/if}
           </a>
 
@@ -166,6 +159,22 @@
             {hook h='displayCartExtraProductActions' product=$product}
           {/block}
 
+        </div>
+      </div>
+      <div class="col-xs-4 hidden-md-up"></div>
+      <div class="col-md-10 col-xs-6">
+        <div class="row">
+          <div class="col-md-6 col-xs-2 price">
+            <span class="product-price">
+              <strong>
+                {if isset($product.is_gift) && $product.is_gift}
+                  <span class="gift">{l s='Gift' d='Shop.Theme.Checkout'}</span>
+                {else}
+                  {$product.total}
+                {/if}
+              </strong>
+            </span>
+          </div>
         </div>
       </div>
     </div>

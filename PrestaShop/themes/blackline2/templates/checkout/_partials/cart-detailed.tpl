@@ -31,6 +31,7 @@
           {block name='cart_detailed_product_line'}
             {include file='checkout/_partials/cart-detailed-product-line.tpl' product=$product}
           {/block}
+          <div class="cart-separate-product"></div>
         </li>
         {if is_array($product.customizations) && $product.customizations|count >1}<hr>{/if}
       {/foreach}

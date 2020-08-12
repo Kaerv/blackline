@@ -1,0 +1,162 @@
+.cart-main {
+    margin-top: -50px;
+    margin-bottom: 100px;
+}
+
+.cart-grid.row {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-column-gap: 50px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cart-grid-right {
+    background-color: #DCDCDC;
+}
+
+.cart-title {
+    font-family: Raleway;
+    margin-left: 80px;
+    font-weight: normal;
+    margin-bottom: 60px;
+    margin-top: 0;
+}
+
+.cart-items {
+    list-style-type: none;
+}
+
+.cart-item {
+    margin-bottom: 20px;
+}
+
+.product-line-grid {
+    display: grid;
+    grid-template-columns: 30% 50% 20%;
+    margin-bottom: 20px;
+}
+
+.cart-prodcut-left {
+    width: 200px;
+}
+
+.product-image img {
+    height: 120px;
+}
+
+.product-line-grid-left {
+    margin-right: 20px;
+}
+
+.cart-item .btn {
+    display: none;
+}
+
+.cart-quantity-select {
+    width: 100px;
+    height: 32px;
+    border: solid 1px #DCDCDC;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.js-cart-line-product-quantity {
+    display: none !important;
+}
+
+.cart-quantity-select span {
+    position: absolute;
+    left: 10px;
+}
+
+.cart-quantity-select img {
+    height: 39%;
+    width: auto;
+    position: absolute;
+    right: 12px;
+    opacity: 0.6;
+}
+
+.quantity-select-list {
+    position: absolute;
+    background-color: white;
+    border: solid 1px #DCDCDC;
+    width: 100%;
+    top: 100%;
+    left: -1px;
+    display: none;
+}
+
+.quantity-select-list ul {
+    overflow: auto;
+    height: 100px;
+    list-style-type: none; 
+    padding: 0;
+    width: 98%;
+}
+
+.quantity-select-list ul::-webkit-scrollbar {
+    width: 5px;
+    left: -10px;
+}
+
+.quantity-select-list ul::-webkit-scrollbar-thumb {
+    background-color: #DCDCDC;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantity-select-option {
+    padding-left: 10px;
+    user-select: none;
+}
+
+.quantity-select-option:hover {
+    background-color: #DCDCDC;
+}
+.quantity-selected {
+    background-color: black;
+    color: white;
+}
+
+.product-line-grid-right {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 20px;
+}
+
+.product-line-grid-right .row {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.product-cart-title {
+    font-size: 18px;
+}
+
+.product-cart-attribute {
+    font-size: 14px;
+}
+
+.product-price {
+    font-size: 18px;
+}
+
+.quantity-container {
+    margin-top: 32px;
+}
+
+.cart-separate-product {
+    border-bottom: solid 1px #DCDCDC;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -75,6 +75,7 @@ header {
 #header-cart {
     margin-right: 60px;
     position:relative;
+    height: 35px;
 }
 
 #cart-button-container {
