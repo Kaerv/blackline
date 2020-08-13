@@ -151,7 +151,10 @@
               data-id-customization   	  = "{$product.id_customization|escape:'javascript'}"
           >
             {if !isset($product.is_gift) || !$product.is_gift}
-            Usun
+            <div class="remove-from-cart-ico">
+              <img src="/assets/icons/trash.svg">
+              <span>Usuń</span>
+            </div>
             {/if}
           </a>
 
@@ -170,7 +173,7 @@
                 {if isset($product.is_gift) && $product.is_gift}
                   <span class="gift">{l s='Gift' d='Shop.Theme.Checkout'}</span>
                 {else}
-                  {$product.total}
+                  {$product.total|replace:'zł':'PLN'}
                 {/if}
               </strong>
             </span>

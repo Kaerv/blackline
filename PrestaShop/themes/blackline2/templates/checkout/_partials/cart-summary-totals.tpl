@@ -36,8 +36,8 @@
       </div>
     {else}
       <div class="cart-summary-line cart-total">
-        <span class="label">{$cart.totals.total.label}&nbsp;{if $configuration.taxes_enabled}{$cart.labels.tax_short}{/if}</span>
-        <span class="value">{$cart.totals.total.value}</span>
+        <span class="label">Łączna kwota&nbsp;{if $configuration.taxes_enabled}<span class="summary-tax">z VAT</span>{/if}</span>
+        <span class="value">{$cart.totals.total.value|replace:'zł':'PLN'}</span>
       </div>
     {/if}
   {/block}

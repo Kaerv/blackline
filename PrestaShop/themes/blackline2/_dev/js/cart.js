@@ -376,3 +376,11 @@ const CheckUpdateQuantityOperations = {
     isUpdateOperation = true;
   }
 };
+
+$(".shipping-info").on("click", function() {
+  $(".message-container").fadeIn(200);
+});
+
+$(".message-background").on("click", function() {
+  $(".message-container").fadeOut(200);
+});
