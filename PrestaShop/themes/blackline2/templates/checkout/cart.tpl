@@ -42,12 +42,6 @@
           {/block}
         </div>
 
-        {block name='continue_shopping'}
-          <a class="label" href="{$urls.pages.index}">
-            <i class="material-icons">chevron_left</i>{l s='Continue shopping' d='Shop.Theme.Actions'}
-          </a>
-        {/block}
-
         <!-- shipping informations -->
         {block name='hook_shopping_cart_footer'}
           {hook h='displayShoppingCartFooter'}
@@ -71,7 +65,11 @@
             {block name='cart_actions'}
               {include file='checkout/_partials/cart-detailed-actions.tpl' cart=$cart}
             {/block}
-
+            <div class="payments-container">
+              <div class="payments-title">
+                Akceptowane płatności:
+              </div>
+            </div>
           </div>
         {/block}
 
@@ -82,5 +80,9 @@
       </div>
 
     </div>
+    <div class="message-container">
+  <div class="message-background"></div>
+  <div class="message-wrap"></div>
+</div>
   </section>
 {/block}

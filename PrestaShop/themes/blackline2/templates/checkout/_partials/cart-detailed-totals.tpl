@@ -24,25 +24,27 @@
  *}
 {block name='cart_detailed_totals'}
 <div class="cart-detailed-totals">
-
-  <div class="card-block">
+  <div class="card-block cart-details">
     {foreach from=$cart.subtotals item="subtotal"}
       {if $subtotal.value && $subtotal.type !== 'tax'}
         <div class="cart-summary-line" id="cart-subtotal-{$subtotal.type}">
           <span class="label{if 'products' === $subtotal.type} js-subtotal{/if}">
             {if 'products' == $subtotal.type}
-              {$cart.summary_string}
+              Wartość zamówienia:
+            {elseif 'shipping' == $subtotal.type}
+              Dostawa:
             {else}
               {$subtotal.label}
             {/if}
           </span>
           <span class="value">
-            {if 'discount' == $subtotal.type}-&nbsp;{/if}{$subtotal.value}
+            {if 'discount' == $subtotal.type}-&nbsp;{/if}{if 'shipping' == $subtotal.type}OD {$subtotal.value|replace:'Za darmo!':'0,00 PLN'|replace:'zł':'PLN'}{else}{$subtotal.value|replace:'zł':'PLN'}{/if}
           </span>
           {if $subtotal.type === 'shipping'}
-              <div><small class="value">{hook h='displayCheckoutSubtotalDetails' subtotal=$subtotal}</small></div>
+              <div  style="display: none"><small class="value">{hook h='displayCheckoutSubtotalDetails' subtotal=$subtotal}</small></div>
           {/if}
         </div>
+        {if 'shipping' == $subtotal.type}<img src="/assets/icons/info.svg" class="shipping-info">{/if}
       {/if}
     {/foreach}
   </div>
@@ -56,3 +58,4 @@
   {/block}
 </div>
 {/block}
+
