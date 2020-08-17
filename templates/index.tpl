@@ -65,37 +65,8 @@
         {include file='modules/section_header.tpl' 
         title='GALERIA MOJEGO EGO'
         link = '#galeria'}   
-        <div class="shop-note">
-            <p>
-                Witaj wędrowcze! <br>
-                Oto sens i&nbsp;cel naszej manufaktury.
-                Tutaj określisz siebie, a&nbsp;cytat Twój podziwiany będzie za szczerość i&nbsp;odwagę. <br>
-                Słowa wybrane z&nbsp;głębi mądrości wrażliwej, poprzez technologię zaklętą w&nbsp;ciśnieniu i&nbsp;temperaturze naniesione na materiał zostaną. <br> Ty zaś z&nbsp;dumą przywdziejesz materiał ten w&nbsp;formie bluzy, koszulki, apaszki i&nbsp;ogólny zachwyt wywołasz. <br>
-                I&nbsp;nie myśl wędrowcze, że to kupczenie dukatami złotymi za bycie sobą… - To tylko odzienia fragment dukaty kosztuje…
-                <br>Sens w&nbsp;słowach zawarty – jest bezcenny…
-            </p>
-            <p>
-                (Wykonanie zleconego cytatu na wybranym nośniku poprzez najnowocześniejszą technikę termosublimacji zapewniającą niespotykaną dotąd jakość nadruku na materiale)
-            </p>
-        </div>
-        <div class="separate-line"></div>
-        <div id="products-categories">
-            {assign var=categories value = [
-                'BLUZY',
-                'KOSZULKI',
-                'APASZKI',
-                'CZAPECZKI',
-                'INNE'
-                ]}
-            {for $i = 0 to 4}
-            <div class="category">
-                <a href="#produkt">
-                <div class="category-img"></div>
-                <div class="category-name">{$categories[$i]}</div>
-                </a>
-            </div>
-            {/for}
-        </div>
+        <style>@import '../styles/shop-description.css'; </style>
+        {include file="modules/shop_description.tpl"}
     </section>
     <section id="youtube-preview" class="section text">
         {include file='modules/section_header.tpl' 
@@ -118,6 +89,12 @@
 
             <div id="slide-2" class="slide">
                 <div id="slide-2-content-container">
+                    <div id="slide-2-right-content">
+                        <div id="preview-1"  class="preview"></div>
+                        <div id="preview-2" class="preview"></div>
+                        <p id="preview-title-1">Czym jest ta <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">psychologia</span>?</p>
+                        <p id="preview-title-2">A co to właściwie jest <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">miłość</span>?</p>
+                    </div>
                     <div id="slide-2-left-content">
                         <div id="slide-2-lt">
                             <p id="slide-2-youtube-desc">W naszych filmach poznasz odpowiedzi na najtrudniejsze pytania!</p>
@@ -134,12 +111,6 @@
                                 <img id="subscribe-click" src="/assets/icons/click.svg" alt="">
                             </div>
                         </div>
-                    </div>
-                    <div id="slide-2-right-content">
-                        <div id="preview-1"  class="preview"></div>
-                        <div id="preview-2" class="preview"></div>
-                        <p id="preview-title-1">Czym jest ta <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">psychologia</span>?</p>
-                        <p id="preview-title-2">A co to właściwie jest <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">miłość</span>?</p>
                     </div>
                 </div>
             </div>
@@ -235,7 +206,7 @@
                 }
             }
             //$("#slide-3").show();
-            let slider = new Slider(1, 10000);
+            let slider = new Slider(2, 10000);
             $("#slider").ready(slider.start());
             console.log(`${window.innerWidth}x${window.innerHeight}`)
         </script>

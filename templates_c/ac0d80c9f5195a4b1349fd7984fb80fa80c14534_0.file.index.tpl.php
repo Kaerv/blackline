@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-08-13 13:27:05
+/* Smarty version 3.1.34-dev-7, created on 2020-08-17 07:12:30
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f353fa9f294c7_70129267',
+  'unifunc' => 'content_5f3a2ddec019b4_37552235',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1597325224,
+      1 => 1597648349,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     'file:modules/section_header.tpl' => 3,
     'file:modules/fancy_border.tpl' => 1,
+    'file:modules/shop_description.tpl' => 1,
   ),
 ),false)) {
-function content_5f353fa9f294c7_70129267 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f3a2ddec019b4_37552235 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <section id="hero-image" class="section"></section>
 
     <section id="quote_section" class="section">
@@ -84,38 +85,9 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
     <section id="shop-preview" class="section text">
         <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'GALERIA MOJEGO EGO','link'=>'#galeria'), 0, true);
 ?>   
-        <div class="shop-note">
-            <p>
-                Witaj wędrowcze! <br>
-                Oto sens i&nbsp;cel naszej manufaktury.
-                Tutaj określisz siebie, a&nbsp;cytat Twój podziwiany będzie za szczerość i&nbsp;odwagę. <br>
-                Słowa wybrane z&nbsp;głębi mądrości wrażliwej, poprzez technologię zaklętą w&nbsp;ciśnieniu i&nbsp;temperaturze naniesione na materiał zostaną. <br> Ty zaś z&nbsp;dumą przywdziejesz materiał ten w&nbsp;formie bluzy, koszulki, apaszki i&nbsp;ogólny zachwyt wywołasz. <br>
-                I&nbsp;nie myśl wędrowcze, że to kupczenie dukatami złotymi za bycie sobą… - To tylko odzienia fragment dukaty kosztuje…
-                <br>Sens w&nbsp;słowach zawarty – jest bezcenny…
-            </p>
-            <p>
-                (Wykonanie zleconego cytatu na wybranym nośniku poprzez najnowocześniejszą technikę termosublimacji zapewniającą niespotykaną dotąd jakość nadruku na materiale)
-            </p>
-        </div>
-        <div class="separate-line"></div>
-        <div id="products-categories">
-            <?php $_smarty_tpl->_assignInScope('categories', array('BLUZY','KOSZULKI','APASZKI','CZAPECZKI','INNE'));?>
-            <?php
-$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 4+1 - (0) : 0-(4)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
-if ($_smarty_tpl->tpl_vars['i']->total > 0) {
-for ($_smarty_tpl->tpl_vars['i']->value = 0, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
-$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
-            <div class="category">
-                <a href="#produkt">
-                <div class="category-img"></div>
-                <div class="category-name"><?php echo $_smarty_tpl->tpl_vars['categories']->value[$_smarty_tpl->tpl_vars['i']->value];?>
-</div>
-                </a>
-            </div>
-            <?php }
-}
+        <style>@import '../styles/shop-description.css'; </style>
+        <?php $_smarty_tpl->_subTemplateRender("file:modules/shop_description.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-        </div>
     </section>
     <section id="youtube-preview" class="section text">
         <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'AKADEMIA MYŚLI ULOTNEJ','link'=>'#galeria'), 0, true);
@@ -137,6 +109,12 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
 
             <div id="slide-2" class="slide">
                 <div id="slide-2-content-container">
+                    <div id="slide-2-right-content">
+                        <div id="preview-1"  class="preview"></div>
+                        <div id="preview-2" class="preview"></div>
+                        <p id="preview-title-1">Czym jest ta <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">psychologia</span>?</p>
+                        <p id="preview-title-2">A co to właściwie jest <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">miłość</span>?</p>
+                    </div>
                     <div id="slide-2-left-content">
                         <div id="slide-2-lt">
                             <p id="slide-2-youtube-desc">W naszych filmach poznasz odpowiedzi na najtrudniejsze pytania!</p>
@@ -153,12 +131,6 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
                                 <img id="subscribe-click" src="/assets/icons/click.svg" alt="">
                             </div>
                         </div>
-                    </div>
-                    <div id="slide-2-right-content">
-                        <div id="preview-1"  class="preview"></div>
-                        <div id="preview-2" class="preview"></div>
-                        <p id="preview-title-1">Czym jest ta <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">psychologia</span>?</p>
-                        <p id="preview-title-2">A co to właściwie jest <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">miłość</span>?</p>
                     </div>
                 </div>
             </div>
@@ -264,7 +236,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
                 }
             }
             //$("#slide-3").show();
-            let slider = new Slider(1, 10000);
+            let slider = new Slider(2, 10000);
             $("#slider").ready(slider.start());
             console.log(`${window.innerWidth}x${window.innerHeight}`)
         <?php echo '</script'; ?>

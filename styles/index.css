@@ -189,13 +189,16 @@
 
 #slide-2-content-container {
     height: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
     grid-template-columns: 50% 50%;
 }
 
 #slide-2-left-content {
     display: grid;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 40% 60%;
 }
 
 #slide-2-youtube-desc {
@@ -260,20 +263,21 @@
 
 #preview-1 {
     bottom: 40%;
+    left: 40px;
 }
 
 #preview-2 {
     bottom: 60%;
-    left: 80px;
+    left: 120px;
 }
 
 #preview-title-1 {
-    left: 460px;
+    left: 500px;
     top: 26%;
 }
 
 #preview-title-2 {
-    left: 380px;
+    left: 420px;
     top: 46%;
 }
 
@@ -313,6 +317,11 @@
     font-size: 48px;
     margin-bottom: 30px;
 }
+
+#shop-preview #description-container {
+    margin-top: 160px;
+}
+
 
 @media only screen and (max-width: 1600px) {
     #preamble { width: 80%; }
