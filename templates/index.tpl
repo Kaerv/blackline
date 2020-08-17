@@ -110,7 +110,10 @@
                 <div class="separate-line" style="width: 350px;"></div>
                 <p class="youtube-summary-1">Akademia myśli ulotnej?</p>
                 <p class="youtube-summary-2">TO NASZ KANAŁ NA YOUTUBIE!</p>
-                <a href="#youtube"><img id="first-slide-youtube-ico" src="/assets/icons/youtube.svg" alt=""></a>
+                <a href="#youtube">
+                    <div class="youtube-button-shadow"></div>
+                <img id="first-slide-youtube-ico" src="/assets/icons/youtube.png" alt="">
+                </a>
             </div>
 
             <div id="slide-2" class="slide">
@@ -147,11 +150,11 @@
                     </div>
                     <div class="slider-3-blackline-link" style="grid-area:insta-account;">@blackline</div>
                     <div class="slider-3-social-link"  style="grid-area:insta-link;">
-                        <img class="slider-3-social-ico" src="/assets/icons/instagram.svg" alt="">
+                        <img class="slider-3-social-ico" id="slider-3-ig-ico" src="/assets/icons/instagram.svg" alt="">
                         <p class="slider-3-social-title">INSTAGRAM</p>
                     </div>
                     <div class="slider-3-social-link"  style="grid-area:fb-link;">
-                        <img class="slider-3-social-ico" src="/assets/icons/facebook.svg" alt="">
+                        <img class="slider-3-social-ico" id="slider-3-fb-ico" src="/assets/icons/facebook.svg" alt="">
                         <p class="slider-3-social-title" >FACEBOOK</p>
                     </div>
                     <div class="slider-3-blackline-link"  style="grid-area:fb-account;">@Blackline</div>
@@ -171,6 +174,12 @@
         crossorigin="anonymous"></script>
         {literal}
         <script>
+            $("#slider-3-ig-ico").hover( function() {
+                $(this).attr('src', "/assets/icons/instagram-color.svg")
+            }, function() {
+                $(this).attr('src', "/assets/icons/instagram.svg")
+            });
+
             class Slider {
                 constructor(firstSlide, slideChangeTimeout) {
                     this.slideInterval = null;
@@ -200,11 +209,14 @@
                 
                 changeSlide(slide) {
                     if(slide != this.actualSlide) {
-                        if(slide == 3)
+                        if(slide == 3) {
                             $("#youtube-preview").find(".section-title-text").html("CHCIAŁBYŚ WIĘCEJ?");
-                        if(this.actualSlide == 3)
-                        $("#youtube-preview").find(".section-title-text").html("AKADEMIA MYŚLI ULOTNEJ");
-
+                            $("#youtube-preview").find(".section-title").addClass('noclick');
+                        }
+                        if(this.actualSlide == 3) {
+                            $("#youtube-preview").find(".section-title-text").html("AKADEMIA MYŚLI ULOTNEJ");
+                            $("#youtube-preview").find(".section-title").removeClass('noclick');
+                        }
 
                         this.deactivateSlide(this.actualSlide);
                         this.actualSlide = slide;

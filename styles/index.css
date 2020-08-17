@@ -179,6 +179,12 @@
 #first-slide-youtube-ico {
     width: 120px;
     height: auto;
+    margin-top: 40px;
+}
+
+#first-slide-youtube-ico:hover {
+    filter: invert(50%) sepia(84%) saturate(7316%) hue-rotate(348deg) brightness(88%) contrast(145%);
+    width: 124px;
 }
 
 #slide-2-content-container {
@@ -196,10 +202,6 @@
     font-size: 24px;
     width: 50%;
     margin-top: 50px;
-}
-
-#slide-2-youtube-button:hover > #slide-2-youtube-button-text {
-    margin-top: -15px;
 }
 
 #slide-2-youtube-ico {
@@ -300,6 +302,10 @@
 
 .slider-3-social-title {
     margin-top: 10px;
+}
+
+#slider-3-fb-ico:hover {
+    filter: invert(43%) sepia(15%) saturate(2064%) hue-rotate(182deg) brightness(87%) contrast(94%);
 }
 
 .slider-3-blackline-link {

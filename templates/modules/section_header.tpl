@@ -2,7 +2,7 @@
 <div class="section-header center-position" style="{$style}">
     <div class="header-line"></div>
 
-    <a href="{$link}"> 
+    <a href="{$link}" class="section-link"> 
         <div class="section-title header-text">
                 <div class="section-title-text">{$title}</div>
         </div>

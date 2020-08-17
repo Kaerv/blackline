@@ -13,4 +13,17 @@
 
 .section-title {
     margin: 0 30px 0 30px;
+    transition: all 150ms ease-out 0s;
+}
+
+.section-title.noclick {
+    cursor: default;
+}
+
+.section-title:hover {
+    margin: 0 50px;
+}
+
+.section-title.noclick:hover {
+    margin: 0 30px;
 }

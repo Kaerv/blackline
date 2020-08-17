@@ -38,10 +38,20 @@ header {
 .header-ico {
     width: 35px;
     height: auto;
+    cursor: pointer;
+}
+
+.header-ico:hover {
+    transform: translateY(-2px);
+}
+
+#header-cart:hover #products-amount {
+    transform: translateY(-2px);
 }
 
 #header-favourite-ico {
     height: 28px;
+    margin-top: 6px;
 }
 
 #search-wrap {
@@ -70,6 +80,10 @@ header {
 
 #header-account {
     margin-right: 18px;
+}
+
+#header-account-ico {
+    margin-top: 2px;
 }
 
 #header-cart {

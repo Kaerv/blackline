@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-08-01 12:35:14
+/* Smarty version 3.1.34-dev-7, created on 2020-08-13 12:21:49
   from '/var/www/html/templates/modules/page_header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f256182328039_19031835',
+  'unifunc' => 'content_5f35305d9c1634_98417637',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4660c8b3a5e6b6124132084d5349c00f9ebd3566' => 
     array (
       0 => '/var/www/html/templates/modules/page_header.tpl',
-      1 => 1596285160,
+      1 => 1597321308,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./main_nav.tpl' => 1,
   ),
 ),false)) {
-function content_5f256182328039_19031835 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f35305d9c1634_98417637 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>@import "/styles/page-header.css";</style>
 <header>
     <div id="header-top-wrap">

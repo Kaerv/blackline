@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-04-20 11:47:30
+/* Smarty version 3.1.34-dev-7, created on 2020-08-13 13:27:05
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e9d8bd25d5464_95763638',
+  'unifunc' => 'content_5f353fa9f294c7_70129267',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1587383249,
+      1 => 1597325224,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/fancy_border.tpl' => 1,
   ),
 ),false)) {
-function content_5e9d8bd25d5464_95763638 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f353fa9f294c7_70129267 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <section id="hero-image" class="section"></section>
 
     <section id="quote_section" class="section">
@@ -129,7 +129,10 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
                 <div class="separate-line" style="width: 350px;"></div>
                 <p class="youtube-summary-1">Akademia myśli ulotnej?</p>
                 <p class="youtube-summary-2">TO NASZ KANAŁ NA YOUTUBIE!</p>
-                <a href="#youtube"><img id="first-slide-youtube-ico" src="/assets/icons/youtube.svg" alt=""></a>
+                <a href="#youtube">
+                    <div class="youtube-button-shadow"></div>
+                <img id="first-slide-youtube-ico" src="/assets/icons/youtube.png" alt="">
+                </a>
             </div>
 
             <div id="slide-2" class="slide">
@@ -166,11 +169,11 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
                     </div>
                     <div class="slider-3-blackline-link" style="grid-area:insta-account;">@blackline</div>
                     <div class="slider-3-social-link"  style="grid-area:insta-link;">
-                        <img class="slider-3-social-ico" src="/assets/icons/instagram.svg" alt="">
+                        <img class="slider-3-social-ico" id="slider-3-ig-ico" src="/assets/icons/instagram.svg" alt="">
                         <p class="slider-3-social-title">INSTAGRAM</p>
                     </div>
                     <div class="slider-3-social-link"  style="grid-area:fb-link;">
-                        <img class="slider-3-social-ico" src="/assets/icons/facebook.svg" alt="">
+                        <img class="slider-3-social-ico" id="slider-3-fb-ico" src="/assets/icons/facebook.svg" alt="">
                         <p class="slider-3-social-title" >FACEBOOK</p>
                     </div>
                     <div class="slider-3-blackline-link"  style="grid-area:fb-account;">@Blackline</div>
@@ -200,6 +203,12 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
         
         <?php echo '<script'; ?>
 >
+            $("#slider-3-ig-ico").hover( function() {
+                $(this).attr('src', "/assets/icons/instagram-color.svg")
+            }, function() {
+                $(this).attr('src', "/assets/icons/instagram.svg")
+            });
+
             class Slider {
                 constructor(firstSlide, slideChangeTimeout) {
                     this.slideInterval = null;
@@ -229,11 +238,14 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
                 
                 changeSlide(slide) {
                     if(slide != this.actualSlide) {
-                        if(slide == 3)
+                        if(slide == 3) {
                             $("#youtube-preview").find(".section-title-text").html("CHCIAŁBYŚ WIĘCEJ?");
-                        if(this.actualSlide == 3)
-                        $("#youtube-preview").find(".section-title-text").html("AKADEMIA MYŚLI ULOTNEJ");
-
+                            $("#youtube-preview").find(".section-title").addClass('noclick');
+                        }
+                        if(this.actualSlide == 3) {
+                            $("#youtube-preview").find(".section-title-text").html("AKADEMIA MYŚLI ULOTNEJ");
+                            $("#youtube-preview").find(".section-title").removeClass('noclick');
+                        }
 
                         this.deactivateSlide(this.actualSlide);
                         this.actualSlide = slide;
