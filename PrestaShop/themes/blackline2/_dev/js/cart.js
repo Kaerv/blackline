@@ -262,10 +262,17 @@ $(document).ready(() => {
       $(".quantity-select-option").each(function() {
           if(target == this) {
               let value = $(this).text();
-              $(this).parent().parent().parent().find(".cart-selected-quantity").text(value);
-              $(this).parent().parent().parent().find("input").val(value);
-              let event = {currentTarget: $(this).parent().parent().parent().find("input")[0]}
-              updateProductQuantityInCart(event);
+              let quantitySelect = $(this).parents(".cart-quantity-select");
+              $(quantitySelect).find(".cart-selected-quantity").text(value);
+
+              if($(quantitySelect).find("input").val() != value) {
+                $(quantitySelect).find("input").val(value);
+                $("#cart-subtotal-products").find(".value").text("Ładowanie...");
+                $(".cart-total").find(".value").text("Ładowanie...");
+                $(this).parents(".product-line-grid").find(".price .product-price strong").text("Ładowanie...");
+                let event = {currentTarget: $(quantitySelect).find("input")[0]};
+                updateProductQuantityInCart(event);
+              }
           }
       });
   }
