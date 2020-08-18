@@ -3,6 +3,18 @@
 {block name='form_field'}
   {if $field.name eq "alias"}
     {* we don't ask for alias here *}
+  {elseif $field.name == "lastname"}
+        {$smarty.block.parent}
+  <div class="form-group row ">
+    <label class="col-md-3 form-control-label required">
+              E-mail
+          </label>
+    <div class="col-md-6">
+          <input class="form-control" name="email" type="email" value="" required="">
+    </div>
+    <div class="col-md-3 form-control-comment"> 
+    </div>
+  </div>
   {else}
     {$smarty.block.parent}
   {/if}
@@ -30,6 +42,21 @@
 {/block}
 
 {block name='form_buttons'}
+<div class="form-group row ">
+    <label class="col-md-3 form-control-label required">
+          </label>
+    <div class="col-md-6">
+          <span class="custom-checkbox">
+            <label>
+              <input name="psgdpr" type="checkbox" value="1" required="">
+              <span><i class="material-icons rtl-no-flip checkbox-checked"></i></span>
+              Akceptuję ogólne warunki użytkowania i politykę prywatności
+            </label>
+          </span>
+    </div>
+    <div class="col-md-3 form-control-comment">         
+    </div>
+  </div>
   {if !$form_has_continue_button}
     <button type="submit" class="btn btn-primary float-xs-right">{l s='Save' d='Shop.Theme.Actions'}</button>
     <a class="js-cancel-address cancel-address float-xs-right" href="{url entity='order' params=['cancelAddress' => {$type}]}">{l s='Cancel' d='Shop.Theme.Actions'}</a>

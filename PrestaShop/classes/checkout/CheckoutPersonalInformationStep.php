@@ -48,6 +48,7 @@ class CheckoutPersonalInformationStepCore extends AbstractCheckoutStep
     {
         // personal info step is always reachable
         $this->setReachable(true);
+        $this->setComplete(true);
 
         $this->registerForm
             ->fillFromCustomer(
@@ -57,7 +58,7 @@ class CheckoutPersonalInformationStepCore extends AbstractCheckoutStep
                     ->getCustomer()
             );
 
-        if (isset($requestParameters['submitCreate'])) {
+        if (isset($requestParameters['confirm-addresses'])) {
             $this->registerForm->fillWith($requestParameters);
             if ($this->registerForm->submit()) {
                 $this->setNextStepAsCurrent();

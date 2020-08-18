@@ -25,7 +25,9 @@
 {block name='step'}
   <section class="checkout-step -unreachable" id="{$identifier}">
     <h1 class="step-title h3">
-      <span class="step-number">{$position}</span> {$title}
+    <div class="step-number-container">
+      <span class="step-number">{$position}</span>
+    </div> {$title}
     </h1>
   </section>
 {/block}

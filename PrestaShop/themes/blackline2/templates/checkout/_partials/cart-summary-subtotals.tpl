@@ -30,11 +30,11 @@
       <div class="cart-summary-line cart-summary-subtotals" id="cart-subtotal-{$subtotal.type}">
 
         <span class="label">
-            {$subtotal.label}
+            {$subtotal.label|replace:"Produkty":"Wartość zamówienia:"|replace:"Wysyłka":"Dostawa:"}
         </span>
 
         <span class="value">
-          {$subtotal.value}
+          {$subtotal.value|replace:"zł":"PLN"|replace:"Za darmo!":"0,00 PLN"}
         </span>
       </div>
     {/if}

@@ -33,7 +33,7 @@
   <div class="form-group row {if !empty($field.errors)}has-error{/if}">
     <label class="col-md-3 form-control-label{if $field.required} required{/if}">
       {if $field.type !== 'checkbox'}
-        {$field.label}
+        {$field.label|replace:"Uzupełnienie adresu":"Nr domu/mieszkania"}
       {/if}
     </label>
     <div class="col-md-6{if ($field.type === 'radio-buttons')} form-control-valign{/if}">

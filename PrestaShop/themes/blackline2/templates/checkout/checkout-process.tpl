@@ -23,8 +23,10 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {foreach from=$steps item="step" key="index"}
+{if $index != 0}
   {render identifier  =  $step.identifier
-          position    =  ($index + 1)
+          position    =  ($index)
           ui          =  $step.ui
   }
+{/if}
 {/foreach}

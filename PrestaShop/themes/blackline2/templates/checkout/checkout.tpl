@@ -29,6 +29,7 @@
     {block name='head'}
       {include file='_partials/head.tpl'}
     {/block}
+    <link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/checkout.css">
   </head>
 
   <body id="{$page.page_name}" class="{$page.body_classes|classnames}">
