@@ -41,5 +41,9 @@
   {block name='cart_summary_voucher'}
     {include file='checkout/_partials/cart-voucher.tpl'}
   {/block}
+  <div id="confirm-checkout"></div>
+  {block name="additional-information"}
+    <div class="summary-additional-information"></div>
+  {/block}
 
 </section>

@@ -158,7 +158,6 @@ class CheckoutAddressesStepCore extends AbstractCheckoutStep
                 );
             }
         }
-
         if (isset($requestParams['confirm-addresses'])) {
             if (isset($requestParams['id_address_delivery'])) {
                 $id_address = $requestParams['id_address_delivery'];
@@ -198,12 +197,19 @@ class CheckoutAddressesStepCore extends AbstractCheckoutStep
 
         $addresses_count = $this->getCheckoutSession()->getCustomerAddressesCount();
 
-        if ($addresses_count === 0) {
+
+        /* 
+        
+            When set exist address occurs error with no email field
+            
+        */
+        
+        //if ($addresses_count === 0) {
             $this->show_delivery_address_form = true;
-        } elseif ($addresses_count < 2 && !$this->use_same_address) {
-            $this->show_invoice_address_form = true;
-            $this->setComplete(false);
-        }
+       //} elseif ($addresses_count < 2 && !$this->use_same_address) {
+            //$this->show_invoice_address_form = true;
+            //$this->setComplete(false);
+        //}
 
         if ($this->show_invoice_address_form) {
             // show continue button because form is at the end of the step
@@ -291,7 +297,6 @@ class CheckoutAddressesStepCore extends AbstractCheckoutStep
                 $errors
             );
         }
-
         return $params;
     }
 

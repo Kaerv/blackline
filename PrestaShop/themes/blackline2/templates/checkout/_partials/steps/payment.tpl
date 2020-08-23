@@ -19,21 +19,23 @@
   <div class="payment-options {if $is_free}hidden-xs-up{/if}">
     {foreach from=$payment_options item="module_options"}
       {foreach from=$module_options item="option"}
-        <div>
+        <div class="payment-option-wrap">
           <div id="{$option.id}-container" class="payment-option clearfix">
             {* This is the way an option should be selected when Javascript is enabled *}
-            <span class="custom-radio float-xs-left">
-              <input
-                class="ps-shown-by-js {if $option.binary} binary {/if}"
-                id="{$option.id}"
-                data-module-name="{$option.module_name}"
-                name="payment-option"
-                type="radio"
-                required
-                {if $selected_payment_option == $option.id || $is_free} checked {/if}
-              >
-              <span></span>
-            </span>
+            <div class="payment-radio">
+              <span class="custom-radio float-xs-left">
+                <input
+                  class="ps-shown-by-js {if $option.binary} binary {/if}"
+                  id="{$option.id}"
+                  data-module-name="{$option.module_name}"
+                  name="payment-option"
+                  type="radio"
+                  required
+                  {if $selected_payment_option == $option.id || $is_free} checked {/if}
+                >
+                <span></span>
+              </span>
+            </div>
             {* This is the way an option should be selected when Javascript is disabled *}
             <form method="GET" class="ps-hidden-by-js">
               {if $option.id === $selected_payment_option}
@@ -128,7 +130,7 @@
   <div id="payment-confirmation">
     <div class="ps-shown-by-js">
       <button type="submit" {if !$selected_payment_option} disabled {/if} class="btn btn-primary center-block">
-        {l s='Order with an obligation to pay' d='Shop.Theme.Checkout'}
+        ZAMAWIAM I PŁACĘ
       </button>
       {if $show_final_summary}
         <article class="alert alert-danger mt-2 js-alert-payment-conditions" role="alert" data-alert="danger">

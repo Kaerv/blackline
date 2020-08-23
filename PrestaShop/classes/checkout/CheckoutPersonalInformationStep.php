@@ -49,7 +49,6 @@ class CheckoutPersonalInformationStepCore extends AbstractCheckoutStep
         // personal info step is always reachable
         $this->setReachable(true);
         $this->setComplete(true);
-
         $this->registerForm
             ->fillFromCustomer(
                 $this

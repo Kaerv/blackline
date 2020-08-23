@@ -77,7 +77,7 @@ class Payment {
       show = false;
     }
 
-    $('#' + selectedOption + '-additional-information').show();
+    //$('#' + selectedOption + '-additional-information').show();
     $('#pay-with-' + selectedOption + '-form').show();
 
     $('.js-payment-binary').hide();
