@@ -57,6 +57,18 @@ body {
     display: none;
 }
 
+.cart-grid-body {
+    padding-left: 60px;
+}
+
+.checkout-step.-current {
+    margin-bottom: 60px;
+}
+
+.checkout-step.-current .content {
+    margin-top: 34px;
+}
+
 .form-group {
     position: relative;
     margin-bottom: 20px;
@@ -69,6 +81,10 @@ body {
     height: 20px;
 }
 
+.form-footer button {
+    margin-top: 30px;
+}
+
 .form-control-label {
     left: 0px;
     top: 33px;
@@ -79,8 +95,7 @@ body {
 }
 
 .filled {
-    top: 0px;
-    font-size: 14px;
+    top: 4px;
 }
 
 .form-control {
@@ -89,6 +104,7 @@ body {
     border-bottom: solid 1px #DCDCDC;
     background: none;
     width: 100%;
+    padding: 0;
     transition: all 200ms linear 0s;
 }
 
@@ -123,8 +139,8 @@ body {
 }
 
 .step-number-container {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background-color: black;
     color: white;
     border-radius: 100%;
@@ -137,14 +153,20 @@ body {
     margin: 0;
     padding: 0;
     font-size: 16px;
+    margin-top: 2px;
 }
 
 .step-title {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 30%;
     margin-left: 40px;
+}
+
+.step-title-content {
+    width: fit-content;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .form-fields {
@@ -163,6 +185,10 @@ body {
 
 .edit-step {
     height: 20px;
+}
+
+.-current .edit-step{
+    transform: rotate(180deg);
 }
 
 .col-md-9, .custom-checkbox label {
@@ -192,6 +218,11 @@ body {
 
 .delivery-options-list .form-fields, .payment-options {
     margin-left: 20px;
+}
+
+.delivery-options-list .continue {
+    margin-left: 40px;
+    margin-top: 20px;
 }
 
 .delivery-option, .payment-option-wrap {
@@ -277,7 +308,7 @@ body {
     width: 90%;
     margin: auto;
     text-align: center;
-    margin-top: 140px;
+    margin-top: 180px;
 }
 
 #payment-confirmation button {
@@ -298,3 +329,94 @@ body {
 .cancel-address {
     display: none;
 }
+
+.close {
+    display: none;
+}
+
+.custom-checkbox {
+    width: 16px;
+    height: 16px;
+    border: solid 1px #DCDCDC;
+    position: relative;
+    margin-right: 4px;
+    display: block;
+}
+
+.custom-checkbox.checked {
+    background-color: black;
+    border-color: black;
+}
+
+.custom-checkbox input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 100;
+}
+
+.custom-checkbox img{
+    display: none;
+    position: absolute;
+    width: 80%;
+    height: 90%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    filter: invert(100%);
+}
+
+.custom-checkbox input:checked + img {
+    display: block;
+}
+
+.col-md-6 {
+    position: relative;
+    width: 100%;
+}
+
+.form-group .col-md-6 label{
+    display: flex;
+}
+
+.help-block {
+    position: absolute;
+    width: 100%;
+    margin-top: 2px;
+}
+
+.help-block ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alert-danger {
+    color: red;
+    font-size: 12px;
+    width: 60ch;
+}
+
+#delivery-address .form-fields {
+    width: 40%;
+}
+
+#delivery-address .form-group:nth-child(10) {
+    width: 28%;
+    float: left;
+}
+
+#delivery-address .form-group:nth-child(11) {
+    float: right;
+    width: 67%;
+}
+
+#delivery-address .form-group:nth-child(13) {
+    clear: both;
+}
+
+#delivery-address .form-group:nth-child(10) input, #delivery-address .form-group:nth-child(11) input {
+    width: 100%;
+}
+

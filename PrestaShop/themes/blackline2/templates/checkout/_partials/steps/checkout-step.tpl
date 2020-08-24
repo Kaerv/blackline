@@ -37,7 +37,9 @@
       <div class="step-number-container">
         <span class="step-number">{$position}</span>
       </div>
-      {$title|replace:"Adresy":"Twoje dane"}
+      <div class="step-title-content">
+          {$title|replace:"Adresy":"Twoje dane"}
+      </div>
       <span class="step-edit text-muted"><i class="material-icons edit">mode_edit</i><img class='edit-step' src='/assets/icons/down-arrow.svg'></span>
     </h1>
 

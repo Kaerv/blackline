@@ -109,6 +109,7 @@
                         value = "1"
                         class = "ps-shown-by-js"
                 >
+                <img src="/assets/icons/checked.svg">
                 <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
               </span>
             </div>

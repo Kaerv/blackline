@@ -27,7 +27,14 @@
     <h1 class="step-title h3">
     <div class="step-number-container">
       <span class="step-number">{$position}</span>
-    </div> {$title}
+    </div> 
+    <div class="step-title-content">
+      {$title}
+    </div>
+    <span class="step-edit text-muted">
+      <i class="material-icons edit">mode_edit</i>
+      <img class="edit-step" src="/assets/icons/down-arrow.svg">
+    </span>
     </h1>
   </section>
 {/block}

@@ -75,13 +75,7 @@
       </div>
       {hook h="displayWrapperBottom"}
     </section>
-
-    <footer id="footer">
-      {block name='footer'}
-        {include file='checkout/_partials/footer.tpl'}
-      {/block}
-    </footer>
-
+    
     {block name='javascript_bottom'}
       {include file="_partials/javascript.tpl" javascript=$javascript.bottom}
     {/block}

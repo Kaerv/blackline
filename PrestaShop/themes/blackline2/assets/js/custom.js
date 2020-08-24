@@ -40,6 +40,19 @@ $(".payment-radio .custom-radio input").on("change", function() {
     }
 });
 
+$("#checkout .custom-checkbox input").each(function() {
+    if($(this).prop("checked"))
+        $(this).parent().addClass("checked");
+    else 
+        $(this).parent().removeClass("checked");
+});
+$("#checkout .custom-checkbox input").on("change", function() {
+    if($(this).prop("checked"))
+        $(this).parent().addClass("checked");
+    else 
+    $(this).parent().removeClass("checked");
+});
+
 
 jQuery("#checkout input").on("invalid", function(event) {
     event.preventDefault();
