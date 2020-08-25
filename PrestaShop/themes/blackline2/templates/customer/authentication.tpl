@@ -23,24 +23,31 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file='page.tpl'}
-
-{block name='page_title'}
-  {l s='Log in to your account' d='Shop.Theme.Customeraccount'}
-{/block}
-
 {block name='page_content'}
-    {block name='login_form_container'}
-      <section class="login-form">
-        {render file='customer/_partials/login-form.tpl' ui=$login_form}
-      </section>
-      <hr/>
-      {block name='display_after_login_form'}
-        {hook h='displayCustomerLoginFormAfter'}
+    <link rel="stylesheet" type="text/css" href="{$urls.css_url}account.css">
+    <div id="account-forms-container">
+      {block name='login_form_container'}
+        <section class="login-form">
+        <p class="account-form-header">Masz już konto?</p>
+          {render file='customer/_partials/login-form.tpl' ui=$login_form}
+          <div class="forgot-password">
+            <a href="{$urls.pages.password}" rel="nofollow">
+              Nie pamiętam hasła
+            </a>
+          </div>
+        </section>
+        {block name='display_after_login_form'}
+          {hook h='displayCustomerLoginFormAfter'}
+        {/block}
       {/block}
-      <div class="no-account">
-        <a href="{$urls.pages.register}" data-link-action="display-register-form">
-          {l s='No account? Create one here' d='Shop.Theme.Customeraccount'}
-        </a>
-      </div>
-    {/block}
+      <div class="account-forms-separate-line"></div>
+      {block name='register_form_container'}
+        {$hook_create_account_top nofilter}
+        <section class="register-form">
+        <p class="account-form-header">Jesteś tu pierwszy raz?</p>
+          {render file='customer/_partials/customer-form.tpl' ui=$register_form}
+        </section>
+      {/block}
+    </div>
+
 {/block}

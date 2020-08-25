@@ -1,0 +1,66 @@
+#account-forms-container {
+    display: grid;
+    grid-template-columns: 40% 1px 40%;
+    grid-column-gap: 10%;
+    width: 80%;
+    margin: auto;
+}
+
+.account-forms-separate-line {
+    margin-top: 40px;
+    height: 70%;
+    width: 1px;
+    border-right: solid 1px #DCDCDC;
+}
+
+.account-form-header {
+    font-size: 1.4em;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 60px;
+}
+
+.js-customer-form .form-group:first-child,
+.js-visible-password + span {
+    display: none;
+}
+
+.form-group {
+    width: 80%;
+    margin: 0px auto 40px auto;
+    position: relative;
+}
+
+.form-control {
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: solid 1px #DCDCDC;
+    width: calc(100% - 8px);
+    margin: auto;
+    padding-left: 8px;
+}
+
+.form-control-label {
+    position: absolute;
+    left: 8px;
+}
+
+.form-footer {
+    margin: 40px auto 0px auto;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+#submit-login {
+    background: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    color: white;
+}

@@ -38,7 +38,6 @@
       {$hook_create_account_form nofilter}
     {/block}
   </section>
-
   {block name='customer_form_footer'}
     <footer class="form-footer clearfix">
       <input type="hidden" name="submitCreate" value="1">

@@ -43,46 +43,48 @@ class AuthControllerCore extends FrontController
     {
         $should_redirect = false;
 
-        if (Tools::isSubmit('submitCreate') || Tools::isSubmit('create_account')) {
-            $register_form = $this
-                ->makeCustomerForm()
-                ->setGuestAllowed(false)
-                ->fillWith(Tools::getAllValues());
-
-            if (Tools::isSubmit('submitCreate')) {
-                $hookResult = array_reduce(
-                    Hook::exec('actionSubmitAccountBefore', array(), null, true),
-                    function ($carry, $item) {
-                        return $carry && $item;
-                    },
-                    true
-                );
-                if ($hookResult && $register_form->submit()) {
-                    $should_redirect = true;
-                }
-            }
-
-            $this->context->smarty->assign([
-                'register_form' => $register_form->getProxy(),
-                'hook_create_account_top' => Hook::exec('displayCustomerAccountFormTop'),
-            ]);
-            $this->setTemplate('customer/registration');
-        } else {
-            $login_form = $this->makeLoginForm()->fillWith(
+        $register_form = $this
+            ->makeCustomerForm()
+            ->setGuestAllowed(false)
+            ->fillWith(Tools::getAllValues());
+        
+        $login_form = $this->makeLoginForm()->fillWith(
                 Tools::getAllValues()
+        );
+
+        if (Tools::isSubmit('submitCreate')) {
+            $hookResult = array_reduce(
+                Hook::exec('actionSubmitAccountBefore', array(), null, true),
+                function ($carry, $item) {
+                    return $carry && $item;
+                },
+                true
             );
-
-            if (Tools::isSubmit('submitLogin')) {
-                if ($login_form->submit()) {
-                    $should_redirect = true;
-                }
+            if ($hookResult && $register_form->submit()) {
+                $should_redirect = true;
             }
-
-            $this->context->smarty->assign([
-                'login_form' => $login_form->getProxy(),
-            ]);
-            $this->setTemplate('customer/authentication');
         }
+
+        $this->context->smarty->assign([
+            'register_form' => $register_form->getProxy(),
+            'hook_create_account_top' => Hook::exec('displayCustomerAccountFormTop'),
+        ]);
+
+        if (Tools::isSubmit('submitLogin')) {
+            if ($login_form->submit()) {
+                $should_redirect = true;
+            }
+        }
+
+        $register_form = $this
+        ->makeCustomerForm()
+        ->setGuestAllowed(false)
+        ->fillWith(Tools::getAllValues());
+
+        $this->context->smarty->assign([
+            'login_form' => $login_form->getProxy(),
+        ]);
+        $this->setTemplate('customer/authentication');
 
         parent::initContent();
 
