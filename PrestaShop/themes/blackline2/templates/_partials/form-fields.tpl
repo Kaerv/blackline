@@ -87,11 +87,15 @@
       {elseif $field.type === 'checkbox'}
 
         {block name='form_field_item_checkbox'}
-          <span class="custom-checkbox">
+          <span class="custom-checkbox {$field.name}">
             <label>
-              <input name="{$field.name}" type="checkbox" value="1" {if $field.value}checked="checked"{/if} {if $field.required}required{/if}>
+            <div class="custom-checkbox-container">
+              <input name="{$field.name}" type="checkbox" value="1" {if $field.value or $field.name =="psgdpr"}checked="checked"{/if} {if $field.required}required{/if}>
+              <img src="/assets/icons/checked.svg">
+              <div></div>
               <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
-              {$field.label nofilter}
+            </div>
+              <div class="checkbox-label">{$field.label nofilter}</div>
             </label>
           </span>
         {/block}

@@ -30,10 +30,19 @@
 <form action="{block name='customer_form_actionurl'}{$action}{/block}" id="customer-form" class="js-customer-form" method="post">
   <section>
     {block "form_fields"}
-      {foreach from=$formFields item="field"}
+      {foreach from=$formFields item="field" name="registerForm"}
+      {if $smarty.foreach.registerForm.index == 1}
+      <div class="names-container">
+      {/if}
         {block "form_field"}
+        {if $field.name== "birthday"}
+          {$field.type="date"}
+        {/if}
           {form_field field=$field}
         {/block}
+      {if $smarty.foreach.registerForm.index == 2}
+      </div>
+      {/if}
       {/foreach}
       {$hook_create_account_form nofilter}
     {/block}
@@ -43,10 +52,11 @@
       <input type="hidden" name="submitCreate" value="1">
       {block "form_buttons"}
         <button class="btn btn-primary form-control-submit float-xs-right" data-link-action="save-customer" type="submit">
-          {l s='Save' d='Shop.Theme.Actions'}
+          ZAŁÓŻ KONTO
         </button>
       {/block}
     </footer>
+    <div class="privacy-policy-info">Klikając w przycisk Załóż konto, zgadzasz się z naszą Polityką prywatności</div>
   {/block}
 
 </form>

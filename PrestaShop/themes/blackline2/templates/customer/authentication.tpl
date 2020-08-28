@@ -40,12 +40,20 @@
           {hook h='displayCustomerLoginFormAfter'}
         {/block}
       {/block}
-      <div class="account-forms-separate-line"></div>
+      <div class="account-forms-separate-line"></div>      
       {block name='register_form_container'}
         {$hook_create_account_top nofilter}
         <section class="register-form">
         <p class="account-form-header">Jesteś tu pierwszy raz?</p>
+        <div class="register-form-first-step">
+          <div class="button-container">
+            <input type="button" class="form-control-submit" value="ZAŁÓŻ KONTO" id="first-step-register">
+          </div>
+        </div>
+        <div class="register-form-container">
           {render file='customer/_partials/customer-form.tpl' ui=$register_form}
+        </div>
+
         </section>
       {/block}
     </div>

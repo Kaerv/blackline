@@ -133,7 +133,7 @@
         </div>
         {hook h="displayWrapperBottom"}
       </section>
-
+      {if $page.page_name != "authentication"}
       <footer id="footer">
       <div id="footer-menu">
           <ul>
@@ -174,6 +174,7 @@
           <a href="index.php"><img src="{$urls.shop_domain_url}/assets/logo/logo.png" alt=""></a>
       </div>
   </footer>
+        {/if}
 
     </main>
 
