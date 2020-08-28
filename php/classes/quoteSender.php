@@ -26,23 +26,28 @@
             if($content == "") {
                 $this->reportError("Content is empty");
             }
-
-            $response = $this->mysqli->query("SELECT quote_id FROM quotes WHERE content = '$content'");
+            $stmt = $this->mysqli->prepare("SELECT quote_id FROM quotes WHERE content = ?");
+            $stmt->bind_param('s', $content);
+            $stmt->execute();
+            $stmt->store_result();
             $this->reportErrorIfOccured();
             
-            if($response->num_rows != 0) 
+            if($stmt->num_rows != 0) 
                 $this->reportError("Quote already exists");
             
         }
         
         private function validateAuthor() {
             $author = $this->author;
-            $response = $this->mysqli->query("SELECT author_id FROM quotes_authors WHERE author_name = '$author'");
+            $stmt = $this->mysqli->prepare("SELECT author_id FROM quotes_authors WHERE author_name = ?");
+            $stmt->bind_param("s", $author);
+            $stmt->execute();
+            $result = $stmt->get_result();
             
             $this->reportErrorIfOccured();
             
-            if($response->num_rows > 0) {
-                while($row = $response->fetch_row()) {
+            if($result->num_rows > 0) {
+               while($row = $result->fetch_row()) {
                     $this->existingSameAuthorId = $row[0];
                 }
             }
@@ -53,8 +58,10 @@
                 $this->reportError("There is no categories");
             }
             foreach($this->categories as $key => $category) {
-                $query = "SELECT category_id FROM quotes_categories WHERE category_name = '$category'";
-                $result = $this->mysqli->query($query);
+                $stmt = $this->mysqli->prepare("SELECT category_id FROM quotes_categories WHERE category_name = ?");
+                $stmt->bind_param("s", $category);
+                $stmt->execute();
+                $result = $stmt->get_result();
                 if(!$result) {
                     $this->reportError("Checking categories failed");
                 }
@@ -81,12 +88,14 @@
 
         private function addAuthor() {
             if(!isset($this->existingSameAuthorId)) {
-                $query = "INSERT INTO quotes_authors (author_name) VALUES ('$this->author')";
-                if(!$this->mysqli->query($query)) {
+                $stmt = $this->mysqli->prepare("INSERT INTO quotes_authors (author_name) VALUES (?)");
+                $stmt->bind_param('s', $this->author);
+
+                if(!$stmt->execute()) {
                     $error = $this->mysqli->error;
                     $this->reportError("Adding author $author failed: $error;");
                 }
-                $this->newAuthorId = $this->mysqli->insert_id;
+                $this->newAuthorId = $stmt->insert_id;
             }
 
             else {
@@ -97,28 +106,32 @@
 
         private function addCategories() {
             foreach($this->validCategories as $category) {
-                $query = "INSERT INTO quotes_categories (category_name) VALUES ('$category')";
-                if(!$this->mysqli->query($query)) {
+                $stmt = $this->mysqli->prepare("INSERT INTO quotes_categories (category_name) VALUES (?)");
+                $stmt->bind_param('s', $category);
+
+                if(!$stmt->execute()) {
                     $this->reportError("Adding category $category failed: $error;");
                 }
-                $this->categoriesIds[] = $this->mysqli->insert_id;
+                $this->categoriesIds[] = $stmt->insert_id;
             }
         }
 
         private function addQuote() {
-            $query = "INSERT INTO quotes (author_id, content) VALUES ($this->newAuthorId, '$this->content')";
-            if(!$this->mysqli->query($query)) {
+            $stmt = $this->mysqli->prepare("INSERT INTO quotes (author_id, content) VALUES (?, ?)");
+            $stmt->bind_param('is', $this->newAuthorId, $this->content);
+            if(!$stmt->execute()) {
                 $error = $this->mysqli->error;
                 $this->reportError("Adding quote failed, $error");
             }
-            $this->newQuoteId = $this->mysqli->insert_id;
+            $this->newQuoteId = $stmt->insert_id;
         }
 
         private function addCategoriesSets() {
             $newQuoteId = $this->newQuoteId;
             foreach($this->categoriesIds as $id) {
-                $query = "INSERT INTO quotes_categories_sets(category_id, quote_id) VALUES ($id, $newQuoteId)";
-                if(!$this->mysqli->query($query)) {
+                $stmt = $this->mysqli->prepare("INSERT INTO quotes_categories_sets(category_id, quote_id) VALUES (?, ?)");
+                $stmt->bind_param('ii', $id, $newQuoteId);
+                if(!$stmt->execute()) {
                     $error = $this->mysqli->error;
                     $this->reportError("Adding categories sets failed, $error");
                 }

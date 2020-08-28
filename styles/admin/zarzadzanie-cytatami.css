@@ -271,6 +271,10 @@ html, body {
     border-bottom: solid 1px rgba(0,0,0,0.1);
 }
 
+#all-quotes td:first-child {
+    min-width: 70px;
+}
+
 #all-quotes tr:hover { background-color: rgba(0,0,0,0.05); }
 #all-quotes tr:nth-child(1):hover, #all-quotes tr:nth-child(2):hover {
     background: none;
@@ -436,7 +440,7 @@ html, body {
 }
 
 #logs-container {
-    width: 240px;
+    width: 20%;
     min-height: 100px; 
     position: fixed;
     left: 26px;
@@ -447,7 +451,7 @@ html, body {
 .log-message {
     background-color: #444;
     color: white;
-    font-size: 32px;
+    font-size: 1em;
     height: 80px;
     width: 100%;
     border-radius: 14px;

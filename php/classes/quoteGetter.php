@@ -34,7 +34,7 @@
                 $visitDaily = $quote["visit_daily"];
                 $visitMonthly = $quote["visit_monthly"];
                 $visitYearly = $quote["visit_yearly"];
-                echo "$id;$content;$author;$category;$dateAdded;$visitDaily;$visitMonthly;$visitYearly*";
+                echo "$id|$content|$author|$category|$dateAdded|$visitDaily|$visitMonthly|$visitYearly*";
             }
         }
 

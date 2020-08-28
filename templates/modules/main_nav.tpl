@@ -3,7 +3,7 @@
     <div class="nav-line"></div>
     <a class="menu-option disabled">AKADEMIA <br>MYŚLI ULOTNEJ</a>
     <div class="nav-line"></div>
-    <a class="menu-option disabled">CYTATY <br>Z GŁĘBI STRON</a>
+    <a class="menu-option" href="/index.php?page=cytaty">CYTATY <br>Z GŁĘBI STRON</a>
     <div class="nav-line"></div>
     <a class="menu-option disabled">ENCYKLOPEDIA <br>DEFINICJI ZAPOMNIANYCH</a>
     <div class="nav-line"></div>

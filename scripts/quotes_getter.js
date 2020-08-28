@@ -46,10 +46,9 @@ function convertRawToObjects(row) {
     let quotes = [];
     for(let i = 0; i < row.length - 1; i++) {
         let isRepeat = false;
-        let quote = row[i].split(";");
+        let quote = row[i].split("|");
         quote[0] = parseInt(quote[0]);
 
-        console.log(quotes);
         for(let j = 0; j < quotes.length; j++) {
             if(quotes[j].id == quote[0]) {
                 quotes[j].categories.push(quote[3]);
