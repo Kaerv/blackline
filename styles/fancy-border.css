@@ -33,3 +33,6 @@
     .fancy-div { width: 60%; }
 }
 
+@media only screen and (max-width: 1080px) {
+    .fancy-div { width: 70%; }
+}

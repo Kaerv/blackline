@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-08-17 07:12:30
+/* Smarty version 3.1.34-dev-7, created on 2020-09-02 10:46:45
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f3a2ddec019b4_37552235',
+  'unifunc' => 'content_5f4f78153df779_63068290',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1597648349,
+      1 => 1599043602,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/shop_description.tpl' => 1,
   ),
 ),false)) {
-function content_5f3a2ddec019b4_37552235 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f4f78153df779_63068290 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <section id="hero-image" class="section"></section>
 
     <section id="quote_section" class="section">
@@ -159,7 +159,7 @@ if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
                 <div class="slide-dot" onclick="slider.manualChange(<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-)"></div>
+)"><div></div></div>
                 <?php }
 }
 ?>
@@ -235,10 +235,46 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
                     $(`#slide-${slide}`).fadeIn();
                 }
             }
-            //$("#slide-3").show();
-            let slider = new Slider(2, 10000);
+            $("#slide-2").show();
+            let slider = new Slider(1, 10000);
             $("#slider").ready(slider.start());
-            console.log(`${window.innerWidth}x${window.innerHeight}`)
+            console.log(`${window.innerWidth}x${window.innerHeight}`);
+
+            $("#mobile-menu-button").on("click", function() {
+                $("#mobile-nav-panel").css({"left": 0});
+                $("#mobile-menu-button").hide();
+            });
+
+            $("#hide-menu").on("click", function() {
+                $("#mobile-nav-panel").css({"left": "-46%"});
+                $("#mobile-menu-button").show();
+            });
+
+            $("#mobile-search-button").on("click", function() {
+                $("#search-wrap")
+                .css("display", "grid")
+                .hide()
+                .fadeIn(160);
+                $("#mobile-search-background").fadeIn(160);
+            });
+
+            $("#mobile-search-background").on("click", function() {
+                $("#search-wrap").fadeOut(160);
+                $("#mobile-search-background").fadeOut(160);
+            });
+
+            $(window).on("resize", function() {
+                let windowHeight = window.innerHeight;
+                let headerHeight = $("#page-header")[0].clientHeight;
+                $("#hero-image").css("height", windowHeight - headerHeight);
+            })
+
+            $(document).ready(function() {
+                let windowHeight = window.innerHeight;
+                let headerHeight = $("#page-header")[0].clientHeight;
+                $("#hero-image").css("height", windowHeight - headerHeight);
+                console.log(headerHeight)
+            });
         <?php echo '</script'; ?>
 >
         

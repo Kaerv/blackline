@@ -12,7 +12,7 @@
 /* HERO IMAGE */
 
 #hero-image {
-    height: calc(100vh - 250px);
+    height: 100vh;
     background-color: #BBB;
 }
 
@@ -23,13 +23,13 @@
 }
 
 .quotes-section-title {
-    font-size: 32px;
+    font-size: 2em;
     font-family: Overpass;
 }
 
 .quotes-title-fancy {
     font-family: Dancing Script;
-    font-size: 40px;
+    font-size: 2.1em;
     margin-top: -16px;
 }
 
@@ -45,7 +45,7 @@
     width: 100%;
 }
 
-.quote-sign { font-size: 64px; }
+.quote-sign { font-size: 3em; }
 
 .quote {
     margin-top: 20px;
@@ -68,7 +68,8 @@
 
 #preamble {
     width: 70%;
-    height: 90%;
+    height: fit-content;
+    padding-bottom: 80px;
 }
 
 #preamble > h1 {
@@ -78,6 +79,7 @@
 
 #preamble > p {
     width: 80ch;
+    max-width: 90%;
     line-height: 130%;
 }
 
@@ -86,39 +88,31 @@
 }
 
 /* SHOP PREVIEW */
+#shop-preview {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+}
 
 #shop-preview p {
     line-height: 120%;
 }
 
-.shop-note {
-    margin-top: 60px;
-    margin-bottom: 90px;
+#shop-preview #description-container {
+    margin: 0 auto;
+    align-items: center;
+    grid-template-columns: 42% 50%;
 }
 
-.shop-note > p:first-of-type {
-    font-size:24px;
+#shop-preview #description-left p {
+    margin: 80px 0;
 }
 
-.shop-note > p:nth-of-type(2) {
-    font-size:19px;
-    margin-top: 40px;
+#shop-preview #description-photo-container {
+    transform: scale(1.4);
 }
 
-#products-categories {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    justify-content: space-evenly;
-    margin-top: 100px;
-    font-size: 20px;
-}
-
-.category-img {
-    width: 200px;
-    height: 200px;
-    background-color: #BBB;
-    margin-bottom: 20px;
+#shop-preview #small-separate-line {
+    width: 30%;
 }
 
 /* SLIDER */ 
@@ -131,13 +125,16 @@
 #slider {
     position: relative;
     height: calc(100% - 100px);
+    display: flex;
+    align-items: center;
 }
 
 .slide {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     display: none;
+    margin-top: -40px;
 }
 
 #slide-dots-container {
@@ -146,45 +143,51 @@
     left: 50%;
     display: flex;
     justify-content: space-evenly;
-    width: 300px;
+    width: 15%;
     transform: translateX(-50%);
 }
 
 .slide-dot {
-    width: 22px;
-    height: 22px;
+    width: 8%;
+    position: relative;
     border-radius: 100%;
     background-color: black;
     opacity: 0.3;
     transition: all 50ms linear 0s;
 }
+
+.slide-dot div {
+    padding-top: 100%;
+}
+
 .slide-dot:hover { opacity: 0.6; }
 .slide-dot-active { opacity: 1; }
 
 #youtube-note {
-    width: 800px;
-    margin-top: 100px;
+    width: 80ch;
+    max-width: 90%;
+    margin-top: 0;
     margin-bottom: 100px;
-    font-size: 22px;
+    font-size: 1.1em;
 }
 
 .youtube-summary-1 {
-    font-size: 22px;
+    font-size: 1.1em;
     margin-top: 50px;
 }
 .youtube-summary-2 {
-    font-size: 24px;
+    font-size: 1.12em;
 }
 
 #first-slide-youtube-ico {
-    width: 120px;
+    width: 6%;
     height: auto;
     margin-top: 40px;
 }
 
 #first-slide-youtube-ico:hover {
     filter: invert(50%) sepia(84%) saturate(7316%) hue-rotate(348deg) brightness(88%) contrast(145%);
-    width: 124px;
+    width: 7%;
 }
 
 #slide-2-content-container {
@@ -198,17 +201,17 @@
 
 #slide-2-left-content {
     display: grid;
-    grid-template-rows: 40% 60%;
+    grid-template-rows: 60% 40%;
 }
 
 #slide-2-youtube-desc {
-    font-size: 24px;
+    font-size: 1.12em;
     width: 50%;
     margin-top: 50px;
 }
 
 #slide-2-youtube-ico {
-    width: 120px;
+    width: 15%;
     height: auto;
 }
 
@@ -218,22 +221,22 @@
 }
 
 #slide-2-lb {
-    font-size: 24px;
+    font-size: 1.12em;
 }
 
 #subscribe {
     display: flex;
     justify-content: flex-start;
-    width: 260px;
+    width: 29%;
     margin-left: 38%;
 }
 
 #subscribe-button {
     background-color: black;
     color: white;
-    width: 180px;
+    width: 90%;
     height: 36px;
-    font-size: 22px;
+    font-size: 1.1em;
     padding-top: 3px;
     display: flex;
     align-items: center;
@@ -244,7 +247,7 @@
 }
 
 #subscribe-click {
-    width: 40px;
+    width: 16%;
     height: auto;
 }
 
@@ -256,7 +259,7 @@
 }
 
 .preview {
-    width: 360px;
+    width: 42%;
     height: 220px;
     background-color: #DDD;
 }
@@ -296,7 +299,7 @@
 }
 
 #social-note {
-    font-size: 28px;
+    font-size: 1.2em;
 }
 
 .slider-3-social-ico {
@@ -314,12 +317,8 @@
 
 .slider-3-blackline-link {
     font-family: Dancing Script;
-    font-size: 48px;
+    font-size: 2em;
     margin-bottom: 30px;
-}
-
-#shop-preview #description-container {
-    margin-top: 160px;
 }
 
 
@@ -329,11 +328,10 @@
     .shop-note > p:first-of-type { font-size: 22px; }
     .shop-note > p:nth-of-type(2) { font-size: 18px; }
     .category-img {width: 180px; height: 180px;}
-    
+    #shop-preview #description-photo-container { transform: scale(1.2) }
 }
 
 @media only screen and (max-width: 1370px) {
-    #hero-image { height: calc(100vh - 230px);}
     #quote_section { margin-top: 0px; }
     .quotes-section-title { font-size: 26px; }
     .quotes-title-fancy { font-size: 30px;}
@@ -360,6 +358,7 @@
     .social-media-link > a:hover > p { margin-top: 5px; }
     .youtube-ico + p { margin-top: -16px; }
     .youtube-ico:hover + p { margin-top: -20px; }
+    #shop-preview #description-photo-container { transform: scale(1) }
 }
 
 @media only screen and (max-width: 1290px) {
@@ -387,7 +386,7 @@
     .youtube-summary-2 { font-size: 22px; }
     #first-slide-youtube-ico { width: 80px; }
 
-    #slide-2-youtube-desc { font-size: 20px; margin-top: 30px; }
+    #slide-2-youtube-desc { font-size: 20px; margin-top: 0 }
     #slide-2-youtube-ico { width: 94px; }
     #slide-2-lb { font-size: 20px;}
     #subscribe { margin-left: 36%; width: 200px; }
@@ -403,4 +402,10 @@
     .slider-3-social-ico { width: 64px;}
     .slider-3-blackline-link { font-size: 32px; }
     #slide-3-content-container { width: 50%; top: 43%; }
+    #shop-preview #description-photo-container { transform: scale(0.9) }
+}
+
+@media only screen and (max-width: 1080px) {
+    .quotes-section-title { font-size: 22px; }
+    #shop-preview #description-photo-container { transform: scale(0.8) }
 }

@@ -134,7 +134,7 @@
 
             <div id="slide-dots-container">
                 {for $i=1 to 3}
-                <div class="slide-dot" onclick="slider.manualChange({$i})"></div>
+                <div class="slide-dot" onclick="slider.manualChange({$i})"><div></div></div>
                 {/for}
             </div>
 
@@ -205,10 +205,46 @@
                     $(`#slide-${slide}`).fadeIn();
                 }
             }
-            //$("#slide-3").show();
-            let slider = new Slider(2, 10000);
+            $("#slide-2").show();
+            let slider = new Slider(1, 10000);
             $("#slider").ready(slider.start());
-            console.log(`${window.innerWidth}x${window.innerHeight}`)
+            console.log(`${window.innerWidth}x${window.innerHeight}`);
+
+            $("#mobile-menu-button").on("click", function() {
+                $("#mobile-nav-panel").css({"left": 0});
+                $("#mobile-menu-button").hide();
+            });
+
+            $("#hide-menu").on("click", function() {
+                $("#mobile-nav-panel").css({"left": "-46%"});
+                $("#mobile-menu-button").show();
+            });
+
+            $("#mobile-search-button").on("click", function() {
+                $("#search-wrap")
+                .css("display", "grid")
+                .hide()
+                .fadeIn(160);
+                $("#mobile-search-background").fadeIn(160);
+            });
+
+            $("#mobile-search-background").on("click", function() {
+                $("#search-wrap").fadeOut(160);
+                $("#mobile-search-background").fadeOut(160);
+            });
+
+            $(window).on("resize", function() {
+                let windowHeight = window.innerHeight;
+                let headerHeight = $("#page-header")[0].clientHeight;
+                $("#hero-image").css("height", windowHeight - headerHeight);
+            })
+
+            $(document).ready(function() {
+                let windowHeight = window.innerHeight;
+                let headerHeight = $("#page-header")[0].clientHeight;
+                $("#hero-image").css("height", windowHeight - headerHeight);
+                console.log(headerHeight)
+            });
         </script>
         {/literal}
     </section>

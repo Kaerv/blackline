@@ -1,6 +1,8 @@
 <style>@import "/styles/page-header.css";</style>
-<header>
+<div id="mobile-search-background"></div>
+<header id="page-header">
     <div id="header-top-wrap">
+        <div id="mobile-menu-button"><div></div></div>
         <div id="help-and-contact">
             <a href="/PrestaShop/index.php?controller=contact" class="dashed">POMOC I KONTAKT</a>
         </div>
@@ -10,6 +12,9 @@
             </a>
         </div>
         <div id="header-buttons-container">
+            <div id="mobile-search-button">
+                <img src="/assets/icons/search.svg">
+            </div>
             <div id="search-wrap">
                 <img id="header-search" class="header-ico" src="assets/icons/search.svg" alt="">
                 <input id="search-input" type="text" placeholder="W poszukiwaniu... znajdź">

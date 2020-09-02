@@ -22,8 +22,10 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<header>
+ <div id="mobile-search-background"></div>
+<header id="page-header">
     <div id="header-top-wrap">
+        <div id="mobile-menu-button"><div></div></div>
         <div id="help-and-contact">
             <a href="{$urls.pages.contact}" class="dashed">POMOC I KONTAKT</a>
         </div>
@@ -33,6 +35,9 @@
             </a>
         </div>
         <div id="header-buttons-container">
+            <div id="mobile-search-button">
+                <img src="/assets/icons/search.svg">
+            </div>
             <div id="search-wrap">
                 <img id="header-search" class="header-ico" src="/assets/icons/search.svg" alt="">
                 <input id="search-input" type="text" placeholder="W poszukiwaniu... znajdź">
