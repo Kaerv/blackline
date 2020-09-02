@@ -210,29 +210,6 @@
             $("#slider").ready(slider.start());
             console.log(`${window.innerWidth}x${window.innerHeight}`);
 
-            $("#mobile-menu-button").on("click", function() {
-                $("#mobile-nav-panel").css({"left": 0});
-                $("#mobile-menu-button").hide();
-            });
-
-            $("#hide-menu").on("click", function() {
-                $("#mobile-nav-panel").css({"left": "-46%"});
-                $("#mobile-menu-button").show();
-            });
-
-            $("#mobile-search-button").on("click", function() {
-                $("#search-wrap")
-                .css("display", "grid")
-                .hide()
-                .fadeIn(160);
-                $("#mobile-search-background").fadeIn(160);
-            });
-
-            $("#mobile-search-background").on("click", function() {
-                $("#search-wrap").fadeOut(160);
-                $("#mobile-search-background").fadeOut(160);
-            });
-
             $(window).on("resize", function() {
                 let windowHeight = window.innerHeight;
                 let headerHeight = $("#page-header")[0].clientHeight;

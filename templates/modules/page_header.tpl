@@ -36,6 +36,32 @@
             </div>
         </div>
     </div>
-    
+    {literal}
+    <script>
+    $(document).ready(function() {
+        $("#mobile-menu-button").on("click", function() {
+            $("#mobile-nav-panel").css({"left": 0});
+            $("#mobile-menu-button").hide();
+        });
+        $("#hide-menu").on("click", function() {
+            $("#mobile-nav-panel").css({"left": "-46%"});
+            $("#mobile-menu-button").show();
+        });
+
+        $("#mobile-search-button").on("click", function() {
+            $("#search-wrap")
+            .css("display", "grid")
+            .hide()
+            .fadeIn(160);
+            $("#mobile-search-background").fadeIn(160);
+        });
+
+        $("#mobile-search-background").on("click", function() {
+            $("#search-wrap").fadeOut(160);
+            $("#mobile-search-background").fadeOut(160);
+        });
+    })
+    </script>
+    {/literal}
     {include file='./main_nav.tpl'}
 </header>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-02 09:04:15
+/* Smarty version 3.1.34-dev-7, created on 2020-09-02 12:25:49
   from '/var/www/html/templates/modules/page_header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f4f600fc56854_70236957',
+  'unifunc' => 'content_5f4f8f4d91a847_17814565',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4660c8b3a5e6b6124132084d5349c00f9ebd3566' => 
     array (
       0 => '/var/www/html/templates/modules/page_header.tpl',
-      1 => 1599037425,
+      1 => 1599049548,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./main_nav.tpl' => 1,
   ),
 ),false)) {
-function content_5f4f600fc56854_70236957 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f4f8f4d91a847_17814565 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>@import "/styles/page-header.css";</style>
 <div id="mobile-search-background"></div>
 <header id="page-header">
@@ -63,6 +63,34 @@ function content_5f4f600fc56854_70236957 (Smarty_Internal_Template $_smarty_tpl)
             </div>
         </div>
     </div>
+    
+    <?php echo '<script'; ?>
+>
+    $(document).ready(function() {
+        $("#mobile-menu-button").on("click", function() {
+            $("#mobile-nav-panel").css({"left": 0});
+            $("#mobile-menu-button").hide();
+        });
+        $("#hide-menu").on("click", function() {
+            $("#mobile-nav-panel").css({"left": "-46%"});
+            $("#mobile-menu-button").show();
+        });
+
+        $("#mobile-search-button").on("click", function() {
+            $("#search-wrap")
+            .css("display", "grid")
+            .hide()
+            .fadeIn(160);
+            $("#mobile-search-background").fadeIn(160);
+        });
+
+        $("#mobile-search-background").on("click", function() {
+            $("#search-wrap").fadeOut(160);
+            $("#mobile-search-background").fadeOut(160);
+        });
+    })
+    <?php echo '</script'; ?>
+>
     
     <?php $_smarty_tpl->_subTemplateRender('file:./main_nav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>

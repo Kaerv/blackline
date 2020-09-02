@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-02 10:46:45
+/* Smarty version 3.1.34-dev-7, created on 2020-09-02 12:16:37
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f4f78153df779_63068290',
+  'unifunc' => 'content_5f4f8d25448e96_29553021',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1599043602,
+      1 => 1599048859,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/shop_description.tpl' => 1,
   ),
 ),false)) {
-function content_5f4f78153df779_63068290 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f4f8d25448e96_29553021 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <section id="hero-image" class="section"></section>
 
     <section id="quote_section" class="section">
@@ -239,29 +239,6 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
             let slider = new Slider(1, 10000);
             $("#slider").ready(slider.start());
             console.log(`${window.innerWidth}x${window.innerHeight}`);
-
-            $("#mobile-menu-button").on("click", function() {
-                $("#mobile-nav-panel").css({"left": 0});
-                $("#mobile-menu-button").hide();
-            });
-
-            $("#hide-menu").on("click", function() {
-                $("#mobile-nav-panel").css({"left": "-46%"});
-                $("#mobile-menu-button").show();
-            });
-
-            $("#mobile-search-button").on("click", function() {
-                $("#search-wrap")
-                .css("display", "grid")
-                .hide()
-                .fadeIn(160);
-                $("#mobile-search-background").fadeIn(160);
-            });
-
-            $("#mobile-search-background").on("click", function() {
-                $("#search-wrap").fadeOut(160);
-                $("#mobile-search-background").fadeOut(160);
-            });
 
             $(window).on("resize", function() {
                 let windowHeight = window.innerHeight;
