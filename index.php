@@ -17,6 +17,8 @@
     
     $smarty->assign('page', $page);
     $smarty->assign('token', $token);
+
+    
     if($page == "zarzadzanie_cytatami") {
         $smarty->display('zarzadzanie_cytatami.tpl');
     }

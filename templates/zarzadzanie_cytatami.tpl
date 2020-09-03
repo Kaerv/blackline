@@ -142,12 +142,12 @@
   crossorigin="anonymous"></script>
   <script>let token = "{$token}";</script>
   <script src="../scripts/logger.js"></script>
-  <script src="../scripts/quotes_getter.js"></script>
-  <script src="../scripts/quotes_finder.js"></script>
-  <script src="../scripts/quotes_sender.js"></script>
-  <script src="../scripts/quotes_remover.js"></script>
-  <script src="../scripts/all_quotes_panel_control.js"></script>
-  <script src="../scripts/adding_quote_panel_control.js"></script>
-  <script src="../scripts/quotes_management_panels_control.js"></script>
+  <script src="../scripts/admin/classes/quotes_getter.js"></script>
+  <script src="../scripts/admin/classes/quotes_finder.js"></script>
+  <script src="../scripts/admin/classes/quotes_sender.js"></script>
+  <script src="../scripts/admin/classes/quotes_remover.js"></script>
+  <script src="../scripts/admin/all_quotes_panel_control.js"></script>
+  <script src="../scripts/admin/adding_quote_panel_control.js"></script>
+  <script src="../scripts/admin/quotes_management_panels_control.js"></script>
 </body>
 </html>
