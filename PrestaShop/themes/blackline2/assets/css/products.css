@@ -58,6 +58,7 @@
 
 .product-miniature {
     width: 100%;
+    margin: auto;
 }
 
 .products-sort-order {
