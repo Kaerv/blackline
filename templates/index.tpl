@@ -205,7 +205,7 @@
                     $(`#slide-${slide}`).fadeIn();
                 }
             }
-            $("#slide-2").show();
+            
             let slider = new Slider(1, 10000);
             $("#slider").ready(slider.start());
             console.log(`${window.innerWidth}x${window.innerHeight}`);

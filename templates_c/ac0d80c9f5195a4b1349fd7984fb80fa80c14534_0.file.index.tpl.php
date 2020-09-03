@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-02 12:16:37
+/* Smarty version 3.1.34-dev-7, created on 2020-09-03 08:10:44
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f4f8d25448e96_29553021',
+  'unifunc' => 'content_5f50a5040da7c2_99139955',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1599048859,
+      1 => 1599120530,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/shop_description.tpl' => 1,
   ),
 ),false)) {
-function content_5f4f8d25448e96_29553021 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f50a5040da7c2_99139955 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <section id="hero-image" class="section"></section>
 
     <section id="quote_section" class="section">
@@ -235,7 +235,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
                     $(`#slide-${slide}`).fadeIn();
                 }
             }
-            $("#slide-2").show();
+            
             let slider = new Slider(1, 10000);
             $("#slider").ready(slider.start());
             console.log(`${window.innerWidth}x${window.innerHeight}`);
