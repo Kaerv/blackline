@@ -197,11 +197,11 @@
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
         grid-column-gap: 0;
-        grid-row-gap: 60px;
+        grid-row-gap: 100px;
         width: 60%;
         margin-bottom: 100px;
     }
-    #account-forms-separate-line {
+    .account-forms-separate-line {
         display: none;
     }
 }
