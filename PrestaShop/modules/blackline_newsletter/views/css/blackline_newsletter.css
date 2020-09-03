@@ -1,0 +1,146 @@
+#newsletter {
+    width: 100%;
+    height: auto;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+#newsletter-header {
+    width: 98%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.newsletter-header-line {
+    width: 42%;
+    border-bottom: solid 1px #DCDCDC;
+}
+
+#newsletter-title {
+    font-size: 32px;
+    height: 32px;
+    width: auto;
+}
+
+#newsletter-message {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#newsletter-form-title-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    margin-right: 20px;
+}
+
+#newsletter-form-title {
+    font-size: 22px;
+}
+
+#one-line-wrap {
+    width: 40%;
+}
+
+#email-input {
+    width: 100%;
+    height: 48px;
+    border: solid 1px #DCDCDC;
+    outline: none;
+    padding: 0;
+    padding-left: 8px;
+    font-size: 18px;
+}
+
+#email-input::selection {
+    color: white;
+    background: black;
+}
+
+#send-email-button {
+    height: 50px;
+    width: 200px;
+    background-color: black;
+    color: white;
+    border: solid 1px black;
+    transition: all 200ms linear 0s;
+    font-size: 24px;
+    outline: none;
+}
+
+#send-email-button:hover {
+    color: black;
+    background-color: white;
+}
+
+.newsletter-checkbox-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.newsletter-checkbox {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border: solid 1px #DCDCDC;
+    transition: all 200ms linear 0s;
+    margin-right: 20px;
+}
+
+.checked-newsletter {
+    background-color: black;
+}
+
+.newsletter-checkbox img {
+    position: absolute;
+    display: block;
+    width: 80%;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    filter: invert(100%);
+    transition: all 200ms linear 0s;
+}
+
+.newsletter-checkbox input {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: block;
+    position: absolute;
+    opacity: 0;
+}
+
+.newsletter-checkbox input:checked + img {
+    display: block;
+}
+
+.newsletter-conditions {
+    border-bottom: solid 1px black;
+}
+
+.newsletter-warning {
+    margin-top: 20px;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    color: red;
+
+}
