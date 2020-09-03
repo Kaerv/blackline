@@ -87,3 +87,9 @@
 .featured-button.right {
     transform: rotate(-90deg);
 }
+
+@media only screen and (max-width: 1000px) {
+    #featured-products-content .thumbnail-container img {width: 80%;}
+    #featured-products-content .product-miniature {height: auto;}
+    #featured-title {margin-bottom: 20px;}
+}
