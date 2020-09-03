@@ -144,3 +144,20 @@
     color: red;
 
 }
+
+@media only screen and (max-width: 1000px) {
+    .newsletter-header-line { width: 38% }
+    #newsletter-title { font-size: 24px }
+    #newsletter-message { font-size: 16px }
+    #newsletter-form-title-container { height: 44px; }
+    #newsletter-form-title { font-size: 18px }
+    .newsletter-check { width: 14px; height: 14px; }
+    #email-input { height: 32px; font-size: 14px; }
+    #send-email-button { width: 140px; height: 34px; font-size: 18px; }
+}
+
+@media only screen and (max-width: 800px) {
+    #newsletter-form { flex-direction: column; align-items: center; }
+    #newsletter-form > * { margin-bottom:20px; }
+    #newsletter-message { margin-bottom: 20px; margin-top: 30px; }
+}
