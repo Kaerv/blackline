@@ -191,3 +191,17 @@
     height: 45px;
     margin: 100px auto;
 }
+
+@media only screen and (max-width: 1000px) {
+    #account-forms-container {    
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-column-gap: 0;
+        grid-row-gap: 60px;
+        width: 60%;
+        margin-bottom: 100px;
+    }
+    #account-forms-separate-line {
+        display: none;
+    }
+}
