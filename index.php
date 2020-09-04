@@ -21,6 +21,7 @@
     $smarty->assign('token', $token);
 
     if($page == "cytaty") {
+        print($_GET["q"]);
         $start = 0;
         $controller = new QuotesPage($token);
         $quotes = $controller->getQuotes($start);

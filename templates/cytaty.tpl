@@ -6,7 +6,7 @@
                 <h2 class="filter-title">{$filterName}</h1>
                 <div class="filter-values">
                     {foreach from=$filter item="value"}
-                    <a class="filter-value" href="/index.php?page=cytaty&{$filterName}={$value}">
+                    <a class="filter-value" href="/index.php?page=cytaty&q={$filterName}-{$value}">
                     {$value}
                     </a>
                     {/foreach}
