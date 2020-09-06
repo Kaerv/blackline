@@ -145,7 +145,7 @@ function addEventsToQuotes() {
 }
 
 function addLoadMoreButton() {
-    if(displayedQuotes + 25 < allQuotesCount - 1) {
+    if(displayedQuotes < allQuotesCount - 1) {
         $("#all-quotes").find("tbody").append(`
         <tr>
             <td colspan=8><input type="button" id="load-more-button" value="Wczytaj więcej"></td>`

@@ -141,7 +141,7 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
   <script>let token = "{$token}";</script>
-  <script src="../scripts/logger.js"></script>
+  <script src="../scripts/admin/logger.js"></script>
   <script src="../scripts/admin/classes/quotes_getter.js"></script>
   <script src="../scripts/admin/classes/quotes_finder.js"></script>
   <script src="../scripts/admin/classes/quotes_sender.js"></script>
