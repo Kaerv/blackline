@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{if $smarty.post.fromAdmin == "1"}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="styles/admin/zarzadzanie-cytatami.css">
 </head>
 <body>
+<script>console.log(document.referrer)</script>
     <div id="background">
         <div id="background-top"></div>
     </div>
@@ -150,4 +152,20 @@
   <script src="../scripts/admin/adding_quote_panel_control.js"></script>
   <script src="../scripts/admin/quotes_management_panels_control.js"></script>
 </body>
+{else}
+<head>
+    <title>Ups...</title>
+</head>
+<body>
+    <h2
+    style="
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    "
+    >Wygląda na to, że próbowałeś zrobić coś nie tak... :( <br>Jeżeli mimo wszystko uważasz, że powinieneś się tu znaleźć, skontaktuj się z administratorem.</h2>
+</body>
+{/if}
 </html>

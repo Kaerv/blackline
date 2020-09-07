@@ -14,6 +14,7 @@ class QuotesPanelController extends ModuleAdminController
     }
 
     public function initContent() {
-        Tools::redirect(_PS_BASE_URL_ . '/index.php?page=zarzadzanie_cytatami');
+        parent::initContent();     
+        $content = $this->setTemplate('redirect.tpl');
     }
 }
