@@ -22,6 +22,7 @@
                 quotes.author_id = quotes_authors.author_id AND 
                 quotes_categories_sets.category_id = quotes_categories.category_id AND 
                 quotes_categories_sets.quote_id = quotes.quote_id 
+            ORDER BY quotes.date_added
             LIMIT $start, 25";
         
             $quotes = $this->mysqli->query($query);

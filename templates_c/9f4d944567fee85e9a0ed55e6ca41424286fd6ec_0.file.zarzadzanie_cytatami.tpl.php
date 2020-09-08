@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-07 10:20:10
+/* Smarty version 3.1.34-dev-7, created on 2020-09-08 09:56:48
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f56095a6331b6_11386986',
+  'unifunc' => 'content_5f575560d87f08_83772894',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1599474009,
+      1 => 1599558944,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f56095a6331b6_11386986 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f575560d87f08_83772894 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <?php if ($_POST['fromAdmin'] == "1") {?>
@@ -99,9 +99,6 @@ function content_5f56095a6331b6_11386986 (Smarty_Internal_Template $_smarty_tpl)
                                 <th>Dziennie</th>
                                 <th>Miesięcznie</th>
                                 <th>Rocznie</th>
-                            </tr>
-                            <tr>
-                                <td colspan="8">Ładowanie...</td>
                             </tr>
                         </table>
                     </div>

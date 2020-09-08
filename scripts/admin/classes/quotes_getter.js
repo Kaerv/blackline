@@ -9,6 +9,7 @@ function getQuotes(start) {
         },
         success: (msg) => {
             $("#loadMoreMessage").parent().remove();
+            $("#quotes-loading-message").parent().remove();
             generateQuotesDOM(msg);
             addEventsToQuotes();
             addLoadMoreButton();
@@ -126,6 +127,9 @@ function resetQuotesPanel() {
         <th>Dziennie</th>
         <th>Miesięcznie</th>
         <th>Rocznie</th>
+    </tr>
+    <tr>
+        <td colspan="8" id="quotes-loading-message">Wczytywanie cytatów...</td>
     </tr>
 `);
 }

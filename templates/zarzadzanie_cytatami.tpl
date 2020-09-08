@@ -75,9 +75,6 @@
                                 <th>Miesięcznie</th>
                                 <th>Rocznie</th>
                             </tr>
-                            <tr>
-                                <td colspan="8">Ładowanie...</td>
-                            </tr>
                         </table>
                     </div>
 
