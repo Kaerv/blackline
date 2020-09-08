@@ -97,6 +97,8 @@ function sendChanges() {
                     resetQuotesPanel();
                     getQuotes(0);
                     clearForm();
+                    $("#search-input").val("");
+                    $("#cancel-search").hide();
                     logger.log("Edytowano cytat!");
                 }
                 else {

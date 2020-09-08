@@ -31,10 +31,18 @@ function findQuote(phrase) {
                 data: data
             },
             success: (msg) => {
+                console.log(msg);
                 if(msg != "") {
-                    resetQuotesPanel();
-                    generateQuotesDOM(msg);
-                    addEventsToQuotes();
+                    if(msg.split(";")[0] != "-1") {
+                        resetQuotesPanel();
+                        $("#loadMoreMessage").parent().remove();
+                        $("#quotes-loading-message").parent().remove();
+                        generateQuotesDOM(msg);
+                        addEventsToQuotes();
+                    }
+                    else {
+                        logger.error(`Wystąpił błąd: ${msg.split(";")[1]}`)
+                    }
                 }
             },
             async: false
