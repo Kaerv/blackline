@@ -8,11 +8,12 @@ function getQuotes(start) {
             start: start
         },
         success: (msg) => {
+            $("#loadMoreMessage").parent().remove();
             generateQuotesDOM(msg);
             addEventsToQuotes();
             addLoadMoreButton();
         },
-        async: false
+        async: true
     });
 }
 
@@ -152,7 +153,7 @@ function addLoadMoreButton() {
         );
 
         $("#load-more-button").on("click", function() {
-            $("#load-more-button").parent().remove();
+            $("#load-more-button").parent().html("<div id='loadMoreMessage'>Wczytywanie...</div>");
             getQuotes(displayedQuotes);
             displayedQuotes += 25;
         });
