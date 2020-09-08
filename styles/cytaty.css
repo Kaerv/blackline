@@ -1,7 +1,23 @@
 #quotes-section {
     min-height: 400px;
+    font-family: Overpass;
 }
 
 .quote {
     margin-bottom: 20px;
+}
+
+.filter-values {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter-value {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin: 4px;
+    padding: 10px;
+    display: block;
+    font-size: 18px;
 }
