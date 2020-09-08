@@ -1,6 +1,6 @@
 <?php 
     require 'libs/Smarty.class.php';
-    require_once "php/classes/quotesPage.php";
+    require_once "php/classes/quotesPageController.php";
     session_start();
     $token = md5(time().'1Q1F0awJivwwGys');
     $_SESSION['token'] = $token;
@@ -20,19 +20,16 @@
     $smarty->assign('page', $page);
     $smarty->assign('token', $token);
 
-    if($page == "cytaty") {
-        print($_GET["q"]);
-        $start = 0;
-        $controller = new QuotesPage($token);
-        $quotes = $controller->getQuotes($start);
-        $smarty->assign('quotes', $quotes);
-        $smarty->assign('filters', $controller->getFiltersData());
-    }
-
     
     if($page == "zarzadzanie_cytatami") {
         $smarty->display('zarzadzanie_cytatami.tpl');
     }
+
+    else if ($page == "cytaty") {
+        $controller = new QuotesPageController($token);
+        $controller->initContent($smarty);
+    }
+
     else {
         $smarty->display('page.tpl');
     }
