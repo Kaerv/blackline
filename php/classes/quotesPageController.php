@@ -16,6 +16,7 @@
 
             $smarty->assign('quotes', $quotes);
             $smarty->assign('filters', $this->getFiltersData());
+            $smarty->assign('selectedFilter', (isset($this->selectedFilter)? $this->selectedFilter : 0));
             $smarty->display("page.tpl");
         }
 
@@ -37,6 +38,7 @@
 
         private function prepareFiltersQuery($filter) {
             $f = explode(":", $filter);
+            $this->selectedFilter = array($f[0], $f[1]);
             $result = " AND ";
             switch($f[0]) {
                 case "kategoria": $result .= "quotes_categories.category_name"; break;

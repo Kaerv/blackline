@@ -6,12 +6,10 @@
                 <h2 class="filter-title">{$filterName}</h1>
                 <div class="filter-values">
                     {foreach from=$filter item="value"}
-                    <a class="filter-value" href="/index.php?page=cytaty&q={$filterName}:{$value}">
-                    {if $value == ""}
-                        Autor nieznany
-                    {else}
-                        {$value}
-                    {/if}
+                    <a 
+                        class="filter-value {if $selectedFilter != 0 && $selectedFilter[0] == $filterName && $selectedFilter[1] == $value}selected-filter{/if}" 
+                        href="/index.php?page=cytaty&q={$filterName}:{$value}">
+                    {if $value == ""} Autor nieznany {else} {$value} {/if}
                     </a>
                     {/foreach}
                 </div>

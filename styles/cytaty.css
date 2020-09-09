@@ -21,3 +21,11 @@
     display: block;
     font-size: 18px;
 }
+
+.filter-value:hover {
+    background-color: #C0C0C0;
+}   
+
+.selected-filter {
+    background-color: #444;
+}
