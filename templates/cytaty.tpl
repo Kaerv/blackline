@@ -1,6 +1,7 @@
 <section id="quotes-section">
     <div id="filters">
         <h1 id="filters-title">Filtry</h1>
+        <a href="/index.php?page=cytaty">Wyczyść filtry</a>
         {foreach from=$filters item="filter" key="filterName"}
             <div class="filter">
                 <h2 class="filter-title">{$filterName}</h1>
@@ -16,8 +17,8 @@
             </div>
         {/foreach}
     </div>
-    <div id="quotes">
     <h1>Cytaty</h1>
+    <div id="quotes">
         {foreach from=$quotes item="quote"}
             {include file="modules/quote.tpl" quote=$quote}
         {/foreach}

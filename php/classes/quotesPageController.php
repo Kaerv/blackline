@@ -105,6 +105,7 @@
                 }
 
                 if(!$existSameQuote) {
+                    $quote["author"] .= ($quote["author"] == "")? "Autor nieznany" : "";
                     $ready_quotes[] = $this->getQuoteCategories($quote);
                 }
             }
