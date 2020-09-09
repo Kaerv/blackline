@@ -12,12 +12,8 @@
 
         public function initContent($smarty) {
             $filters = $this->prepareFilters();
-            if($filters == "") {
-                $quotes = $this->getQuotes($this->start);
-            }
-            else {
-                $quotes = $this->getQuotesByFilter($this->start, $filters);
-            }
+            $quotes = $this->getQuotes($this->start, $filters);
+
             $smarty->assign('quotes', $quotes);
             $smarty->assign('filters', $this->getFiltersData());
             $smarty->display("page.tpl");
@@ -73,51 +69,7 @@
             return $result;
         }
 
-        public function getQuotes($start) {
-            $query = 
-            "SELECT 
-                quotes.quote_id AS id, 
-                quotes.content AS content, 
-                quotes_authors.author_name AS author, 
-                quotes_categories.category_name AS category, 
-                quotes.date_added AS date_added, 
-                quotes.visit_daily AS visit_daily, 
-                quotes.visit_monthly AS visit_monthly, 
-                quotes.visit_yearly AS visit_yearly 
-            FROM quotes, quotes_categories_sets, quotes_categories, quotes_authors 
-    
-            WHERE 
-                quotes.author_id = quotes_authors.author_id AND 
-                quotes_categories_sets.category_id = quotes_categories.category_id AND 
-                quotes_categories_sets.quote_id = quotes.quote_id 
-            LIMIT $start, 25";
-
-            $quotes = $this->mysqli->query($query);
-            if($this->mysqli->errno) {
-                echo $this->mysqli->error;
-                exit();
-            }
-            $ready_quotes = array();
-            while($quote = $quotes->fetch_assoc()) {
-
-                $existSameQuote = false;
-                foreach($ready_quotes as $q) {
-                    if($quote["id"] == $q["id"]) {
-                        $existSameQuote = true;
-                        $q["categories"][] = $quote["category"];
-                    }
-                }
-
-                if(!$existSameQuote) {
-                    $quote["categories"] = array($quote["category"]);
-                    unset($quote["category"]);
-                    $ready_quotes[] = $quote;
-                }
-            }
-            return $ready_quotes;
-        }
-
-        private function getQuotesByFilter($start, $filter) {
+        public function getQuotes($start, $filter) {
             $ready_quotes = array();
             $query = 
             "SELECT 
@@ -143,42 +95,43 @@
                 echo $this->mysqli->error;
                 exit();
             }
-
             while($quote = $quotes->fetch_assoc()) {
 
                 $existSameQuote = false;
                 foreach($ready_quotes as $q) {
-                    if($quote["id"] == $q["id"]) {
-                        $existSameQuote = true;
-                    }
-                }
-                if(!$existingSameQuote) {
-                    unset($quote["category"]);
-                    $quote["categories"] = array();
-                    $id = $quote["id"];
-                    $query = 
-                    "SELECT 
-                        category_name 
-                    FROM 
-                        quotes_categories, quotes, quotes_categories_sets 
-                    WHERE 
-                        quotes.quote_id = $id AND 
-                        quotes_categories_sets.category_id = quotes_categories.category_id AND 
-                        quotes_categories_sets.quote_id = quotes.quote_id";
-    
-                    $categories = $this->mysqli->query($query);
-                    if($this->mysqli->errno) {
-                        echo $this->mysqli->error;
-                        exit();
-                    }
-                    while($category = $categories->fetch_array()) {
-                        $quote["categories"][] = $category[0];
-                    }
-                    $ready_quotes[] = $quote;
+                    $existSameQuote = ($quote["id"] == $q["id"]) ? true : $existSameQuote;
                 }
 
+                if(!$existSameQuote) {
+                    $ready_quotes[] = $this->getQuoteCategories($quote);
+                }
             }
             return $ready_quotes;
+        }
+
+        private function getQuoteCategories($quote) {
+            unset($quote["category"]);
+            $quote["categories"] = array();
+            $id = $quote["id"];
+            $query = 
+            "SELECT 
+                category_name 
+            FROM 
+                quotes_categories, quotes, quotes_categories_sets 
+            WHERE 
+                quotes.quote_id = $id AND 
+                quotes_categories_sets.category_id = quotes_categories.category_id AND 
+                quotes_categories_sets.quote_id = quotes.quote_id";
+
+            $categories = $this->mysqli->query($query);
+            if($this->mysqli->errno) {
+                echo $this->mysqli->error;
+                exit();
+            }
+            while($category = $categories->fetch_array()) {
+                $quote["categories"][] = $category[0];
+            }
+            return $quote;
         }
     }
 ?>
