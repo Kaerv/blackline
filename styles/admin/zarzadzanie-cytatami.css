@@ -330,7 +330,8 @@ html, body {
     margin-top: 20px;
 }
 
-#add-quote-panel-wrap, #edit-quote-panel-wrap {
+#add-quote-panel-wrap, 
+#edit-quote-panel-wrap {
     display: grid;
     grid-template-columns: 10% 60%;
     grid-row-gap: 40px;
@@ -343,7 +344,10 @@ html, body {
     font-size: 16px;
 }
 
-#add-quote-content, #edit-quote-content {
+#add-quote-content, 
+#edit-quote-content,
+#add-quote-translation, 
+#edit-quote-translation {
     border: solid 2px #C0C0C0;
     border-radius: 10px;
     outline: none;

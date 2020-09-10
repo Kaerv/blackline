@@ -62,6 +62,7 @@ function addRemoveEvent(obj) {
 
 function clearForm() {
     $("#add-quote-content").val("");
+    $("#add-quote-translation").val("");
     $("#add-quote-author").val("");
     $("#add-quote-category").val("");
     $("#add-quote-selected-categories").html("");
@@ -70,15 +71,18 @@ function clearForm() {
 function editQuote(id) {
     let cells = $(`.quote-${id}`).parent().children()
     let content = $(cells[1]).text();
-    let author = $(cells[2]).text();
-    let categories = $(cells[3]).text();
+    let translation = $(cells[2]).text();
+    let author = $(cells[3]).text();
+    let categories = $(cells[4]).text();
 
     $("#edit-quote-title").text(`Edycja cytatu nr #${id}`);
     $("#edit-quote-title").attr("class", id);
     $("#edit-quote-content").val(content);
+    $("#edit-quote-translation").val(translation);
     $("#edit-quote-author").val(author);
 
     $("#add-quote-content").val(content);
+    $("#add-quote-translation").val(translation);
     $("#add-quote-author").val(author);
 
     categories = categories.split(";");

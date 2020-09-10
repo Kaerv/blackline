@@ -38,6 +38,7 @@ function prepareDataToSend(existingQuote) {
     
     let data = {
         content: $(`#${existingQuote? "edit" : "add"}-quote-content`).val(),
+        translation: $(`#${existingQuote? "edit" : "add"}-quote-translation`).val(),
         author: $(`#${existingQuote? "edit" : "add"}-quote-author`).val(),
         categories: []
     };

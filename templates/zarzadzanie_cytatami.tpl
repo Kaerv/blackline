@@ -65,6 +65,7 @@
                             <tr>
                                 <th rowspan="2"></th>
                                 <th rowspan="2"><div class="border">Treść</div></th>
+                                <th rowspan="2"><div class="border">Tłumaczenie</div></th>
                                 <th rowspan="2"><div class="border">Autor</div></th>
                                 <th rowspan="2"><div class="border">Kategoria</div></th>
                                 <th rowspan="2"><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data dodania</div></th>
@@ -81,7 +82,9 @@
                     <div id="add-quote-panel">
                         <div id="add-quote-panel-wrap">
                             <div class="adding-quote-label">Treść</div>
-                            <textarea id="add-quote-content" cols="30" rows="10"></textarea>
+                            <textarea id="add-quote-content" cols="30" rows="5"></textarea>
+                            <div class="adding-quote-label">Tłumaczenie (opcjonalnie)</div>
+                            <textarea id="add-quote-translation" cols="30" rows="5"></textarea>
                             <div class="adding-quote-label">Autor</div>
                             <div>
                                 <div class="add-quote-input">
@@ -116,7 +119,9 @@
         <img src="/assets/icons/close.svg" id="cancel-edit">
         <div id="edit-quote-panel-wrap">
             <div class="editing-quote-label">Treść</div>
-            <textarea id="edit-quote-content" cols="30" rows="10"></textarea>
+            <textarea id="edit-quote-content" cols="30" rows="5"></textarea>
+            <div class="adding-quote-label">Tłumaczenie (opcjonalnie)</div>
+            <textarea id="edit-quote-translation" cols="30" rows="5"></textarea>
             <div class="editing-quote-label">Autor</div>
             <div>
                 <div class="edit-quote-input">

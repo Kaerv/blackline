@@ -9,6 +9,7 @@
         public function sendQuote($data) {
             $this->content = $data["content"];
             $this->author = $data["author"];
+            $this->translation = $data["translation"];
             $this->categories = $data["categories"];
 
             $this->validateData();
@@ -117,8 +118,8 @@
         }
 
         private function addQuote() {
-            $stmt = $this->mysqli->prepare("INSERT INTO quotes (author_id, content) VALUES (?, ?)");
-            $stmt->bind_param('is', $this->newAuthorId, $this->content);
+            $stmt = $this->mysqli->prepare("INSERT INTO quotes (author_id, content, translation) VALUES (?, ?, ?)");
+            $stmt->bind_param('iss', $this->newAuthorId, $this->content, $this->translation);
             if(!$stmt->execute()) {
                 $error = $this->mysqli->error;
                 $this->reportError("Adding quote failed, $error");

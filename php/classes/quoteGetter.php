@@ -10,6 +10,7 @@
             "SELECT 
                 quotes.quote_id AS id, 
                 quotes.content AS content, 
+                quotes.translation AS translation, 
                 quotes_authors.author_name AS author, 
                 quotes_categories.category_name AS category, 
                 quotes.date_added AS date_added, 
@@ -29,13 +30,14 @@
             while($quote = $quotes->fetch_assoc()) {
                 $id = $quote["id"];
                 $content = $quote["content"];
+                $translation = $quote["translation"];
                 $author = $quote["author"];
                 $category = $quote["category"];
                 $dateAdded = $quote["date_added"];
                 $visitDaily = $quote["visit_daily"];
                 $visitMonthly = $quote["visit_monthly"];
                 $visitYearly = $quote["visit_yearly"];
-                echo "$id|$content|$author|$category|$dateAdded|$visitDaily|$visitMonthly|$visitYearly*";
+                echo "$id|$content|$translation|$author|$category|$dateAdded|$visitDaily|$visitMonthly|$visitYearly*";
             }
         }
 
