@@ -66,3 +66,7 @@
     display: flex;
     font-size: 0.8em;
 }
+
+.categories-container > * {
+    margin-right: 4px;
+}
