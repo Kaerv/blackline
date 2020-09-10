@@ -67,7 +67,7 @@ class QuotesLoader {
         let quotes = [];
         data.forEach(function(quote) {
             quote = quote.split("|");
-            quote[3] = quote[3].split("@");
+            quote[4] = quote[4].split("@");
             quotes.push(quote);
         });
         return quotes;
@@ -76,14 +76,15 @@ class QuotesLoader {
     createQuotesDOM(quotes) {
         quotes.forEach((quote) => {
             let categoriesDOM = "";
-            quote[3].forEach((category) => {
+            quote[4].forEach((category) => {
                 categoriesDOM += `<span class="category">${category}</span>`
             });
             $("#quotes").append(`
             <div class="quote" id="quote-${quote[0]}">
                 <div class="quote-mark">,,</div>
                 <div class="quote-content">${quote[1]}</div>
-                <div class="quote-author">${quote[2]}</div>
+                <div class="quote-translation">${quote[2]}</div>
+                <div class="quote-author">${quote[3]}</div>
                 <div class="categories-container">
                     ${categoriesDOM}
                 </div>

@@ -32,6 +32,7 @@
 
 #quotes {
     display: grid;
+    position: relative;
     grid-template-columns: 40% 40%;
     grid-gap: 40px 10%;
     margin: auto;
@@ -57,6 +58,12 @@
     margin-bottom: 10px;
 }
 
+.quote-translation {
+    margin-bottom: 6px;
+    font-size: 1.1;
+    color: #868686;
+}
+
 .quote-author {
     font-size: 1.0em;
     margin-bottom: 6px;
@@ -69,4 +76,12 @@
 
 .categories-container > * {
     margin-right: 4px;
+}
+
+#new-quotes-loading-message {
+    position: absolute;
+    width: 100%;
+    font-size: 1.5em;
+    bottom: -50px;
+    text-align: center;
 }

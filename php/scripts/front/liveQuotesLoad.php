@@ -9,6 +9,7 @@
         foreach($quotes as $quote) {
             $id = $quote["id"];
             $content = $quote["content"];
+            $translation = $quote["translation"];
             $author = $quote["author"];
             $dateAdded = $quote["date_added"];
             $visitDaily = $quote["visit_daily"];
@@ -21,7 +22,7 @@
             }
             $categories = substr($categories, 0, -1);
             
-            echo "$id|$content|$author|$categories|$dateAdded|$visitDaily|$visitMonthly|$visitYearly*";
+            echo "$id|$content|$translation|$author|$categories|$dateAdded|$visitDaily|$visitMonthly|$visitYearly*";
         }
     }
     else if($_GET["query"] == "count") {

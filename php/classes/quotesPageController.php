@@ -100,6 +100,7 @@
             "SELECT 
                 quotes.quote_id AS id, 
                 quotes.content AS content, 
+                quotes.translation AS translation, 
                 quotes_authors.author_name AS author, 
                 quotes_categories.category_name AS category, 
                 quotes.date_added AS date_added, 

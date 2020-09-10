@@ -20,7 +20,7 @@
     <h1>Cytaty</h1>
     <div id="quotes">
         {foreach from=$quotes item="quote"}
-            {include file="modules/quote.tpl" quote=$quote}
+            {include file="modules/quote.tpl" quote=$quote} 
         {/foreach}
     </div>
 </section>
