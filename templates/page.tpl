@@ -19,7 +19,14 @@
     src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous"></script>
-    <script>let token = "{$token}";</script>
+    <script>
+        let token = "{$token}";
+        function $_GET(q,s) {
+            s = s ? s : window.location.search;
+            var re = new RegExp('&'+q+'(?:=([^&]*))?(?=&|$)','i');
+            return (s=s.match(re)) ? (typeof s[1] == 'undefined' ? '' : decodeURIComponent(s[1])) : undefined;
+        }
+    </script>
 </head>
 <body>
     {include file='modules/page_header.tpl'}

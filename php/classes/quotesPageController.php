@@ -2,7 +2,6 @@
     require_once 'quoteManager.php';
 
     class QuotesPageController extends QuoteManager {
-        private $start = 0;
 
         public function __construct($token) {
             parent::__construct($token);
@@ -10,9 +9,9 @@
             $this->authors = array();
         }
 
-        public function initContent($smarty) {
+        public function initContent($smarty, $start) {
             $filters = $this->prepareFilters();
-            $quotes = $this->getQuotes($this->start, $filters);
+            $quotes = $this->getQuotes($start, $filters);
 
             $smarty->assign('quotes', $quotes);
             $smarty->assign('filters', $this->getFiltersData());
@@ -20,7 +19,31 @@
             $smarty->display("page.tpl");
         }
 
-        private function prepareFilters() {
+        public function getQuotesCount() {
+            $filters = $this->prepareFilters();
+            $count = 0;
+            
+            $query = "SELECT COUNT(DISTINCT quotes.quote_id)
+            FROM quotes, quotes_authors, quotes_categories, quotes_categories_sets
+            WHERE 
+                quotes.author_id = quotes_authors.author_id AND 
+                quotes_categories_sets.category_id = quotes_categories.category_id AND 
+                quotes_categories_sets.quote_id = quotes.quote_id
+                $filters
+            ";
+
+            $rows = $this->mysqli->query($query);
+            if($this->mysqli->errno) 
+                echo $this->mysqli->error;
+
+            $row = $rows->fetch_array();
+            $count = $row[0];
+
+            
+            return $count;
+        }
+
+        public function prepareFilters() {
             if($_GET["q"]) {
                 $q = $_GET["q"];
                 $filters = explode("/", $q);
@@ -90,6 +113,7 @@
                 quotes_categories_sets.category_id = quotes_categories.category_id AND 
                 quotes_categories_sets.quote_id = quotes.quote_id 
                 $filter
+                ORDER BY quotes.date_added
             LIMIT $start, 25";
 
             $quotes = $this->mysqli->query($query);

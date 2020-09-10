@@ -34,7 +34,7 @@
 
     else if ($page == "cytaty") {
         $controller = new QuotesPageController($token);
-        $controller->initContent($smarty);
+        $controller->initContent($smarty, 0);
     }
 
     else {

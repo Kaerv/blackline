@@ -24,3 +24,4 @@
         {/foreach}
     </div>
 </section>
+<script src="/scripts/quotes/quotes_section.js"></script>

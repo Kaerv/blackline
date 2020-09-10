@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-03 11:56:08
+/* Smarty version 3.1.34-dev-7, created on 2020-09-09 09:39:23
   from '/var/www/html/templates/page.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f50d9d8524fd3_08576138',
+  'unifunc' => 'content_5f58a2cbb06999_06299451',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a7c496718dedf7e3a175cef91240e01d57701e64' => 
     array (
       0 => '/var/www/html/templates/page.tpl',
-      1 => 1599134167,
+      1 => 1599644359,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/page_footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f50d9d8524fd3_08576138 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f58a2cbb06999_06299451 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['page']->value != 'index') {?>
     <?php ob_start();
 echo ucfirst($_smarty_tpl->tpl_vars['page']->value);
@@ -55,8 +55,15 @@ $_smarty_tpl->_assignInScope('page_title', $_prefixVariable1.$_prefixVariable2);
     crossorigin="anonymous"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
->let token = "<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
-";<?php echo '</script'; ?>
+>
+        let token = "<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
+";
+        function $_GET(q,s) {
+            s = s ? s : window.location.search;
+            var re = new RegExp('&'+q+'(?:=([^&]*))?(?=&|$)','i');
+            return (s=s.match(re)) ? (typeof s[1] == 'undefined' ? '' : decodeURIComponent(s[1])) : undefined;
+        }
+    <?php echo '</script'; ?>
 >
 </head>
 <body>
