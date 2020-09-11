@@ -1,33 +1,10 @@
-<?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-11 06:21:21
-  from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f5b1762010397_07936418',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
-    array (
-      0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1599805272,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_5f5b1762010397_07936418 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<?php if ($_POST['fromAdmin'] == "1") {?>
+{if $smarty.post.fromAdmin == "1"}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zarządzanie cytatami</title>
+    <title>Zarządzanie artykułami</title>
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/admin/zarzadzanie-cytatami.css">
@@ -37,11 +14,11 @@ function content_5f5b1762010397_07936418 (Smarty_Internal_Template $_smarty_tpl)
         <div id="background-top"></div>
     </div>
     <div id="site-content-container">
-        <h1 id="site-title">Zarządzanie cytatami</h1>
+        <h1 id="site-title">Zarządzanie artykułami</h1>
         <div id="search-wrap">
             <img src="/assets/icons/close.svg" id="cancel-search">
             <div id="search">
-                <input type="text" id="search-input" placeholder="Wyszukaj cytat">
+                <input type="text" id="search-input" placeholder="Wyszukaj artykuł">
                 <img src="../assets/icons/search.svg" id="search-button">
             </div>
         </div>
@@ -51,10 +28,10 @@ function content_5f5b1762010397_07936418 (Smarty_Internal_Template $_smarty_tpl)
                 <div id="panel-navigation">
                     <div id="titles">
                         <div class="navigation-title" style="grid-area: all;" onclick="changePanelSite(0)">
-                            <span>Wszystkie cytaty</span>                
+                            <span>Wszystkie artykuły</span>                
                         </div>
                         <div class="navigation-title" style="grid-area: add" onclick="changePanelSite(1)">
-                            <span>Nowy cytat</span>           
+                            <span>Nowy artykuł</span>           
                         </div>
                     </div>
                     <div id="navigation-slider-container">
@@ -86,11 +63,10 @@ function content_5f5b1762010397_07936418 (Smarty_Internal_Template $_smarty_tpl)
                         <table id="all-quotes">
                             <tr>
                                 <th rowspan="2"></th>
-                                <th rowspan="2"><div class="border">Treść</div></th>
-                                <th rowspan="2"><div class="border">Tłumaczenie</div></th>
+                                <th rowspan="2"><div class="border">Tytuł</div></th>
                                 <th rowspan="2"><div class="border">Autor</div></th>
-                                <th rowspan="2"><div class="border">Kategoria</div></th>
-                                <th rowspan="2"><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data dodania</div></th>
+                                <th rowspan="2"><div class="border">Data dodania</div></th>
+                                <th rowspan="2"><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data publikacji</div></th>
                                 <th colspan="3">Wizyty</th>
                             </tr>
                             <tr>
@@ -103,21 +79,24 @@ function content_5f5b1762010397_07936418 (Smarty_Internal_Template $_smarty_tpl)
 
                     <div id="add-quote-panel">
                         <div id="add-quote-panel-wrap">
+                            <div class="adding-quote-label">Tytuł</div>
+                            <div>
+                                <div class="add-quote-input">
+                                    <input type="text" id="add-quote-title">
+                                </div>
+                            </div>
                             <div class="adding-quote-label">Treść</div>
                             <textarea id="add-quote-content" cols="30" rows="5"></textarea>
-                            <div class="adding-quote-label">Tłumaczenie (opcjonalnie)</div>
-                            <textarea id="add-quote-translation" cols="30" rows="5"></textarea>
                             <div class="adding-quote-label">Autor</div>
                             <div>
                                 <div class="add-quote-input">
                                     <input type="text" id="add-quote-author">
                                 </div>
                             </div>
-                            <div class="adding-quote-label">Kategorie</div>
+                            <div class="adding-quote-label">Data publikacji</div>
                             <div>
                                 <div class="add-quote-input">
-                                    <div id="add-quote-selected-categories"></div>
-                                    <input type="text" id="add-quote-category">
+                                    <input type="text" id="add-quote-publication">
                                 </div>
                             </div>
                             <div>
@@ -140,21 +119,24 @@ function content_5f5b1762010397_07936418 (Smarty_Internal_Template $_smarty_tpl)
         <div id="edit-quote-title">Edycja cytatu</div>
         <img src="/assets/icons/close.svg" id="cancel-edit">
         <div id="edit-quote-panel-wrap">
+            <div class="editing-quote-label">Tytuł</div>
+            <div>
+                <div class="edit-quote-input">
+                    <input type="text" id="edit-quote-title">
+                </div>
+            </div>
             <div class="editing-quote-label">Treść</div>
             <textarea id="edit-quote-content" cols="30" rows="5"></textarea>
-            <div class="adding-quote-label">Tłumaczenie (opcjonalnie)</div>
-            <textarea id="edit-quote-translation" cols="30" rows="5"></textarea>
             <div class="editing-quote-label">Autor</div>
             <div>
                 <div class="edit-quote-input">
                     <input type="text" id="edit-quote-author">
                 </div>
             </div>
-            <div class="editing-quote-label">Kategorie</div>
+            <div class="editing-quote-label">Data publikacji</div>
             <div>
                 <div class="edit-quote-input">
-                    <div id="edit-quote-selected-categories"></div>
-                    <input type="text" id="edit-quote-category">
+                    <input type="text" id="edit-quote-publication">
                 </div>
             </div>
             <div>
@@ -162,42 +144,19 @@ function content_5f5b1762010397_07936418 (Smarty_Internal_Template $_smarty_tpl)
             </div>
         </div>
     </div>
-    <?php echo '<script'; ?>
-
+    <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"><?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
->let token = "<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
-";<?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
- src="../scripts/admin/logger.js"><?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
- src="../scripts/admin/quotes/classes/quotes_getter.js"><?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
- src="../scripts/admin/quotes/classes/quotes_finder.js"><?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
- src="../scripts/admin/quotes/classes/quotes_sender.js"><?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
- src="../scripts/admin/quotes/classes/quotes_remover.js"><?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
- src="../scripts/admin/quotes/all_quotes_panel_control.js"><?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
- src="../scripts/admin/quotes/adding_quote_panel_control.js"><?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
- src="../scripts/admin/management_panels_control.js"><?php echo '</script'; ?>
->
+  crossorigin="anonymous"></script>
+  <script>let token = "{$token}";</script>
+  <script src="../scripts/admin/logger.js"></script>
+  <script src="../scripts/admin/management_panels_control.js"></script>
+<script src="../scripts/admin/articles/all_articles_panel_control.js"></script>
+<script src="../scripts/admin/articles/classes/articles_getter.js"></script>
+<script src="../scripts/admin/articles/classes/articles_sender.js"></script>
+<script src="../scripts/admin/articles/adding_article_panel_control.js"></script>
 </body>
-<?php } else { ?>
+{else}
 <head>
     <title>Ups...</title>
 </head>
@@ -212,6 +171,5 @@ function content_5f5b1762010397_07936418 (Smarty_Internal_Template $_smarty_tpl)
     "
     >Wygląda na to, że próbowałeś zrobić coś nie tak... :( <br>Jeżeli mimo wszystko uważasz, że powinieneś się tu znaleźć, skontaktuj się z administratorem.</h2>
 </body>
-<?php }?>
-</html><?php }
-}
+{/if}
+</html>

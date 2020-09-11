@@ -35,7 +35,7 @@ class Blackline_Quotes extends Module
         $tab->icon ="format_quote";
 
         foreach (Language::getLanguages(true) as $lang) {
-            $tab->name[$lang['id_lang']] = 'Cytaty';
+            $tab->name[$lang['id_lang']] = 'Blackline';
         }
 
         if (version_compare(_PS_VERSION_, '1.7.0.0', '>=')) {

@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="styles/admin/zarzadzanie-cytatami.css">
 </head>
 <body>
-<script>console.log(document.referrer)</script>
     <div id="background">
         <div id="background-top"></div>
     </div>
@@ -146,13 +145,13 @@
   crossorigin="anonymous"></script>
   <script>let token = "{$token}";</script>
   <script src="../scripts/admin/logger.js"></script>
-  <script src="../scripts/admin/classes/quotes_getter.js"></script>
-  <script src="../scripts/admin/classes/quotes_finder.js"></script>
-  <script src="../scripts/admin/classes/quotes_sender.js"></script>
-  <script src="../scripts/admin/classes/quotes_remover.js"></script>
-  <script src="../scripts/admin/all_quotes_panel_control.js"></script>
-  <script src="../scripts/admin/adding_quote_panel_control.js"></script>
-  <script src="../scripts/admin/quotes_management_panels_control.js"></script>
+  <script src="../scripts/admin/quotes/classes/quotes_getter.js"></script>
+  <script src="../scripts/admin/quotes/classes/quotes_finder.js"></script>
+  <script src="../scripts/admin/quotes/classes/quotes_sender.js"></script>
+  <script src="../scripts/admin/quotes/classes/quotes_remover.js"></script>
+  <script src="../scripts/admin/quotes/all_quotes_panel_control.js"></script>
+  <script src="../scripts/admin/quotes/adding_quote_panel_control.js"></script>
+  <script src="../scripts/admin/management_panels_control.js"></script>
 </body>
 {else}
 <head>
