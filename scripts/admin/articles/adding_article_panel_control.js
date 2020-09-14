@@ -14,27 +14,23 @@ function clearForm() {
     $("#add-quote-title").val("");
 }
 
-function editQuote(id) {
-    let cells = $(`.quote-${id}`).parent().children()
+function editArticle(id) {
+    let cells = $(`.article-${id}`).parent().children()
     let content = $(cells[1]).text();
-    let translation = $(cells[2]).text();
+    let title = $(cells[1]).text();
     let author = $(cells[3]).text();
-    let categories = $(cells[4]).text();
+    let publication = $(cells[3]).text();
 
-    $("#edit-quote-title").text(`Edycja cytatu nr #${id}`);
-    $("#edit-quote-title").attr("class", id);
+    $("#edit-quote-header").text(`Edycja artykułu nr #${id}`);
+    $("#edit-quote-header").attr("class", id);
+    $("#edit-quote-title").val(title);
+    $("#edit-quote-publication").val(publication);
     $("#edit-quote-content").val(content);
-    $("#edit-quote-translation").val(translation);
     $("#edit-quote-author").val(author);
 
     $("#add-quote-content").val(content);
-    $("#add-quote-translation").val(translation);
     $("#add-quote-author").val(author);
 
-    categories = categories.split(";");
-    categories.pop();
-
-    $("#edit-quote-selected-categories").html("");
     $("#edit-quote-background").show();
     $("#edit-quote-panel").fadeIn(400);
 }

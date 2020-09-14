@@ -42,7 +42,7 @@ function prepareDataToSend(existingArticle) {
     };
 
     if(existingArticle) {
-        data.id = $("#edit-quote-title").attr("class");
+        data.id = $("#edit-quote-header").attr("class");
     }
 
     if(data.publication == "") {
@@ -93,7 +93,7 @@ function sendChanges() {
                 }
                 else {
                     logger.error(`Wystąpił błąd podczas edytowania artykułu: ${result[1]}`);
-                    sendQuote();
+                    sendArticle();
                 }
                 cancelEditing();
             },

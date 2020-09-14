@@ -114,7 +114,7 @@
     </div>
     <div id="edit-quote-background"></div>
     <div id="edit-quote-panel">
-        <div id="edit-quote-title">Edycja cytatu</div>
+        <div id="edit-quote-header">Edycja cytatu</div>
         <img src="/assets/icons/close.svg" id="cancel-edit">
         <div id="edit-quote-panel-wrap">
             <div class="editing-quote-label">Treść</div>

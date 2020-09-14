@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-11 06:21:21
+/* Smarty version 3.1.34-dev-7, created on 2020-09-14 08:30:47
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f5b1762010397_07936418',
+  'unifunc' => 'content_5f5f2a376a7d21_32486727',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1599805272,
+      1 => 1600071328,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f5b1762010397_07936418 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f5f2a376a7d21_32486727 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <?php if ($_POST['fromAdmin'] == "1") {?>
@@ -137,7 +137,7 @@ function content_5f5b1762010397_07936418 (Smarty_Internal_Template $_smarty_tpl)
     </div>
     <div id="edit-quote-background"></div>
     <div id="edit-quote-panel">
-        <div id="edit-quote-title">Edycja cytatu</div>
+        <div id="edit-quote-header">Edycja cytatu</div>
         <img src="/assets/icons/close.svg" id="cancel-edit">
         <div id="edit-quote-panel-wrap">
             <div class="editing-quote-label">Treść</div>

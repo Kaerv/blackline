@@ -116,7 +116,7 @@
     </div>
     <div id="edit-quote-background"></div>
     <div id="edit-quote-panel">
-        <div id="edit-quote-title">Edycja cytatu</div>
+        <div id="edit-quote-header">Edycja artykułu</div>
         <img src="/assets/icons/close.svg" id="cancel-edit">
         <div id="edit-quote-panel-wrap">
             <div class="editing-quote-label">Tytuł</div>
@@ -153,6 +153,8 @@
   <script src="../scripts/admin/management_panels_control.js"></script>
 <script src="../scripts/admin/articles/all_articles_panel_control.js"></script>
 <script src="../scripts/admin/articles/classes/articles_getter.js"></script>
+<script src="../scripts/admin/articles/classes/articles_finder.js"></script>
+<script src="../scripts/admin/articles/classes/articles_remover.js"></script>
 <script src="../scripts/admin/articles/classes/articles_sender.js"></script>
 <script src="../scripts/admin/articles/adding_article_panel_control.js"></script>
 </body>
