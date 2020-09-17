@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-14 08:30:47
+/* Smarty version 3.1.34-dev-7, created on 2020-09-15 10:46:03
   from '/var/www/html/templates/zarzadzanie_cytatami.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f5f2a376a7d21_32486727',
+  'unifunc' => 'content_5f609b6b6bcb15_20759397',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f4d944567fee85e9a0ed55e6ca41424286fd6ec' => 
     array (
       0 => '/var/www/html/templates/zarzadzanie_cytatami.tpl',
-      1 => 1600071328,
+      1 => 1600166752,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f5f2a376a7d21_32486727 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f609b6b6bcb15_20759397 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <?php if ($_POST['fromAdmin'] == "1") {?>
@@ -31,6 +31,55 @@ function content_5f5f2a376a7d21_32486727 (Smarty_Internal_Template $_smarty_tpl)
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/admin/zarzadzanie-cytatami.css">
+    
+    <?php echo '<script'; ?>
+>
+    let type = "Quote";
+    let emptyTable = `
+    <tr>
+        <th rowspan="2"></th>
+        <th rowspan="2"><div class="border">Treść</div></th>
+        <th rowspan="2"><div class="border">Tłumaczenie</div></th>
+        <th rowspan="2"><div class="border">Autor</div></th>
+        <th rowspan="2"><div class="border">Kategoria</div></th>
+        <th rowspan="2"><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data dodania</div></th>
+        <th colspan="3">Wizyty</th>
+    </tr>
+    <tr>
+        <th>Dziennie</th>
+        <th>Miesięcznie</th>
+        <th>Rocznie</th>
+    </tr>
+    <tr>
+        <td colspan="8" id="resource-loading-message">Wczytywanie cytatów...</td>
+    </tr>
+    `;
+    function generateResourceRow(resource) {
+        return `
+        <tr>
+                        <td class="resource-${resource.id}">
+                            <div class="checkbox-container">
+                                <input type="checkbox" class="check-quote">
+                                <img src="../assets/icons/checked.svg" alt="">
+                            </div>
+                            <img src="../assets/icons/edit.svg" alt="" class="edit-button">
+                            <img src="../assets/icons/close.svg" alt="" class="remove">
+                        </td>
+                        <td>${resource.content}</td>
+                        <td>${resource.translation}</td>
+                        <td>${resource.author}</td>
+                        <td>${resource.categories}</td>
+                        <td>${resource.dateAdded}</td>
+                        <td>${resource.visitDaily}</td>
+                        <td>${resource.visitMonthly}</td>
+                        <td>${resource.visitYearly}</td>
+                    </tr>
+        `;
+
+    }
+    <?php echo '</script'; ?>
+>
+    
 </head>
 <body>
     <div id="background">
@@ -168,32 +217,32 @@ function content_5f5f2a376a7d21_32486727 (Smarty_Internal_Template $_smarty_tpl)
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"><?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
+<?php echo '<script'; ?>
 >let token = "<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
 ";<?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="../scripts/admin/logger.js"><?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
- src="../scripts/admin/quotes/classes/quotes_getter.js"><?php echo '</script'; ?>
+<?php echo '<script'; ?>
+ src="../scripts/admin/resources_getter.js"><?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="../scripts/admin/quotes/classes/quotes_finder.js"><?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="../scripts/admin/quotes/classes/quotes_sender.js"><?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="../scripts/admin/quotes/classes/quotes_remover.js"><?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
- src="../scripts/admin/quotes/all_quotes_panel_control.js"><?php echo '</script'; ?>
+<?php echo '<script'; ?>
+ src="../scripts/admin/all_resources_panel_control.js"><?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="../scripts/admin/quotes/adding_quote_panel_control.js"><?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="../scripts/admin/management_panels_control.js"><?php echo '</script'; ?>
 >
 </body>

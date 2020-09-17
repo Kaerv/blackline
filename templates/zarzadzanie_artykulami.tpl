@@ -8,7 +8,51 @@
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/admin/zarzadzanie-cytatami.css">
-</head>
+    {literal}
+    <script>
+    let type = "Article";
+    let emptyTable = `
+    <tr>
+        <th rowspan="2"></th>
+        <th rowspan="2"><div class="border">Tytuł</div></th>
+        <th rowspan="2"><div class="border">Autor</div></th>
+        <th rowspan="2"><div class="border">Data dodania</div></th>
+        <th rowspan="2"><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data publikacji</div></th>
+        <th colspan="3">Wizyty</th>
+    </tr>
+    <tr>
+        <th>Dziennie</th>
+        <th>Miesięcznie</th>
+        <th>Rocznie</th>
+    </tr>
+    <tr>
+        <td colspan="8" id="resource-loading-message">Wczytywanie artykułów...</td>
+    </tr>
+    `;
+    function generateResourceRow(resource) {
+        return `
+        <tr>
+                        <td class="resource-${resource.id}">
+                            <div class="checkbox-container">
+                                <input type="checkbox" class="check-quote">
+                                <img src="../assets/icons/checked.svg" alt="">
+                            </div>
+                            <img src="../assets/icons/edit.svg" alt="" class="edit-button">
+                            <img src="../assets/icons/close.svg" alt="" class="remove">
+                        </td>
+                        <td>${resource.title}</td>
+                        <td>${resource.author}</td>
+                        <td>${resource.dateAdded}</td>
+                        <td>${resource.datePublication}</td>
+                        <td>${resource.visitDaily}</td>
+                        <td>${resource.visitMonthly}</td>
+                        <td>${resource.visitYearly}</td>
+                    </tr>
+        `;
+    }
+    </script>
+        {/literal}
+    </head>
 <body>
     <div id="background">
         <div id="background-top"></div>
@@ -151,8 +195,8 @@
   <script>let token = "{$token}";</script>
   <script src="../scripts/admin/logger.js"></script>
   <script src="../scripts/admin/management_panels_control.js"></script>
-<script src="../scripts/admin/articles/all_articles_panel_control.js"></script>
-<script src="../scripts/admin/articles/classes/articles_getter.js"></script>
+<script src="../scripts/admin/all_resources_panel_control.js"></script>
+<script src="../scripts/admin/resources_getter.js"></script>
 <script src="../scripts/admin/articles/classes/articles_finder.js"></script>
 <script src="../scripts/admin/articles/classes/articles_remover.js"></script>
 <script src="../scripts/admin/articles/classes/articles_sender.js"></script>

@@ -74,24 +74,42 @@
 
         private function removeAuthor($id) {
             if(!is_null($id)) {
-                $response = $this->mysqli->query("DELETE FROM quotes_authors WHERE `author_id` = $id");
-                $this->reportErrorIfOccured();
-                
+                if(!$response = $this->mysqli->query("DELETE FROM quotes_authors WHERE `author_id` = $id")) {
+                    $this->reportError("Błąd podczas usuwania autora: $this->mysqli->error");
+                }
+
                 if($this->mysqli->affected_rows == 0) {
-                    $this->reportError("Record to which the query applies doesn't exists");
+                    $this->reportError("Wystąpił błąd podczas usuwania kategorii: Taki autor nie istnieje");
                 }
             }
         }
 
         private function removeCategories($categories) {
             foreach($categories as $id) {
-                $response = $this->mysqli->query("DELETE FROM quotes_categories WHERE `category_id` = $id");
-                    
-                $this->reportErrorIfOccured();
+                $stmt = $this->mysqli->prepare("DELETE FROM quotes_categories WHERE `category_id` = ?");
+                $stmt->bind_param("i", $id);
+                if(!$stmt->execute()) {
+                    $this->reportError("Wystąpił błąd podczas usuwania kategorii: Taka kategoria nie istnieje.");
+                    return false;
+                }
                 
                 if($this->mysqli->affected_rows == 0) {
-                    $this->reportError("Record to which the query applies doesn't exists");
+                    $this->reportError("Wystąpił błąd podczas usuwania kategorii: Powiązanie kategoria której dotyczy żądanie nie istnieje.");
+                    return false;
                 }
+            }
+        }
+
+        public function removeCategoriesSets($id) {
+            $stmt = $this->mysqli->prepare("DELETE FROM quotes_categories_sets WHERE quote_id = ?");
+            $stmt->bind_param("i", $id);
+            if(!$stmt->execute()) {
+                $this->reportError("Wystąpił błąd podczas usuwania kategorii.");
+                return false;
+            }
+            
+            if($this->mysqli->affected_rows == 0) {
+                $this->reportError("Wystąpił błąd podczas usuwania kategorii: Powiązanie kategorii z cytatem, którego dotyczy żądanie nie istnieje.");
             }
         }
     }

@@ -1,5 +1,5 @@
 <?php 
-    require_once "../classes/quoteSender.php";
-    $sender = new QuoteSender($_POST["token"]);
+    require_once "../classes/resourceSender.php";
+    $sender = new ResourceSender($_POST["token"]);
     $sender->sendQuote($_POST["data"]);
 ?>

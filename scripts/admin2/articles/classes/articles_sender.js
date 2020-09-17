@@ -1,13 +1,14 @@
 $(document).ready(() => {
-    $("#add-quote-button").on("click",sendArticle)
+    $("#add-quote-button").on("click",() => {sendResource("Article")})
 });
 
-function sendArticle() {
-    let data = prepareDataToSend(false);
+function sendResource(type) {
+    let data = type == "Quote" ? prepareQuoteToSend(false): prepareArticleToSend(false);
+
     if(data) {
         $.ajax({
             method: "POST",
-            url: "../php/scripts/sendArticle.php",
+            url: `../php/scripts/send${type}.php`,
             data: {
                 token: token,
                 data: data
@@ -15,14 +16,14 @@ function sendArticle() {
             success: (msg) => {
                 let result = msg.split(";");
                 if(result[0] == "0") {
-                    logger.log("Dodano artykuł!");
-                    getArticlesCount();
-                    resetArticlesPanel();
-                    getArticles(0);
+                    logger.log("Dodano pomyślnie!");
+                    getResourcesCount();
+                    resetResourcesPanel();
+                    getResources(0);
                     clearForm();
                 }
                 else {
-                    logger.error(`Wystąpił błąd podczas dodawania artykułu: ${result[1]}`);
+                    logger.error(`Wystąpił błąd podczas dodawania: ${result[1]}`);
                 }
             },
             async: false
@@ -33,15 +34,15 @@ function sendArticle() {
     }
 }
 
-function prepareDataToSend(existingArticle) {
+function prepareArticleToSend(existing) {
     let data = {
-        title: $(`#${existingArticle? "edit" : "add"}-quote-title`).val(),
-        content: $(`#${existingArticle? "edit" : "add"}-quote-content`).val(),
-        author: $(`#${existingArticle? "edit" : "add"}-quote-author`).val(),
-        publication: $(`#${existingArticle? "edit" : "add"}-quote-publication`).val(),
+        title: $(`#${existing? "edit" : "add"}-quote-title`).val(),
+        content: $(`#${existing? "edit" : "add"}-quote-content`).val(),
+        author: $(`#${existing? "edit" : "add"}-quote-author`).val(),
+        publication: $(`#${existing? "edit" : "add"}-quote-publication`).val(),
     };
 
-    if(existingArticle) {
+    if(existing) {
         data.id = $("#edit-quote-header").attr("class");
     }
 
@@ -53,16 +54,20 @@ function prepareDataToSend(existingArticle) {
         data.publication = dateTime;
     }
 
-    if(dataIsValid(data))
+    if(dataIsValid(data, "quote"))
         return data;
 
     return false;
 }
 
-function dataIsValid(data) {
+function dataIsValid(data, type) {
     isValid = true;
 
     if(data.content == "") {
+        isValid = false;
+    }
+
+    if(type == "quote" && data.categories.length == 0) {
         isValid = false;
     }
 
@@ -71,7 +76,7 @@ function dataIsValid(data) {
 
 function sendChanges() {
     let data = prepareDataToSend(true);
-    removeArticle(data.id);
+    removeResource(data.id);
 
     if(data) {
         $.ajax({

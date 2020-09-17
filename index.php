@@ -28,8 +28,8 @@
     $smarty->assign('token', $token);
 
     
-    if($page == "zarzadzanie_cytatami" || $page == "zarzadzanie_artykulami") {
-        $smarty->display("$page.tpl");
+    if($page == "panel") {
+        $smarty->display("panel.tpl");
     }
 
     else if ($page == "cytaty") {

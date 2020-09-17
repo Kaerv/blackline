@@ -1,13 +1,14 @@
 $(document).ready(() => {
-    $("#add-quote-button").on("click",sendQuote)
+    $("#add-quote-button").on("click",() => {sendResource("Quote")})
 });
 
-function sendQuote() {
-    let data = prepareDataToSend(false);
+function sendResource(type) {
+    let data = type == "Quote" ? prepareQuoteToSend(false): prepareArticleToSend(false);
+
     if(data) {
         $.ajax({
             method: "POST",
-            url: "../php/scripts/sendQuote.php",
+            url: `../php/scripts/send${type}.php`,
             data: {
                 token: token,
                 data: data
@@ -15,14 +16,14 @@ function sendQuote() {
             success: (msg) => {
                 let result = msg.split(";");
                 if(result[0] == "0") {
-                    logger.log("Dodano cytat!");
-                    getQuotesCount();
-                    resetQuotesPanel();
-                    getQuotes(0);
+                    logger.log("Dodano pomyślnie!");
+                    getResourcesCount();
+                    resetResourcesPanel();
+                    getResources(0);
                     clearForm();
                 }
                 else {
-                    logger.error(`Wystąpił błąd podczas dodawania cytatu: ${result[1]}`);
+                    logger.error(`Wystąpił błąd podczas dodawania: ${result[1]}`);
                 }
             },
             async: false
@@ -33,56 +34,47 @@ function sendQuote() {
     }
 }
 
-function prepareDataToSend(existingQuote) {
-    addCategoryToList(existingQuote);
+function prepareQuoteToSend(existing) {
+    addCategoryToList(existing);
     
     let data = {
-        content: $(`#${existingQuote? "edit" : "add"}-quote-content`).val(),
-        translation: $(`#${existingQuote? "edit" : "add"}-quote-translation`).val(),
-        author: $(`#${existingQuote? "edit" : "add"}-quote-author`).val(),
+        content: $(`#${existing? "edit" : "add"}-quote-content`).val(),
+        translation: $(`#${existing? "edit" : "add"}-quote-translation`).val(),
+        author: $(`#${existing? "edit" : "add"}-quote-author`).val(),
         categories: []
     };
 
-    if(existingQuote) {
+    if(existing) {
         data.id = $("#edit-quote-title").attr("class");
     }
 
-    $(`.selected${existingQuote? "-edited" : ""}-category`).each(function() {
+    $(`.selected${existing? "-edited" : ""}-category`).each(function() {
         data.categories.push( $(this).text() );
     });
 
-    if(dataIsValid(data))
+    if(dataIsValid(data, "article"))
         return data;
 
     return false;
 }
 
-function dataIsValid(data) {
+function dataIsValid(data, type) {
     isValid = true;
 
     if(data.content == "") {
         isValid = false;
     }
 
-    if(data.categories.length == 0) {
+    if(type == "quote" && data.categories.length == 0) {
         isValid = false;
     }
 
     return isValid;
 }
 
-function createRandomQuotes(count) {
-    for(let i = 0; i < count; i++) {
-        $("#add-quote-content").val(`${i}`);
-        $("#add-quote-author").val(`${i}`);
-        $("#add-quote-category").val(`${i}`);
-        sendQuote();
-    }
-}
-
 function sendChanges() {
     let data = prepareDataToSend(true);
-    removeQuote(data.id);
+    removeResource(data.id);
 
     if(data) {
         $.ajax({

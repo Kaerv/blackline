@@ -1,5 +1,5 @@
 <?php 
-    require_once "../classes/articleSender.php";
-    $sender = new ArticleSender($_POST["token"]);
+    require_once "../classes/resourceSender.php";
+    $sender = new ResourceSender($_POST["token"]);
     $sender->sendArticle($_POST["data"]);
 ?>

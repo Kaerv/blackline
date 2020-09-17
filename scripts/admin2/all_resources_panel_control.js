@@ -1,17 +1,17 @@
-let displayedArticles = 25;
-let allArticlesCount;
+let displayedResources = 25;
+let allResourcesCount;
 
 $(document).ready(() => {
     let start = Date.now();
-    resetArticlesPanel();
-    getArticles(0);
+    resetResourcesPanel();
+    getResources(0);
     $("#check-all").change(function() {
         let checked = $(this).prop("checked");
-        $(".check-article").prop("checked", checked);
+        $(".check-delete").prop("checked", checked);
     });
 
-    $("#delete-checked").click(() => {removeSelectedArticles()});
+    $("#delete-checked").click(() => {removeSelectedResources()});
 
     let left = Date.now() - start;
     console.log(`%c${left}ms`, "color: #0A0");
-})
+});
