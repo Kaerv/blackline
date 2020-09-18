@@ -7,7 +7,7 @@
     <title>Zarządzanie cytatami</title>
     <style>
         #panel-loading-cover {
-            position: absolute;
+            position: fixed;
             left: 0;
             top: 0;
             width: 100%;
@@ -27,53 +27,9 @@
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/admin/panel.css">
     <script>
-    let type = "{$smarty.post.type}";
-    let controllerName = "{$smarty.post.type|ucfirst}";
-    {literal}
-    let emptyTable = `
-    <tr>
-        <th rowspan="2"></th>
-        <th rowspan="2"><div class="border">Treść</div></th>
-        <th rowspan="2"><div class="border">Tłumaczenie</div></th>
-        <th rowspan="2"><div class="border">Autor</div></th>
-        <th rowspan="2"><div class="border">Kategoria</div></th>
-        <th rowspan="2"><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data dodania</div></th>
-        <th colspan="3">Wizyty</th>
-    </tr>
-    <tr>
-        <th>Dziennie</th>
-        <th>Miesięcznie</th>
-        <th>Rocznie</th>
-    </tr>
-    <tr>
-        <td colspan="8" id="resource-loading-message">Wczytywanie cytatów...</td>
-    </tr>
-    `;
-    function generateResourceRow(resource) {
-        return `
-        <tr>
-                        <td class="resource-${resource.id}">
-                            <div class="checkbox-container">
-                                <input type="checkbox" class="check-quote">
-                                <img src="../assets/icons/checked.svg" alt="">
-                            </div>
-                            <img src="../assets/icons/edit.svg" alt="" class="edit-button">
-                            <img src="../assets/icons/close.svg" alt="" class="remove">
-                        </td>
-                        <td>${resource.content}</td>
-                        <td>${resource.translation}</td>
-                        <td>${resource.author}</td>
-                        <td>${resource.categories}</td>
-                        <td>${resource.dateAdded}</td>
-                        <td>${resource.visitDaily}</td>
-                        <td>${resource.visitMonthly}</td>
-                        <td>${resource.visitYearly}</td>
-                    </tr>
-        `;
-
-    }
+        let type = "{$smarty.post.type}";
+        let controllerName = "{$smarty.post.type|ucfirst}";
     </script>
-    {/literal}
 </head>
 <body>
     <div id="panel-loading-cover"><div>Wczytywanie panelu...</div></div>
@@ -112,44 +68,12 @@
                 </div>
                 <div id="panel-content-wrap"> 
                     <div id="all-resources-panel">
-                        <div id="all-resources-toolbar">
-                            <div id="delete-all-container">
-                                <div>
-                                    <div class="checkbox-container">
-                                        <input type="checkbox" name="check-all" id="check-all">
-                                        <img src="../assets/icons/checked.svg" alt="">
-                                    </div>
-                                    <label for="check-all" id="check-all-label">Zaznacz wszystko</label>
-                                </div>
-                                <div id="delete-checked">
-                                    <img src="/assets/icons/close.svg" id="delete-all-ico">
-                                    <span>Usuń</span>
-                                </div>
-                            </div>
-                        </div>
                         <table id="all-resources">
-                            <tr>
-                                <th rowspan="2"></th>
-                                <th rowspan="2"><div class="border">Treść</div></th>
-                                <th rowspan="2"><div class="border">Tłumaczenie</div></th>
-                                <th rowspan="2"><div class="border">Autor</div></th>
-                                <th rowspan="2"><div class="border">Kategoria</div></th>
-                                <th rowspan="2"><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data dodania</div></th>
-                                <th colspan="3">Wizyty</th>
-                            </tr>
-                            <tr>
-                                <th>Dziennie</th>
-                                <th>Miesięcznie</th>
-                                <th>Rocznie</th>
-                            </tr>
+                        <tr></tr>
                         </table>
                     </div>
-
                     <div id="add-panel">
-                        
                     </div>
-
-                    
                 </div>
 
             </div>
@@ -160,30 +84,6 @@
     </div>
     <div id="edit-quote-background"></div>
     <div id="edit-quote-panel">
-        <div id="edit-quote-header">Edycja cytatu</div>
-        <img src="/assets/icons/close.svg" id="cancel-edit">
-        <div id="edit-quote-panel-wrap">
-            <div class="editing-quote-label">Treść</div>
-            <textarea id="edit-quote-content" cols="30" rows="5"></textarea>
-            <div class="adding-quote-label">Tłumaczenie (opcjonalnie)</div>
-            <textarea id="edit-quote-translation" cols="30" rows="5"></textarea>
-            <div class="editing-quote-label">Autor</div>
-            <div>
-                <div class="edit-quote-input">
-                    <input type="text" id="edit-quote-author">
-                </div>
-            </div>
-            <div class="editing-quote-label">Kategorie</div>
-            <div>
-                <div class="edit-quote-input">
-                    <div id="edit-quote-selected-categories"></div>
-                    <input type="text" id="edit-quote-category">
-                </div>
-            </div>
-            <div>
-                <input type="button" value="ZAPISZ" id="edit-quote-button">
-            </div>
-        </div>
     </div>
     <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"

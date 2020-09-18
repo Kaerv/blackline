@@ -51,10 +51,46 @@
         public function existsQuoteWithContent($content) {
             $stmt = $this->mysqli->prepare("SELECT quote_id FROM quotes WHERE content = ?");
             $stmt->bind_param('s', $content);
-            $stmt->execute();
+            if(!$stmt->execute()) {
+                $this->reportError("Wystąpił problem podczas wyszukiwania cytatu.");
+                return false;
+            }
             $result = $stmt->store_result();
         
             return $stmt->num_rows != 0;
+        }
+
+        public function getQuoteWithId($id) {
+            $query = "SELECT 
+                quotes.quote_id AS id, 
+                quotes.content AS content, 
+                quotes.translation AS translation, 
+                quotes_authors.author_id AS authorId,
+                quotes_authors.author_name AS author, 
+                quotes.date_added AS dateAdded, 
+                quotes.visit_daily AS visitDaily, 
+                quotes.visit_monthly AS visitMonthly, 
+                quotes.visit_yearly AS visitYearly 
+            FROM quotes, quotes_authors 
+
+            WHERE 
+                quotes.author_id = quotes_authors.author_id AND
+                quote_id = ?";
+            $stmt = $this->mysqli->prepare($query);
+            $stmt->bind_param("i", $id);
+            if(!$stmt->execute()) {
+                $this->reportError($stmt->error);
+                return false;
+            }
+
+            $result = $stmt->get_result();
+            if($result->num_rows == 0) 
+                return false;
+            
+            $row = $result->fetch_object();
+            $row->categories = $this->getCategoriesByQuoteId($row->id);
+           
+            return $row;
         }
 
         public function getAuthorIdByName($author) {
@@ -260,6 +296,43 @@
                     $this->reportError("Wystąpił błąd podczas usuwania autora: Taki autor nie istnieje");
                 }
             }
+        }
+
+        public function findQuotesByPhrase($phrase) {
+            $phrase = "%$phrase%";
+            $query = "SELECT 
+                quotes.quote_id AS id, 
+                quotes.content AS content, 
+                quotes.translation AS translation, 
+                quotes_authors.author_name AS author, 
+                quotes.date_added AS dateAdded, 
+                quotes.visit_daily AS visitDaily, 
+                quotes.visit_monthly AS visitMonthly, 
+                quotes.visit_yearly AS visitYearly 
+            FROM quotes, quotes_categories_sets, quotes_categories, quotes_authors 
+
+            WHERE 
+                quotes.author_id = quotes_authors.author_id AND 
+                quotes_categories_sets.category_id = quotes_categories.category_id AND 
+                quotes_categories_sets.quote_id = quotes.quote_id AND (
+                    quotes.content LIKE ? OR 
+                    quotes_authors.author_name LIKE ? OR
+                    quotes_categories.category_name LIKE ?) LIMIT 50";
+
+            $stmt = $this->mysqli->prepare($query);
+            $stmt->bind_param("sss", $phrase, $phrase, $phrase);
+            if(!$stmt->execute()) {
+                $this->reportError($stmt->error);
+                return false;
+            }
+
+            $result = $stmt->get_result();
+            $results = array();
+            while($row = $result->fetch_object()) {
+                $row->categories = $this->getCategoriesByQuoteId($row->id);
+                $results[] = $row;
+            }
+            return $results;
         }
     }
 ?>

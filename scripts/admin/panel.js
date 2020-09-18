@@ -1,10 +1,12 @@
+let controller;
 $(document).ready(() => {
-    const controller = eval(`new ${controllerName}()`);
+    controller = eval(`new ${controllerName}()`);
     controller.generateAddingPanel();
-    Promise.all([
-      controller.getRows(),
-      controller.getAllCount()
-    ]).then(() => {$("#panel-loading-cover").fadeOut(500)});
+    controller.clearTable();
+
+    controller.getAllCount()
+    .then(controller.getRows)
+    .then(() => {$("#panel-loading-cover").fadeOut(500)});
 });
 
 function changePanelSite(which) {

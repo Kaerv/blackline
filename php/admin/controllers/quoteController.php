@@ -129,6 +129,44 @@
             $this->endWork("Usunięto cytat!");
         }
 
+        public function edit($args) {
+            $id = $args["id"];
+
+            $author = $this->quotes->checkAuthorIsNecessary($id);
+            $categories = $this->quotes->checkcategoriesAreNecessary($id);
+            $this->reportErrorIfOccured();
+
+            $this->quotes->removeCategoriesSets($id);
+            $this->quotes->removeCategories($categories);
+            $this->quotes->removeQuote($id);
+            if($author) $this->quotes->removeAuthor($author);
+            $this->reportErrorIfOccured();
+            
+            $this->validateContent($args["content"]);
+            $existingAuthor = $this->validateAuthor($args["author"]);
+            $categories = $this->validateCategories($args["categories"]);
+
+            $authorId = $this->addAuthor($args["author"], $existingAuthor);
+            $categoriesIds = $this->addCategories($categories);
+            $this->addQuote($args["content"], $args["translation"], $authorId, $categoriesIds);
+
+            $this->quotes->endWork();
+            $this->endWork("Edytowano cytat!");
+        }
+
+        public function search($args) {
+            $phrase = $args["phrase"];
+            if($phrase == "" or empty($phrase)) 
+                $this->reportError("Wyszukiwana fraza nie może być pustym słowem");
+            
+            $results = $this->quotes->findQuotesByPhrase($phrase);
+            $this->reportErrorIfOccured();
+
+            $this->quotes->endWork();
+            $this->endWork($results);
+            
+        }
+
         private function reportErrorIfOccured() {
             if($this->quotes->hasError) {
                 $this->reportError($this->quotes->error);
