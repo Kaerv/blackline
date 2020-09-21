@@ -8,7 +8,13 @@ class Quote extends Controller{
             if(event.keyCode == 13) {
                 controller.search();
             }
-        })
+        });
+
+        $("#cancel-search").click(() => {
+            this.resetPanel();
+            $("#search-input").val("");
+            $("#cancel-search").hide();
+        });
     }
 
     generateAddingPanel() {
@@ -276,10 +282,11 @@ class Quote extends Controller{
     }
 
     resetPanel() {
-        this.clearForm();
-        this.clearTable();
-        this.loadedCount = 0;
-        this.getAllCount().then(this.getRows)
+        controller.clearForm();
+        controller.clearTable();
+        controller.loadedCount = 0;
+        logger.log("Wczytywanie cytatów...");
+        controller.getAllCount().then(controller.getRows)
     }
 
     showEditPanel(id) {
@@ -427,6 +434,7 @@ class Quote extends Controller{
                     this.clearTable();
                     controller.generateQuotesDOM(response[1]);
                     controller.loadedCount += controller.countPerLoad;
+                    $("#cancel-search").show();
                 }
                 else 
                     logger.error(response[1]);
@@ -436,5 +444,4 @@ class Quote extends Controller{
             logger.error("Wystąpił nieznany błąd w trakcie wyszukiwania cytatów");
         });
     }
-
 }
