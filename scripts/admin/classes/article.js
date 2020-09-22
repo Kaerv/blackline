@@ -1,72 +1,8 @@
 class Article extends Controller {
     constructor() {
         super();
-        this.countPerLoad = 25;
-        this.loadedCount = 0;
-        this.totalCount = 0;
+        this.type = "article";
         this.panel = new ArticlesPanelController();
-    }
-
-    getRows() {
-        return new Promise((resolve, reject) => {
-            $.ajax({
-                method: "GET",
-                url: `../php/admin/dispatcher.php`,
-                dataType: "JSON",
-                data: {
-                    token: token,
-                    type: "article",
-                    action: "getRows",
-                    args: {
-                        start: controller.loadedCount,
-                        step:  controller.countPerLoad,
-                    }
-                },
-                success: (response) => {
-                    console.log(response);
-                    if(response[0] == 0) {
-                        controller.panel.generateArticlesDOM(response[1]);
-                        controller.loadedCount += controller.countPerLoad;
-                        controller.panel.addLoadMoreButton();
-                        logger.log("Pobrano artykuły!");
-                        resolve();
-                    }
-                    else 
-                        logger.error(response[1]);
-                },
-                async: true
-            }).fail(() => {
-                logger.error("Wystąpił nieznany błąd w trakcie pobierania danych");
-            });
-        }) 
-    }
-
-    getAllCount() {  
-        return new Promise((resolve, reject) => {
-            $.ajax({
-                method: "GET",
-                url: `../php/admin/dispatcher.php`,
-                dataType: "JSON",
-                data: {
-                    token: token,
-                    type: "article",
-                    action: "getAllCount",
-                    args: {
-                    }
-                },
-                success: (response) => {
-                    if(response[0] == 0) {
-                        controller.totalCount = parseInt(response[1]);
-                        resolve();
-                    }
-                    else 
-                        logger.error(response[1]);
-                },
-                async: true
-            }).fail(() => {
-                logger.error("Wystąpił nieznany błąd w trakcie pobierania liczby artykułów.");
-            });
-        });
     }
 
     getContentById(id) {
@@ -98,168 +34,34 @@ class Article extends Controller {
         });
     }
 
-    send() {
-        let title = $("#add-quote-title").val();
-        let content = $("#add-quote-content").val();
-        let author = $("#add-quote-author").val();
-        let publication = $("#add-quote-publication").val();
+    prepareDataToSend(editing, id = null) {
+        let title, content, author, publication;
+        if(!editing) {
+            title = $("#add-quote-title").val();
+            content = $("#add-quote-content").val();
+            author = $("#add-quote-author").val();
+            publication = $("#add-quote-publication").val();
+        }
+        else {
+            content = $("#edit-quote-content").val();
+            author = $("#edit-quote-author").val();
+            title = $("#edit-quote-title").val();
+            publication = $("#edit-quote-publication").val();
+        }
 
-        logger.log("Dodawanie nowego artykułu...");
-        $.ajax({
-            method: "POST",
-            url: `../php/admin/dispatcher.php`,
-            dataType: "JSON",
-            data: {
-                token: token,
-                type: "article",
-                action: "send",
-                args: {
-                    title: title,
-                    content: content,
-                    author: author,
-                    publication: publication
-                }
-            },
-            success: (response) => {
-                console.log(response);
-                if(response[0] == 0) {
-                    this.panel.resetPanel();
-                    logger.log(response[1]);
-                }
-                else 
-                    logger.error(response[1]);
-            },
-            async: true
-        }).fail(() => {
-            logger.error("Wystąpił nieznany błąd w trakcie wysyłania danych");
-        });
-    }
-
-    cancelEditing() {
-        $("#edit-quote-background").fadeOut(200);
-        $("#edit-quote-panel").hide();
-        controller.panel.clearForm();
-    }
-
-    edit(id) {
-        let content = $("#edit-quote-content").val();
-        let author = $("#edit-quote-author").val();
-        let title = $("#edit-quote-title").val();
-        let publication = $("#edit-quote-publication").val();
-
-        logger.log("Zapisywanie...");
-
-        $.ajax({
-            method: "POST",
-            url: `../php/admin/dispatcher.php`,
-            dataType: "JSON",
-            data: {
-                token: token,
-                type: "article",
-                action: "edit",
-                args: {
-                    id: id,
-                    content: content,
-                    author: author,
-                    title: title,
-                    publication: publication
-                }
-            },
-            success: (response) => {
-                if(response[0] == 0) {
-                    this.cancelEditing();
-                    this.panel.resetPanel();
-                    logger.log(response[1]);
-                }
-                else 
-                    logger.error(response[1]);
-            },
-            async: true
-        }).fail(() => {
-            logger.error("Wystąpił nieznany błąd w trakcie wysyłania danych");
-        });
-    }
-
-    remove(id) {
-        let getAllCount = this.getAllCount;
-        logger.log("Usuwanie artykułu...");
-        $.ajax({
-            method: "POST",
-            url: `../php/admin/dispatcher.php`,
-            dataType: "JSON",
-            data: {
-                token: token,
-                type: "article",
-                action: "remove",
-                args: {
-                    id: id
-                }
-            },
-            success: (response) => {
-                if(response[0] == 0) {
-                    $(`.resource-${id}`).parent().remove();
-                    getAllCount();
-                    logger.log(response[1]);
-                }
-                else 
-                    logger.error(response[1]);
-            },
-            async: true
-        }).fail(() => {
-            logger.error("Wystąpił nieznany błąd w trakcie usuwania artykułu");
-        });
-    }
-
-    search() {
-        let phrase = $("#search-input").val();
-        $.ajax({
-            method: "POST",
-            url: `../php/admin/dispatcher.php`,
-            dataType: "JSON",
-            data: {
-                token: token,
-                type: "article",
-                action: "search",
-                args: {
-                    phrase: phrase
-                }
-            },
-            success: (response) => {
-                if(response[0] == 0) {
-                    this.panel.clearForm();
-                    this.panel.clearTable();
-                    this.panel.generateArticlesDOM(response[1]);
-                    controller.loadedCount += controller.countPerLoad;
-                    $("#cancel-search").show();
-                }
-                else 
-                    logger.error(response[1]);
-            },
-            async: true
-        }).fail(() => {
-            logger.error("Wystąpił nieznany błąd w trakcie wyszukiwania artykułów");
-        });
+        return {
+            id: id,
+            title: title,
+            content: content,
+            author: author,
+            publication: publication
+        }
     }
 }
 
 class ArticlesPanelController extends PanelController {
     constructor() {
         super();
-        
-        this.generateAddingPanel();
-        this.clearTable();
-
-        $("#search-input").on("keydown", function(event) {
-            if(event.keyCode == 13) {
-                controller.search();
-            }
-        });
-
-        $("#cancel-search").click(() => {
-            this.resetPanel();
-            $("#search-input").val("");
-            $("#cancel-search").hide();
-        });
 
         $("#site-title").text("Zarządzanie artykułami");
         $("#all-title > span").text("Wszystkie artykuły");
@@ -299,7 +101,7 @@ class ArticlesPanelController extends PanelController {
         $("#add-button").on("click", () => { controller.send(); });
     }
 
-    generateArticlesDOM(articles) {
+    generateDOM(articles) {
         articles.forEach((article) => {
             let articleDOM = $(`
                 <tr>
@@ -331,30 +133,9 @@ class ArticlesPanelController extends PanelController {
         })
     }
 
-    addLoadMoreButton() {
-        let getRows = controller.getRows;
-        if(controller.loadedCount < controller.totalCount + 1) {
-            $("#all-resources").find("tbody").append(`
-            <tr>
-                <td colspan=100><input type="button" id="load-more-button" value="Wczytaj więcej"></td>
-            </tr>`
-            );
-    
-            $("#load-more-button").on("click", function() {
-                $("#load-more-button").parent().html("<div id='loadMoreMessage'>Wczytywanie...</div>");
-                getRows().then(() => {
-                    $("#loadMoreMessage").parent().remove();
-                });
-            });
-        }
-    }
-
     clearForm() {
         $("#add-quote-content").val("");
-        $("#add-quote-translation").val("");
         $("#add-quote-author").val("");
-        $("#add-quote-category").val("");
-        $(".selected-category").remove();
     }
 
     clearTable() {
@@ -375,15 +156,6 @@ class ArticlesPanelController extends PanelController {
         `);
     }
 
-    resetPanel() {
-        controller.panel.clearForm();
-        controller.panel.clearTable();
-        controller.loadedCount = 0;
-        logger.log("Wczytywanie artykułów...");
-        controller.getAllCount().then(controller.getRows)
-    }
-
-    
     showEditPanel(id) {
         $("#edit-quote-panel").html(`
         <div id="edit-quote-header">Edycja artykułu</div>

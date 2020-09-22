@@ -4,6 +4,8 @@
     class QuoteModel extends Model {
         public function __construct() {
             parent::__construct();
+            $this->dbName = "quotes";
+            $this->type = "quote";
         }
 
         public function getRecords($start, $step) {
@@ -35,17 +37,6 @@
             }
             
             return $results;
-        }
-
-        public function getAllCount() {
-            $query = "SELECT COUNT(*) AS c FROM quotes";
-            if(!$result = $this->mysqli->query($query)) {
-                $this->reportError($this->mysqli->error);
-                return false;
-            }
-
-            $c = $result->fetch_assoc();
-            return $c["c"];
         }
 
         public function existsQuoteWithContent($content) {
@@ -93,21 +84,6 @@
             return $row;
         }
 
-        public function getAuthorIdByName($author) {
-            $stmt = $this->mysqli->prepare("SELECT author_id FROM quotes_authors WHERE author_name = ?");
-            $stmt->bind_param("s", $author);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            if(!$stmt)
-                $this->reportError("Błąd sprawdzania autora.");
-
-            if($result->num_rows > 0) {
-                $row = $result->fetch_row();
-                return $row[0];
-            }
-            else return false;
-        }
-
         public function getCategoriesByQuoteId($id) {
             $categories = array();
             $query = "SELECT
@@ -147,18 +123,6 @@
             else return false;
         }
 
-        public function AddAuthor($author) {
-            $stmt = $this->mysqli->prepare("INSERT INTO quotes_authors (author_name) VALUES (?)");
-            $stmt->bind_param('s', $author);
-
-            if(!$stmt->execute()) {
-                $this->reportError("Dodawanie autora nie powiodło się: $stmt->error.");
-                return false;
-            }
-
-            return $stmt->insert_id;
-        }
-
         public function addCategory($category) {
             $stmt = $this->mysqli->prepare("INSERT INTO quotes_categories (category_name) VALUES (?)");
                 $stmt->bind_param('s', $category);
@@ -192,30 +156,6 @@
                 }
             }
             return true;
-        }
-
-        public function checkAuthorIsNecessary($id) {
-            $stmt = $this->mysqli->prepare("SELECT author_id FROM quotes WHERE quote_id = ?");
-            $stmt->bind_param("i", $id);
-            if(!$stmt->execute()) {
-                $this->reportError("Błąd wyszukiwania autora cytatu.");
-                return false;
-            }
-            $result = $stmt->get_result();
-            if($result->num_rows > 0){
-                $author_id = NULL;
-                while($row = $result->fetch_row()) {
-                    $author_id = $row[0];
-                }
-
-                $result = $this->mysqli->query("SELECT quote_id FROM quotes WHERE author_id = $author_id");
-                return $result->num_rows == 1 ? $author_id : false;
-            }
-
-            else {
-                $this->reportError("Nie można znaleźć autora cytatu o id: $id");
-                return false;
-            }
         }
 
         public function checkCategoriesAreNecessary($id) {
@@ -253,20 +193,6 @@
             }
         }
 
-        public function removeQuote($id) {
-            $stmt = $this->mysqli->prepare("DELETE FROM quotes WHERE quote_id = ?");
-            $stmt->bind_param("i", $id);
-            if(!$stmt->execute()) {
-                $this->reportError("Wystąpił błąd podczas usuwania cytaty.");
-                return false;
-            }
-            
-            if($this->mysqli->affected_rows == 0) {
-                $this->reportError("Wystąpił błąd podczas usuwania cytatu: Cytat którego dotyczy żądanie nie istnieje.");
-                return false;
-            }
-        }
-
         public function removeCategories($categories) {
             foreach($categories as $id) {
                 $stmt = $this->mysqli->prepare("DELETE FROM quotes_categories WHERE `category_id` = ?");
@@ -283,22 +209,7 @@
             }
         }
 
-        public function removeAuthor($id) {
-            if(!is_null($id)) {
-                $stmt = $this->mysqli->prepare("DELETE FROM quotes_authors WHERE author_id = ?");
-                $stmt->bind_param("i", $id);
-                if(!$stmt->execute()) {
-                    $this->reportError("Błąd podczas usuwania autora: ".$this->mysqli->error);
-                    return false;
-                }
-
-                if($stmt->affected_rows == 0) {
-                    $this->reportError("Wystąpił błąd podczas usuwania autora: Taki autor nie istnieje");
-                }
-            }
-        }
-
-        public function findQuotesByPhrase($phrase) {
+        public function findByPhrase($phrase) {
             $phrase = "%$phrase%";
             $query = "SELECT 
                 quotes.quote_id AS id, 

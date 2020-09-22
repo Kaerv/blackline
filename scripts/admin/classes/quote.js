@@ -1,245 +1,47 @@
 class Quote extends Controller {
     constructor() {
         super();
-        this.countPerLoad = 25;
-        this.loadedCount = 0;
-        this.totalCount = 0;
+        this.type = "quote";
         this.panel = new QuotesPanelController();
     }
 
-    getRows() {
-        return new Promise((resolve, reject) => {
-            $.ajax({
-                method: "GET",
-                url: `../php/admin/dispatcher.php`,
-                dataType: "JSON",
-                data: {
-                    token: token,
-                    type: "quote",
-                    action: "getRows",
-                    args: {
-                        start: controller.loadedCount,
-                        step:  controller.countPerLoad,
-                    }
-                },
-                success: (response) => {
-                    if(response[0] == 0) {
-                        controller.panel.generateQuotesDOM(response[1]);
-                        controller.loadedCount += controller.countPerLoad;
-                        controller.panel.addLoadMoreButton();
-                        logger.log("Pobrano cytaty!");
-                        resolve();
-                    }
-                    else 
-                        logger.error(response[1]);
-                },
-                async: true
-            }).fail(() => {
-                logger.error("Wystąpił nieznany błąd w trakcie pobierania danych");
+    prepareDataToSend(editing, id) {
+        let content,translation, author, categories;
+        if(!editing) {
+            this.panel.addCategoryToList(false);
+            content = $("#add-quote-content").val();
+            translation = $("#add-quote-translation").val();
+            author = $("#add-quote-author").val();
+            categories = [];
+            $(".selected-category").each(function() {
+                categories.push($(this).html());
             });
-        }) 
-    }
+        }
 
-    getAllCount() {  
-        return new Promise((resolve, reject) => {
-            $.ajax({
-                method: "GET",
-                url: `../php/admin/dispatcher.php`,
-                dataType: "JSON",
-                data: {
-                    token: token,
-                    type: "quote",
-                    action: "getAllCount",
-                    args: {
-                    }
-                },
-                success: (response) => {
-                    if(response[0] == 0) {
-                        this.totalCount = parseInt(response[1]);
-                        resolve();
-                    }
-                    else 
-                        logger.error(response[1]);
-                },
-                async: true
-            }).fail(() => {
-                logger.error("Wystąpił nieznany błąd w trakcie pobierania liczby cytatów.");
+        else {
+            this.panel.addCategoryToList(false);
+            content = $("#edit-quote-content").val();
+            translation = $("#edit-quote-translation").val();
+            author = $("#edit-quote-author").val();
+            categories = [];
+            $(".selected-edited-category").each(function() {
+                categories.push($(this).html());
             });
-        });
-    }
+        }
 
-    send() {
-        this.panel.addCategoryToList(false);
-        let content = $("#add-quote-content").val();
-        let translation = $("#add-quote-translation").val();
-        let author = $("#add-quote-author").val();
-        let categories = [];
-        $(".selected-category").each(function() {
-            categories.push($(this).html());
-        });
-
-        logger.log("Dodawanie nowego cytatu...");
-        $.ajax({
-            method: "POST",
-            url: `../php/admin/dispatcher.php`,
-            dataType: "JSON",
-            data: {
-                token: token,
-                type: "quote",
-                action: "send",
-                args: {
-                    content: content,
-                    translation: translation,
-                    author: author,
-                    categories: categories
-                }
-            },
-            success: (response) => {
-                if(response[0] == 0) {
-                    this.panel.resetPanel();
-                    logger.log(response[1]);
-                }
-                else 
-                    logger.error(response[1]);
-            },
-            async: true
-        }).fail(() => {
-            logger.error("Wystąpił nieznany błąd w trakcie wysyłania danych");
-        });
-    }
-
-    cancelEditing() {
-        $("#edit-quote-background").fadeOut(200);
-        $("#edit-quote-panel").hide();
-        controller.panel.clearForm();
-    }
-
-    edit(id) {
-        this.panel.addCategoryToList(false);
-        let content = $("#edit-quote-content").val();
-        let translation = $("#edit-quote-translation").val();
-        let author = $("#edit-quote-author").val();
-        let categories = [];
-        $(".selected-edited-category").each(function() {
-            categories.push($(this).html());
-        });
-
-        logger.log("Zapisywanie zmian...");
-
-        $.ajax({
-            method: "POST",
-            url: `../php/admin/dispatcher.php`,
-            dataType: "JSON",
-            data: {
-                token: token,
-                type: "quote",
-                action: "edit",
-                args: {
-                    id: id,
-                    content: content,
-                    translation: translation,
-                    author: author,
-                    categories: categories
-                }
-            },
-            success: (response) => {
-                if(response[0] == 0) {
-                    this.cancelEditing();
-                    this.panel.resetPanel();
-                    logger.log(response[1]);
-                }
-                else 
-                    logger.error(response[1]);
-            },
-            async: true
-        }).fail(() => {
-            logger.error("Wystąpił nieznany błąd w trakcie wysyłania danych");
-        });
-    }
-
-    remove(id) {
-        let getAllCount = this.getAllCount;
-
-        logger.log("Usuwanie cytatu...");
-        $.ajax({
-            method: "POST",
-            url: `../php/admin/dispatcher.php`,
-            dataType: "JSON",
-            data: {
-                token: token,
-                type: "quote",
-                action: "remove",
-                args: {
-                    id: id
-                }
-            },
-            success: (response) => {
-                if(response[0] == 0) {
-                    $(`.quote-${id}`).parent().remove();
-                    getAllCount();
-                    logger.log(response[1]);
-                }
-                else 
-                    logger.error(response[1]);
-            },
-            async: true
-        }).fail(() => {
-            logger.error("Wystąpił nieznany błąd w trakcie usuwania cytatu");
-        });
-    }
-
-    search() {
-        let phrase = $("#search-input").val();
-
-        logger.log("Wyszukiwanie cytatów...");
-        $.ajax({
-            method: "POST",
-            url: `../php/admin/dispatcher.php`,
-            dataType: "JSON",
-            data: {
-                token: token,
-                type: "quote",
-                action: "search",
-                args: {
-                    phrase: phrase
-                }
-            },
-            success: (response) => {
-                if(response[0] == 0) {
-                    this.panel.clearForm();
-                    this.panel.clearTable();
-                    this.panel.generateQuotesDOM(response[1]);
-                    controller.loadedCount += controller.countPerLoad;
-                    $("#cancel-search").show();
-                }
-                else 
-                    logger.error(response[1]);
-            },
-            async: true
-        }).fail(() => {
-            logger.error("Wystąpił nieznany błąd w trakcie wyszukiwania cytatów");
-        });
+        return {
+            id: id,
+            content: content,
+            translation: translation,
+            author: author,
+            categories: categories
+        }
     }
 }
 
 class QuotesPanelController extends PanelController {
     constructor() {
         super();
-        
-        this.generateAddingPanel();
-        this.clearTable();
-
-        $("#search-input").on("keydown", function(event) {
-            if(event.keyCode == 13) {
-                controller.search();
-            }
-        });
-
-        $("#cancel-search").click(() => {
-            this.resetPanel();
-            $("#search-input").val("");
-            $("#cancel-search").hide();
-        });
 
         $("#site-title").text("Zarządzanie cytatami");
         $("#all-title > span").text("Wszystkie cytaty");
@@ -324,7 +126,7 @@ class QuotesPanelController extends PanelController {
         });
     }
 
-    generateQuotesDOM(quotes) {
+    generateDOM(quotes) {
         quotes.forEach((quote) => {
             let categories = "";
             quote.categories.forEach((category) => {
@@ -332,7 +134,7 @@ class QuotesPanelController extends PanelController {
             });
             categories = categories.substring(0, categories.length - 1);
             let quoteDOM = $(`<tr>
-                <td class="quote-${quote.id}">
+                <td class="resource-${quote.id}">
                     <img src="../assets/icons/edit.svg" alt="" class="edit-button">
                     <img src="../assets/icons/close.svg" alt="" class="remove">
                 </td>
@@ -361,23 +163,6 @@ class QuotesPanelController extends PanelController {
         })
     }
 
-    addLoadMoreButton() {
-        let getRows = controller.getRows;
-        if(controller.loadedCount < controller.totalCount + 1) {
-            $("#all-resources").find("tbody").append(`
-            <tr>
-                <td colspan=100><input type="button" id="load-more-button" value="Wczytaj więcej"></td>
-            </tr>`
-            );
-    
-            $("#load-more-button").on("click", function() {
-                $("#load-more-button").parent().html("<div id='loadMoreMessage'>Wczytywanie...</div>");
-                getRows().then(() => {
-                    $("#loadMoreMessage").parent().remove();
-                });
-            });
-        }
-    }
 
     clearForm() {
         $("#add-quote-content").val("");
@@ -406,15 +191,6 @@ class QuotesPanelController extends PanelController {
         `);
     }
 
-    resetPanel() {
-        controller.panel.clearForm();
-        controller.panel.clearTable();
-        controller.loadedCount = 0;
-        logger.log("Wczytywanie cytatów...");
-        controller.getAllCount().then(controller.getRows)
-    }
-
-    
     showEditPanel(id) {
         $("#edit-quote-panel").html(`
         <div id="edit-quote-header">Edycja cytatu</div>
@@ -442,7 +218,7 @@ class QuotesPanelController extends PanelController {
             </div>
         </div>
         `);
-        let row = $(`.quote-${id}`).parent();
+        let row = $(`.resource-${id}`).parent();
         let content = $(row).children()[1];
         let translation = $(row).children()[2];
         let author = $(row).children()[3];

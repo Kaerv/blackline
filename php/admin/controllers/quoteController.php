@@ -7,27 +7,11 @@
         public function __construct() {
             parent::__construct();
 
-            $this->quotes = new QuoteModel();
+            $this->model = new QuoteModel();
             $this->reportErrorIfOccured();
         }
 
-        public function getRows($args) {
-            $start = $args["start"];
-            $step = $args["step"];
 
-            $result = $this->quotes->getRecords($start, $step);
-            $this->reportErrorIfOccured();
-
-            $this->quotes->endWork();
-            $this->endWork($result);
-        }
-
-        public function getAllCount() {
-            $count = $this->quotes->getAllCount();
-
-            $this->reportErrorIfOccured();
-            $this->endWork($count);
-        }
 
         public function send($args) {
             $this->validateContent($args["content"]);
@@ -37,7 +21,7 @@
             $authorId = $this->addAuthor($args["author"], $existingAuthor);
             $categoriesIds = $this->addCategories($categories);
             $this->addQuote($args["content"], $args["translation"], $authorId, $categoriesIds);
-            $this->quotes->endWork();
+
             $this->endWork("Dodano cytat!");
         }
 
@@ -45,17 +29,13 @@
             if($content == "")
                 $this->reportError("Treść cytatu nie może być pusta.");
             
-            if($this->quotes->existsQuoteWithContent($content)) 
+            if($this->model->existsQuoteWithContent($content)) 
                 $this->reportError("Taki cytat już istnieje!");
 
             $this->reportErrorIfOccured();
         }
 
-        private function validateAuthor($author) {
-            $existingAuthor = $this->quotes->getAuthorIdByName($author);
-            $this->reportErrorIfOccured();
-            return $existingAuthor;
-        }
+
 
         private function validateCategories($categories) {
             $existingCategories = array();
@@ -68,7 +48,7 @@
                 $this->reportError("Cytat nie może mieć więcej niż 3 kategorie!");
 
             foreach($categories as $key => $category) {
-                $existingCategoryId = $this->quotes->getCategoryIdByName($category);
+                $existingCategoryId = $this->model->getCategoryIdByName($category);
                 $this->reportErrorIfOccured();
 
                 if($existingCategoryId) 
@@ -83,23 +63,14 @@
             );
         }
 
-        private function addAuthor($author, $existingAuthor) {
-            if(!$existingAuthor) {
-                $authorId = $this->quotes->addAuthor($author);
-                $this->reportErrorIfOccured();
-                return $authorId;
-            }
-            
-            else 
-                return $existingAuthor;
-        }
+
 
         private function addCategories($categories) {
             $newCategories = $categories["new"];
             $existingCategories = $categories["existing"];
 
             foreach($newCategories as $category) {
-                $categoryId = $this->quotes->addCategory($category);
+                $categoryId = $this->model->addCategory($category);
                 $this->reportErrorIfOccured();
 
                 $existingCategories[] = $categoryId;
@@ -109,37 +80,37 @@
         }
 
         private function addQuote($content, $translation, $authorId, $categoriesIds) {
-            $this->quotes->addQuote($content, $translation, $authorId, $categoriesIds);
+            $this->model->addQuote($content, $translation, $authorId, $categoriesIds);
             $this->reportErrorIfOccured();
         }
 
         public function remove($args) {
             $id = $args["id"];
 
-            $author = $this->quotes->checkAuthorIsNecessary($id);
-            $categories = $this->quotes->checkcategoriesAreNecessary($id);
+            $author = $this->model->checkAuthorIsNecessary($id);
+            $categories = $this->model->checkcategoriesAreNecessary($id);
             $this->reportErrorIfOccured();
 
-            $this->quotes->removeCategoriesSets($id);
-            $this->quotes->removeCategories($categories);
-            $this->quotes->removeQuote($id);
-            if($author) $this->quotes->removeAuthor($author);
+            $this->model->removeCategoriesSets($id);
+            $this->model->removeCategories($categories);
+            $this->model->remove($id);
+            if($author) $this->model->removeAuthor($author);
             $this->reportErrorIfOccured();
-            $this->quotes->endWork();
+
             $this->endWork("Usunięto cytat!");
         }
 
         public function edit($args) {
             $id = $args["id"];
 
-            $author = $this->quotes->checkAuthorIsNecessary($id);
-            $categories = $this->quotes->checkcategoriesAreNecessary($id);
+            $author = $this->model->checkAuthorIsNecessary($id);
+            $categories = $this->model->checkcategoriesAreNecessary($id);
             $this->reportErrorIfOccured();
 
-            $this->quotes->removeCategoriesSets($id);
-            $this->quotes->removeCategories($categories);
-            $this->quotes->removeQuote($id);
-            if($author) $this->quotes->removeAuthor($author);
+            $this->model->removeCategoriesSets($id);
+            $this->model->removeCategories($categories);
+            $this->model->remove($id);
+            if($author) $this->model->removeAuthor($author);
             $this->reportErrorIfOccured();
             
             $this->validateContent($args["content"]);
@@ -150,27 +121,8 @@
             $categoriesIds = $this->addCategories($categories);
             $this->addQuote($args["content"], $args["translation"], $authorId, $categoriesIds);
 
-            $this->quotes->endWork();
+
             $this->endWork("Edytowano cytat!");
-        }
-
-        public function search($args) {
-            $phrase = $args["phrase"];
-            if($phrase == "" or empty($phrase)) 
-                $this->reportError("Wyszukiwana fraza nie może być pustym słowem");
-            
-            $results = $this->quotes->findQuotesByPhrase($phrase);
-            $this->reportErrorIfOccured();
-
-            $this->quotes->endWork();
-            $this->endWork($results);
-            
-        }
-
-        private function reportErrorIfOccured() {
-            if($this->quotes->hasError) {
-                $this->reportError($this->quotes->error);
-            }
         }
     }
 ?>
