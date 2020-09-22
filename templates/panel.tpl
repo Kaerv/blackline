@@ -37,7 +37,7 @@
         <div id="background-top"></div>
     </div>
     <div id="site-content-container">
-        <h1 id="site-title">Zarządzanie cytatami</h1>
+        <h1 id="site-title"></h1>
         <div id="search-wrap">
             <img src="/assets/icons/close.svg" id="cancel-search">
             <div id="search">
@@ -50,11 +50,11 @@
             <div id="panel">
                 <div id="panel-navigation">
                     <div id="titles">
-                        <div class="navigation-title" style="grid-area: all;" onclick="changePanelSite(0)">
-                            <span>Wszystkie cytaty</span>                
+                        <div id="all-title" class="navigation-title" style="grid-area: all;" onclick="changePanelSite(0)">
+                            <span></span>                
                         </div>
-                        <div class="navigation-title" style="grid-area: add" onclick="changePanelSite(1)">
-                            <span>Nowy cytat</span>           
+                        <div id="new-title" class="navigation-title" style="grid-area: add" onclick="changePanelSite(1)">
+                            <span></span>           
                         </div>
                     </div>
                     <div id="navigation-slider-container">

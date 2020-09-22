@@ -1,8 +1,6 @@
 let controller;
 $(document).ready(() => {
     controller = eval(`new ${controllerName}()`);
-    controller.generateAddingPanel();
-    controller.clearTable();
 
     controller.getAllCount()
     .then(controller.getRows)

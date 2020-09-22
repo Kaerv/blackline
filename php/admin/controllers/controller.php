@@ -7,7 +7,7 @@
         private function validateConnection() {
             session_start();
 
-            if(empty($_SESSION['token']) || $_SESSION['token'] != $_REQUEST["token"]) {
+            if(empty($_SESSION['token']) || $_SESSION['token'] != $_REQUEST["token"] || !isset($_REQUEST["token"])) {
                 $this->reportError("Wystąpił problem z uwierzytelnieniem połączenia. Odśwież stronę i spróbuj ponownie");
             }
         }

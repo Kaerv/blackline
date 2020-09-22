@@ -122,8 +122,8 @@
                     </div>
 
                     <div id="add-quote-panel">
-                        <div id="add-quote-panel-wrap">
-                            <div class="adding-quote-label">Tytuł</div>
+                        <div id="add-panel-wrap">
+                            <div class="adding-label">Tytuł</div>
                             <div>
                                 <div class="add-quote-input">
                                     <input type="text" id="add-quote-title">
@@ -162,29 +162,29 @@
     <div id="edit-quote-panel">
         <div id="edit-quote-header">Edycja artykułu</div>
         <img src="/assets/icons/close.svg" id="cancel-edit">
-        <div id="edit-quote-panel-wrap">
+        <div id="edit-panel-wrap">
             <div class="editing-quote-label">Tytuł</div>
             <div>
-                <div class="edit-quote-input">
+                <div class="edit-quote-input edit-input">
                     <input type="text" id="edit-quote-title">
                 </div>
             </div>
             <div class="editing-quote-label">Treść</div>
-            <textarea id="edit-quote-content" cols="30" rows="5"></textarea>
+            <textarea id="edit-quote-content" class="edit-textarea" cols="30" rows="5"></textarea>
             <div class="editing-quote-label">Autor</div>
             <div>
-                <div class="edit-quote-input">
+                <div class="edit-quote-input edit-input">
                     <input type="text" id="edit-quote-author">
                 </div>
             </div>
             <div class="editing-quote-label">Data publikacji</div>
             <div>
-                <div class="edit-quote-input">
+                <div class="edit-quote-input edit-input">
                     <input type="text" id="edit-quote-publication">
                 </div>
             </div>
             <div>
-                <input type="button" value="ZAPISZ" id="edit-quote-button">
+                <input type="button" value="ZAPISZ" id="edit-button">
             </div>
         </div>
     </div>
