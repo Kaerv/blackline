@@ -61,7 +61,7 @@ class ArticlesPanelController extends PanelController {
             <div class="adding-label">Data publikacji</div>
             <div>
                 <div class="add-input">
-                    <input type="text" id="add-quote-publication">
+                    <input type="date" id="add-quote-publication">
                 </div>
             </div>
             <div>
@@ -109,6 +109,7 @@ class ArticlesPanelController extends PanelController {
         $("#add-quote-content").val("");
         $("#add-quote-author").val("");
         $("#add-quote-title").val("");
+        $("#add-quote-publication").val("");
     }
 
     clearTable() {

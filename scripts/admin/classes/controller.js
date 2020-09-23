@@ -82,8 +82,8 @@ class Controller {
             },
             success: (response) => {
                 if(response[0] == 0) {
-                    this.panel.resetPanel();
                     logger.log(response[1]);
+                    this.panel.resetPanel();
                 }
                 else 
                     logger.error(response[1]);
@@ -262,7 +262,7 @@ class PanelController {
         controller.panel.clearForm();
         controller.panel.clearTable();
         controller.loadedCount = 0;
-        logger.log("Wczytywanie zasobów...");
+        logger.log("Odświeżanie panelu...");
         controller.getAllCount().then(controller.getRows)
     }
 }
