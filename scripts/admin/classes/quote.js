@@ -3,6 +3,7 @@ class Quote extends Controller {
         super();
         this.type = "quote";
         this.panel = new QuotesPanelController();
+        document.title = "Zarządzanie cytatami";
     }
 
     prepareDataToSend(editing, id) {

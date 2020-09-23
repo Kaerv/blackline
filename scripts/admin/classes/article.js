@@ -3,6 +3,7 @@ class Article extends Controller {
         super();
         this.type = "article";
         this.panel = new ArticlesPanelController();
+        document.title = "Zarządzanie artykułami";
     }
 
     getContentById(id) {
