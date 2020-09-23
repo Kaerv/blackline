@@ -155,6 +155,35 @@ class Controller {
         });
     }
 
+    getContentById(id) {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                method: "GET",
+                url: `../php/admin/dispatcher.php`,
+                dataType: "JSON",
+                data: {
+                    token: token,
+                    type: this.type,
+                    action: "getContentById",
+                    args: {
+                        id: id
+                    }
+                },
+                success: (response) => {
+                    if(response[0] == 0) {
+                        logger.log("Pobrano dane!");
+                        resolve(response[1]);
+                    }
+                    else 
+                        logger.error(response[1]);
+                },
+                async: true
+            }).fail(() => {
+                logger.error("Wystąpił nieznany błąd w trakcie pobierania danych.");
+            });
+        });
+    }
+
     search() {
         let phrase = $("#search-input").val();
         logger.log("Wyszukiwanie...");
