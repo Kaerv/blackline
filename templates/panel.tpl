@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zarządzanie cytatami</title>
+    <title>Panel</title>
     <style>
         #panel-loading-cover {
             position: fixed;

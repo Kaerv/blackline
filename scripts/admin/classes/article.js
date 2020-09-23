@@ -6,35 +6,6 @@ class Article extends Controller {
         document.title = "Zarządzanie artykułami";
     }
 
-    getContentById(id) {
-        return new Promise((resolve, reject) => {
-            $.ajax({
-                method: "GET",
-                url: `../php/admin/dispatcher.php`,
-                dataType: "JSON",
-                data: {
-                    token: token,
-                    type: "article",
-                    action: "getContentById",
-                    args: {
-                        id: id
-                    }
-                },
-                success: (response) => {
-                    if(response[0] == 0) {
-                        logger.log("Pobrano artykuł!");
-                        resolve(response[1]);
-                    }
-                    else 
-                        logger.error(response[1]);
-                },
-                async: true
-            }).fail(() => {
-                logger.error("Wystąpił nieznany błąd w trakcie pobierania liczby artykułów.");
-            });
-        });
-    }
-
     prepareDataToSend(editing, id = null) {
         let title, content, author, publication;
         if(!editing) {
@@ -137,6 +108,7 @@ class ArticlesPanelController extends PanelController {
     clearForm() {
         $("#add-quote-content").val("");
         $("#add-quote-author").val("");
+        $("#add-quote-title").val("");
     }
 
     clearTable() {

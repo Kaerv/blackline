@@ -56,7 +56,7 @@
 
         public function addArticle($authorId, $content, $title, $publication) {
             $publication = ($publication == "")? date("Y-m-d H:i:s") : $publication;
-            $stmt = $this->mysqli->prepare("INSERT INTO articles (author_id, content, title, date_publication) VALUES (?, ?, ?, ?)");            $stmt->bind_param('iss', $authorId, $content, $translation);
+            $stmt = $this->mysqli->prepare("INSERT INTO articles (author_id, content, title, date_publication) VALUES (?, ?, ?, ?)");            
             $stmt->bind_param("isss", $authorId, $content, $title, $publication);
             if(!$stmt->execute()) {
                 $this->reportError("Dodawanie artykułu nie powiodło się: $stmt->error");

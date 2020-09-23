@@ -38,7 +38,7 @@
 
         private function validateTitle($title) {
             if($title == "") 
-                $this->reportError("Treść artykułu nie może być pusta.");
+                $this->reportError("Tytuł artykułu nie może być pusty.");
 
             $this->reportErrorIfOccured();
         }
