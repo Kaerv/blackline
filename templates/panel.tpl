@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/admin/panel.css">
+    <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <script>
         let type = "{$smarty.post.type}";
         let controllerName = "{$smarty.post.type|ucfirst}";
@@ -94,6 +95,7 @@
 <script src="../scripts/admin/classes/controller.js"></script>
 <script src="../scripts/admin/classes/{$smarty.post.type}.js"></script>
 <script src="../scripts/admin/panel.js"></script>
+<script src="https://cdn.tiny.cloud/1/mczbbclmvol1fdnpof3zqepxyd9fanarbsqu54v3tleo4zad/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </body>
 {else}
 <head>

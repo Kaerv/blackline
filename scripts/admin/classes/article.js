@@ -10,12 +10,12 @@ class Article extends Controller {
         let title, content, author, publication;
         if(!editing) {
             title = $("#add-quote-title").val();
-            content = $("#add-quote-content").val();
+            content = tinymce.get("add-quote-content").getContent();
             author = $("#add-quote-author").val();
             publication = $("#add-quote-publication").val();
         }
         else {
-            content = $("#edit-quote-content").val();
+            content = tinymce.get("edit-quote-content").getContent();
             author = $("#edit-quote-author").val();
             title = $("#edit-quote-title").val();
             publication = $("#edit-quote-publication").val();
@@ -50,8 +50,8 @@ class ArticlesPanelController extends PanelController {
                     <input type="text" id="add-quote-title">
                 </div>
             </div>
-            <div class="adding-label">Treść</div>
-            <textarea class="add-textarea" id="add-quote-content" cols="30" rows="5"></textarea>
+            <div class="adding-label" id="content-label">Treść (wczytywanie edytora...)</div>
+            <textarea id="add-quote-content"></textarea>
             <div class="adding-label">Autor</div>
             <div>
                 <div class="add-input">
@@ -69,8 +69,8 @@ class ArticlesPanelController extends PanelController {
             </div>
         </div>
         `);
-
         $("#add-button").on("click", () => { controller.send(); });
+        initEditor(false);
     }
 
     generateDOM(articles) {
@@ -106,7 +106,7 @@ class ArticlesPanelController extends PanelController {
     }
 
     clearForm() {
-        $("#add-quote-content").val("");
+        tinymce.editors[0].resetContent();
         $("#add-quote-author").val("");
         $("#add-quote-title").val("");
         $("#add-quote-publication").val("");
@@ -163,21 +163,21 @@ class ArticlesPanelController extends PanelController {
         let row = $(`.resource-${id}`).parent();
         logger.log("Wczytywanie danych artykułu...");
         controller.getContentById(id).then(content => {
-            console.log(content);
             let title = $(row).children()[1];
             let author = $(row).children()[2];
             let publication = $(row).children()[4];
-    
+            
             $("#edit-quote-content").val(content);
+            initEditor(true);
             $("#edit-quote-author").val($(author).text());
             $("#edit-quote-title").val($(title).text());
             $("#edit-quote-publication").val($(publication).text());
     
             $("#edit-quote-background").show();
             $("#edit-quote-panel").fadeIn(400);
-            $("#cancel-edit").on("click", controller.cancelEditing);
-            $("#edit-quote-background").on("click", controller.cancelEditing);
-            $("#edit-button").on("click", () => {controller.edit(id)});
+            $("#cancel-edit").on("click", () => {controller.cancelEditing(); tinymce.get("edit-quote-content").remove();});
+            $("#edit-quote-background").on("click", () => {controller.cancelEditing(); tinymce.get("edit-quote-content").remove();});
+            $("#edit-button").on("click", () => {controller.edit(id); tinymce.get("edit-quote-content").remove();});
         });
     }
 }

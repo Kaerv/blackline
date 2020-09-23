@@ -24,3 +24,23 @@ function changePanelSite(which) {
       $("#add-panel").fadeIn(500);
     } 
 }
+
+function initEditor(edit) {
+  container = edit? '#edit-quote-content' : '#add-quote-content';
+  tinymce.init({
+    selector: container,
+    plugins: 'autolink lists media table',
+    toolbar: 'undo redo aligncenter alignjustify alignleft alignright bold italic underline forecolor indent subscript superscript fontsizeselect',
+    contextmenu: 'undo redo bold italic underline',
+    language: 'pl',
+    toolbar_mode: 'floating',
+    height: "300",
+    setup: function (editor) {
+      if(!edit) {
+        editor.on("init", function () {
+          $("#content-label").html("Treść");
+        });
+      }
+    }
+  });
+}
