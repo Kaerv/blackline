@@ -54,7 +54,6 @@ class Controller {
                         controller.panel.generateDOM(response[1]);
                         controller.loadedCount += controller.countPerLoad;
                         controller.panel.addLoadMoreButton();
-                        logger.log("Pobrano materiały!");
                         resolve();
                     }
                     else 
@@ -142,9 +141,9 @@ class Controller {
             },
             success: (response) => {
                 if(response[0] == 0) {
+                    logger.log(response[1]);
                     this.cancelEditing();
                     this.panel.resetPanel();
-                    logger.log(response[1]);
                 }
                 else 
                     logger.error(response[1]);
@@ -263,7 +262,7 @@ class PanelController {
         controller.panel.clearForm();
         controller.panel.clearTable();
         controller.loadedCount = 0;
-        logger.log("Wczytywanie...");
+        logger.log("Wczytywanie zasobów...");
         controller.getAllCount().then(controller.getRows)
     }
 }

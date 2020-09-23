@@ -363,7 +363,7 @@ html, body {
 .add-input input, .edit-input input {
     border: none;
     outline: none;
-    width: 60%;
+    width: 100%;
     font-size: 16px;
 }
 
