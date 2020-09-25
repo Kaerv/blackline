@@ -34,13 +34,18 @@
   {if $type === "delivery"}
     <div class="form-group row">
       <div class="col-md-9 col-md-offset-3">
-      <div class="custom-checkbox">
+      <span class="custom-checkbox">
+      <label>
+      <div class="custom-checkbox-container">
         <input name = "use_same_address" id="use_same_address" type = "checkbox" value = "1" {if $use_same_address} checked {/if}>
         <img src="/assets/icons/checked.svg">
+        <div></div>
+      </div>
       </div>
           <label for="use_same_address">{l s='Use this address for invoice too' d='Shop.Theme.Checkout'}</label>
       </div>
-    </div>
+      </label>
+    </span>
   {/if}
 {/block}
 
@@ -51,10 +56,13 @@
     <div class="col-md-6">
           <span>
             <label>
-            <div class="custom-checkbox">
+            <span class="custom-checkbox">
+            <div class="custom-checkbox-container">
               <input name="psgdpr" type="checkbox" value="1" required="">
               <img src="/assets/icons/checked.svg" />
+              <div></div>
             </div>
+            </span>
               <span><i class="material-icons rtl-no-flip checkbox-checked"></i></span>
               Akceptuję ogólne warunki użytkowania i politykę prywatności
             </label>

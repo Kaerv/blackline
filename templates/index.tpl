@@ -1,5 +1,4 @@
     <section id="hero-image" class="section"></section>
-
     <section id="quote_section" class="section">
         {include 
             file='modules/section_header.tpl' 

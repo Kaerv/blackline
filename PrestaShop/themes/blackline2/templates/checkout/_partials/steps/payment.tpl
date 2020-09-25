@@ -102,6 +102,8 @@
           <li>
             <div class="float-xs-left">
               <span class="custom-checkbox">
+              <label>
+              <div class="custom-checkbox-container">
                 <input  id    = "conditions_to_approve[{$condition_name}]"
                         name  = "conditions_to_approve[{$condition_name}]"
                         required
@@ -110,7 +112,10 @@
                         class = "ps-shown-by-js"
                 >
                 <img src="/assets/icons/checked.svg">
+                <div></div>
                 <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
+                </div>
+              </label>
               </span>
             </div>
             <div class="condition-label">

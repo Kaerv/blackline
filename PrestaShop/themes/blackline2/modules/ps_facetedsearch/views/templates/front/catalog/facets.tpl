@@ -56,20 +56,23 @@
                     <label class="facet-label{if $filter.active} active {/if}" for="facet_input_{$_expand_id}_{$filter_key}">
                       {if $facet.multipleSelectionAllowed}
                         <span class="custom-checkbox">
-                          <input
-                            id="facet_input_{$_expand_id}_{$filter_key}"
-                            data-search-url="{$filter.nextEncodedFacetsURL}"
-                            type="checkbox"
-                            {if $filter.active }checked{/if}
-                          >
-                          <img src="/assets/icons/checked.svg">
-                          {if isset($filter.properties.color)}
-                            <span style="background-color:{$filter.properties.color}"></span>
-                          {elseif isset($filter.properties.texture)}
-                            <span class=" texture" style="background-image:url({$filter.properties.texture})"></span>
-                          {else}
-                            <span {if !$js_enabled} class="ps-shown-by-js" {/if}><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
-                          {/if}
+                          <div class="custom-checkbox-container">
+                              <input
+                                id="facet_input_{$_expand_id}_{$filter_key}"
+                                data-search-url="{$filter.nextEncodedFacetsURL}"
+                                type="checkbox"
+                                {if $filter.active }checked{/if}
+                              >
+                              <img src="/assets/icons/checked.svg">
+                              <div></div>
+                            </div>
+                            {if isset($filter.properties.color)}
+                              <span class="checkbox-label" style="background-color:{$filter.properties.color}"></span>
+                            {elseif isset($filter.properties.texture)}
+                              <span class=" texture checkbox-label" style="background-image:url({$filter.properties.texture})"></span>
+                            {else}
+                              <span {if !$js_enabled} class="ps-shown-by-js" {/if}><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
+                            {/if}
                         </span>
                       {else}
                         <span class="custom-radio">
@@ -183,21 +186,6 @@
           {/if}
         </section>
       {/foreach}
-      <script>
-      $(".custom-checkbox").find("input").each(function() {
-        if($(this).prop("checked")) {
-          $(this).parent().addClass("checked-checkbox");
-        }
-      })
-        $(".custom-checkbox").find("input").change(function() {
-          if($(this).prop("checked")) {
-            $(this).parent().addClass("checked-checkbox");
-          }
-          else {
-            $(this).parent().removeClass("checked-checkbox");
-          }
-        });
-      </script>
     </div>
   {/if}
   

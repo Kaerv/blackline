@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-03 08:10:44
+/* Smarty version 3.1.34-dev-7, created on 2020-09-25 09:01:06
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f50a5040da7c2_99139955',
+  'unifunc' => 'content_5f6db1d2b9eff2_42226409',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1599120530,
+      1 => 1601023983,
       2 => 'file',
     ),
   ),
@@ -23,9 +23,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/shop_description.tpl' => 1,
   ),
 ),false)) {
-function content_5f50a5040da7c2_99139955 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6db1d2b9eff2_42226409 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <section id="hero-image" class="section"></section>
-
     <section id="quote_section" class="section">
         <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'CYTATY Z GŁĘBI STRON','link'=>'#cytaty'), 0, false);
 ?>

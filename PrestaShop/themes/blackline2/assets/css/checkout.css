@@ -334,43 +334,6 @@ body {
     display: none;
 }
 
-.custom-checkbox {
-    width: 16px;
-    height: 16px;
-    border: solid 1px #DCDCDC;
-    position: relative;
-    margin-right: 4px;
-    display: block;
-}
-
-.custom-checkbox.checked {
-    background-color: black;
-    border-color: black;
-}
-
-.custom-checkbox input {
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 100;
-}
-
-.custom-checkbox img{
-    display: none;
-    position: absolute;
-    width: 80%;
-    height: 90%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    filter: invert(100%);
-}
-
-.custom-checkbox input:checked + img {
-    display: block;
-}
-
 .col-md-6 {
     position: relative;
     width: 100%;
