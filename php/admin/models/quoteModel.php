@@ -227,13 +227,14 @@
                 quotes_categories_sets.category_id = quotes_categories.category_id AND 
                 quotes_categories_sets.quote_id = quotes.quote_id AND (
                     quotes.content LIKE ? OR 
+                    quotes.translation LIKE ? OR
                     quotes_authors.author_name LIKE ? OR
                     quotes_categories.category_name LIKE ?) LIMIT 50";
 
             $stmt = $this->mysqli->prepare($query);
-            $stmt->bind_param("sss", $phrase, $phrase, $phrase);
+            $stmt->bind_param("ssss", $phrase, $phrase, $phrase, $phrase);
             if(!$stmt->execute()) {
-                $this->reportError($stmt->error);
+                $this->reportError("Błąd podczas wyszukiwania: $stmt->error");
                 return false;
             }
 

@@ -200,6 +200,10 @@ class Controller {
             },
             success: (response) => {
                 if(response[0] == 0) {
+                    console.log(response[1]);
+                    if(!response[1].length)
+                        logger.log("Nie znaleziono pasujących wyników.");
+
                     this.panel.clearForm();
                     this.panel.clearTable();
                     this.panel.generateDOM(response[1]);
