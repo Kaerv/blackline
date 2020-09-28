@@ -74,8 +74,15 @@
       
       {block name='page_title'}
       <div style="width:100%; border-bottom: solid 1px rgba(0,0,0,0.2);"></div>
+            {if $page.page_name == "module-blackline_pages-quotes"}
+        {include 
+          file='../../../../../templates/modules/section_header.tpl' 
+          title="CYTATY Z GŁĘBI STRON" 
+          link="" 
+          style=""}
+      <div style="width:100%; border-bottom: solid 1px rgba(0,0,0,0.2);"></div>
       
-      {if $page.page_name != 'cart' && $page.page_name != "authentication"}
+      {elseif $page.page_name != 'cart' && $page.page_name != "authentication"}
         {include 
           file='../../../../../templates/modules/section_header.tpl' 
           title="GALERIA MOJEGO EGO" 

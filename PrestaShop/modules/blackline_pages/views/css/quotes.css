@@ -1,0 +1,269 @@
+#wrapper {
+    margin: 0 !important;
+}
+
+#quotes-section {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    min-height: 400px;
+}
+
+#filters-container {
+    padding-left: 40px;
+    margin-top: 10px;
+}
+
+#filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #DCDCDC;
+    padding-bottom: 10px;
+}
+
+#filters-title {
+    font-size: 1.3em;
+}
+
+#clear-filters img {
+    height: 10px;
+    margin-left: 4px;
+}
+
+.filters {
+    border-bottom: solid 1px #DCDCDC;
+    padding-bottom: 40px;
+}
+
+.filter-title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.filter-search {
+    border-bottom: solid 2px #DCDCDC;
+    display: grid;
+    grid-template-columns: 1fr 16px;
+    align-items: center;
+    width: 80%;
+}
+
+.filter-search input {
+    border: none;
+    outline: none;
+}
+
+.filter-search img {
+    display: block;
+    width: 16px;
+}
+
+.filter-values-list {
+    min-height: 40px;
+    max-height: 160px;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-column-gap: 5%;
+    grid-row-gap: 16px;
+    margin-top: 20px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+    border: solid 1px #999;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 10px;
+  }
+
+.filter-value-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-value {
+    color: white;
+    background-color: black;
+    border-radius: 17%/45%;
+    width: fit-content;
+    padding: 2px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    position: relative;
+}
+
+.filter-value span {
+    height: fit-content;
+    margin-top: 1px;
+}
+
+.filter-value img {
+    height: 10px;
+    margin-left: 4px;
+    position: absolute;
+    right: 6px;
+}
+
+.filter-value.selected {
+    border: solid 1px black;
+    background-color: white;
+    color: black;
+    padding: 2px 20px 2px 12px;
+}
+
+.quote {
+    width: 90%;
+    max-width: 80ch;
+    position: relative;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote-categories {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    display: flex;
+}
+
+.quote-categories > span {
+    display: block;
+    font-size: 0.8em;
+    margin-left: 14px;
+}
+
+.quote-categories > span:hover {
+    color: #DCDCDC;
+    cursor: pointer;
+}
+
+.quote-border {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.border {
+    border: solid 2px #DCDCDC;
+}
+
+.border.rt {
+    border-bottom: none;
+    border-left: none;
+    width: 60%;
+    height: 50%;
+}
+
+.border.lb {
+    border-top: none;
+    border-right: none;
+    width: 60%;
+    height: 50%;
+}
+
+.border.rb {
+    border: none;
+    width: calc(40% - 2px);
+    height: 50%;
+}
+
+.border.lt {
+    border: none;
+    width: calc(40% - 2px);
+    height: 50%;
+}
+
+.quote-wrap {
+    position: relative;
+    width: 90%;
+    z-index: 2;
+    margin: 30px 0;
+}
+
+.quote-wrap > * {
+    text-align: center;
+    margin: auto;
+}
+
+.quotation-mark {
+    display: block;
+    margin: auto;
+    width: 16px;
+    height: auto;
+}
+
+.quote-content {
+    margin: 20px 0;
+}
+
+.quote-actions {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    z-index: 3;
+}
+
+.quote-favourite {
+    display: flex;
+    align-items: center;
+}
+
+.fav-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7em;
+    color: white;
+    background-color: black;
+    border-radius: 25%/50%;
+    width: 43px;
+    height: 18px;
+    padding-top: 2px;
+    margin-right: 6px;
+}
+
+.fav-count span {
+    vertical-align: middle;
+}
+
+.fav-ico {
+    height: 20px;
+    width: auto;
+    cursor: pointer;
+}
+
+.quote-embed {
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.embed-ico {
+    height: 20px;
+    width: auto;
+}
+
+.embed-message {
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    font-size: 0.6em;
+    width: fit-content;
+}

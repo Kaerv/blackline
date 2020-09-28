@@ -126,6 +126,7 @@ modules/*
 !modules/blackline_featuredproducts
 !modules/blackline_newsletter
 !modules/blackline_quotes
+!modules/blackline_pages
 override/*
 themes/classic/assets/css/*_rtl.css
 

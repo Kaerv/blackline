@@ -1,6 +1,5 @@
 <?php 
     require 'libs/Smarty.class.php';
-    require_once "php/classes/quotesPageController.php";
 
     session_start();
     
@@ -33,8 +32,6 @@
     }
 
     else if ($page == "cytaty") {
-        $controller = new QuotesPageController($token);
-        $controller->initContent($smarty, 0);
     }
 
     else {

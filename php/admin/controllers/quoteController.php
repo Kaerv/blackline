@@ -1,6 +1,6 @@
 <?php 
     require_once "controller.php";
-    require_once "models/quoteModel.php";
+    require_once __DIR__."/../models/quoteModel.php";
 
     class QuoteController extends Controller 
     {
