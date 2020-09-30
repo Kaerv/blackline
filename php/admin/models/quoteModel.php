@@ -15,9 +15,7 @@
                 quotes.translation AS translation, 
                 quotes_authors.author_name AS author, 
                 quotes.date_added AS dateAdded, 
-                quotes.visit_daily AS visitDaily, 
-                quotes.visit_monthly AS visitMonthly, 
-                quotes.visit_yearly AS visitYearly 
+                quotes.likes AS likes
             FROM quotes, quotes_authors 
 
             WHERE 

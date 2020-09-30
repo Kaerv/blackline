@@ -144,9 +144,7 @@ class QuotesPanelController extends PanelController {
                 <td>${quote.author}</td>
                 <td>${categories}</td>
                 <td>${quote.dateAdded}</td>
-                <td>${quote.visitDaily}</td>
-                <td>${quote.visitMonthly}</td>
-                <td>${quote.visitYearly}</td>
+                <td>${quote.likes}</td>
             </tr>
             `);
 
@@ -176,19 +174,15 @@ class QuotesPanelController extends PanelController {
     clearTable() {
         $("#all-resources > tbody").html(`
         <tr>
-            <th rowspan="2"></th>
-            <th rowspan="2"><div class="border">Treść</div></th>
-            <th rowspan="2"><div class="border">Tłumaczenie</div></th>
-            <th rowspan="2"><div class="border">Autor</div></th>
-            <th rowspan="2"><div class="border">Kategoria</div></th>
-            <th rowspan="2"><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data dodania</div></th>
-            <th colspan="3">Wizyty</th>
+            <th></th>
+            <th><div class="border">Treść</div></th>
+            <th><div class="border">Tłumaczenie</div></th>
+            <th><div class="border">Autor</div></th>
+            <th><div class="border">Kategoria</div></th>
+            <th><div class="border" style="border-right: solid 1px rgba(0,0,0,0.5)">Data dodania</div></th>
+            <th>Polubienia</th>
         </tr>
-        <tr>
-            <th>Dziennie</th>
-            <th>Miesięcznie</th>
-            <th>Rocznie</th>
-        </tr>
+
         `);
     }
 
