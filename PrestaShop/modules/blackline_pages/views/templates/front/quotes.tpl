@@ -34,197 +34,140 @@
                         <img src="/assets/icons/close.svg">
                     </div>
                 </div>
-                                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
+            </div>
+        </div>
+        <div id="authors-filters" class="filters">
+            <div class="filter-title">Autor</div>
+            <div id="author-search" class="filter-search">
+                <input type="text" placeholder="Wyszukaj autora" id="author-search-input">
+                <img src="/assets/icons/search.svg"> 
+            </div>
+            <div class="filter-values-list">
+                <div class="filter-value-container">
+                    <div class="filter-value selected">
+                        <span>Stephen King</span>
                         <img src="/assets/icons/close.svg">
                     </div>
                 </div>
                 <div class="filter-value-container">
                     <div class="filter-value selected">
-                        <span>Miłość</span>
+                        <span>Andrzej Sapkowski</span>
                         <img src="/assets/icons/close.svg">
                     </div>
                 </div>
                 <div class="filter-value-container">
                     <div class="filter-value">
-                        <span>Miłość</span>
+                        <span>Wisława Szymborska</span>
                         <img src="/assets/icons/close.svg">
                     </div>
                 </div>
-                                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
+            </div>
+            <div id="best-authors">
+                <div class="checkbox-list-title">Najbardziej lubiani autorzy:</div>
+                <div class="checkbox-list">
+                    <div class="list-element">
+                        <span class="custom-checkbox">
+                            <label>
+                                <div class="custom-checkbox-container">
+                                    <input name="thomas-hardy" id="thomas-hardy" type="checkbox">
+                                    <img src="/assets/icons/checked.svg">
+                                    <div></div>
+                                    <span style="display: none"><i class="material-icons rtl-no-flip">&#xE5CA;</i></span>
+                                </div>
+                                <div class="checkbox-label">Andrzej Piasecki</div>
+                            </label>
+                        </span>
+                    </div>
+                                        <div class="list-element">
+                        <span class="custom-checkbox">
+                            <label>
+                                <div class="custom-checkbox-container">
+                                    <input name="thomas-hardy" id="thomas-hardy" type="checkbox">
+                                    <img src="/assets/icons/checked.svg">
+                                    <div></div>
+                                    <span style="display: none"><i class="material-icons rtl-no-flip">&#xE5CA;</i></span>
+                                </div>
+                                <div class="checkbox-label">Andrzej Piasecki</div>
+                            </label>
+                        </span>
+                    </div>
+                                        <div class="list-element">
+                        <span class="custom-checkbox">
+                            <label>
+                                <div class="custom-checkbox-container">
+                                    <input name="thomas-hardy" id="thomas-hardy" type="checkbox">
+                                    <img src="/assets/icons/checked.svg">
+                                    <div></div>
+                                    <span style="display: none"><i class="material-icons rtl-no-flip">&#xE5CA;</i></span>
+                                </div>
+                                <div class="checkbox-label">Andrzej Piasecki</div>
+                            </label>
+                        </span>
                     </div>
                 </div>
-                <div class="filter-value-container">
-                    <div class="filter-value selected">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
+            </div>
+
+            <div id="all-authors">
+                <div class="checkbox-list-title" id="all-authors-title">
+                    Pokaż wszystkich autorów
+                    <img src="/assets/icons/down-arrow.svg" id="all-authors-button"> 
                 </div>
-                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
+                <div class="scrollbar-inner checkbox-list" id="all-authors-list">
+                    <div class="list-element">
+                        <span class="custom-checkbox">
+                            <label>
+                                <div class="custom-checkbox-container">
+                                    <input name="thomas-hardy" id="thomas-hardy" type="checkbox">
+                                    <img src="/assets/icons/checked.svg">
+                                    <div></div>
+                                    <span style="display: none"><i class="material-icons rtl-no-flip">&#xE5CA;</i></span>
+                                </div>
+                                <div class="checkbox-label">Andrzej Piasecki</div>
+                            </label>
+                        </span>
                     </div>
-                </div>
-                                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
+                    <div class="list-element">
+                        <span class="custom-checkbox">
+                            <label>
+                                <div class="custom-checkbox-container">
+                                    <input name="thomas-hardy" id="thomas-hardy" type="checkbox">
+                                    <img src="/assets/icons/checked.svg">
+                                    <div></div>
+                                    <span style="display: none"><i class="material-icons rtl-no-flip">&#xE5CA;</i></span>
+                                </div>
+                                <div class="checkbox-label">Andrzej Piasecki</div>
+                            </label>
+                        </span>
                     </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value selected">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value selected">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value selected">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value selected">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value selected">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value selected">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value selected">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
+                    <div class="list-element">
+                        <span class="custom-checkbox">
+                            <label>
+                                <div class="custom-checkbox-container">
+                                    <input name="thomas-hardy" id="thomas-hardy" type="checkbox">
+                                    <img src="/assets/icons/checked.svg">
+                                    <div></div>
+                                    <span style="display: none"><i class="material-icons rtl-no-flip">&#xE5CA;</i></span>
+                                </div>
+                                <div class="checkbox-label">Andrzej Piasecki</div>
+                            </label>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div id="quotes-container">
-        <div class="quote">
-            <div class="quote-categories">
-                <span>FILOZOFIA KULTURY</span>
-                <span>FILOZOFIA KULTURY</span>
-                <span>FILOZOFIA KULTURY</span>
-            </div>
-            <div class="quote-border">
-                <div class="border lt"></div>
-                <div class="border rt"></div>
-                <div class="border lb"></div>
-                <div class="border rb"></div>
-            </div>
-            <div class="quote-wrap">
-                <img class="quotation-mark" src="/assets/icons/quotation.svg">
-                <div class="quote-content">Najgorsze, co może spotkać człowieka, to żyć i umrzeć w samotności, nie kochając i nie będąc kochanym</div>
-                <div class="quote-author">- Paulo Coelho -</div>
-            </div>
-            <div class="quote-actions">
-                <div class="quote-favourite">
-                    <div class="fav-count"><span>1234</span></div>
-                    <img src="/assets/icons/heart.svg" class="fav-ico">
+        <div id="sort-container">
+            <div>Sortuj:</div>
+            <div id="sort-options">
+                <div id="sort-input">
+                    <div id="sort-actual">Popularne</div>
+                    <img src="/assets/icons/down-arrow.svg">
                 </div>
-                <div class="quote-embed">
-                    <img class="embed-ico" src="/assets/icons/embed.png">
-                    <div class="embed-message">Umieść na produkcie</div>
+                <div id="quote-sort-list">
+                    <div class="sort-option">Najnowsze</div>
+                    <div class="sort-option">Najstarsze</div>
+                    <div class="sort-option">Alfabetycznie</div>
                 </div>
             </div>
         </div>

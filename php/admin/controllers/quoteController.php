@@ -4,8 +4,8 @@
 
     class QuoteController extends Controller 
     {
-        public function __construct() {
-            parent::__construct();
+        public function __construct($fromFrontController = 0) {
+            parent::__construct($fromFrontController);
 
             $this->model = new QuoteModel();
             $this->reportErrorIfOccured();

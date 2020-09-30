@@ -1,15 +1,16 @@
 <?php 
     class Controller {
-        public function __construct() {
-            $this->validateConnection();
+        public function __construct($fromFrontController = 0) {
+            $this->validateConnection($fromFrontController);
             $this->model;
         }
 
-        private function validateConnection() {
+        private function validateConnection($fromFrontController) {
             session_start();
-
-            if(empty($_SESSION['token']) || $_SESSION['token'] != $_REQUEST["token"] || !isset($_REQUEST["token"])) {
-                $this->reportError("Wystąpił problem z uwierzytelnieniem połączenia. Odśwież stronę i spróbuj ponownie");
+            if(!$fromFrontController) {
+                if(empty($_SESSION['token']) || $_SESSION['token'] != $_REQUEST["token"] || !isset($_REQUEST["token"])) {
+                    $this->reportError($fromFrontController);
+                }
             }
         }
 
