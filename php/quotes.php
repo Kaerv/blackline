@@ -11,8 +11,12 @@
                 )
             );
         break;
-        case "quotes": 
-            $controller->getRows($_GET["args"]);
+        case "quotes":
+            print(
+                json_encode(
+                    array(0, $controller->getRows($_GET["args"]))
+                )
+            ); 
         break;
     }
 ?>

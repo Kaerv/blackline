@@ -61,9 +61,9 @@ class QuotesController {
                     }
                 },
             }).done((response) => {
-                console.log(response[1]);
                 if(response[0] == 0) {
                     controller.tryCount = 0;
+                    controller.loadedCount += controller.countByStep;
                     quotesUI.generateQuotes(response[1]);
                     resolve();
                 }

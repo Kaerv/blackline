@@ -2,6 +2,7 @@ class QuotesUI {
     constructor() {
         this.setCheckboxListEvents();
         this.setSortEvents();
+        this.setWindowEvents();
     }
 
     setCheckboxListEvents() {
@@ -23,10 +24,23 @@ class QuotesUI {
         });
     }
 
+    setWindowEvents() {
+        let actualLoading = false;
+        $(window).scroll(function(event) {
+            let windowBottom = $(this).scrollTop() + $(this).height();
+            let lastQuotePos = $(".quote").last().offset().top;
+
+            if(windowBottom >= lastQuotePos && !actualLoading) {
+                actualLoading = true;
+                console.log("Hej");
+                controller.getQuotes().then(() =>{actualLoading = false});
+            }
+        })
+    }
+
     generateQuotes(data) {
         data.forEach(function (quote) {
             let categories = "";
-            console.log(quote);
             quote.categories.forEach(function (category) {
                 categories += `<span>${category}</span>`;
             });
@@ -60,9 +74,5 @@ class QuotesUI {
             </div>
             `)
         });
-    }
-
-    clearQuotes() {
-        $(".quote").remove();
     }
 }
