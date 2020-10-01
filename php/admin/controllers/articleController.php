@@ -2,7 +2,7 @@
     require_once "controller.php";
     require_once "models/articleModel.php";
 
-    class ArticleController extends Controller 
+    class ArticleController extends Control
     {
         public function __construct() {
             parent::__construct();

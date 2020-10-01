@@ -13,8 +13,10 @@
     $action = $_REQUEST["action"];
     $args = (isset($_REQUEST["args"])) ? $_REQUEST["args"] : array();
 
-    if(is_callable(array($controller, $action))) 
-        $controller->{$action}($args);
+    if(is_callable(array($controller, $action))) {
+        $result = $controller->{$action}($args);
+        print(json_encode(array(0,$result)));
+    }
 
     else 
         $controller->reportError("Próbowano wykonać niepoprawne działanie: $action");

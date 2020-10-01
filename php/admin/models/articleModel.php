@@ -8,7 +8,7 @@
             $this->type = "article";
         }
 
-        public function getRecords($start, $step) {
+        public function getRecords($start, $step, $order = "") {
             $query = "SELECT 
                 articles.article_id AS id,
                 articles_authors.author_name AS author,
@@ -32,7 +32,7 @@
             }
 
             $results = array();
-            while($row = $result->fetch_object()) {
+            while($row = $result->fetch_assoc()) {
                 $results[] = $row;
             }
             

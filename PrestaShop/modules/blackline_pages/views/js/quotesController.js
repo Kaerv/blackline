@@ -1,11 +1,11 @@
 class QuotesController {
     constructor() {
-        this.loadedCount = 0;
+        this.loadedCount = 25;
         this.totalCount;
         this.countByStep = 25;
         this.tryCount = 0;
 
-        this.getCount().then(this.getQuotes);
+        this.getCount();
     }
 
     getCount() {
@@ -56,7 +56,8 @@ class QuotesController {
                     q: "quotes",
                     args: {
                         start: controller.loadedCount,
-                        step: controller.countByStep
+                        step: controller.countByStep,
+                        order: order
                     }
                 },
             }).done((response) => {

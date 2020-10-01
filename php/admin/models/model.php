@@ -7,8 +7,8 @@
         public function __construct() {
             $this->hasError = false;
             $this->createDatabaseConnection();
-            $this->dbName;
-            $this->type;
+            $this->dbName = NULL;
+            $this->type = NULL;
         }
 
         public function createDatabaseConnection() {

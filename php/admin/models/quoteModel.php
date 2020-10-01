@@ -8,7 +8,7 @@
             $this->type = "quote";
         }
 
-        public function getRecords($start, $step) {
+        public function getRecords($start, $step, $order = "date_added") {
             $query = "SELECT 
                 quotes.quote_id AS id, 
                 quotes.content AS content, 
@@ -20,7 +20,7 @@
 
             WHERE 
                 quotes.author_id = quotes_authors.author_id
-            ORDER BY quotes.date_added
+            ORDER BY quotes.$order 
             LIMIT $start, $step";
 
             if(!$result = $this->mysqli->query($query)) {
@@ -29,12 +29,52 @@
             }
 
             $results = array();
-            while($row = $result->fetch_object()) {
-                $row->categories = $this->getCategoriesByQuoteId($row->id);
+            while($row = $result->fetch_assoc()) {
+                $row['categories'] = $this->getCategoriesByQuoteId($row['id']);
                 $results[] = $row;
             }
             
             return $results;
+        }
+
+        public function getAllAuthors() {
+            $query = "SELECT 
+                quotes_authors.author_name AS name
+            FROM quotes_authors WHERE 1
+            ORDER BY author_name";
+
+            if(!$result = $this->mysqli->query($query)) {
+                $this->reportError($this->mysqli->error);
+                return false;
+            }
+
+            $results = array();
+            while($row = $result->fetch_assoc()) {
+                $results[] = $row;
+            }
+            
+            return $results;
+        }
+
+        public function getBestAuthors() {
+            $query = "SELECT DISTINCT
+            quotes_authors.author_name AS name,
+            quotes.likes
+        FROM quotes_authors, quotes 
+        WHERE   quotes.author_id = quotes_authors.author_id
+        ORDER BY quotes.likes LIMIT 6";
+
+        if(!$result = $this->mysqli->query($query)) {
+            $this->reportError($this->mysqli->error);
+            return false;
+        }
+
+        $results = array();
+        while($row = $result->fetch_assoc()) {
+            $results[] = $row;
+        }
+        
+        return $results;
         }
 
         public function existsQuoteWithContent($content) {

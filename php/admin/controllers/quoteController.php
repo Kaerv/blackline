@@ -2,7 +2,7 @@
     require_once "controller.php";
     require_once __DIR__."/../models/quoteModel.php";
 
-    class QuoteController extends Controller 
+    class QuoteController extends Control 
     {
         public function __construct($fromFrontController = 0) {
             parent::__construct($fromFrontController);
@@ -11,7 +11,18 @@
             $this->reportErrorIfOccured();
         }
 
+        public function getAllAuthors() {
+            $authors = $this->model->getAllAuthors();
+            $this->reportErrorIfOccured();
+            //$this->endWork();
+            return $authors;
+        }
 
+        public function getBestAuthors() {
+            $authors = $this->model->getBestAuthors();
+            $this->reportErrorIfOccured();
+            return $authors;
+        }
 
         public function send($args) {
             $this->validateContent($args["content"]);
@@ -34,7 +45,6 @@
 
             $this->reportErrorIfOccured();
         }
-
 
 
         private function validateCategories($categories) {

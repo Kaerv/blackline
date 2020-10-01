@@ -49,7 +49,7 @@ class QuotesUI {
                 </div>
                 <div class="quote-actions">
                     <div class="quote-favourite">
-                        <div class="fav-count"><span>1234</span></div>
+                        <div class="fav-count"><span>${quote.likes}</span></div>
                         <img src="/assets/icons/heart.svg" class="fav-ico">
                     </div>
                     <div class="quote-embed">
@@ -60,5 +60,9 @@ class QuotesUI {
             </div>
             `)
         });
+    }
+
+    clearQuotes() {
+        $(".quote").remove();
     }
 }

@@ -5,7 +5,11 @@
 
     switch($q) {
         case "count": 
-            $controller->getAllCount();
+            print(
+                json_encode(
+                    array(0, $controller->getAllCount())
+                )
+            );
         break;
         case "quotes": 
             $controller->getRows($_GET["args"]);

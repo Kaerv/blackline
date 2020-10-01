@@ -6,6 +6,7 @@
     display: grid;
     grid-template-columns: 30% 70%;
     min-height: 400px;
+    position: relative;
 }
 
 #filters-container {
@@ -179,6 +180,10 @@
     display: flex;
 }
 
+#sort-container * {
+    z-index: 100;
+}
+
 #sort-options {
     margin-left: 6px;
 }
@@ -196,6 +201,7 @@
 #quote-sort-list {
     border: solid 1px #DCDCDC;
     display: none;
+    background-color: white;
 }
 
 .sort-option {
