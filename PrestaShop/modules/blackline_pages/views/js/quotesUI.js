@@ -3,10 +3,13 @@ class QuotesUI {
         this.setCheckboxListEvents();
         this.setSortEvents();
         this.setWindowEvents();
+        this.setSearchEvents();
+        this.areCategoriesSearching = false;
     }
 
     setCheckboxListEvents() {
         $(".checkbox-list").scrollbar();
+        $("#categories-list").scrollbar();
         $("#all-authors-title").click(() => {
             $("#all-authors-list").toggle();
             $("#all-authors-button").toggleClass('button-rotated');
@@ -36,6 +39,48 @@ class QuotesUI {
                 controller.getQuotes().then(() =>{actualLoading = false});
             }
         })
+    }
+
+    setSearchEvents() {
+        $("#category-search-input").on("input", this.searchCategories);
+    }
+
+    searchCategories() {
+        if(!this.areCategoriesSearching) {
+            this.areCategoriesSearching = true;
+            let phrase = $("#category-search-input").val();
+            console.log(`%cWpisano coś! Treść: ${phrase}`, "color:white");
+            if(phrase != ""){
+                controller.findCategories(phrase).then(quotesUI.generateCategories);
+            }
+            else 
+                $("#categories-list").html("");
+
+            let timeout = setTimeout(() => {
+                console.log(`%cMożna wyszukiwać. ${phrase} => ${$("#category-search-input").val()}`, "color:#50FF50");
+                this.areCategoriesSearching = false;
+                if(phrase != $("#category-search-input").val()) {
+                    console.log(`%cWyszukuję ponownie. ${phrase} => ${$("#category-search-input").val()}`, "color: #fbff00");
+                    quotesUI.searchCategories();
+                }
+            }, 500);
+        }
+    }
+
+    generateCategories(data) {
+        console.log("%cKoniec wyszukiwania", "color: #FF5050");
+        let categoriesDOM = "";
+        data.forEach((category) => {
+            categoriesDOM += `
+            <div class="filter-value-container">
+                <div class="filter-value">
+                    <span>${category["name"]}</span>
+                    <img src="/assets/icons/close.svg">
+                </div>
+            </div>
+            `
+        });
+        $("#categories-list").html(categoriesDOM);
     }
 
     generateQuotes(data) {

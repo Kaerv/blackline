@@ -18,5 +18,12 @@
                 )
             ); 
         break;
+        case "findCategories":
+            print(
+                json_encode(
+                    array(0, $controller->findCategories($_GET["args"]))
+                )
+            ); 
+        break;
     }
 ?>

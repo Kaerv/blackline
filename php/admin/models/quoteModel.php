@@ -77,6 +77,26 @@
         return $results;
         }
 
+        public function findCategories($phrase) {
+            $query = "SELECT DISTINCT
+                quotes_categories.category_name AS name
+            FROM quotes_categories
+            WHERE  category_name LIKE '%$phrase%'
+            ORDER BY category_name";
+            
+        if(!$result = $this->mysqli->query($query)) {
+            $this->reportError($this->mysqli->error);
+            return false;
+        }
+
+        $results = array();
+        while($row = $result->fetch_assoc()) {
+            $results[] = $row;
+        }
+        
+        return $results;
+        }
+
         public function existsQuoteWithContent($content) {
             $stmt = $this->mysqli->prepare("SELECT quote_id FROM quotes WHERE content = ?");
             $stmt->bind_param('s', $content);

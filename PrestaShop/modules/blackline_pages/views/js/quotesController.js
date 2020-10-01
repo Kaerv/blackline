@@ -89,4 +89,28 @@ class QuotesController {
             });
         });
     }
+
+    findCategories(phrase) {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                method: "GET",
+                url: "/php/quotes.php",
+                dataType: "JSON",
+                data: {
+                    q: "findCategories",
+                    args: {
+                        phrase: phrase
+                    }
+                },
+            }).done((response) => {
+                if(response[0] == 0) {
+                    resolve(response[1]);
+                }
+                else {
+                }
+            }).fail(() => {
+            });
+        })
+
+    }
 }

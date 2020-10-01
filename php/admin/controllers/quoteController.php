@@ -24,6 +24,12 @@
             return $authors;
         }
 
+        public function findCategories($args) {
+            
+            $categories = $this->model->findCategories($args["phrase"]);
+            return $categories;
+        }
+
         public function send($args) {
             $this->validateContent($args["content"]);
             $existingAuthor = $this->validateAuthor($args["author"]);

@@ -19,7 +19,7 @@
                 <input type="text" placeholder="Wyszukaj kategorie" id="category-search-input">
                 <img src="/assets/icons/search.svg"> 
             </div>
-            <div class="filter-values-list">
+            <div class="filter-values-list scrollbar-inner" id="categories-list">
                 <div class="filter-value-container">
                     <div class="filter-value">
                         <span>Miłość</span>
