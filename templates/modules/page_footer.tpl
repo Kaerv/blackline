@@ -32,7 +32,6 @@
     </div>
     <div id="footer-social">
         <a href="#facebook"><img src="./assets/icons/facebook.svg" alt=""></a>
-        <a href="#youtube"><img src="./assets/icons/youtube.svg" alt=""></a>
         <a href="#instagram"><img src="./assets/icons/instagram.svg" alt=""></a>
     </div>
     <div id="footer-logo">

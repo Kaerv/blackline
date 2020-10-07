@@ -174,7 +174,6 @@
       </div>
       <div id="footer-social">
           <a href="#facebook"><img src="{$urls.shop_domain_url}/assets/icons/facebook.svg" alt=""></a>
-          <a href="#youtube"><img src="{$urls.shop_domain_url}/assets/icons/youtube.svg" alt=""></a>
           <a href="#instagram"><img src="{$urls.shop_domain_url}/assets/icons/instagram.svg" alt=""></a>
       </div>
       <div id="footer-logo">

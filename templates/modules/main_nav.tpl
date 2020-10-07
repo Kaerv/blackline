@@ -3,7 +3,7 @@
     <div class="nav-line"></div>
     <a class="menu-option disabled">AKADEMIA <br>MYŚLI ULOTNEJ</a>
     <div class="nav-line"></div>
-    <a class="menu-option" href="/index.php?page=cytaty">CYTATY <br>Z GŁĘBI STRON</a>
+    <a class="menu-option" href="/PrestaShop/index.php?fc=module&module=blackline_pages&controller=quotes">CYTATY <br>Z GŁĘBI STRON</a>
     <div class="nav-line"></div>
     <a class="menu-option disabled">ENCYKLOPEDIA <br>DEFINICJI ZAPOMNIANYCH</a>
     <div class="nav-line"></div>
@@ -24,7 +24,7 @@
             <span>AKADEMIA MYŚLI ULOTNEJ</span>
         </a>
         <div class="nav-line"></div>
-        <a class="menu-option" href="/index.php?page=cytaty">
+        <a class="menu-option" href="/PrestaShop/index.php?fc=module&module=blackline_pages&controller=quotes">
             <span>CYTATY Z GŁĘBI STRON</span>
         </a>
         <div class="nav-line"></div>

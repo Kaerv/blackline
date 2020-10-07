@@ -44,10 +44,8 @@
     filter: invert(100%);
 }
 
-#footer-social a:nth-child(2) {
-    --social-margin: 100px;
-
-    margin: 0 var(--social-margin) 0 var(--social-margin);
+#footer-social > a:first-child {
+    margin-right: 100px;
 }
 
 #footer-logo img {
@@ -63,6 +61,6 @@
     #footer-menu > ul > li { font-size: 18px; }
     #footer-menu > ul > li > ul > li { font-size: 16px; }
     #footer-social img { height: 50px; }
-    #footer-social a:nth-child(2) { --social-margin: 60px; }
+    #footer-social > a:first-child { margin-right: 60px; }
     #footer-logo img { width: 240px; }
 }

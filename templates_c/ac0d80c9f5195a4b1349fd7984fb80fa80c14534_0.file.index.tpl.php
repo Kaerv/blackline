@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-25 09:01:06
+/* Smarty version 3.1.34-dev-7, created on 2020-10-06 15:42:56
   from '/var/www/html/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f6db1d2b9eff2_42226409',
+  'unifunc' => 'content_5f7c9080a14aa1_07439557',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ac0d80c9f5195a4b1349fd7984fb80fa80c14534' => 
     array (
       0 => '/var/www/html/templates/index.tpl',
-      1 => 1601023983,
+      1 => 1601998974,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/shop_description.tpl' => 1,
   ),
 ),false)) {
-function content_5f6db1d2b9eff2_42226409 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7c9080a14aa1_07439557 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <section id="hero-image" class="section"></section>
     <section id="quote_section" class="section">
         <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'CYTATY Z GŁĘBI STRON','link'=>'#cytaty'), 0, false);
@@ -89,56 +89,16 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
 ?>
     </section>
     <section id="youtube-preview" class="section text">
-        <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'AKADEMIA MYŚLI ULOTNEJ','link'=>'#galeria'), 0, true);
+        <?php $_smarty_tpl->_subTemplateRender('file:modules/section_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>'CHCIAŁBYŚ WIĘCEJ?','link'=>'#galeria'), 0, true);
 ?> 
 
         <div id="slider">
-            <div id="slide-1" class="slide">
-                <p id="youtube-note">                
-                    To wielki zaszczyt gościć was w&nbsp;przestrzeni wizji i&nbsp;fonii. <br> Zasiądźcie wygodnie z&nbsp;kubkiem kawy i&nbsp;głodem ciekawości niezaspokojonej. Filmów tu kilka odnajdziecie, a&nbsp;wykłady w&nbsp;nich ukryte niech odpowiedzią będą na pytania Wasze najważniejsze.<br> Czym jest ta psychologia, czym miłość, czym samotność, filozofia, cierpienie? <br> I&nbsp;dlaczego tak często zastanawiacie się czy w&nbsp;ogóle warto rano wstać..?
-                </p>
-                <div class="separate-line" style="width: 350px;"></div>
-                <p class="youtube-summary-1">Akademia myśli ulotnej?</p>
-                <p class="youtube-summary-2">TO NASZ KANAŁ NA YOUTUBIE!</p>
-                <a href="#youtube">
-                    <div class="youtube-button-shadow"></div>
-                <img id="first-slide-youtube-ico" src="/assets/icons/youtube.png" alt="">
-                </a>
-            </div>
-
-            <div id="slide-2" class="slide">
-                <div id="slide-2-content-container">
-                    <div id="slide-2-right-content">
-                        <div id="preview-1"  class="preview"></div>
-                        <div id="preview-2" class="preview"></div>
-                        <p id="preview-title-1">Czym jest ta <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">psychologia</span>?</p>
-                        <p id="preview-title-2">A co to właściwie jest <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">miłość</span>?</p>
-                    </div>
-                    <div id="slide-2-left-content">
-                        <div id="slide-2-lt">
-                            <p id="slide-2-youtube-desc">W naszych filmach poznasz odpowiedzi na najtrudniejsze pytania!</p>
-                            <a id="slide-2-youtube-button" href="">
-                                <img id="slide-2-youtube-ico" src="/assets/icons/youtube.svg" alt="">
-                                <p id="slide-2-youtube-button-text">YOUTUBE</p>
-                            </a>
-                        </div>
-                        <div id="slide-2-lb">
-                            <p style="margin-bottom: 10px">Nie przegap żadnej odpowiedzi</p>
-                            <p style="margin: 0; margin-bottom: 10px;">i</p>
-                            <div id="subscribe">
-                                <div id="subscribe-button">SUBSKRYBUJ</div> 
-                                <img id="subscribe-click" src="/assets/icons/click.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div id="slide-3" class="slide">
                 <div id="slide-3-content-container">
                     <div id="social-note"  style="grid-area:title;">
                         ŚLEDŹ NAS NA INSTAGRAMIE I FACEBOOKU!
                     </div>
-                    <div class="slider-3-blackline-link" style="grid-area:insta-account;">@blackline</div>
+                    <div class="slider-3-blackline-link" style="grid-area:insta-account;"><a href="https://www.instagram.com/blackline.art.shop/">@blackline.shop.art</a></div>
                     <div class="slider-3-social-link"  style="grid-area:insta-link;">
                         <img class="slider-3-social-ico" id="slider-3-ig-ico" src="/assets/icons/instagram.svg" alt="">
                         <p class="slider-3-social-title">INSTAGRAM</p>
@@ -147,23 +107,9 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
                         <img class="slider-3-social-ico" id="slider-3-fb-ico" src="/assets/icons/facebook.svg" alt="">
                         <p class="slider-3-social-title" >FACEBOOK</p>
                     </div>
-                    <div class="slider-3-blackline-link"  style="grid-area:fb-account;">@Blackline</div>
+                    <div class="slider-3-blackline-link"  style="grid-area:fb-account;"><a href="https://www.facebook.com/blackline.art.shop">@blackline.shop.art</a></div>
                 </div>
             </div>
-
-            <div id="slide-dots-container">
-                <?php
-$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 3+1 - (1) : 1-(3)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
-if ($_smarty_tpl->tpl_vars['i']->total > 0) {
-for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
-$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
-                <div class="slide-dot" onclick="slider.manualChange(<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-)"><div></div></div>
-                <?php }
-}
-?>
-            </div>
-
         </div>
         <?php echo '<script'; ?>
 
@@ -235,9 +181,9 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
                 }
             }
             
-            let slider = new Slider(1, 10000);
-            $("#slider").ready(slider.start());
-            console.log(`${window.innerWidth}x${window.innerHeight}`);
+            //let slider = new Slider(1, 10000);
+            //$("#slider").ready(slider.start());
+            //console.log(`${window.innerWidth}x${window.innerHeight}`);
 
             $(window).on("resize", function() {
                 let windowHeight = window.innerHeight;

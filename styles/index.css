@@ -133,7 +133,6 @@
     position: absolute;
     width: 100%;
     height: fit-content;
-    display: none;
     margin-top: -40px;
 }
 
@@ -295,7 +294,7 @@
     'insta-account insta-link space fb-link fb-account';
     grid-row-gap: 160px;
     align-items: center;
-    width: 60%;
+    width: 66%;
 }
 
 #social-note {
@@ -303,7 +302,7 @@
 }
 
 .slider-3-social-ico {
-    width: 100px;
+    width: 90px;
     height: auto;
 }
 

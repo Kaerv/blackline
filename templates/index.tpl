@@ -69,56 +69,16 @@
     </section>
     <section id="youtube-preview" class="section text">
         {include file='modules/section_header.tpl' 
-        title='AKADEMIA MYŚLI ULOTNEJ'
+        title='CHCIAŁBYŚ WIĘCEJ?'
         link = '#galeria'} 
 
         <div id="slider">
-            <div id="slide-1" class="slide">
-                <p id="youtube-note">                
-                    To wielki zaszczyt gościć was w&nbsp;przestrzeni wizji i&nbsp;fonii. <br> Zasiądźcie wygodnie z&nbsp;kubkiem kawy i&nbsp;głodem ciekawości niezaspokojonej. Filmów tu kilka odnajdziecie, a&nbsp;wykłady w&nbsp;nich ukryte niech odpowiedzią będą na pytania Wasze najważniejsze.<br> Czym jest ta psychologia, czym miłość, czym samotność, filozofia, cierpienie? <br> I&nbsp;dlaczego tak często zastanawiacie się czy w&nbsp;ogóle warto rano wstać..?
-                </p>
-                <div class="separate-line" style="width: 350px;"></div>
-                <p class="youtube-summary-1">Akademia myśli ulotnej?</p>
-                <p class="youtube-summary-2">TO NASZ KANAŁ NA YOUTUBIE!</p>
-                <a href="#youtube">
-                    <div class="youtube-button-shadow"></div>
-                <img id="first-slide-youtube-ico" src="/assets/icons/youtube.png" alt="">
-                </a>
-            </div>
-
-            <div id="slide-2" class="slide">
-                <div id="slide-2-content-container">
-                    <div id="slide-2-right-content">
-                        <div id="preview-1"  class="preview"></div>
-                        <div id="preview-2" class="preview"></div>
-                        <p id="preview-title-1">Czym jest ta <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">psychologia</span>?</p>
-                        <p id="preview-title-2">A co to właściwie jest <span style="font-family: Dancing Script; margin: 0 10px 0 10px; font-size: 24px; line-height: -100%;">miłość</span>?</p>
-                    </div>
-                    <div id="slide-2-left-content">
-                        <div id="slide-2-lt">
-                            <p id="slide-2-youtube-desc">W naszych filmach poznasz odpowiedzi na najtrudniejsze pytania!</p>
-                            <a id="slide-2-youtube-button" href="">
-                                <img id="slide-2-youtube-ico" src="/assets/icons/youtube.svg" alt="">
-                                <p id="slide-2-youtube-button-text">YOUTUBE</p>
-                            </a>
-                        </div>
-                        <div id="slide-2-lb">
-                            <p style="margin-bottom: 10px">Nie przegap żadnej odpowiedzi</p>
-                            <p style="margin: 0; margin-bottom: 10px;">i</p>
-                            <div id="subscribe">
-                                <div id="subscribe-button">SUBSKRYBUJ</div> 
-                                <img id="subscribe-click" src="/assets/icons/click.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div id="slide-3" class="slide">
                 <div id="slide-3-content-container">
                     <div id="social-note"  style="grid-area:title;">
                         ŚLEDŹ NAS NA INSTAGRAMIE I FACEBOOKU!
                     </div>
-                    <div class="slider-3-blackline-link" style="grid-area:insta-account;">@blackline</div>
+                    <div class="slider-3-blackline-link" style="grid-area:insta-account;"><a href="https://www.instagram.com/blackline.art.shop/">@blackline.shop.art</a></div>
                     <div class="slider-3-social-link"  style="grid-area:insta-link;">
                         <img class="slider-3-social-ico" id="slider-3-ig-ico" src="/assets/icons/instagram.svg" alt="">
                         <p class="slider-3-social-title">INSTAGRAM</p>
@@ -127,16 +87,9 @@
                         <img class="slider-3-social-ico" id="slider-3-fb-ico" src="/assets/icons/facebook.svg" alt="">
                         <p class="slider-3-social-title" >FACEBOOK</p>
                     </div>
-                    <div class="slider-3-blackline-link"  style="grid-area:fb-account;">@Blackline</div>
+                    <div class="slider-3-blackline-link"  style="grid-area:fb-account;"><a href="https://www.facebook.com/blackline.art.shop">@blackline.shop.art</a></div>
                 </div>
             </div>
-
-            <div id="slide-dots-container">
-                {for $i=1 to 3}
-                <div class="slide-dot" onclick="slider.manualChange({$i})"><div></div></div>
-                {/for}
-            </div>
-
         </div>
         <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -205,9 +158,9 @@
                 }
             }
             
-            let slider = new Slider(1, 10000);
-            $("#slider").ready(slider.start());
-            console.log(`${window.innerWidth}x${window.innerHeight}`);
+            //let slider = new Slider(1, 10000);
+            //$("#slider").ready(slider.start());
+            //console.log(`${window.innerWidth}x${window.innerHeight}`);
 
             $(window).on("resize", function() {
                 let windowHeight = window.innerHeight;
