@@ -4,12 +4,14 @@ class QuotesUI {
         this.setSortEvents();
         this.setWindowEvents();
         this.setSearchEvents();
+        this.setFiltersEvents();
         this.areCategoriesSearching = false;
     }
 
     setCheckboxListEvents() {
         $(".checkbox-list").scrollbar();
         $("#categories-list").scrollbar();
+        $("#authors-list").scrollbar();
         $("#all-authors-title").click(() => {
             $("#all-authors-list").toggle();
             $("#all-authors-button").toggleClass('button-rotated');
@@ -35,52 +37,22 @@ class QuotesUI {
 
             if(windowBottom >= lastQuotePos && !actualLoading) {
                 actualLoading = true;
-                console.log("Hej");
-                controller.getQuotes().then(() =>{actualLoading = false});
+                controller.getQuotes().then(() =>{
+                    setTimeout(() => {actualLoading = false}, 600);
+                });
             }
         })
     }
 
     setSearchEvents() {
-        $("#category-search-input").on("input", this.searchCategories);
+        $("#category-search-input").on("keyup", () => {categoriesSearch.search(categoriesSearch)});
+        $("#category-search-input").on("cut", () => {categoriesSearch.search(categoriesSearch)});
+        $("#author-search-input").on("keyup", () => {authorsSearch.search(authorsSearch)});
+        $("#author-search-input").on("cut", () => {authorsSearch.search(authorsSearch)});
     }
 
-    searchCategories() {
-        if(!this.areCategoriesSearching) {
-            this.areCategoriesSearching = true;
-            let phrase = $("#category-search-input").val();
-            console.log(`%cWpisano coś! Treść: ${phrase}`, "color:white");
-            if(phrase != ""){
-                controller.findCategories(phrase).then(quotesUI.generateCategories);
-            }
-            else 
-                $("#categories-list").html("");
-
-            let timeout = setTimeout(() => {
-                console.log(`%cMożna wyszukiwać. ${phrase} => ${$("#category-search-input").val()}`, "color:#50FF50");
-                this.areCategoriesSearching = false;
-                if(phrase != $("#category-search-input").val()) {
-                    console.log(`%cWyszukuję ponownie. ${phrase} => ${$("#category-search-input").val()}`, "color: #fbff00");
-                    quotesUI.searchCategories();
-                }
-            }, 500);
-        }
-    }
-
-    generateCategories(data) {
-        console.log("%cKoniec wyszukiwania", "color: #FF5050");
-        let categoriesDOM = "";
-        data.forEach((category) => {
-            categoriesDOM += `
-            <div class="filter-value-container">
-                <div class="filter-value">
-                    <span>${category["name"]}</span>
-                    <img src="/assets/icons/close.svg">
-                </div>
-            </div>
-            `
-        });
-        $("#categories-list").html(categoriesDOM);
+    setFiltersEvents() {
+        $("#filter-button").click(controller.filter);
     }
 
     generateQuotes(data) {
@@ -118,6 +90,61 @@ class QuotesUI {
                 </div>
             </div>
             `)
+        });
+    }
+}
+
+class FilterSearch {
+    constructor(s, p) {
+        this.singular = s;
+        this.plural = p;
+        this.isSearching = false;
+    }
+
+    search(self, repeat = false) {
+        if(!self.isSearching || repeat) {
+            self.isSearching = true;
+            let phrase = $(`#${self.singular}-search-input`).val();
+
+            if(phrase != "")
+                controller.find(self.singular, self.plural, phrase).then((data) => {self.generateFilters(self, data)});
+            else 
+                $(`#${self.plural}-list`).html("Wyszukaj filtry");
+            let timeout = setTimeout(() => {
+                self.checkResultsAreActual(self, phrase);
+            }, 700);
+        }
+    }
+
+    checkResultsAreActual(self, phrase) {
+        if(phrase != $(`#${self.singular}-search-input`).val()) {
+            self.search(self, true);
+        }
+        else {
+            self.isSearching = false;
+        }
+    }
+
+    generateFilters(self, data) {
+        let newContent = (data.length == 0) ? "Nie znaleziono wyników" : "";
+        $(`#${self.plural}-list`).text(newContent);
+
+        data.forEach((filter) => {
+            let name = filter["name"];
+            if(self.singular == 'category') {
+                name = name.toLowerCase();
+                name = name.charAt(0).toUpperCase() + name.slice(1);
+            }
+            let newFilter = $(`
+            <div class="filter-value-container">
+                <div class="filter-value">
+                    <span>${name}</span>
+                    <img src="/assets/icons/close.svg">
+                </div>
+            </div>
+            `);
+            $(newFilter).click(function() {$(this).find(".filter-value").toggleClass("selected")});
+            $(`#${self.plural}-list`).append($(newFilter));
         });
     }
 }

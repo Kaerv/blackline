@@ -97,6 +97,28 @@
         return $results;
         }
 
+        public function findFilters($args) {
+            $phrase = $args["phrase"];
+            $singular = $args["singular"];
+            $plural = $args["plural"];
+            $query = "SELECT DISTINCT ".$singular."_name AS name
+            FROM quotes_".$plural."
+            WHERE  ".$singular."_name LIKE '%$phrase%'
+            ORDER BY ".$singular."_name";
+            
+        if(!$result = $this->mysqli->query($query)) {
+            $this->reportError($this->mysqli->error);
+            return false;
+        }
+
+        $results = array();
+        while($row = $result->fetch_assoc()) {
+            $results[] = $row;
+        }
+        
+        return $results;
+        }
+
         public function existsQuoteWithContent($content) {
             $stmt = $this->mysqli->prepare("SELECT quote_id FROM quotes WHERE content = ?");
             $stmt->bind_param('s', $content);

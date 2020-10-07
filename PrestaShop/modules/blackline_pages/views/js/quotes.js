@@ -1,6 +1,10 @@
 let quotesUI;
 let controller;
+let categoriesSearch;
+let authorsSearch;
 $(document).ready(() => {
-    quotesUI = new QuotesUI();
+    categoriesSearch = new FilterSearch("category", "categories");
+    authorsSearch = new FilterSearch("author", "authors");
     controller = new QuotesController();
+    quotesUI = new QuotesUI();
 })

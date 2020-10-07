@@ -24,10 +24,9 @@
             return $authors;
         }
 
-        public function findCategories($args) {
-            
-            $categories = $this->model->findCategories($args["phrase"]);
-            return $categories;
+        public function findFilters($args) {
+            $results = $this->model->findFilters($args);
+            return $results;
         }
 
         public function send($args) {

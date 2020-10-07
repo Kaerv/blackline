@@ -90,15 +90,17 @@ class QuotesController {
         });
     }
 
-    findCategories(phrase) {
+    find(singular, plural, phrase) {
         return new Promise((resolve, reject) => {
             $.ajax({
                 method: "GET",
                 url: "/php/quotes.php",
                 dataType: "JSON",
                 data: {
-                    q: "findCategories",
+                    q: `find_filters`,
                     args: {
+                        plural: plural,
+                        singular: singular,
                         phrase: phrase
                     }
                 },
@@ -111,6 +113,41 @@ class QuotesController {
             }).fail(() => {
             });
         })
+    }
 
+    filter() {
+        let baseUrl = currentUrl.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+        let sortPos = baseUrl.indexOf("&sort");
+        let filtersPos = baseUrl.indexOf("&filters");
+        
+        if(sortPos != -1)
+            baseUrl = baseUrl.substr(0, sortPos);
+
+        if(filtersPos != -1)
+            baseUrl = baseUrl.substr(0, filtersPos);
+
+        let sortUrl = `&sort=${$("#sort-actual").attr("class")}`;
+        let filterUrl = "&filter=";
+
+        if($("#authors-list .filter-value.selected").length > 0)
+            filterUrl += "autorzy-";
+
+        $("#authors-list .filter-value.selected span").each(function () {
+            if(filterUrl[filterUrl.length - 1] != "-") 
+                filterUrl += "/";
+            console.log($(this));
+            filterUrl += $(this).text().replace(" ", "+");
+        });
+
+        if($("#categories-list .filter-value.selected").length > 0)
+        filterUrl += "kategorie-";
+
+        $("#categories-list .filter-value.selected span").each(function () {
+            if(filterUrl[filterUrl.length - 1] != "-") 
+                filterUrl += "/";
+            console.log($(this));
+            filterUrl += $(this).text().replace(" ", "+");
+        });
+        console.log(filterUrl);
     }
 }

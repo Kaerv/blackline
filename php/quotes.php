@@ -18,10 +18,10 @@
                 )
             ); 
         break;
-        case "findCategories":
+        case "find_filters":
             print(
                 json_encode(
-                    array(0, $controller->findCategories($_GET["args"]))
+                    array(0, $controller->findFilters($_GET["args"]))
                 )
             ); 
         break;

@@ -2,6 +2,7 @@
 {block name="page_content"}
 <script>
     let order = '{$order}';
+    let currentUrl = '{$urls.current_url}';
 </script>
 <section id="quotes-section">
 <div>
@@ -20,24 +21,7 @@
                 <img src="/assets/icons/search.svg"> 
             </div>
             <div class="filter-values-list scrollbar-inner" id="categories-list">
-                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value selected">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Miłość</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
+                Wyszukaj filtry
             </div>
         </div>
         <div id="authors-filters" class="filters">
@@ -46,25 +30,8 @@
                 <input type="text" placeholder="Wyszukaj autora" id="author-search-input">
                 <img src="/assets/icons/search.svg"> 
             </div>
-            <div class="filter-values-list">
-                <div class="filter-value-container">
-                    <div class="filter-value selected">
-                        <span>Stephen King</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value selected">
-                        <span>Andrzej Sapkowski</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
-                <div class="filter-value-container">
-                    <div class="filter-value">
-                        <span>Wisława Szymborska</span>
-                        <img src="/assets/icons/close.svg">
-                    </div>
-                </div>
+            <div class="filter-values-list scrollbar-inner" id="authors-list">
+                Wyszukaj filtry
             </div>
             <div id="best-authors">
                 <div class="checkbox-list-title">Najbardziej lubiani autorzy:</div>
@@ -111,14 +78,15 @@
                 </div>
             </div>
         </div>
+        <input type="button" value="FILTRUJ" id="filter-button">
     </div>
-    </div>
+</div>
     <div id="quotes-container">
         <div id="sort-container">
             <div>Sortuj:</div>
             <div id="sort-options">
                 <div id="sort-input">
-                    <div id="sort-actual" class="likes">{$order_name}</div>
+                    <div id="sort-actual" class="{$order}">{$order_name}</div>
                     <img src="/assets/icons/down-arrow.svg">
                 </div>
                 <div id="quote-sort-list">
@@ -139,6 +107,8 @@
                 <div class="quote-border">
                     <div class="border lt"></div>
                     <div class="border rt"></div>
+                    <div class="border lm"></div>
+                    <div class="border rm"></div>
                     <div class="border lb"></div>
                     <div class="border rb"></div>
                 </div>
