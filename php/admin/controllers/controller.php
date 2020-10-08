@@ -19,7 +19,8 @@ class Control {
         $step = $args["step"];
         $order = isset($args["order"]) ? $args["order"] : "date_added";
         $order = str_replace("-", " ", $order);
-        $result = $this->model->getRecords($start, $step, $order);
+        $filters = $args["filters"];
+        $result = $this->model->getRecords($start, $step, $order, $filters);
         $this->reportErrorIfOccured();
         //$this->endWork($result);
         return $result;
@@ -58,14 +59,13 @@ class Control {
         $results = $this->model->findByPhrase($phrase);
         $this->reportErrorIfOccured();
 
-        $this->endWork($results);
+        $this->endWork();
+        return $results;
         
     }
 
-    protected function endWork($msg) {
+    protected function endWork() {
         $this->model->endWork();
-        return $msg;
-        exit();
     }
 
     protected function reportErrorIfOccured() {

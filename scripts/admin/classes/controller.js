@@ -199,6 +199,7 @@ class Controller {
                 }
             },
             success: (response) => {
+                console.log(response);
                 if(response[0] == 0) {
                     if(!response[1].length)
                         logger.log("Nie znaleziono pasujących wyników.");

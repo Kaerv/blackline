@@ -19,6 +19,7 @@
             }
 
             $this->mysqli->query("SET NAMES utf8");
+            $this->mysqli->set_charset("utf8");
             $this->mysqli->autocommit(FALSE);   
         }
 
@@ -74,7 +75,7 @@
                     $author_id = $row[0];
                 }
 
-                $result = $this->mysqli->query("SELECT ".$this->type."_id FROM articles WHERE author_id = $author_id");
+                $result = $this->mysqli->query("SELECT ".$this->type."_id FROM $this->dbName WHERE author_id = $author_id");
                 return $result->num_rows == 1 ? $author_id : false;
             }
 

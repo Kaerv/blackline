@@ -128,6 +128,7 @@ class QuotesPanelController extends PanelController {
     }
 
     generateDOM(quotes) {
+        console.log(quotes);
         quotes.forEach((quote) => {
             let categories = "";
             quote.categories.forEach((category) => {

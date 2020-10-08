@@ -37,8 +37,8 @@
             $authorId = $this->addAuthor($args["author"], $existingAuthor);
             $categoriesIds = $this->addCategories($categories);
             $this->addQuote($args["content"], $args["translation"], $authorId, $categoriesIds);
-
-            $this->endWork("Dodano cytat!");
+            $this->endWork();
+            return "Dodano cytat!";
         }
 
         private function validateContent($content) {
@@ -111,8 +111,8 @@
             $this->model->remove($id);
             if($author) $this->model->removeAuthor($author);
             $this->reportErrorIfOccured();
-
-            $this->endWork("Usunięto cytat!");
+            $this->endWork();
+            return "Usunięto cytat!";
         }
 
         public function edit($args) {
@@ -137,7 +137,7 @@
             $this->addQuote($args["content"], $args["translation"], $authorId, $categoriesIds);
 
 
-            $this->endWork("Edytowano cytat!");
+            return "Edytowano cytat!";
         }
     }
 ?>

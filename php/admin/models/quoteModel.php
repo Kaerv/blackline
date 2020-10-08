@@ -8,7 +8,37 @@
             $this->type = "quote";
         }
 
-        public function getRecords($start, $step, $order = "date_added") {
+        public function getRecords($start, $step, $order = "date_added", $filters = array()) {
+            $filter = "";
+            if(count($filters)) {
+                $filter .= "AND (";
+                if(isset($filters["autorzy"]) && count($filters["autorzy"])) {
+                    $filter .= "quotes_authors.author_name IN (";
+                    foreach($filters["autorzy"] as $i=>$author) {
+                        if($i != 0) {
+                            $filter .= ", ";
+                        }
+                        $filter .= "'$author'";
+                    }
+                    $filter .= ")";
+                }
+
+                if(isset($filters["kategorie"]) && count($filters["kategorie"])) {
+                    if(isset($filters["autorzy"]) && count($filters["autorzy"]))
+                        $filter .= " AND ";
+                    $filter .= "quotes_categories.category_name IN (";
+
+                    foreach($filters["kategorie"] as $i=>$category) {
+                        if($i != 0) {
+                            $filter .= ", ";
+                        }
+                        $filter .= "'$category'";
+                    }
+                    $filter .= ")";
+                }
+                $filter .= ")";
+            }
+
             $query = "SELECT 
                 quotes.quote_id AS id, 
                 quotes.content AS content, 
@@ -16,10 +46,13 @@
                 quotes_authors.author_name AS author, 
                 quotes.date_added AS dateAdded, 
                 quotes.likes AS likes
-            FROM quotes, quotes_authors 
+            FROM quotes, quotes_authors, quotes_categories, quotes_categories_sets
 
             WHERE 
-                quotes.author_id = quotes_authors.author_id
+                quotes.author_id = quotes_authors.author_id AND
+                quotes_categories_sets.quote_id = quotes.quote_id AND
+                quotes_categories_sets.category_id = quotes_categories.category_id
+                $filter
             ORDER BY quotes.$order 
             LIMIT $start, $step";
 
@@ -27,7 +60,7 @@
                 $this->reportError($this->mysqli->error);
                 return false;
             }
-
+            
             $results = array();
             while($row = $result->fetch_assoc()) {
                 $row['categories'] = $this->getCategoriesByQuoteId($row['id']);
@@ -297,9 +330,7 @@
                 quotes.translation AS translation, 
                 quotes_authors.author_name AS author, 
                 quotes.date_added AS dateAdded, 
-                quotes.visit_daily AS visitDaily, 
-                quotes.visit_monthly AS visitMonthly, 
-                quotes.visit_yearly AS visitYearly 
+                quotes.likes AS likes
             FROM quotes, quotes_categories_sets, quotes_categories, quotes_authors 
 
             WHERE 
@@ -309,7 +340,7 @@
                     quotes.content LIKE ? OR 
                     quotes.translation LIKE ? OR
                     quotes_authors.author_name LIKE ? OR
-                    quotes_categories.category_name LIKE ?) LIMIT 50";
+                    quotes_categories.category_name LIKE ?) LIMIT 500";
 
             $stmt = $this->mysqli->prepare($query);
             $stmt->bind_param("ssss", $phrase, $phrase, $phrase, $phrase);
