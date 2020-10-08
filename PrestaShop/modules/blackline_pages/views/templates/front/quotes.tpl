@@ -1,7 +1,14 @@
+<!doctype html>
+<html lang="{$language.iso_code}">
+  <head>
+    {block name='head'}
+      {include file='_partials/head.tpl'}
+    {/block}
+  </head>
+  <body>
 {extends file='page.tpl'}
 {block name="page_content"}
 <script>
-    let order = '{$order}';
     let currentUrl = '{$urls.current_url}';
 </script>
 <section id="quotes-section">
@@ -9,10 +16,12 @@
     <div id="filters-container">
         <div id="filters-header">
             <div id="filters-title">FILTRY</div>
+            {if count($selected_authors) or count($selected_categories)}
             <div id="clear-filters">
                 <span>Wyczyść filtry</span>
                 <img src="/assets/icons/close.svg">
             </div>
+            {/if}
         </div>
         <div id="categories-filters" class="filters">
             <div class="filter-title">Kategorie</div>
@@ -20,8 +29,17 @@
                 <input type="text" placeholder="Wyszukaj kategorie" id="category-search-input">
                 <img src="/assets/icons/search.svg"> 
             </div>
+            <div class="filter-values-list selected-list scrollbar-inner" id="selected-categories-list">
+            {foreach from=$selected_categories item="category"}
+                <div class="filter-value-container">
+                    <div class="filter-value selected">
+                        <span>{$category}</span>
+                        <img src="/assets/icons/close.svg">
+                    </div>
+                </div>
+            {/foreach}
+            </div>
             <div class="filter-values-list scrollbar-inner" id="categories-list">
-                Wyszukaj filtry
             </div>
         </div>
         <div id="authors-filters" class="filters">
@@ -30,8 +48,17 @@
                 <input type="text" placeholder="Wyszukaj autora" id="author-search-input">
                 <img src="/assets/icons/search.svg"> 
             </div>
+            <div class="filter-values-list selected-list scrollbar-inner" id="selected-authors-list">
+                {foreach from=$selected_authors item="author"}
+                    <div class="filter-value-container">
+                        <div class="filter-value selected">
+                            <span>{$author}</span>
+                            <img src="/assets/icons/close.svg">
+                        </div>
+                    </div>
+                {/foreach}
+            </div>
             <div class="filter-values-list scrollbar-inner" id="authors-list">
-                Wyszukaj filtry
             </div>
             <div id="best-authors">
                 <div class="checkbox-list-title">Najbardziej lubiani autorzy:</div>
@@ -41,7 +68,7 @@
                         <span class="custom-checkbox">
                             <label>
                                 <div class="custom-checkbox-container">
-                                    <input name="{$author.name}" id="{$author.name}" type="checkbox">
+                                    <input name="{$author.name}" id="{$author.name}" type="checkbox" {if in_array($author.name, $selected_authors)}checked{/if}>
                                     <img src="/assets/icons/checked.svg">
                                     <div></div>
                                     <span style="display: none"><i class="material-icons rtl-no-flip">&#xE5CA;</i></span>
@@ -65,7 +92,7 @@
                         <span class="custom-checkbox">
                             <label>
                                 <div class="custom-checkbox-container">
-                                    <input name="{$author.name}" id="{$author.name}" type="checkbox">
+                                    <input name="{$author.name}" id="{$author.name}" type="checkbox" {if in_array($author.name, $selected_authors)}checked{/if}>
                                     <img src="/assets/icons/checked.svg">
                                     <div></div>
                                     <span style="display: none"><i class="material-icons rtl-no-flip">&#xE5CA;</i></span>
@@ -90,10 +117,10 @@
                     <img src="/assets/icons/down-arrow.svg">
                 </div>
                 <div id="quote-sort-list">
-                    <div class="sort-option"><a href="index.php?fc=module&module=blackline_pages&controller=quotes&sort=likes">Popularne</a></div>
-                    <div class="sort-option"><a href="index.php?fc=module&module=blackline_pages&controller=quotes&sort=date_added-DESC">Najnowsze</a></div>
-                    <div class="sort-option"><a href="index.php?fc=module&module=blackline_pages&controller=quotes&sort=date_added">Najstarsze</a></div>
-                    <div class="sort-option"><a href="index.php?fc=module&module=blackline_pages&controller=quotes&sort=content">Alfabetycznie</a></div>
+                    <div class="sort-option" id="likes">Popularne</div>
+                    <div class="sort-option" id="date_added-DESC">Najnowsze</div>
+                    <div class="sort-option" id="date_added">Najstarsze</div>
+                    <div class="sort-option" id="content">Alfabetycznie</div>
                 </div>
             </div>
         </div>
@@ -128,7 +155,11 @@
                     </div>
                 </div>
             </div>
+        {foreachelse}
+            Nie znaleziono cytatów.
         {/foreach}
     </div>
 </section>
 {/block}
+</body>
+</html>

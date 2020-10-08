@@ -71,6 +71,10 @@
     margin-top: 20px;
 }
 
+.selected-list {
+    min-height: 0px;
+}
+
 .filter-value-container {
     margin-right: 11px;
     display: block;

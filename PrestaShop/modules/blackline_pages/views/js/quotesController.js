@@ -57,7 +57,8 @@ class QuotesController {
                     args: {
                         start: controller.loadedCount,
                         step: controller.countByStep,
-                        order: order
+                        order: $("#sort-actual").attr("class"),
+                        filters: controller.getFiltersArray()
                     }
                 },
             }).done((response) => {
@@ -127,27 +128,54 @@ class QuotesController {
             baseUrl = baseUrl.substr(0, filtersPos);
 
         let sortUrl = `&sort=${$("#sort-actual").attr("class")}`;
-        let filterUrl = "&filter=";
+        let filterUrl = controller.createFilterUrl();
+        let newUrl = baseUrl + sortUrl + filterUrl;
+        window.location.replace(newUrl);
+    }
 
-        if($("#authors-list .filter-value.selected").length > 0)
-            filterUrl += "autorzy-";
+    createFilterUrl() {
+        let filterUrl = ""
+        if($("#selected-authors-list .filter-value.selected").length || $("#selected-categories-list .filter-value.selected").length)
+            filterUrl += "&filter=";
 
-        $("#authors-list .filter-value.selected span").each(function () {
-            if(filterUrl[filterUrl.length - 1] != "-") 
+        if($("#selected-authors-list .filter-value.selected").length > 0)
+            filterUrl += "autorzy:";
+
+        $("#selected-authors-list .filter-value.selected span").each(function () {
+            if(filterUrl[filterUrl.length - 1] != ":") 
                 filterUrl += "/";
-            console.log($(this));
-            filterUrl += $(this).text().replace(" ", "+");
+            filterUrl += $(this).text().split(' ').join('+');
         });
 
-        if($("#categories-list .filter-value.selected").length > 0)
-        filterUrl += "kategorie-";
+        if($("#selected-categories-list .filter-value.selected").length > 0) {
+            if(filterUrl.includes("autorzy")) 
+                filterUrl += "|"
 
-        $("#categories-list .filter-value.selected span").each(function () {
-            if(filterUrl[filterUrl.length - 1] != "-") 
+            filterUrl += "kategorie:";
+        }
+
+        $("#selected-categories-list .filter-value.selected span").each(function () {
+            if(filterUrl[filterUrl.length - 1] != ":") 
                 filterUrl += "/";
-            console.log($(this));
-            filterUrl += $(this).text().replace(" ", "+");
+            filterUrl += $(this).text().split(' ').join('+');
         });
-        console.log(filterUrl);
+        return filterUrl;
+    }
+
+    getFiltersArray() {
+        let categories = [];
+        let authors = [];
+
+        $("#selected-authors-list .filter-value.selected span").each(function () {
+            authors.push($(this).text());
+        });
+
+        $("#selected-categories-list .filter-value.selected span").each(function () {
+            categories.push($(this).text());
+        });
+        return {
+            "kategorie": categories,
+            "autorzy": authors
+        };
     }
 }

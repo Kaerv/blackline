@@ -26,12 +26,26 @@ class Blackline_PagesQuotesModuleFrontController extends ModuleFrontController {
         case "content":
           $order_name = "Alfabetycznie"; break;
       }
+      $filters = array();
+      if(isset($_GET["filter"])) {
+        $f = explode("|", $_GET["filter"]);
+        foreach($f as $filter) {
+          $v = explode(":", $filter);
+          $name = $v[0];
+          $filters[$name] = array();
+          $values = explode("/", $v[1]);
+          foreach($values as $value) {
+            $filters[$name][] = $value;
+          }
+        }
+      }
 
       $controller = new QuoteController(1);
       $quotes = $controller->getRows(array(
         "start" => 0,
         "step" => 25,
-        "order" => $order
+        "order" => $order,
+        "filters" => $filters
       ));
 
       $authors = $controller->getAllAuthors();
@@ -42,7 +56,9 @@ class Blackline_PagesQuotesModuleFrontController extends ModuleFrontController {
         'order' => $order,
         "order_name" => $order_name,
         'authors' => $authors,
-        'best_authors' => $bestAuthors
+        'best_authors' => $bestAuthors,
+        'selected_categories' => (isset($filters['kategorie']))? $filters["kategorie"] : array(),
+        'selected_authors' => (isset($filters['autorzy']))? $filters["autorzy"] : array(),
       ));
       $this->setTemplate('module:blackline_pages/views/templates/front/quotes.tpl');
     }

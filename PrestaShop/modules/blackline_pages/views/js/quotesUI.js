@@ -12,9 +12,23 @@ class QuotesUI {
         $(".checkbox-list").scrollbar();
         $("#categories-list").scrollbar();
         $("#authors-list").scrollbar();
+        $("#selected-categories-list").scrollbar();
+        $("#selected-authors-list").scrollbar();
         $("#all-authors-title").click(() => {
             $("#all-authors-list").toggle();
             $("#all-authors-button").toggleClass('button-rotated');
+        });
+        $("#best-authors input").click(function() {
+            let filter = $(this).parents(".custom-checkbox").find(".checkbox-label").text();
+            let type = "authors";
+            let selected = $(this).prop("checked");
+            quotesUI.selectFilter(type, filter, selected);
+        });
+        $("#all-authors input").click(function() {
+            let filter = $(this).parents(".custom-checkbox").find(".checkbox-label").text();
+            let type = "authors";
+            let selected = $(this).prop("checked");
+            quotesUI.selectFilter(type, filter, selected);
         });
     }
 
@@ -27,6 +41,13 @@ class QuotesUI {
             $("#sort-input > img").toggleClass("button-rotated");
             event.stopImmediatePropagation();
         });
+
+        $(".sort-option").click(function() {
+            let name = $(this).text();
+            let filter = $(this).attr("id");
+                $("#sort-actual").removeClass().addClass(filter).text(name);
+                controller.filter();
+        })
     }
 
     setWindowEvents() {
@@ -52,7 +73,18 @@ class QuotesUI {
     }
 
     setFiltersEvents() {
+        $(".filter-value.selected").parent().click(function() {
+            let filter = $(this).find("span").text();
+            let type = $(this).parent().attr("id").split("-")[1];
+            let selected = false;
+            quotesUI.selectFilter(type, filter, selected);
+        });
         $("#filter-button").click(controller.filter);
+
+        $("#clear-filters").click(function() {
+            $(".filter-value.selected").parent().remove();
+            controller.filter();
+        });
     }
 
     generateQuotes(data) {
@@ -92,6 +124,61 @@ class QuotesUI {
             `)
         });
     }
+
+    selectFilter(type, filter, selected) {
+        if(selected) {
+            $(`#${type}-list span`).each(function() {
+                if($(this).text() == filter) {
+                    $(this)
+                    .parents(".filter-value").addClass("selected")
+                    .parents(".filter-value-container").hide();
+                }
+            });
+            quotesUI.createNewSelectedFilter(type, filter);
+        }
+        else {
+            $(`#selected-${type}-list span`).each(function() {
+                if($(this).text() == filter) {
+                    $(this).parents(".filter-value-container").remove();
+                    
+                }
+            });
+            $(`#${type}-list span`).each(function() {
+                if($(this).text() == filter) {
+                    $(this)
+                    .parents(".filter-value").removeClass("selected")
+                    .parents(".filter-value-container").show();
+                }
+            });
+        }
+        if(type == "authors") {
+            $("#all-authors-list .custom-checkbox, #best-authors .custom-checkbox").each(function() {
+                let currentLabel = $(this).find(".checkbox-label").text();
+                if(filter == currentLabel) {
+                    $(this).find("input").prop("checked", selected);
+                }
+                    
+            })
+        }
+    }
+
+    createNewSelectedFilter(type, filter) {
+        let newFilter = $(`
+        <div class="filter-value-container">
+            <div class="filter-value selected">
+                <span>${filter}</span>
+                <img src="/assets/icons/close.svg">
+            </div>
+        </div>
+        `);
+        $(newFilter).click(function() {
+            let filter = $(this).find("span").text();
+            let type = $(this).parent().attr("id").split("-")[1];
+            let selected = false;
+            quotesUI.selectFilter(type, filter, selected);
+        });
+        $(`#selected-${type}-list`).append($(newFilter));
+    }
 }
 
 class FilterSearch {
@@ -109,7 +196,10 @@ class FilterSearch {
             if(phrase != "")
                 controller.find(self.singular, self.plural, phrase).then((data) => {self.generateFilters(self, data)});
             else 
-                $(`#${self.plural}-list`).html("Wyszukaj filtry");
+                $(`#${self.plural}-list .filter-value-container`).each(function() {
+                    $(this).remove();
+                });
+
             let timeout = setTimeout(() => {
                 self.checkResultsAreActual(self, phrase);
             }, 700);
@@ -126,8 +216,9 @@ class FilterSearch {
     }
 
     generateFilters(self, data) {
-        let newContent = (data.length == 0) ? "Nie znaleziono wyników" : "";
-        $(`#${self.plural}-list`).text(newContent);
+        $(`#${self.plural}-list .filter-value-container`).each(function() {
+            $(this).remove();
+        })
 
         data.forEach((filter) => {
             let name = filter["name"];
@@ -135,16 +226,29 @@ class FilterSearch {
                 name = name.toLowerCase();
                 name = name.charAt(0).toUpperCase() + name.slice(1);
             }
-            let newFilter = $(`
-            <div class="filter-value-container">
-                <div class="filter-value">
-                    <span>${name}</span>
-                    <img src="/assets/icons/close.svg">
+            if(!$(`#${self.plural}-list span:contains('${name}')`).length) {
+                let newFilter = $(`
+                <div class="filter-value-container">
+                    <div class="filter-value">
+                        <span>${name}</span>
+                        <img src="/assets/icons/close.svg">
+                    </div>
                 </div>
-            </div>
-            `);
-            $(newFilter).click(function() {$(this).find(".filter-value").toggleClass("selected")});
-            $(`#${self.plural}-list`).append($(newFilter));
+                `);
+                $(newFilter).click(function() {
+                    let filter = $(this).find("span").text();
+                    let type = $(this).parent().attr("id").split("-")[0];
+                    let selected = true;
+                    quotesUI.selectFilter(type, filter, selected);
+                });
+                let quoteIsSelected = false;
+                $(`#selected-${self.plural}-list span`).each(function() {
+                    if($(this).text() == name)
+                        quoteIsSelected = true;
+                });
+                if(!quoteIsSelected)
+                    $(`#${self.plural}-list`).append($(newFilter));
+            }
         });
     }
 }
