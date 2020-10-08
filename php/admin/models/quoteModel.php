@@ -15,6 +15,8 @@
                 if(isset($filters["autorzy"]) && count($filters["autorzy"])) {
                     $filter .= "quotes_authors.author_name IN (";
                     foreach($filters["autorzy"] as $i=>$author) {
+                        if($author == "Autor nieznany")
+                            $author = "";
                         if($i != 0) {
                             $filter .= ", ";
                         }

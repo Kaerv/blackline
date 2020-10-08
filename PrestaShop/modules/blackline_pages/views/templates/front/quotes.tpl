@@ -64,6 +64,7 @@
                 <div class="checkbox-list-title">Najbardziej lubiani autorzy:</div>
                 <div class="checkbox-list">
                 {foreach from=$best_authors item="author"}
+                {if $author.name == ""}{$author.name = "Autor nieznany"}{/if}
                     <div class="list-element">
                         <span class="custom-checkbox">
                             <label>
@@ -73,7 +74,7 @@
                                     <div></div>
                                     <span style="display: none"><i class="material-icons rtl-no-flip">&#xE5CA;</i></span>
                                 </div>
-                                <div class="checkbox-label">{if $author.name == ""}Autor nieznany {else}{$author.name}{/if}</div>
+                                <div class="checkbox-label">{$author.name}</div>
                             </label>
                         </span>
                     </div>
@@ -88,6 +89,7 @@
                 </div>
                 <div class="scrollbar-inner checkbox-list" id="all-authors-list">
                 {foreach from=$authors item="author"}
+                {if $author.name == ""}{$author.name = "Autor nieznany"}{/if}
                  <div class="list-element">
                         <span class="custom-checkbox">
                             <label>
@@ -97,7 +99,7 @@
                                     <div></div>
                                     <span style="display: none"><i class="material-icons rtl-no-flip">&#xE5CA;</i></span>
                                 </div>
-                                <div class="checkbox-label">{if $author.name == ""}Autor nieznany {else}{$author.name}{/if}</div>
+                                <div class="checkbox-label">{$author.name}</div>
                             </label>
                         </span>
                     </div>
