@@ -4,7 +4,7 @@
 
 #quotes-section {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 26% 74%;
     min-height: 400px;
     position: relative;
 }

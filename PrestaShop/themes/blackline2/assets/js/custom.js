@@ -20,3 +20,7 @@ $("#first-step-register").on("click", function() {
     $(".register-form-container").show();
     $(".register-form-first-step").hide();
 });
+
+$(".product-section-title").click(function() {
+    $(this).parent().find(".tab-pane").toggle();
+})

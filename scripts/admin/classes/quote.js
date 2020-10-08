@@ -77,7 +77,13 @@ class QuotesPanelController extends PanelController {
         `);
 
         $("#add-button").on("click", () => { controller.send(); });
-        $("#add-quote-category").on("keydown", (event) => { if(event.keyCode == 13) this.addCategoryToList(false) });
+        $("#add-quote-category").on("keydown", (event) => { 
+            if(event.keyCode == 13) this.addCategoryToList(false);
+            else if($("#add-quote-category").val().length >= 20) {
+                let value = $("#add-quote-category").val().substring(0, $("#add-quote-category").val().length - 1);
+                $("#add-quote-category").val(value);
+            }   
+        });
     }
 
     addCategoryToList(existingQuote) {

@@ -63,6 +63,9 @@
                 $this->reportError("Cytat nie może mieć więcej niż 3 kategorie!");
 
             foreach($categories as $key => $category) {
+                if(strlen($category) > 20)
+                    $this->reportError("Kategoria $category jest za długa!");
+                    
                 $existingCategoryId = $this->model->getCategoryIdByName($category);
                 $this->reportErrorIfOccured();
 

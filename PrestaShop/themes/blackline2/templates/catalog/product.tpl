@@ -180,7 +180,7 @@
       <div class="product-section-title-content">Dostawa i płatność</div>
       <div class="product-section-line"></div>
     </div>
-          <p>W budowie</p>
+          <div class="tab-pane">W budowie</div>
   </section>
   {hook h='displayFeaturedProducts'}
 
