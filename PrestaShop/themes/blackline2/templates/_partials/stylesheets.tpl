@@ -40,3 +40,6 @@
 <link rel="stylesheet" href="/styles/page-footer.css">
 <link rel="stylesheet" href="/styles/cart-preview.css">
 <link rel="stylesheet" href="/styles/shop-description.css">
+{if $page.page_name == "index"}
+<link rel="stylesheet" href="/styles/index.css">
+{/if}

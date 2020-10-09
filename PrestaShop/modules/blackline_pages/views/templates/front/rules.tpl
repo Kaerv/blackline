@@ -1,3 +1,13 @@
+    <!doctype html>
+<html lang="{$language.iso_code}">
+  <head>
+    {block name='head'}
+      {include file='_partials/head.tpl'}
+    {/block}
+  </head>
+  <body>
+{extends file='page.tpl'}
+{block name="page_content"}
     <div id="menu-separate-line"></div>
     {assign var=rules value=[
         'Dokonujesz zakupu świadomie i uczciwie przyznajesz, że chcesz i wiesz, że chcesz tego, co kupujesz.',
@@ -13,9 +23,6 @@
         'A upragnione swe prawdziwe „ja”, odziejesz, kiedy posłaniec dostarczy Ci szczęście to w paczce prawdziwie pięknej,  z papieru i sznura złożonej, z pieczęcią na froncie dodaną.',
         'I naprawdę upraszamy Ciebie o świadome dzieła tworzenie, gdyż zwrotów jako takich nie będzie ze względu na nieodwracalną ingerencję farby w materiał odzienia Twego.  A jeszcze nikt nie wymyślił maszyny czasu by go cofnąć i zmiany dokonać.'
         ]}
-        {include 
-            file='modules/section_header.tpl' 
-            title='REGULAMIN - METAFIZYKA ZASAD'}
     <section id="rules" class="section text">
         {for $i = 1 to 11}
         <p class="rule-num">{$i}</p>
@@ -49,3 +56,6 @@
             zali zważ swe postanowienie umowy słownej formularzem potwierdzonej 
             i odpowiedzialnie u posłańca z paczką Twą, należność ureguluj.</p>
     </section>
+{/block}
+</body>
+</html>

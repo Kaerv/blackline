@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-09 09:39:23
+/* Smarty version 3.1.34-dev-7, created on 2020-10-09 10:15:17
   from '/var/www/html/templates/page.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f58a2cbb06999_06299451',
+  'unifunc' => 'content_5f8038356bf5a8_20926506',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/page_footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f58a2cbb06999_06299451 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f8038356bf5a8_20926506 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['page']->value != 'index') {?>
     <?php ob_start();
 echo ucfirst($_smarty_tpl->tpl_vars['page']->value);

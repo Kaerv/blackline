@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-08-13 12:31:38
+/* Smarty version 3.1.34-dev-7, created on 2020-10-09 10:15:17
   from '/var/www/html/templates/modules/section_header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f3532aa39c259_36497690',
+  'unifunc' => 'content_5f8038356f6772_88464852',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f3532aa39c259_36497690 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f8038356f6772_88464852 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>@import "/styles/section-header.css";</style>
 <div class="section-header center-position" style="<?php echo $_smarty_tpl->tpl_vars['style']->value;?>
 ">

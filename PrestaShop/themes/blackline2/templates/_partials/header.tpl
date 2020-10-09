@@ -53,7 +53,7 @@
                 {if isset($smarty.session.cart.products_count) && $smarty.session.cart.products_count > 0}
                     <div id="products-amount"><span id="cart-products-amount">{$smarty.session.cart.products_count}</span></div>
                 {/if}
-                {include file='../../../../../templates/modules/cart_preview.tpl'}
+                {include file='./cart_preview.tpl'}
             </div>
         </div>
     </div>
@@ -85,5 +85,5 @@
     </script>
     {/literal}
     
-    {include file='../../../../../templates/modules/main_nav.tpl'}
+    {include file='./main_nav.tpl'}
  

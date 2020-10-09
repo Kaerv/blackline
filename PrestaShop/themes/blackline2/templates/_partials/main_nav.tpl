@@ -7,7 +7,7 @@
     <div class="nav-line"></div>
     <a class="menu-option disabled">ENCYKLOPEDIA <br>DEFINICJI ZAPOMNIANYCH</a>
     <div class="nav-line"></div>
-    <a class="menu-option" href="/index.php?page=regulamin">REGULAMIN <br>METAFIZYKA ZASAD</a>
+    <a class="menu-option" href="/PrestaShop/index.php?fc=module&module=blackline_pages&controller=rules">REGULAMIN <br>METAFIZYKA ZASAD</a>
 </nav>
 
 <nav id="mobile-nav-panel">
@@ -32,7 +32,7 @@
             <span>ENCYKLOPEDIA DEFINICJI ZAPOMNIANYCH</span>
         </a>
         <div class="nav-line"></div>
-        <a class="menu-option" href="/index.php?page=regulamin">
+        <a class="menu-option" href="/PrestaShop/index.php?fc=module&module=blackline_pages&controller=rules">
             <span>REGULAMIN METAFIZYKA ZASAD</span>
         </a>
     </div>
