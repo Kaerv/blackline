@@ -30,28 +30,6 @@
     {/block}
   </head>
   <body id="{$page.page_name}" class="{$page.body_classes|classnames}">
-  {if $cart.products_count > 0}
-  {assign var=lastProduct value=$cart.products[count($cart.products) - 1]}
-  {get_cart_to_session
-    cart=$cart 
-    productImg=$lastProduct.cover.bySize.cart_default.url
-    productName=$lastProduct.name
-    productPrice=$lastProduct.total
-    productQuantity=$lastProduct.quantity
-    cartLink=$urls.pages.cart
-    summaryLink=$urls.pages.order
-  }
-  {else}
-  {get_cart_to_session
-    cart="" 
-    productImg=""
-    productName=""
-    productPrice=""
-    productQuantity=""
-    cartLink=$urls.pages.cart
-    summaryLink=$urls.pages.order
-  }
-  {/if}
     {block name='hook_after_body_opening_tag'}
       {hook h='displayAfterBodyOpeningTag'}
     {/block}
@@ -74,17 +52,26 @@
       
       {block name='page_title'}
       <div style="width:100%; border-bottom: solid 1px rgba(0,0,0,0.2);"></div>
-            {if $page.page_name == "module-blackline_pages-quotes"}
+        {if $page.page_name == "module-blackline_pages-quotes"}
         {include 
-          file='../../../../../templates/modules/section_header.tpl' 
+          file='_partials/section_header.tpl' 
           title="CYTATY Z GŁĘBI STRON" 
           link="" 
           style=""}
       <div style="width:100%; border-bottom: solid 1px rgba(0,0,0,0.2);"></div>
+        {elseif $page.page_name == "module-blackline_pages-rules"}
+        {include 
+          file='_partials/section_header.tpl' 
+          title="REGULAMIN - METAFIZYKA ZASAD" 
+          link="" 
+          style=""}
+      <div style="width:100%; border-bottom: solid 1px rgba(0,0,0,0.2);"></div>
+              {elseif $page.page_name == "index"}
+
       
       {elseif $page.page_name != 'cart' && $page.page_name != "authentication"}
         {include 
-          file='../../../../../templates/modules/section_header.tpl' 
+          file='_partials/section_header.tpl' 
           title="GALERIA MOJEGO EGO" 
           link="" 
           style=""}
@@ -94,7 +81,7 @@
 
       {block name="shop_description"}
         {if isset($smarty.get.id_category) && $smarty.get.id_category == 2}
-          {include file="../../../../../templates/modules/shop_description.tpl"}
+          {include file="_partials/shop_description.tpl"}
         {/if}
       {/block}
 
