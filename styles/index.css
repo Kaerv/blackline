@@ -319,7 +319,7 @@
 }
 
 .slider-3-blackline-link {
-    font-family: Dancing Script;
+    font-family: Dancing Script !important;
     font-size: 2em;
     margin-bottom: 30px;
 }

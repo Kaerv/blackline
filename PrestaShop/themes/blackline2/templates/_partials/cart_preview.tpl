@@ -27,14 +27,14 @@
 <script>
     $("#summary-button").on("click", function(event) {
         event.preventDefault();
-        window.location.href = "{$smarty.session.summaryLink}"
+        window.location.href = "{$urls.pages.order}"
     });
     $("#cart-button").on("click", function(event) {
         event.preventDefault();
-        window.location.href = "{$smarty.session.cartLink}"
+        window.location.href = "{$urls.pages.cart}"
     });
 
     $("#header-cart-ico").on("click", function(event) {
-        window.location.href = "{$smarty.session.cartLink}"
+        window.location.href = "{$urls.pages.cart}"
     });
 </script>
