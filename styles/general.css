@@ -26,6 +26,9 @@
     font-weight: bold;
 }
 
+html, body, main, header {
+    height: fit-content;
+}
 body {
     font-size: 100%;
 }

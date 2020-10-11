@@ -52,13 +52,11 @@
               <div class="quotes-section-title">SŁOWA SĄ UKRYTĄ SIŁA ŻYCIA...</div>
               <div class="quotes-section-title quotes-title-fancy">Ile masz jej w sobie?</div>
           </div>
-
-
         {assign var=authors value=[
-            '- BERTOLD BRECHT -',
-            '- JOHANN WOLFGANG VON GOETHE -',
-            '- ANTOINE DE SAINT EXUPÉRY -',
-            '- ALEKSANDER DUMAS -']} 
+            'BERTOLD BRECHT',
+            'JOHANN WOLFGANG VON GOETHE',
+            'ANTOINE DE SAINT EXUPÉRY',
+            'ALEKSANDER DUMAS']} 
         {assign var=quotes value=[
             'Kto walczy, może przegrać. Kto nie walczy, już przegrał.',
             'Talent rośnie w samotności, charakter wśród ludzi.',
@@ -66,11 +64,21 @@
             '[...] zła najczęściej nie da się naprawić; możemy je tylko pomścić.']}
         <div id="quotes" class="text">
             {for $i = 0 to 3}
-            <div class="quote-container center-position">
-                <div class="quote-sign">,,</div>
-                <div class="quote">{$quotes[$i]}</div>
-                <div class="quote-author">{$authors[$i]}</div>
-            </div>
+                <div class="quote">
+                    <div class="quote-border">
+                        <div class="border lt"></div>
+                        <div class="border rt"></div>
+                        <div class="border lm"></div>
+                        <div class="border rm"></div>
+                        <div class="border lb"></div>
+                        <div class="border rb"></div>
+                    </div>
+                    <div class="quote-wrap">
+                        <img class="quotation-mark" src="/assets/icons/quotation.svg">
+                        <div class="quote-content">{$quotes[$i]}</div>
+                        <div class="quote-author">- {if $authors[$i] == ""} Autor nieznany {else}{$authors[$i]}{/if} -</div>
+                    </div>
+                </div>
             {/for}
         </div>
     </section>
@@ -214,13 +222,14 @@
                 let windowHeight = window.innerHeight;
                 let headerHeight = $("#page-header")[0].clientHeight;
                 $("#hero-image").css("height", windowHeight - headerHeight);
-                console.log(headerHeight)
+                //console.log(headerHeight)
             });
         </script>
         {/literal}
     </section>
       </section>
     {/block}
+    <script src="{$urls.js_url}/index-scroll.js"></script>
 {/block}
 </body>
 </html>

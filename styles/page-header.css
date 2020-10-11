@@ -2,7 +2,7 @@ header, header > * {
     width: 100%;
 }
 
-header {
+#page-header {
     position: relative;
     height: 200px;
     font-family: Raleway;
