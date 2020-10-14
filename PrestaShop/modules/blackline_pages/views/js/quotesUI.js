@@ -5,6 +5,7 @@ class QuotesUI {
         this.setWindowEvents();
         this.setSearchEvents();
         this.setFiltersEvents();
+        this.setFavouritesEvents();
         this.areCategoriesSearching = false;
     }
 
@@ -87,14 +88,19 @@ class QuotesUI {
         });
     }
 
+    setFavouritesEvents() {
+        $(".fav-ico").click(function() {
+            
+        });
+    }
+
     generateQuotes(data) {
         data.forEach(function (quote) {
             let categories = "";
             quote.categories.forEach(function (category) {
                 categories += `<span>${category}</span>`;
             });
-
-            $("#quotes-container").append(`
+            let newQuote = $(`
             <div class="quote" id="${quote.id}">
                 <div class="quote-categories">
                     ${categories}
@@ -113,7 +119,7 @@ class QuotesUI {
                 <div class="quote-actions">
                     <div class="quote-favourite">
                         <div class="fav-count"><span>${quote.likes}</span></div>
-                        <img src="/assets/icons/heart.svg" class="fav-ico">
+                        
                     </div>
                     <div class="quote-embed">
                         <img class="embed-ico" src="/assets/icons/embed.png">
@@ -121,7 +127,13 @@ class QuotesUI {
                     </div>
                 </div>
             </div>
-            `)
+            `);
+            let favIco = $('<img src="/assets/icons/heart.svg" class="fav-ico">');
+            $(favIco).click(function() {
+                console.log("Hej");
+            });
+            $(newQuote).find(".quote-favourite").append(favIco);
+            $("#quotes-container").append(newQuote);
         });
     }
 
