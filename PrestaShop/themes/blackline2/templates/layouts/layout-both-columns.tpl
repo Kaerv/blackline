@@ -66,7 +66,14 @@
           link="" 
           style=""}
       <div style="width:100%; border-bottom: solid 1px rgba(0,0,0,0.2);"></div>
-              {elseif $page.page_name == "index"}
+        {elseif $page.page_name == "index"}
+        {elseif $page.page_name == "module-blackline_creator-creator"}
+        {include 
+          file='_partials/section_header.tpl' 
+          title="KREATOR" 
+          link="" 
+          style=""}
+      <div style="width:100%; border-bottom: solid 1px rgba(0,0,0,0.2);"></div>
 
       
       {elseif $page.page_name != 'cart' && $page.page_name != "authentication"}
@@ -127,7 +134,7 @@
         </div>
         {hook h="displayWrapperBottom"}
       </section>
-      {if $page.page_name != "authentication"}
+      {if $page.page_name != "authentication" and $page.page_name != "module-blackline_creator-creator" }
       <footer id="footer">
       <div id="footer-menu">
           <ul>

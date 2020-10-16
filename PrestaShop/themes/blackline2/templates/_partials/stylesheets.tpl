@@ -33,7 +33,6 @@
 {/foreach}
 <link rel="stylesheet" href="/styles/general.css">
 <link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/header.css">
-<link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/product.css">
 <link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/cart.css">
 <link rel="stylesheet" href="/styles/page-header.css">
 <link rel="stylesheet" href="/styles/page-footer.css">
@@ -41,7 +40,10 @@
 <link rel="stylesheet" href="/styles/shop-description.css">
 {if $page.page_name == "index"}
 <link rel="stylesheet" href="/styles/index.css">
+{elseif $page.page_name == "product"}
+<link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/product.css">
 {else}
 <link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/products.css">
 {/if}
+
 
