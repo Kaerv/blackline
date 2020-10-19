@@ -144,3 +144,17 @@ $(document).ready(function () {
       $(".current-size").text(newValue);
   }
 });
+
+prestashop.on("updatedProduct", function() {
+  console.log($(".product-cover img").attr("src").split("/p/")[1].split("/")[0]);
+  let Id = $(".product-cover img").attr("src").split("/p/")[1].split("/")[0];
+  creatorUrl = baseCreatorUrl + `&variant=${Id}`;
+  $(".creator").attr("href", creatorUrl);
+  console.log($(".creator").attr("href"));
+});
+if(prestashop.page.page_name == "product") {
+  let Id = $(".product-cover img").attr("src").split("/p/")[1].split("/")[0];
+  creatorUrl = baseCreatorUrl + `&variant=${Id}`;
+  $(".creator").attr("href", creatorUrl);
+  console.log($(".creator").attr("href"));
+}

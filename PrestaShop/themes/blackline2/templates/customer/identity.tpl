@@ -25,7 +25,7 @@
 {extends 'customer/page.tpl'}
 
 {block name='page_title'}
-  {l s='Your personal information' d='Shop.Theme.Customeraccount'}
+  Moje dane
 {/block}
 
 {block name='page_content'}

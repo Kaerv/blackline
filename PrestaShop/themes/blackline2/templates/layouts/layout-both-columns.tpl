@@ -76,7 +76,7 @@
       <div style="width:100%; border-bottom: solid 1px rgba(0,0,0,0.2);"></div>
 
       
-      {elseif $page.page_name != 'cart' && $page.page_name != "authentication"}
+      {elseif $page.page_name == "category"}
         {include 
           file='_partials/section_header.tpl' 
           title="GALERIA MOJEGO EGO" 

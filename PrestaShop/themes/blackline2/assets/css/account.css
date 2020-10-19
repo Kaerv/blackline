@@ -1,3 +1,7 @@
+.material-icons {
+    display: none;
+}
+
 #authentication #content {
     min-height: 90vh;
 }
@@ -8,6 +12,7 @@
     grid-column-gap: 10%;
     width: 80%;
     margin: auto;
+    margin-top: 100px;
 }
 
 .account-forms-separate-line {
@@ -27,6 +32,30 @@
 .js-customer-form .form-group:first-child,
 .js-visible-password + span {
     display: none;
+}
+
+#identity .js-customer-form .form-group:first-child,
+.js-visible-password + span {
+    display: block;
+}
+
+#identity .js-customer-form .form-group:first-child .form-control-label {
+    display: none;
+}
+
+#identity .js-customer-form .form-group:first-child .form-control-valign{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+#identity .js-customer-form .form-group:first-child .radio-inline{
+    margin-right: 30px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+#identity .js-customer-form .form-group:first-child .custom-radio{
+    margin-left: 10px;
 }
 
 .form-group {
@@ -141,6 +170,26 @@
     margin: 100px auto;
 }
 
+.page-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.links {
+    border-right: solid 2px #DCDCDC;
+    width: 100%;
+    padding: 50px 0;
+    padding-right: 18%;
+    margin-top: 50px;
+    margin-left: 20%;
+}
+
+.links a {
+    display: block;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 1000px) {
     #account-forms-container {    
         grid-template-columns: 1fr;
@@ -153,4 +202,4 @@
     .account-forms-separate-line {
         display: none;
     }
-}
+}   

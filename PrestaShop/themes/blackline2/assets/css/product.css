@@ -192,9 +192,12 @@
     margin-left: 12px;
 }
 
-.add-to-cart {
-    width: 280px;
-    height: 46px;
+.creator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height: 42px;
     background-color: black;
     color: white;
     margin: 0;
@@ -204,7 +207,7 @@
     transition: all 150ms linear 0s;
 }
 
-.add-to-cart:hover {
+.creator:hover {
     color: black;
     background-color: white;
 }

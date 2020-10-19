@@ -31,6 +31,16 @@
     {$stylesheet.content}
   </style>
 {/foreach}
+
+{assign var="customerpagenames" value=array(
+  "authentication",
+  "my-account",
+  "identity",
+  "address",
+  "history",
+  "order-slip",
+  "module-psgdpr-gdpr"
+)}
 <link rel="stylesheet" href="/styles/general.css">
 <link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/header.css">
 <link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/cart.css">
@@ -42,6 +52,8 @@
 <link rel="stylesheet" href="/styles/index.css">
 {elseif $page.page_name == "product"}
 <link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/product.css">
+{elseif in_array($page.page_name, $customerpagenames)}
+<link rel="stylesheet" type="text/css" href="{$urls.css_url}account.css">
 {else}
 <link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/products.css">
 {/if}

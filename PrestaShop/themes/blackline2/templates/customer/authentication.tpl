@@ -24,7 +24,7 @@
  *}
 {extends file='page.tpl'}
 {block name='page_content'}
-    <link rel="stylesheet" type="text/css" href="{$urls.css_url}account.css">
+    
     <div id="account-forms-container">
       {block name='login_form_container'}
         <section class="login-form">

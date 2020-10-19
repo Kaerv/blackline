@@ -29,6 +29,7 @@
 {/block}
 
 {block name='head' append}
+
   <meta property="og:type" content="product">
   <meta property="og:url" content="{$urls.current_url}">
   <meta property="og:title" content="{$page.meta.title}">
@@ -45,10 +46,10 @@
   <meta property="product:weight:value" content="{$product.weight}">
   <meta property="product:weight:units" content="{$product.weight_unit}">
   {/if}
+  <script>let baseCreatorUrl="{$urls.base_url}index.php?fc=module&module=blackline_creator&controller=creator&id_product={$product.id}"; let creatorUrl = "";</script>
 {/block}
 
 {block name='content'}
-
   <section id="main" class="product-main" itemscope itemtype="https://schema.org/Product">
     <meta itemprop="url" content="{$product.url}">
 
