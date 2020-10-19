@@ -11,10 +11,8 @@
     margin-bottom: 20px;
 }
 
-#product-view {
-    height: 600px;
+#product-view img {
     width: 100%;
-    background-color: #DCDCDC;
 }
 
 #product-sides {
@@ -46,6 +44,9 @@
 }
 
 .button-white {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: solid 1px black;
     outline: none;
     background-color: white;

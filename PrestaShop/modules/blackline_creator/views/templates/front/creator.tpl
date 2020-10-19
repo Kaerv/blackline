@@ -8,10 +8,13 @@
   <body>
 {extends file='page.tpl'}
 {block name="page_content"}
+    <script>
+        var productId = "{$id_product}";
+    </script>
     <section id="creator">
         <div id="product-preview">
             <div id="product-name">Nazwa produktu</div>
-            <div id="product-view"></div>
+            <div id="product-view"><img src="{$image_url}"></div>
             <div id="product-sides">
                 <div>Przód</div>
                 <div>Tył</div>
@@ -25,8 +28,8 @@
             </div>
         </div>
         <div id="product-options">
-            <div id="choose-quote-container">
-                <input type="button" value="Wybierz cytat" class="button-white">
+            <div id="choose-quote-container"> 
+                <input type="button" value="Wybierz cytat" class="button-white" id="choose-quote">
             </div>
             <div></div>
             <div id="own-text-container">

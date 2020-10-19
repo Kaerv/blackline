@@ -11,6 +11,9 @@
 <script>
     let currentUrl = '{$urls.current_url}';
 </script>
+{if isset($creator_product_id)}
+Wybierasz cytat dla produktu: {$creator_product_id}
+{/if}
 <section id="quotes-section">
 <div>
     <div id="filters-container">

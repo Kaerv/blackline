@@ -60,6 +60,13 @@ class Blackline_PagesQuotesModuleFrontController extends ModuleFrontController {
         'selected_categories' => (isset($filters['kategorie']))? $filters["kategorie"] : array(),
         'selected_authors' => (isset($filters['autorzy']))? $filters["autorzy"] : array(),
       ));
+
+      if($this->context->cookie->__isset("creator_product_id")) {
+        $this->context->smarty->assign(array(
+          "creator_product_id" => $this->context->cookie->creator_product_id
+        ));
+      }
+
       $this->setTemplate('module:blackline_pages/views/templates/front/quotes.tpl');
     }
 
