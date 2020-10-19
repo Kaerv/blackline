@@ -45,9 +45,10 @@
             <a href="#favourite" id="header-favourite">
                 <img id="header-favourite-ico" class="header-ico" src="/assets/icons/heart.svg" alt="">
             </a>
-            <a href="{$urls.pages.my_account}" id="header-account">
+            <div id="header-account">
                 <img id="header-account-ico" class="header-ico" src="/assets/icons/person.svg" alt="">
-            </a>
+                {include file="./account_preview.tpl"}
+            </div>
             <div id="header-cart">
                 <img id="header-cart-ico" class="header-ico" src="/assets/icons/gift.svg" alt="">
                 {if isset($smarty.session.cart.products_count) && $smarty.session.cart.products_count > 0}

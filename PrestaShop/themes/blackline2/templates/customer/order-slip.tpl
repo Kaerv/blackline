@@ -24,12 +24,11 @@
  *}
 {extends file='customer/page.tpl'}
 
-{block name='page_title'}
-  {l s='Credit slips' d='Shop.Theme.Customeraccount'}
-{/block}
-
 {block name='page_content'}
-  <h6>{l s='Credit slips you have received after canceled orders.' d='Shop.Theme.Customeraccount'}</h6>
+<div>
+{block name='page_title'}
+  <div class="account-page-title">MOJE REKLAMACJE</div>
+{/block}
   {if $credit_slips}
     <table class="table table-striped table-bordered hidden-sm-down">
       <thead class="thead-default">
@@ -76,5 +75,8 @@
         </div>
       {/foreach}
     </div>
+    {else}
+    <p class="no-slip-message">Nie złożono żadnej reklamacji</p>
   {/if}
+  </div>
 {/block}

@@ -52,11 +52,19 @@
       <input type="hidden" name="submitCreate" value="1">
       {block "form_buttons"}
         <button class="btn btn-primary form-control-submit float-xs-right" data-link-action="save-customer" type="submit">
-          ZAŁÓŻ KONTO
+          {assign var="identityUrl" value="{$urls.base_url}index.php?controller=identity"}
+          {if $urls.current_url == $identityUrl}
+            Zapisz
+          {else}
+            ZAŁÓŻ KONTO
+          {/if}
         </button>
       {/block}
     </footer>
+            {if $urls.current_url == $identityUrl}
+        {else}
     <div class="privacy-policy-info">Klikając w przycisk Załóż konto, zgadzasz się z naszą Polityką prywatności</div>
+        {/if}
   {/block}
 
 </form>

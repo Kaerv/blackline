@@ -24,16 +24,14 @@
  *}
 {extends file='customer/page.tpl'}
 
-{block name='page_title'}
-  {if $editing}
-    {l s='Update your address' d='Shop.Theme.Customeraccount'}
-  {else}
-    {l s='New address' d='Shop.Theme.Customeraccount'}
-  {/if}
-{/block}
-
 {block name='page_content'}
+<div>
+    {block name='page_title'}
+      <div class="account-page-title">DANE ADRESOWE</div>
+    {/block}
+    <div class="required-message">* wymagane pola</div>
   <div class="address-form">
     {render template="customer/_partials/address-form.tpl" ui=$address_form}
   </div>
+</div>
 {/block}

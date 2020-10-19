@@ -31,9 +31,19 @@
 {/block}
 
 {block name='page_content_container'}
+  <h1 id="account-title">MOJE KONTO</h1>
+  <div style="border-bottom: solid 1px #DCDCDC"></div>
   <section id="content" class="page-content">
     <div class="row">
     <div class="links">
+      {if !$configuration.is_catalog}
+        <a class="col-lg-4 col-md-6 col-sm-6 col-xs-12" id="history-link" href="{$urls.pages.history}">
+          <span class="link-item">
+            <i class="material-icons">&#xE916;</i>
+            Moje zamówienia
+          </span>
+        </a>
+      {/if}
 
       <a class="col-lg-4 col-md-6 col-sm-6 col-xs-12" id="identity-link" href="{$urls.pages.identity}">
         <span class="link-item">
@@ -54,15 +64,6 @@
           <span class="link-item">
             <i class="material-icons">&#xE567;</i>
             Dane adresowe
-          </span>
-        </a>
-      {/if}
-
-      {if !$configuration.is_catalog}
-        <a class="col-lg-4 col-md-6 col-sm-6 col-xs-12" id="history-link" href="{$urls.pages.history}">
-          <span class="link-item">
-            <i class="material-icons">&#xE916;</i>
-            Moje zamówienia
           </span>
         </a>
       {/if}
@@ -112,7 +113,4 @@
 {/block}
 
 {block name='page_footer'}
-  {block name='my_account_links'}
-    {include file='customer/_partials/my-account-links.tpl'}
-  {/block}
 {/block}

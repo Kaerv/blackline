@@ -24,13 +24,11 @@
  *}
 {extends file='customer/page.tpl'}
 
-{block name='page_title'}
-  {l s='Order history' d='Shop.Theme.Customeraccount'}
-{/block}
-
 {block name='page_content'}
-  <h6>{l s='Here are the orders you\'ve placed since your account was created.' d='Shop.Theme.Customeraccount'}</h6>
-
+<div>
+{block name='page_title'}
+  <div class="account-page-title">MOJE ZAMÓWIENIA</div>
+{/block}
   {if $orders}
     <table class="table table-striped table-bordered table-labeled hidden-sm-down">
       <thead class="thead-default">
@@ -115,5 +113,14 @@
       {/foreach}
     </div>
 
+  {else}
+  <div class="no-orders-container">
+      <p class="no-orders-message">Nie masz jeszcze żadnego zamówienia</p>
+    <a href="{$urls.pages.category}" type="button" class="button-white">
+      <div>Wróć do zakupów</div>
+    </a>
+  </div>
   {/if}
+</div>
+
 {/block}

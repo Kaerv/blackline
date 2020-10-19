@@ -24,10 +24,12 @@
  *}
 {extends 'customer/page.tpl'}
 
-{block name='page_title'}
-  Moje dane
-{/block}
-
 {block name='page_content'}
+<div>
+  {block name='page_title'}
+    <div class="account-page-title">MOJE DANE</div>
+  {/block}
+  <div class="required-message">* wymagane pola</div>
   {render file='customer/_partials/customer-form.tpl' ui=$customer_form}
 {/block}
+</div>

@@ -93,6 +93,7 @@ header, header > * {
 
 #header-account {
     margin-right: 12px;
+    position: relative;
 }
 
 #header-account-ico {
