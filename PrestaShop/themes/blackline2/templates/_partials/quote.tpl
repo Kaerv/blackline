@@ -27,4 +27,7 @@
             <div class="embed-message">Umieść na produkcie</div>
         </div>
     </div>
+    <div class="add-to-product">
+        <a href="{$urls.base_url}index.php?fc=module&module=blackline_creator&controller=creator&quote_id={$quote.id}">Wybierz</a>
+    </div>
 </div>

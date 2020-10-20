@@ -38,10 +38,12 @@
             aria-label="{l s='Quantity' d='Shop.Theme.Actions'}"
           >
         </div>
+        {assign var="a" value=explode("/p/", $product.cover.large.url)}
+        {assign var="variant" value=$a[1][0]}
         <div class="add">
           <a
             class="creator"
-            href="{$urls.base_url}fc=module&module=blackline_creator&controller=creator&product_id={$product.id}&variant"
+            href="{$urls.base_url}index.php?fc=module&module=blackline_creator&controller=creator&id_product={$product.id}&variant={$variant}"
           >
           <div>KREATOR</div>
             <i class="material-icons shopping-cart">&#xE547;</i>

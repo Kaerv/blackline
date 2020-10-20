@@ -11,6 +11,12 @@
             $this->reportErrorIfOccured();
         }
 
+        public function getQuoteById($id) {
+            $quote = $this->model->getQuoteById($id);
+            $this->reportErrorIfOccured();
+            return $quote;
+        }
+
         public function getAllAuthors() {
             $authors = $this->model->getAllAuthors();
             $this->reportErrorIfOccured();

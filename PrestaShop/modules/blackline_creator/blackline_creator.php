@@ -26,11 +26,32 @@ class Blackline_Creator extends Module
     }
 
     public function install() {
-        if (!parent::install()) {
-        return false;
+        $tab = new Tab();
+        $tab->active = 1;
+        $tab->class_name = 'creatorProducts';
+        $tab->name = array();
+        $tab->icon ="brush";
+
+        foreach (Language::getLanguages(true) as $lang) {
+            $tab->name[$lang['id_lang']] = 'Kreator';
         }
 
-        return true;
+        if (version_compare(_PS_VERSION_, '1.7.0.0', '>=')) {
+            //AdminPreferences
+            $tab->id_parent = (int)Db::getInstance(_PS_USE_SQL_SLAVE_)
+                ->getValue(
+                    'SELECT MIN(id_tab)
+                        FROM `'._DB_PREFIX_.'tab`
+                        WHERE `class_name` = "'.pSQL('SELL').'"'
+                    );
+        } else {
+            // AdminAdmin
+            $tab->id_parent = (int)Tab::getIdFromClassName('AdminAdmin');
+        }
+
+        $tab->module = $this->name;
+
+        return parent::install() && $tab->add();
     }
 
     public function uninstall() {
@@ -39,4 +60,5 @@ class Blackline_Creator extends Module
         }
         else return true;
     }
+
 }

@@ -63,7 +63,8 @@ class Blackline_PagesQuotesModuleFrontController extends ModuleFrontController {
 
       if($this->context->cookie->__isset("creator_product_id")) {
         $this->context->smarty->assign(array(
-          "creator_product_id" => $this->context->cookie->creator_product_id
+          "creator_product_id" => $this->context->cookie->creator_product_id,
+          "creator_product_name" => $this->context->cookie->creator_product_name
         ));
       }
 

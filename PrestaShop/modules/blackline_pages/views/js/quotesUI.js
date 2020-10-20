@@ -6,6 +6,7 @@ class QuotesUI {
         this.setSearchEvents();
         this.setFiltersEvents();
         this.setFavouritesEvents();
+        this.setCreatorEvents();
         this.areCategoriesSearching = false;
     }
 
@@ -35,6 +36,9 @@ class QuotesUI {
 
     setSortEvents() {
         $(document).click(() => {
+            if($("#quote-sort-list").is(":visible")) {
+                $("#sort-input > img").toggleClass("button-rotated");
+            }
             $("#quote-sort-list").hide();
         })
         $("#sort-input").click((event) => {
@@ -94,6 +98,22 @@ class QuotesUI {
         });
     }
 
+    setCreatorEvents() {
+        $("#cancel-quote").on("click", function(){
+            $.ajax({
+                url:`${prestashop.urls.base_url}index.php?fc=module&module=blackline_creator&controller=abortcreator&ajax=true`,
+                data: {
+                },
+                method: "POST",
+                success: function(response) {
+                    console.log(response);
+                    if(response == 1)
+                        window.location.reload();
+                }
+        });
+        });
+    }
+
     generateQuotes(data) {
         data.forEach(function (quote) {
             let categories = "";
@@ -125,6 +145,9 @@ class QuotesUI {
                         <img class="embed-ico" src="/assets/icons/embed.png">
                         <div class="embed-message">Umieść na produkcie</div>
                     </div>
+                </div>
+                <div class="add-to-product">
+                <a href="${prestashop.urls.base_url}index.php?fc=module&module=blackline_creator&controller=creator&quote_id=${quote.id}>Wybierz</a>
                 </div>
             </div>
             `);

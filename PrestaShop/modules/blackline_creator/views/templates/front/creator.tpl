@@ -10,10 +10,12 @@
 {block name="page_content"}
     <script>
         var productId = "{$id_product}";
+        var productName = "{$product_name}";
+        var productVariant = "{$product_variant}";
     </script>
     <section id="creator">
         <div id="product-preview">
-            <div id="product-name">Nazwa produktu</div>
+            <div id="product-name">{$product_name}</div>
             <div id="product-view"><img src="{$image_url}"></div>
             <div id="product-sides">
                 <div>Przód</div>
@@ -28,9 +30,17 @@
             </div>
         </div>
         <div id="product-options">
-            <div id="choose-quote-container"> 
-                <input type="button" value="Wybierz cytat" class="button-white" id="choose-quote">
+            {if isset($quote.id)}
+            <div class="selected-quote">
+                <div class="selected-quote">{$quote.content}</div>
+                <div class="selected-quote-author">- {$quote.author} -</div>
             </div>
+            {else}
+                <div id="choose-quote-container"> 
+                    <input type="button" value="Wybierz cytat" class="button-white" id="choose-quote">
+                </div>
+            {/if}
+
             <div></div>
             <div id="own-text-container">
                 <input type="button" value="Chcę swój tekst" class="button-white">

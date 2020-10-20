@@ -3,16 +3,33 @@
   <head>
     {block name='head'}
       {include file='_partials/head.tpl'}
+          {if isset($creator_product_id)}
+        <style>
+            .quote-embed {
+                display: none;
+            }
+            .add-to-product {
+                display: flex;
+            }
+        </style>
+    {/if}
     {/block}
   </head>
   <body>
 {extends file='page.tpl'}
 {block name="page_content"}
 <script>
+    {if isset($creator_product_id)}
+        let productId = "{$creator_product_id}";
+        let productName = "{$creator_product_name}";
+    {/if}
     let currentUrl = '{$urls.current_url}';
 </script>
 {if isset($creator_product_id)}
-Wybierasz cytat dla produktu: {$creator_product_id}
+<div id="product-information-container">
+    <div>Wybierasz cytat dla produktu: {$creator_product_name}</div>
+    <div id="cancel-quote">Anuluj</div>
+</div>
 {/if}
 <section id="quotes-section">
 <div>

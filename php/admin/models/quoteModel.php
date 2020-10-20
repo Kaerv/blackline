@@ -112,6 +112,35 @@
         return $results;
         }
 
+        public function getQuoteById($id) {
+            $query = "SELECT 
+                quotes.quote_id AS id, 
+                quotes.content AS content, 
+                quotes.translation AS translation, 
+                quotes_authors.author_name AS author, 
+                quotes.date_added AS dateAdded, 
+                quotes.likes AS likes
+            FROM quotes, quotes_authors, quotes_categories, quotes_categories_sets
+
+            WHERE 
+                quotes.author_id = quotes_authors.author_id AND
+                quotes_categories_sets.quote_id = quotes.quote_id AND
+                quotes_categories_sets.category_id = quotes_categories.category_id AND
+                quotes.quote_id = $id
+                ";
+
+            if(!$result = $this->mysqli->query($query)) {
+                $this->reportError($this->mysqli->error);
+                return false;
+            }
+            
+            $row = $result->fetch_assoc();
+            $row['categories'] = $this->getCategoriesByQuoteId($row['id']);
+            $result = $row;
+            
+            return $result;
+        }
+
         public function findCategories($phrase) {
             $query = "SELECT DISTINCT
                 quotes_categories.category_name AS name
