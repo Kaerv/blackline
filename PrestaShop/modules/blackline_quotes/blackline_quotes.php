@@ -60,9 +60,5 @@ class Blackline_Quotes extends Module
     {
         return parent::uninstall();
     }  
-
-    public function getContent()
-    {
-    }
 }
 

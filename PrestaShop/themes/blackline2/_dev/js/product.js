@@ -145,8 +145,8 @@ $(document).ready(function () {
   }
 });
 
-prestashop.on("updatedProduct", function() {
-  console.log($(".product-cover img").attr("src").split("/p/")[1].split("/")[0]);
+prestashop.on("updatedProduct", function(e) {
+  product = e;
   let Id = $(".product-cover img").attr("src").split("/p/")[1].split("/")[0];
   creatorUrl = baseCreatorUrl + `&variant=${Id}`;
   $(".creator").attr("href", creatorUrl);

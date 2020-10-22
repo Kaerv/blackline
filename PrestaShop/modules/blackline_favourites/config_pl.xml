@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
-    <name>blackline_quotes</name>
-    <displayName><![CDATA[Cytaty Blackline]]></displayName>
+    <name>blackline_favourites</name>
+    <displayName><![CDATA[Ulubione cytaty]]></displayName>
     <version><![CDATA[1.0.0]]></version>
-    <description><![CDATA[Obsługa cytat&oacute;w do sklepu Blackline]]></description>
+    <description><![CDATA[Lista ulubionych cytat&oacute;w blackline]]></description>
     <author><![CDATA[Krystian Kordal]]></author>
     <tab><![CDATA[front_office_features]]></tab>
 	<confirmUninstall><![CDATA[Are you sure you want to uninstall?]]></confirmUninstall>

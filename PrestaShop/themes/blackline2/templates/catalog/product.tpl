@@ -46,7 +46,10 @@
   <meta property="product:weight:value" content="{$product.weight}">
   <meta property="product:weight:units" content="{$product.weight_unit}">
   {/if}
-  <script>let baseCreatorUrl="{$urls.base_url}index.php?fc=module&module=blackline_creator&controller=creator&id_product={$product.id}"; let creatorUrl = "";</script>
+  <script>
+  let baseCreatorUrl="{$urls.base_url}index.php?fc=module&module=blackline_creator&controller=creator&id_product={$product.id}"; 
+  let creatorUrl = "";
+  var id_attribute = "{$product.id_product_attribute}";</script>
 {/block}
 
 {block name='content'}

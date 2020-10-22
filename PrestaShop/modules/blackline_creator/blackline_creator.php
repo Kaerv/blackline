@@ -28,7 +28,7 @@ class Blackline_Creator extends Module
     public function install() {
         $tab = new Tab();
         $tab->active = 1;
-        $tab->class_name = 'creatorProducts';
+        $tab->class_name = 'CreatorProducts';
         $tab->name = array();
         $tab->icon ="brush";
 

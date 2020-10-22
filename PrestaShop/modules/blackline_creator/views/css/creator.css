@@ -17,11 +17,23 @@
 
 #product-sides {
     display: flex;
-    justify-content: space-between;
     width: 90%;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 40px;
+}
+
+#product-sides > * {
+    margin-right: 20px;
+}
+
+#product-sides > .current {
+    color: #666;
+}
+
+#product-sides > *:hover {
+    color: #C0C0C0;
+    cursor: pointer;
 }
 
 #sectors {

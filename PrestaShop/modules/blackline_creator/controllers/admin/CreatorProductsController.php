@@ -4,7 +4,7 @@
 use Doctrine\Common\Cache\CacheProvider;
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
 
-class QuotesPanelController extends ModuleAdminController
+class CreatorProductsController extends ModuleAdminController
 {
     public function __construct()
     {

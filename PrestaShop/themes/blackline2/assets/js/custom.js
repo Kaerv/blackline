@@ -24,3 +24,13 @@ $("#first-step-register").on("click", function() {
 $(".product-section-title").click(function() {
     $(this).parent().find(".tab-pane").toggle();
 })
+
+prestashop.on("updatedProduct", function(e) {
+    id_attribute = e.id_product_attribute;
+    creatorUrl = baseCreatorUrl + `&variant=${id_attribute}`;
+    $(".creator").attr("href", creatorUrl);
+  });
+  if(prestashop.page.page_name == "product") {
+    creatorUrl = baseCreatorUrl + `&variant=${id_attribute}`;
+    $(".creator").attr("href", creatorUrl);
+  }

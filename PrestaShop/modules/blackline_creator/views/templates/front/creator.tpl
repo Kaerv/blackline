@@ -16,12 +16,10 @@
     <section id="creator">
         <div id="product-preview">
             <div id="product-name">{$product_name}</div>
-            <div id="product-view"><img src="{$image_url}"></div>
+            <div id="product-view"><img src="{$images['front']}"></div>
             <div id="product-sides">
-                <div>Przód</div>
-                <div>Tył</div>
-                <div>Prawa</div>
-                <div>Lewa</div>
+                <div class="current" data-image-url="{$images['front']}">Przód</div>
+                <div data-image-url="{$images['back']}">Tył</div>
             </div>
             <div id="sectors">
                 <div id="sectors-title">Wybierz pole:</div>
@@ -30,6 +28,7 @@
             </div>
         </div>
         <div id="product-options">
+
             {if isset($quote.id)}
             <div class="selected-quote">
                 <div class="selected-quote">{$quote.content}</div>
@@ -40,16 +39,22 @@
                     <input type="button" value="Wybierz cytat" class="button-white" id="choose-quote">
                 </div>
             {/if}
-
             <div></div>
-            <div id="own-text-container">
-                <input type="button" value="Chcę swój tekst" class="button-white">
-            </div>
+            {if $own_text}
+                <div id="own-text-editor">
+                    <textarea>
+                    </textarea>
+                </div>
+            {else}
+                <div id="own-text-container">
+                    <input type="button" value="Chcę swój tekst" class="button-white" onclick="$(window).unbind('beforeunload');window.location.replace('{$urls.base_url}index.php?fc=module&module=blackline_creator&controller=creator&id_product={$id_product}&variant={$product_variant}&own_text=')">
+                </div>
+            {/if}
             <div></div>
             <div id="horizontal-align">
                 <img id="hleft" src="/assets/icons/left-align.svg"/>
-                <img id="hright" src="/assets/icons/right-align.svg"/>
                 <img id="hcenter" src="/assets/icons/align-center.svg"/>
+                <img id="hright" src="/assets/icons/right-align.svg"/>
             </div>
             <div id="vertical-align">
                 <img id="vtop" src="/assets/icons/top-align.png"/>

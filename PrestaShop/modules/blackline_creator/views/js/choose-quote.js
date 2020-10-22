@@ -1,5 +1,5 @@
 $(function() {
-    $("#choose-quote").on("click", function() {
+    $("body").on("click", "#choose-quote" , function() {
         $.ajax({
             url:`${prestashop.urls.base_url}index.php?fc=module&module=blackline_creator&controller=choosequote&ajax=true`,
             data: {
