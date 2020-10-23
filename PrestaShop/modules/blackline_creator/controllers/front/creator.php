@@ -28,10 +28,23 @@ class Blackline_CreatorCreatorModuleFrontController extends ModuleFrontControlle
 
       $images_id = $this->selectNeededImagesIds($product, $id_lang, $variant);
 
-      /*$combinations = $product->getAttributeCombinations($id_lang);
+      $combinations = $product->getAttributeCombinations($id_lang);
+
+      $size = "";
+      $color = "";
+      $product_name = $product->name[1];
       foreach($combinations as $key1 => $value1) {
-        var_dump($product->getAttributesResume($value1["id_attribute"]));
-      }*/
+        $resume = $product->getAttributesResume($value1["id_attribute"]);
+        foreach($resume as $key2 => $value2) {
+          if($value2["id_product_attribute"] == $variant) {
+            if($value2["attribute_designation"] != NULL) {
+              $arr = explode(",", $value2["attribute_designation"]);
+              $size = explode(" - ", $arr[0])[1];
+              $color = explode(" - ", $arr[1])[1];
+            }
+          }
+        }
+      }
       $images = $this->generateCreatorImages($product, $images_id, $id_lang);
 
 
@@ -49,7 +62,9 @@ class Blackline_CreatorCreatorModuleFrontController extends ModuleFrontControlle
         array(
           'images' => $images,
           'id_product' => $product_id,
-          'product_name' => $product->name[1],
+          'product_name' => $product_name,
+          'product_size' => $size,
+          'product_color' => $color,
           'product_variant' => $variant,
           'quote' => $quote,
           'own_text' => $own_text
@@ -60,11 +75,7 @@ class Blackline_CreatorCreatorModuleFrontController extends ModuleFrontControlle
     public function setMedia() {
       parent::setMedia();
       $this->addCSS($this->module->getPathUri().'views/css/creator.css');
-      $this->addJS($this->module->getPathUri().'views/js/creator-select-input.js');  
-      $this->addJS($this->module->getPathUri().'views/js/creator-colors-select.js');  
-      $this->addJS($this->module->getPathUri().'views/js/choose-quote.js');  
-      $this->addJS($this->module->getPathUri().'views/js/creator-sides-select.js'); 
-      $this->addJS($this->module->getPathUri().'views/js/creator.js'); 
+      $this->addJS($this->module->getPathUri().'views/js/dist/main.js'); 
     }
 
     public function selectNeededImagesIds($product, $id_lang, $variant) {

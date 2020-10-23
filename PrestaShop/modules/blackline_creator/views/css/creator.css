@@ -5,10 +5,20 @@
     width: 90%;
     margin: auto;
     margin-bottom: 100px;
+    margin-top: 50px;
 }
 
 #product-name {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#product-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#product-title-details {
+    font-size: 14px;
 }
 
 #product-view img {

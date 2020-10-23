@@ -12,14 +12,25 @@
         var productId = "{$id_product}";
         var productName = "{$product_name}";
         var productVariant = "{$product_variant}";
+        {literal}
+        var images = {
+        {/literal}
+            front: "{$images['front']}",
+            back: "{$images['back']}"
+        {literal}
+        };
+        {/literal}
     </script>
     <section id="creator">
         <div id="product-preview">
-            <div id="product-name">{$product_name}</div>
-            <div id="product-view"><img src="{$images['front']}"></div>
+            <div id="product-name">
+                <div id="product-title">{$product_name}</div>
+                <div id="product-title-details">Kolor {$product_color}, Rozmiar {$product_size}</div>
+            </div>
+            <div id="product-view"></div>
             <div id="product-sides">
-                <div class="current" data-image-url="{$images['front']}">Przód</div>
-                <div data-image-url="{$images['back']}">Tył</div>
+                <div class="current" data-side="front">Przód</div>
+                <div data-side="back">Tył</div>
             </div>
             <div id="sectors">
                 <div id="sectors-title">Wybierz pole:</div>
@@ -31,7 +42,7 @@
 
             {if isset($quote.id)}
             <div class="selected-quote">
-                <div class="selected-quote">{$quote.content}</div>
+                <div class="selected-quote-content">{$quote.content}</div>
                 <div class="selected-quote-author">- {$quote.author} -</div>
             </div>
             {else}
@@ -42,8 +53,7 @@
             <div></div>
             {if $own_text}
                 <div id="own-text-editor">
-                    <textarea>
-                    </textarea>
+                    <textarea rows="4" columns="100"></textarea>
                 </div>
             {else}
                 <div id="own-text-container">

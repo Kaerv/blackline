@@ -1,4 +1,4 @@
-$(function() {
+export const selectInputEvents = () => {
     $(".custom-select").click(function(event) {
         event.stopImmediatePropagation();
         $(".custom-select > .select-list").hide();
@@ -21,4 +21,4 @@ $(function() {
         $(".custom-select > .select-list").hide();
         $(".custom-select img").removeClass('rotated');
     });
-});
+}

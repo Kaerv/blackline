@@ -1,4 +1,4 @@
-$(function() {
+export const chooseQuoteEvents = () => {
     $("body").on("click", "#choose-quote" , function() {
         $.ajax({
             url:`${prestashop.urls.base_url}index.php?fc=module&module=blackline_creator&controller=choosequote&ajax=true`,
@@ -14,9 +14,13 @@ $(function() {
             }
         });
     });
-});
 
-$(window).on("beforeunload", function(e) {
+    $(window).on("beforeunload", function(e) {
     (e || window.event).returnValue = null;
     return null;
 });
+}
+
+
+
+
