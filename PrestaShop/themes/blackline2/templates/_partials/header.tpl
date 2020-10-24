@@ -42,7 +42,7 @@
                 <img id="header-search" class="header-ico" src="/assets/icons/search.svg" alt="">
                 <input id="search-input" type="text" placeholder="W poszukiwaniu... znajdź">
             </div>
-            <a href="#favourite" id="header-favourite">
+            <a href="/PrestaShop/index.php?fc=module&module=blackline_pages&controller=favourites" id="header-favourite">
                 <img id="header-favourite-ico" class="header-ico" src="/assets/icons/heart.svg" alt="">
             </a>
             <div id="header-account">

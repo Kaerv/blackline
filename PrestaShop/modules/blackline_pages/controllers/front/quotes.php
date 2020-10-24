@@ -8,22 +8,21 @@ class Blackline_PagesQuotesModuleFrontController extends ModuleFrontController {
       parent::initContent();
       $order = NULL;
       $order_name = NULL;
-
       if(isset($_GET["sort"])) {
         $order = $_GET["sort"];
       }
       else {
-        $order = "likes";
+        $order = "likes-DESC";
       }
 
       switch($order) {
-        case "likes":
+        case "likes-DESC":
             $order_name = "Popularne"; break;
-        case "date_added":
+        case "quotes.date_added":
           $order_name = "Najstarsze"; break;
-        case "date_added-DESC":
+        case "quotes.date_added-DESC":
           $order_name = "Najnowsze"; break;
-        case "content":
+        case "quotes.content":
           $order_name = "Alfabetycznie"; break;
       }
       $filters = array();
@@ -40,12 +39,18 @@ class Blackline_PagesQuotesModuleFrontController extends ModuleFrontController {
         }
       }
 
+      $customer_id = "0";
+      if($this->context->customer->isLogged()) {
+        $customer_id = $this->context->customer->id;
+      }
+
       $controller = new QuoteController(1);
       $quotes = $controller->getRows(array(
         "start" => 0,
         "step" => 25,
         "order" => $order,
-        "filters" => $filters
+        "filters" => $filters,
+        "customer_id" => $customer_id,
       ));
 
       $authors = $controller->getAllAuthors();
@@ -59,6 +64,7 @@ class Blackline_PagesQuotesModuleFrontController extends ModuleFrontController {
         'best_authors' => $bestAuthors,
         'selected_categories' => (isset($filters['kategorie']))? $filters["kategorie"] : array(),
         'selected_authors' => (isset($filters['autorzy']))? $filters["autorzy"] : array(),
+        'customer_id' => $customer_id,
       ));
 
       if($this->context->cookie->__isset("creator_product_id")) {

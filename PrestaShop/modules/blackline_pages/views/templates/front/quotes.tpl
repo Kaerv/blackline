@@ -24,6 +24,7 @@
         let productName = "{$creator_product_name}";
     {/if}
     let currentUrl = '{$urls.current_url}';
+    let customerId = '{$customer_id}'
 </script>
 {if isset($creator_product_id)}
 <div id="product-information-container">
@@ -139,10 +140,10 @@
                     <img src="/assets/icons/down-arrow.svg">
                 </div>
                 <div id="quote-sort-list">
-                    <div class="sort-option" id="likes">Popularne</div>
-                    <div class="sort-option" id="date_added-DESC">Najnowsze</div>
-                    <div class="sort-option" id="date_added">Najstarsze</div>
-                    <div class="sort-option" id="content">Alfabetycznie</div>
+                    <div class="sort-option" id="likes-DESC">Popularne</div>
+                    <div class="sort-option" id="quotes.date_added-DESC">Najnowsze</div>
+                    <div class="sort-option" id="quotes.date_added">Najstarsze</div>
+                    <div class="sort-option" id="quotes.content">Alfabetycznie</div>
                 </div>
             </div>
         </div>

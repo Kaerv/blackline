@@ -94,7 +94,24 @@ class QuotesUI {
 
     setFavouritesEvents() {
         $(".fav-ico").click(function() {
-            
+            if(prestashop.customer.is_logged) {
+                let quoteId = $(this).parents(".quote").attr("id");
+                let likesCount = $(this).parent().find(".fav-count > span");
+                controller.like(quoteId, customerId).then((response) => {
+                    $(likesCount).text(response["likes"]);
+                    if(response["liked"]) {
+                        $(this).addClass("liked");
+                        $(this).attr("src", "/assets/icons/heart black.svg");
+                    }
+                    else {
+                        $(this).removeClass("liked");
+                        $(this).attr("src", "/assets/icons/heart.svg");
+                    }
+                });
+            }
+            else {
+                alert("Żeby móc polubić ten cytat, musisz się zalogować.");
+            }
         });
     }
 
@@ -151,10 +168,7 @@ class QuotesUI {
                 </div>
             </div>
             `);
-            let favIco = $('<img src="/assets/icons/heart.svg" class="fav-ico">');
-            $(favIco).click(function() {
-                console.log("Hej");
-            });
+            let favIco = $(`<img src="/assets/icons/heart${quote.liked > 0? " black" : ""}.svg" class="fav-ico ${quote.liked > 0? "liked" : ""}">`);
             $(newQuote).find(".quote-favourite").append(favIco);
             $("#quotes-container").append(newQuote);
         });

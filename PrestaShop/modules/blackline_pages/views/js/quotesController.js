@@ -15,7 +15,7 @@ class QuotesController {
                 url: "/php/quotes.php",
                 dataType: "JSON",
                 data: {
-                    q: "count"
+                    q: "count",
                 },
             }).done((response) => {
                 if(response[0] == 0) {
@@ -58,7 +58,8 @@ class QuotesController {
                         start: controller.loadedCount,
                         step: controller.countByStep,
                         order: $("#sort-actual").attr("class"),
-                        filters: controller.getFiltersArray()
+                        filters: controller.getFiltersArray(),
+                        customer_id: customerId
                     }
                 },
             }).done((response) => {
@@ -78,7 +79,7 @@ class QuotesController {
                         controller.tryCount = 0;
                     }
                 }
-            }).fail(() => {
+            }).fail((response) => {
                 if(controller.tryCount < 3) {
                     controller.tryCount++;
                     console.log(`Getting quotes failed, try ${controller.tryCount} from 3`)
@@ -177,5 +178,30 @@ class QuotesController {
             "kategorie": categories,
             "autorzy": authors
         };
+    }
+
+    like(quoteId, customerId) {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                method: "GET",
+                url: "/php/quotes.php",
+                dataType: "JSON",
+                data: {
+                    q: `like`,
+                    args: {
+                        quote_id: quoteId,
+                        customer_id: customerId
+                    }
+                },
+            }).done((response) => {
+                if(response[0] == 0) {
+                    resolve(response[1]);
+                }
+                else {
+                }
+            }).fail((response, r, aa) => {
+                console.log(aa);
+            });
+        })
     }
 }

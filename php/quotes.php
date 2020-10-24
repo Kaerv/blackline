@@ -25,5 +25,12 @@
                 )
             ); 
         break;
+        case "like":
+            print(
+                json_encode(
+                    array(0, $controller->like($_GET["args"]))
+                )
+            ); 
+        break;
     }
 ?>

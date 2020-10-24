@@ -20,7 +20,12 @@
     <div class="quote-actions">
         <div class="quote-favourite">
             <div class="fav-count"><span>{$quote.likes}</span></div>
+            {if isset($quote.liked) && $quote.liked}
+            <img src="/assets/icons/heart black.svg" class="fav-ico liked">
+            {else}
             <img src="/assets/icons/heart.svg" class="fav-ico">
+            {/if}
+            
         </div>
         <div class="quote-embed">
             <img class="embed-ico" src="/assets/icons/embed.png">

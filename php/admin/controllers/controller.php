@@ -20,7 +20,14 @@ class Control {
         $order = isset($args["order"]) ? $args["order"] : "date_added";
         $order = str_replace("-", " ", $order);
         $filters = $args["filters"];
-        $result = $this->model->getRecords($start, $step, $order, $filters);
+        if(isset($args["customer_id"])) {
+            $customer_id = $args["customer_id"];
+        }
+        else {
+            $customer_id = 0;
+        }
+        
+        $result = $this->model->getRecords($start, $step, $order, $filters, $customer_id);
         $this->reportErrorIfOccured();
         //$this->endWork($result);
         return $result;

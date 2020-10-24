@@ -148,5 +148,12 @@
 
             return "Edytowano cytat!";
         }
+
+        public function like($args) {
+            $likes = $this->model->like($args);
+            $this->reportErrorIfOccured();
+            $this->endWork();
+            return $likes;
+        }
     }
 ?>

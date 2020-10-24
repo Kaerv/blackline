@@ -8,7 +8,7 @@
             $this->type = "quote";
         }
 
-        public function getRecords($start, $step, $order = "date_added", $filters = array()) {
+        public function getRecords($start, $step, $order = "quotes.date_added", $filters = array(), $customer_id) {
             $filter = "";
             if(count($filters)) {
                 $filter .= "AND (";
@@ -46,8 +46,8 @@
                 quotes.content AS content, 
                 quotes.translation AS translation, 
                 quotes_authors.author_name AS author, 
-                quotes.date_added AS dateAdded, 
-                quotes.likes AS likes
+                quotes.date_added AS dateAdded,
+                (SELECT COUNT(like_id) FROM likes WHERE likes.quote_id = id) AS likes
             FROM quotes, quotes_authors, quotes_categories, quotes_categories_sets
 
             WHERE 
@@ -55,7 +55,7 @@
                 quotes_categories_sets.quote_id = quotes.quote_id AND
                 quotes_categories_sets.category_id = quotes_categories.category_id
                 $filter
-            ORDER BY quotes.$order 
+            ORDER BY $order 
             LIMIT $start, $step";
 
             if(!$result = $this->mysqli->query($query)) {
@@ -67,6 +67,20 @@
             while($row = $result->fetch_assoc()) {
                 $row['categories'] = $this->getCategoriesByQuoteId($row['id']);
                 $results[] = $row;
+            }
+
+
+            if($customer_id) {
+                foreach($results as $key=>$value) {
+                    $quote_id = $value["id"];
+                    $query = "SELECT COUNT(*) as liked from likes WHERE likes.customer_id = $customer_id AND likes.quote_id = $quote_id";
+                    if(!$res = $this->mysqli->query($query)) {
+                        $this->reportError($this->mysqli->error);
+                        return false;
+                    }
+                    $liked = $res->fetch_assoc();
+                    $results[$key]["liked"] = $liked["liked"];
+                }
             }
             
             return $results;
@@ -92,12 +106,14 @@
         }
 
         public function getBestAuthors() {
-            $query = "SELECT DISTINCT
-            quotes_authors.author_name AS name,
-            quotes.likes
-        FROM quotes_authors, quotes 
-        WHERE   quotes.author_id = quotes_authors.author_id
-        ORDER BY quotes.likes LIMIT 6";
+            $query = "SELECT 
+                quotes_authors.author_id AS id,
+                (SELECT COUNT(like_id) as l FROM likes, quotes WHERE likes.quote_id = quotes.quote_id AND quotes.author_id = id) AS likes
+                
+            FROM quotes_authors, quotes 
+
+            WHERE quotes.author_id = quotes_authors.author_id
+            GROUP BY id";
 
         if(!$result = $this->mysqli->query($query)) {
             $this->reportError($this->mysqli->error);
@@ -106,7 +122,14 @@
 
         $results = array();
         while($row = $result->fetch_assoc()) {
-            $results[] = $row;
+            $id = $row["id"];
+            $query = "SELECT author_name AS name FROM quotes_authors WHERE author_id = $id";
+            if(!$r = $this->mysqli->query($query)) {
+                $this->reportError($this->mysqli->error);
+                return false;
+            }
+            $author = $r->fetch_assoc();
+            $results[] = $author;
         }
         
         return $results;
@@ -119,8 +142,8 @@
                 quotes.translation AS translation, 
                 quotes_authors.author_name AS author, 
                 quotes.date_added AS dateAdded, 
-                quotes.likes AS likes
-            FROM quotes, quotes_authors, quotes_categories, quotes_categories_sets
+                COUNT(like_id) AS likes
+            FROM quotes, quotes_authors, quotes_categories, quotes_categories_sets, likes
 
             WHERE 
                 quotes.author_id = quotes_authors.author_id AND
@@ -361,8 +384,8 @@
                 quotes.translation AS translation, 
                 quotes_authors.author_name AS author, 
                 quotes.date_added AS dateAdded, 
-                quotes.likes AS likes
-            FROM quotes, quotes_categories_sets, quotes_categories, quotes_authors 
+                COUNT(like_id) AS likes
+            FROM quotes, quotes_categories_sets, quotes_categories, quotes_authors, likes
 
             WHERE 
                 quotes.author_id = quotes_authors.author_id AND 
@@ -387,6 +410,46 @@
                 $results[] = $row;
             }
             return $results;
+        }
+
+        public function like($args) {
+            $response = array();
+            $customer_id = $args["customer_id"];
+            $quote_id = $args["quote_id"];
+
+            $query = "SELECT COUNT(*) as is_liked FROM likes WHERE customer_id = $customer_id AND quote_id = $quote_id";
+            if(!$result = $this->mysqli->query($query)){
+                $this->reportError($this->mysqli->error);
+                return false;
+            }
+            $liked = $result->fetch_array()["is_liked"];
+
+            if($liked) {
+                $query = "DELETE FROM likes WHERE customer_id = $customer_id AND quote_id = $quote_id";
+                if(!$result = $this->mysqli->query($query)){
+                    $this->reportError($this->mysqli->error);
+                    return false;
+                }
+                $response["liked"] = false;
+            }
+
+            else {
+                $query = "INSERT INTO likes (customer_id, quote_id) VALUES ($customer_id, $quote_id)";
+                if(!$result = $this->mysqli->query($query)){
+                    $this->reportError($this->mysqli->error);
+                    return false;
+                }
+                $response["liked"] = true;
+            }
+
+            $query = "SELECT COUNT(*) as likes FROM likes WHERE quote_id = $quote_id";
+                if(!$result = $this->mysqli->query($query)){
+                    $this->reportError($this->mysqli->error);
+                    return false;
+                }
+                $likes = $result->fetch_array()["likes"];
+                $response["likes"] = $likes;
+                return $response;
         }
     }
 ?>

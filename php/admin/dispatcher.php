@@ -19,5 +19,7 @@
     }
 
     else 
-        $controller->reportError("Próbowano wykonać niepoprawne działanie: $action");
+    print(json_encode(array(1,"Próbowano wykonać niepoprawne działanie")));
+
+    print("halo");
 ?>
