@@ -4,6 +4,7 @@ class Quote extends Controller {
         this.type = "quote";
         this.panel = new QuotesPanelController();
         document.title = "Zarządzanie cytatami";
+        $("#export").on("click", this.export);
     }
 
     prepareDataToSend(editing, id) {
@@ -37,6 +38,10 @@ class Quote extends Controller {
             author: author,
             categories: categories
         }
+    }
+
+    export() {
+        window.open(`../php/admin/download.php?token=${token}`);
     }
 }
 

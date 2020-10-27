@@ -20,6 +20,4 @@
 
     else 
     print(json_encode(array(1,"Próbowano wykonać niepoprawne działanie")));
-
-    print("halo");
 ?>

@@ -28,7 +28,7 @@ class Controller {
                         logger.error(response[1]);
                 },
                 async: true
-            }).fail(() => {
+            }).fail((response) => {
                 logger.error("Wystąpił nieznany błąd w trakcie pobierania liczby materiałów.");
             });
         });

@@ -38,7 +38,10 @@
         <div id="background-top"></div>
     </div>
     <div id="site-content-container">
-        <h1 id="site-title"></h1>
+        <div>
+            <h1 id="site-title"></h1>
+            <div id="export">Eksportuj</div>
+        </div>
         <div id="search-wrap">
             <img src="/assets/icons/close.svg" id="cancel-search">
             <div id="search">

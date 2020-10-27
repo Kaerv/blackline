@@ -37,7 +37,7 @@ class Control {
         $count = $this->model->getAllCount();
 
         $this->reportErrorIfOccured();
-        $this->endWork($count);
+        $this->endWork();
         return $count;
     }
 

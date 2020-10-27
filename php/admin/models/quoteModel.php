@@ -41,7 +41,7 @@
                 $filter .= ")";
             }
 
-            $query = "SELECT 
+            $query = "SELECT DISTINCT
                 quotes.quote_id AS id, 
                 quotes.content AS content, 
                 quotes.translation AS translation, 
