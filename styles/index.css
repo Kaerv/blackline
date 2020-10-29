@@ -192,14 +192,11 @@ body > main {
     margin: 0 auto;
     align-items: center;
     grid-template-columns: 42% 50%;
+    height: auto;
 }
 
 #shop-preview #description-left p {
     margin: 80px 0;
-}
-
-#shop-preview #description-photo-container {
-    transform: scale(1.4);
 }
 
 #shop-preview #small-separate-line {
@@ -492,10 +489,8 @@ body > main {
     .slider-3-social-ico { width: 64px;}
     .slider-3-blackline-link { font-size: 32px; }
     #slide-3-content-container { width: 50%; top: 43%; }
-    #shop-preview #description-photo-container { transform: scale(0.9) }
 }
 
 @media only screen and (max-width: 1080px) {
     .quotes-section-title { font-size: 22px; }
-    #shop-preview #description-photo-container { transform: scale(0.8) }
 }

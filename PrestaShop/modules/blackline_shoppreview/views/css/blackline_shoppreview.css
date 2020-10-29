@@ -1,0 +1,43 @@
+#description-right {
+    height: 100%;
+    position: relative;
+}
+
+#shop-preview-module {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.category-container {
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border: solid 1px black;
+    cursor: pointer;
+    display: block;
+    transition: all 200ms linear 0s;
+    background-color: white;
+}
+
+.category-container.selected {
+    z-index: 100;
+    width: 410px;
+    height: 510px;
+}
+
+.preview-category-image {
+    display: block;
+    position: relative;
+    height: 100%;
+    width: auto;
+}
+
+.category-name {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-align: left;
+}

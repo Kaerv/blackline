@@ -12,10 +12,6 @@
       </p>
     </div>
     <div id="description-right">
-      <div id="description-photo-container">
-        <div class="description-photo"></div>
-        <div class="description-photo"></div>
-        <div id="description-title">BLUZY</div>
-      </div>
+      {hook h='displayShopPreview'}
     </div>
   </div>
