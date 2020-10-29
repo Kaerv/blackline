@@ -39,7 +39,6 @@
         <div class="order-line row">
           <div class="col-sm-2 col-xs-3">
             <span class="image">
-              <img src="{$product.cover.medium.url}" />
             </span>
           </div>
           <div class="col-sm-4 col-xs-9 details">
