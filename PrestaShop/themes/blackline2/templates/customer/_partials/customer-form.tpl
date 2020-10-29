@@ -48,11 +48,11 @@
     {/block}
   </section>
   {block name='customer_form_footer'}
+            {assign var="identityUrl" value="{$urls.base_url}index.php?controller=identity"}
     <footer class="form-footer clearfix">
       <input type="hidden" name="submitCreate" value="1">
       {block "form_buttons"}
         <button class="btn btn-primary form-control-submit float-xs-right" data-link-action="save-customer" type="submit">
-          {assign var="identityUrl" value="{$urls.base_url}index.php?controller=identity"}
           {if $urls.current_url == $identityUrl}
             Zapisz
           {else}
@@ -61,7 +61,7 @@
         </button>
       {/block}
     </footer>
-            {if $urls.current_url == $identityUrl}
+            {if $urls.current_url == $identityUrl || $urls.current_url == {$urls.pages.order}}
         {else}
     <div class="privacy-policy-info">Klikając w przycisk Załóż konto, zgadzasz się z naszą Polityką prywatności</div>
         {/if}

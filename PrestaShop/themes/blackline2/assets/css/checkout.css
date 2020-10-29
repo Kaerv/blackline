@@ -53,8 +53,8 @@ body {
     grid-column-gap: 5%;
 }
 
-.form-group.row:first-child {
-    display: none;
+.form-group.row:first-child .form-control-label {
+    top: 0;
 }
 
 .cart-grid-body {
@@ -159,7 +159,6 @@ body {
 .step-title {
     display: flex;
     align-items: center;
-    width: 30%;
     margin-left: 40px;
 }
 
@@ -383,3 +382,39 @@ body {
     width: 100%;
 }
 
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.nav-inline.my-2 {
+    display: flex;
+    list-style-type: none;
+}
+
+.my-2 .nav-item {
+    margin-right: 10%;
+}
+
+.nav-link {
+    color: #c0c0c0;
+}
+
+.nav-link.active {
+    color: black;
+}
+
+button[data-action="show-password"] {
+    display: none;
+}
+
+.material-icons {
+    display: none;
+}
+
+#checkout .text-sm-center {
+    margin-top: 0;
+}

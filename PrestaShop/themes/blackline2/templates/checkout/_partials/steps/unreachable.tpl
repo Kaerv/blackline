@@ -26,7 +26,7 @@
   <section class="checkout-step -unreachable" id="{$identifier}">
     <h1 class="step-title h3">
     <div class="step-number-container">
-      <span class="step-number">{$position}</span>
+      <span class="step-number">{$position + 1}</span>
     </div> 
     <div class="step-title-content">
       {$title}

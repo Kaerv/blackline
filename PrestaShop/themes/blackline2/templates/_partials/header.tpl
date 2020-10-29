@@ -51,8 +51,8 @@
             </div>
             <div id="header-cart">
                 <img id="header-cart-ico" class="header-ico" src="/assets/icons/gift.svg" alt="">
-                {if isset($smarty.session.cart.products_count) && $smarty.session.cart.products_count > 0}
-                    <div id="products-amount"><span id="cart-products-amount">{$smarty.session.cart.products_count}</span></div>
+                {if $cart.products_count > 0}
+                    <div id="products-amount"><span id="cart-products-amount">{$cart.products_count}</span></div>
                 {/if}
                 {include file='./cart_preview.tpl'}
             </div>

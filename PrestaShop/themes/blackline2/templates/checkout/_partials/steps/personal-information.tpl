@@ -64,12 +64,6 @@
           {/if}	
         </a>	
       </li>	
-
-
-      <li class="nav-item">	
-        <span class="nav-separator"> | </span>	
-      </li>	
-
       <li class="nav-item">	
         <a	
           class="nav-link {if $show_login_form}active{/if}"	

@@ -35,7 +35,7 @@
     <h1 class="step-title h3">
       <i class="material-icons rtl-no-flip done">&#xE876;</i>
       <div class="step-number-container">
-        <span class="step-number">{$position}</span>
+        <span class="step-number">{$position + 1}</span>
       </div>
       <div class="step-title-content">
           {$title|replace:"Adresy":"Twoje dane"}

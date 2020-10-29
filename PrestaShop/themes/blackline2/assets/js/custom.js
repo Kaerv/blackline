@@ -34,3 +34,5 @@ prestashop.on("updatedProduct", function(e) {
     creatorUrl = baseCreatorUrl + `&variant=${id_attribute}`;
     $(".creator").attr("href", creatorUrl);
   }
+
+  $("p:contains(I zaoszczędź czas na)").css("margin-top","70px")

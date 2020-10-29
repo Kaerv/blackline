@@ -31,10 +31,10 @@
     });
     $("#cart-button").on("click", function(event) {
         event.preventDefault();
-        window.location.href = "{$urls.pages.cart}"
+        window.location.href = "{$urls.pages.cart}&action=show"
     });
 
     $("#header-cart-ico").on("click", function(event) {
-        window.location.href = "{$urls.pages.cart}"
+        window.location.href = "{$urls.pages.cart}&action=show"
     });
 </script>

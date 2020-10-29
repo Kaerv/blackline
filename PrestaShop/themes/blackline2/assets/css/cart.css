@@ -226,8 +226,6 @@
     margin-right: auto;
     margin-top: 100px;
     height: 45px;
-    border: solid 1px black;
-    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -237,6 +235,10 @@
     color: white;
     font-size: 18px;
     margin-top: 4px;
+    background-color: black;
+    border: black;
+    display: block;
+    padding: 10px 30px;
 }
 
 .summary-tax {
