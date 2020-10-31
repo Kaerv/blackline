@@ -1,79 +1,106 @@
-import {chooseQuoteEvents} from "./choose-quote";
+import { chooseQuoteEvents } from "./choose-quote";
 import "./creator-select-input";
 import { selectInputEvents } from "./creator-select-input";
-
+import { Canvas } from "./canvas";
+import { CanvasText } from "./canvastext";
+import { CanvasImage } from "./canvasimage";
+ 
 class Creator {
     constructor() {
-        this.canvas;
-        this.ctx;
-        this.size;
-        this.sides;
-        this.currentImage;
         this.start = Date.now();
-        console.log("Initializing creator...");
+        this.sides = {};
+        this.currentImage;
+        this.canvas;
+        this.text;
+
         this.init();
-        console.log("Creator initialized");
-        console.log(`${Date.now() - this.start}ms`);
     }
 
     init() {
-        this.initEventListeners();
-        this.initImages();
+        this.canvas = new Canvas();
+        this.initImages().then((image) => {
+            console.log(`Images loaded: ${Date.now() - this.start}ms`);
+
+            this.canvas.init({width: image.width, height: image.height});
+            this.changeImage(creator.sides.front);
+            this.initEventListeners();
+            this.initText();
+            this.canvas.redraw();
+            console.log(`Koniec: ${Date.now() - this.start}ms`);
+        });
+    }
+
+    initImages() {
+        return new Promise ((resolve, reject) => {
+            this.sides.front = new CanvasImage();
+            this.sides.back = new CanvasImage();
+
+            Promise.all([
+                this.sides.front.init(images.front),
+                this.sides.back.init(images.back)
+            ]).then((images) => {
+                console.log(this.sides.front, this.sides.back);
+                resolve({
+                    width: images[0].width, 
+                    height: images[0].height
+                });
+            });
+        });
+    }
+
+    initText() {
+        this.text = new CanvasText();
+
+        let selectedQuote = $(".selected-quote").text();
+        let ownText = $("#own-text-editor textarea").val();
+
+        if(selectedQuote) {
+            this.text.setContent(selectedQuote);
+        }
+        else if(ownText) {
+            self = this;
+            this.text.setContent(ownText);
+            $("#own-text-editor textarea").on("input", function() {
+                self.text.setContent($(this).val());
+                self.canvas.redraw();
+            });
+        }
+
+        this.canvas.elements.text = this.text;
     }
 
     initEventListeners() {
+        let self = this;
         chooseQuoteEvents();
         selectInputEvents();
         $("#product-sides > div").on("click", function() {
-            let newSide = $(this).data().side;
-            creator.changeImage(creator.sides[newSide]);
-            $("#product-sides .current").removeClass("current");
-            $(this).addClass("current");
+            self.changeSide(this);
         });
 
         $(".color-container").click(function() {
             $(".color-container").removeClass('selected');
             $(this).addClass("selected");
         });
+
+        $(window).on("resize", function() {
+            self.canvas.resize();
+        });
+
+        $("#font-select").on("change", function(ev) {
+            self.text.setFontFamily($("#font-select").val());
+            self.canvas.redraw();
+        })
     }
 
-    initImages() {
-        let front = new Image();
-        let back = new Image();
-
-        let size;
-        front.onload = function() {
-            creator.size = {
-                width: this.width,
-                height: this.height
-            }
-            creator.initCanvas(size);
-        }
-        front.src = images.front;
-        back.src = images.back;
-        this.sides = {
-            front: front,
-            back: back
-        }
-        this.currentImage = this.sides.front;
-    }
-
-    initCanvas(size) {
-        let container = $("#product-view");
-        $(container).append(`<canvas id='product-live-view' width='${this.size.width * 1.5}' height='${this.size.height * 1.5}'></canvas>`);
-        this.canvas = $("#product-live-view")[0];
-        this.ctx = this.canvas.getContext("2d");
-        this.reloadCanvas();
+    changeSide(button) {
+        let newSide = $(button).data("side");
+        this.changeImage(creator.sides[newSide]);
+        $("#product-sides .current").removeClass("current");
+        $(button).addClass("current");
     }
 
     changeImage(image) {
-        this.currentImage = image;
-        this.reloadCanvas();
-    }
-
-    reloadCanvas() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.drawImage(this.currentImage, 10, 10, this.size.width * 1.5, this.size.height * 1.5);
+        this.currentImage = this.canvas.elements.image = image;
     }
 }
 

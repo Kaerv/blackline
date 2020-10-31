@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   mode: "development",
   entry: "./src/creator.js",
+  stats: "normal",
   watch: true,
   watchOptions: {
     aggregateTimeout: 200,

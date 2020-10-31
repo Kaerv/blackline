@@ -53,7 +53,7 @@
             <div></div>
             {if $own_text}
                 <div id="own-text-editor">
-                    <textarea rows="4" columns="100"></textarea>
+                    <textarea rows="4" columns="100" maxlength="128">Mój tekst.</textarea>
                 </div>
             {else}
                 <div id="own-text-container">
@@ -77,18 +77,16 @@
                         <div>Wybierz czcionkę</div>
                         <img src="/assets/icons/down-arrow.svg"/>
                     </div>
-                    <select>
+                    <select id="font-select">
                         <option value="">Wybierz czcionkę</option>
-                        <option value="Arial dupa blada">Arial dupa blada</option>
-                        <option value="Times Stary Roman">Times Stary Roman</option>
-                        <option value="Caliberi">Caliberi</option>
-                        <option value="Corona">Corona</option>
+                        <option value="Arial">Mój tekst</option>
+                        <option value="Dancing Script">Mój tekst</option>
+                        <option value="Raleway">Mój tekst</option>
                     </select>
                     <div class="select-list">
-                        <div class="select-option">Arial dupa blada</div>
-                        <div class="select-option">Times Stary Roman</div>
-                        <div class="select-option">Caliberi</div>
-                        <div class="select-option">Corona</div>
+                        <div class="select-option" style="font-family: Arial">Arial</div>
+                        <div class="select-option" style="font-family: Dancing Script">Dancing Script</div>
+                        <div class="select-option" style="font-family: Raleway">Raleway</div>
                     </div>  
                 </div>
             </div>
