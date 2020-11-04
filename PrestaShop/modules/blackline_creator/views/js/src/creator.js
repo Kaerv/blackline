@@ -39,7 +39,6 @@ class Creator {
                 this.sides.front.init(images.front),
                 this.sides.back.init(images.back)
             ]).then((images) => {
-                console.log(this.sides.front, this.sides.back);
                 resolve({
                     width: images[0].width, 
                     height: images[0].height
@@ -101,6 +100,7 @@ class Creator {
 
     changeImage(image) {
         this.currentImage = this.canvas.elements.image = image;
+        this.canvas.redraw();
     }
 }
 

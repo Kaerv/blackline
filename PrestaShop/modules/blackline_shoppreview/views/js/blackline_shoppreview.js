@@ -9,22 +9,22 @@ $(function() {
             if($(this).hasClass("selected")) {
                 nextToSelected = true;
                 $(this).css({
-                    "margin-top": `${$(this).attr("data-regular-y")}px`,
-                    "margin-left": `${$(this).attr("data-regular-x")}px`
+                    //"margin-top": `${$(this).attr("data-regular-y")}px`,
+                    //"margin-left": `${$(this).attr("data-regular-x")}px`
                 });
                 return;
             }
             if(nextToSelected == false) {
                 $(this).css({
-                    "margin-top": `${$(this).attr("data-top-y")}px`,
-                    "margin-left": `${$(this).attr("data-top-x")}px`
+                    //"margin-top": `${$(this).attr("data-top-y")}px`,
+                    //"margin-left": `${$(this).attr("data-top-x")}px`
                 });
             }
     
             else {
                 $(this).css({
-                    "margin-top": `${$(this).attr("data-bottom-y")}px`,
-                    "margin-left": `${$(this).attr("data-bottom-x")}px`
+                    //"margin-top": `${$(this).attr("data-bottom-y")}px`,
+                    //"margin-left": `${$(this).attr("data-bottom-x")}px`
                 });
             }
         });
@@ -59,8 +59,8 @@ function setCategoriesPositions() {
         $(this).attr("data-regular-x", gapX);
         $(this).attr("data-regular-y", gapY);
 
-        gapY -= 35;
-        gapX += 25;
+        gapY -= 45;
+        gapX += 60;
     });
 
     $(".category-name").each(function() {

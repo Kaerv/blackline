@@ -6,7 +6,9 @@ class Control {
     }
 
     private function validateConnection($fromFrontController) {
-        session_start();
+        if(!isset($_SESSION))
+            session_start();
+            
         if(!$fromFrontController) {
             if(empty($_SESSION['token']) || $_SESSION['token'] != $_REQUEST["token"] || !isset($_REQUEST["token"])) {
                 $this->reportError($fromFrontController);

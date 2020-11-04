@@ -93,7 +93,7 @@ class QuotesUI {
     }
 
     setFavouritesEvents() {
-        $(".fav-ico").click(function() {
+        $("body").on("click", ".fav-ico", function() {
             if(prestashop.customer.is_logged) {
                 let quoteId = $(this).parents(".quote").attr("id");
                 let likesCount = $(this).parent().find(".fav-count > span");

@@ -13,6 +13,7 @@
 .category-container {
     width: fit-content;
     height: 500px;
+    width: 400px;
     position: absolute;
     transform: translate(-50%, -50%);
     border: solid 1px black;
@@ -24,8 +25,8 @@
 
 .category-container.selected {
     z-index: 100;
-    width: 420px;
-    height:520px;
+    width: 410px;
+    height:510px;
 }
 
 .preview-category-image {

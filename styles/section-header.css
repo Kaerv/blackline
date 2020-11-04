@@ -27,3 +27,12 @@
 .section-title.noclick:hover {
     margin: 0 30px;
 }
+
+.section-title-text {
+    display: flex;
+    white-space: nowrap;
+}
+
+.section-title-text > div:first-child {
+    margin-right: 3%;
+}

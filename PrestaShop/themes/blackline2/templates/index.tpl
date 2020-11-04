@@ -38,49 +38,10 @@
     <section id="quote_section" class="section">
         {include 
             file='_partials/section_header.tpl' 
-            title='CYTATY Z GŁĘBI STRON'
+            title='aaa'
             link = '#cytaty'
             style=""}
-          <style>@import "/styles/fancy-border.css";</style>
-          <div class="fancy-div" style="margin-top:var(--quotes-section-margin-top)">
-              <div class="fancy-border-container">
-                  <div class="fancy-border-lt"></div>
-                  <div class="fancy-border-rt"></div>
-                  <div class="fancy-border-lb"></div>
-                  <div class="fancy-border-rb"></div>
-              </div>
-              <div class="quotes-section-title">SŁOWA SĄ UKRYTĄ SIŁA ŻYCIA...</div>
-              <div class="quotes-section-title quotes-title-fancy">Ile masz jej w sobie?</div>
-          </div>
-        {assign var=authors value=[
-            'BERTOLD BRECHT',
-            'JOHANN WOLFGANG VON GOETHE',
-            'ANTOINE DE SAINT EXUPÉRY',
-            'ALEKSANDER DUMAS']} 
-        {assign var=quotes value=[
-            'Kto walczy, może przegrać. Kto nie walczy, już przegrał.',
-            'Talent rośnie w samotności, charakter wśród ludzi.',
-            'Mowa jest źródłem nieporozumień.',
-            '[...] zła najczęściej nie da się naprawić; możemy je tylko pomścić.']}
-        <div id="quotes" class="text">
-            {for $i = 0 to 3}
-                <div class="quote">
-                    <div class="quote-border">
-                        <div class="border lt"></div>
-                        <div class="border rt"></div>
-                        <div class="border lm"></div>
-                        <div class="border rm"></div>
-                        <div class="border lb"></div>
-                        <div class="border rb"></div>
-                    </div>
-                    <div class="quote-wrap">
-                        <img class="quotation-mark" src="/assets/icons/quotation.svg">
-                        <div class="quote-content">{$quotes[$i]}</div>
-                        <div class="quote-author">- {if $authors[$i] == ""} Autor nieznany {else}{$authors[$i]}{/if} -</div>
-                    </div>
-                </div>
-            {/for}
-        </div>
+            {hook h="displayQuotesPreview"}
     </section>
 
     <section id="preamble-wrap" class="section text" style="background-image:url(/assets/images/preambula-tlo.png)">
@@ -141,91 +102,6 @@
                 </div>
             </div>
         </div>
-        <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-        {literal}
-        <script>
-            $("#slider-3-ig-ico").hover( function() {
-                $(this).attr('src', "/assets/icons/instagram-color.svg")
-            }, function() {
-                $(this).attr('src', "/assets/icons/instagram.svg")
-            });
-
-            class Slider {
-                constructor(firstSlide, slideChangeTimeout) {
-                    this.slideInterval = null;
-
-                    this.actualSlide = firstSlide;
-                    this.slideChangeTimeout = slideChangeTimeout;
-                    this.lastSlide = $(".slide").length;
-                }
-
-                start() {
-                    $(`#slide-${this.actualSlide}`).show();
-                    $(`.slide-dot:eq(${this.actualSlide - 1})`).addClass("slide-dot-active");
-
-                    this.slideInterval = window.setInterval(this.autoChange, this.slideChangeTimeout);
-                }
-
-                autoChange() {
-                    let nextSlide = slider.actualSlide == slider.lastSlide? 1: slider.actualSlide + 1;
-                    slider.changeSlide(nextSlide);
-                }
-
-                manualChange(slide) {
-                    this.changeSlide(slide);
-                    clearInterval(this.slideInterval);
-                    this.slideInterval = window.setInterval(this.autoChange, this.slideChangeTimeout);
-                }
-                
-                changeSlide(slide) {
-                    if(slide != this.actualSlide) {
-                        if(slide == 3) {
-                            $("#youtube-preview").find(".section-title-text").html("CHCIAŁBYŚ WIĘCEJ?");
-                            $("#youtube-preview").find(".section-title").addClass('noclick');
-                        }
-                        if(this.actualSlide == 3) {
-                            $("#youtube-preview").find(".section-title-text").html("AKADEMIA MYŚLI ULOTNEJ");
-                            $("#youtube-preview").find(".section-title").removeClass('noclick');
-                        }
-
-                        this.deactivateSlide(this.actualSlide);
-                        this.actualSlide = slide;
-                        this.activateSlide(this.actualSlide);
-                    }
-                }
-
-                deactivateSlide(slide) {
-                    $(`#slide-${slide}`).fadeOut();
-                    $(`.slide-dot:eq(${slide - 1})`).removeClass("slide-dot-active");
-                }
-
-                activateSlide(slide) {
-                    $(`.slide-dot:eq(${slide - 1})`).addClass("slide-dot-active");
-                    $(`#slide-${slide}`).fadeIn();
-                }
-            }
-            
-            //let slider = new Slider(1, 10000);
-            //$("#slider").ready(slider.start());
-            //console.log(`${window.innerWidth}x${window.innerHeight}`);
-
-            $(window).on("resize", function() {
-                let windowHeight = window.innerHeight;
-                let headerHeight = $("#page-header")[0].clientHeight;
-                $("#hero-image").css("height", windowHeight - headerHeight);
-            })
-
-            $(document).ready(function() {
-                let windowHeight = window.innerHeight;
-                let headerHeight = $("#page-header")[0].clientHeight;
-                $("#hero-image").css("height", windowHeight - headerHeight);
-                //console.log(headerHeight)
-            });
-        </script>
-        {/literal}
     </section>
       </section>
     {/block}
