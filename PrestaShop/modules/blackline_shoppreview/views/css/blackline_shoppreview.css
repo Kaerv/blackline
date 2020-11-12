@@ -12,21 +12,18 @@
 
 .category-container {
     width: fit-content;
-    height: 500px;
-    width: 400px;
+    height: 400px;
     position: absolute;
     transform: translate(-50%, -50%);
     border: solid 1px black;
     cursor: pointer;
     display: block;
-    transition: all 200ms linear 0s;
     background-color: white;
 }
 
 .category-container.selected {
     z-index: 100;
-    width: 410px;
-    height:510px;
+    height:420px;
 }
 
 .preview-category-image {
@@ -41,4 +38,90 @@
     right: 0;
     bottom: 0;
     text-align: left;
+}
+
+#mobile-shop-preview-module {
+    display: none;
+    height: 70%;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mobile-category-container {
+    height: 70%;
+    width: fit-content;
+    display: block;
+    border: solid 1px black;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    transition: all 200ms ease-in-out 0s;
+}
+
+.mobile-preview-category-image {
+    height: 100%;
+    width: auto;
+}
+
+.mobile-shop-preview-separate-line {
+    display: none;
+    width: 30%;
+    margin: 10px auto;
+    border-bottom: solid 1px black;
+}
+
+.mobile-category-name {
+    font-size: 10px;
+}
+
+.mobile-shop-preview-fading {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: linear-gradient(90deg, 
+    white 10%, 
+    rgba(0,0,0,0) 30%, 
+    rgba(0,0,0,0) 50%, 
+    rgba(68,68,153,0) 70%,
+    rgba(255,255,255,1) 90%);
+}
+
+.mobile-shop-categories-wrap {
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    position: relative; 
+    transition: all 200ms ease-out 0s;
+}
+
+@media only screen and (max-width: 1025px) {
+    #shop-preview-module {transform: translate(-50%, -50%) scale(0.8)}
+}
+
+@media only screen and (max-width: 800px) {
+    #shop-preview-module {transform: translate(-50%, -50%) scale(0.6)}
+}
+
+@media only screen and (max-width: 700px) {
+    #shop-preview-module { display: none }
+    #mobile-shop-preview-module { display: flex }
+    .mobile-shop-preview-fading {display: block;}
+    
+    .mobile-shop-preview-separate-line {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #mobile-shop-preview-module {width: 100%;}
 }

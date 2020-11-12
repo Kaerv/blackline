@@ -227,3 +227,7 @@
 @media only screen and (max-width:1025px) {
     .slider-button.left { margin-right: 95% }
 }
+
+@media only screen and (max-width: 700px) {
+    .slider-button {width: 34px;}
+}

@@ -48,8 +48,10 @@
 <link rel="stylesheet" href="/styles/page-footer.css">
 <link rel="stylesheet" href="/styles/cart-preview.css">
 <link rel="stylesheet" href="/styles/shop-description.css">
+<link rel="stylesheet" href="/styles/scroll.css">
 {if $page.page_name == "index"}
 <link rel="stylesheet" href="/styles/index.css">
+<link rel="stylesheet" href="/styles/fullpage.min.css">
 {elseif $page.page_name == "product"}
 <link rel="stylesheet" href="{$urls.shop_domain_url}/PrestaShop/themes/blackline2/assets/css/product.css">
 {elseif in_array($page.page_name, $customerpagenames)}

@@ -64,3 +64,9 @@
     #footer-social > a:first-child { margin-right: 60px; }
     #footer-logo img { width: 240px; }
 }
+
+@media only screen and (max-width: 640px) {
+    #footer * {
+        display: none;
+    }
+}

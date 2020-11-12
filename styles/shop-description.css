@@ -51,3 +51,32 @@
     top: 0;
     right: 0;
 }
+
+@media only screen and (max-width: 700px) {
+    #description-container {
+        grid-template-columns: none !important;
+        grid-template-rows: 35% 50%;
+        align-items: flex-start !important;
+        width: 80%;
+    }
+
+    #shop-preview {
+        grid-template-rows: 40px 1fr;
+    }
+
+    #description-left {
+        height: 100%;
+        overflow: auto;
+        padding: 0 10%;
+    }
+
+    #shop-preview #description-left p {
+        margin: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #shop-preview #description-left {
+        align-items: flex-start !important;
+    }
+}

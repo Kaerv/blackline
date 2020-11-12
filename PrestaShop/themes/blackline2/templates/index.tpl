@@ -46,6 +46,7 @@
 
     <section id="preamble-wrap" class="section text" style="background-image:url(/assets/images/preambula-tlo.png)">
         <div id="preamble" style="background-image:url(/assets/images/preambula-kartka.png)">
+            <div class="scrollbar-inner">
             <h1 class="header-text">PREAMBUŁA MYŚLI ULOTNEJ</h1>
             <p> Zadajesz sobie pytanie: co to za strona i&nbsp;właściwie, po co istnieje?
                 Czym są te dziwnie brzmiące stwierdzenia, określające często znane Ci już stany Twojej osobowości?
@@ -67,6 +68,7 @@
             <p>
                 Zajrzyj w&nbsp;nasz pejzaż myśli ulotnej i&nbsp;posmakuj cytatów z&nbsp;głębi stron, a&nbsp;znajdziesz wszystko, co świat powinien wiedzieć o&nbsp;Tobie. <br> Powodzenia!
             </p>
+            </div>
         </div>
     </section>
     <section id="shop-preview" class="section text">
@@ -106,6 +108,8 @@
       </section>
     {/block}
     <script src="{$urls.js_url}/index-scroll.js"></script>
+    <script>
+    </script>
 {/block}
 </body>
 </html>

@@ -5,15 +5,13 @@
 body, html {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: auto;
 }
 
 body > main {
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
-    padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
-    box-sizing: content-box; /* So the width will be 100% + 17px */
 }
 
 #wrapper {
@@ -159,8 +157,16 @@ body > main {
 
 #preamble {
     width: 70%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#preamble div {
     height: fit-content;
-    padding-bottom: 80px;
+    width: 100%;
+    padding: 0px 40px;
 }
 
 #preamble > h1 {
@@ -281,8 +287,8 @@ body > main {
 }
 
 @media only screen and (max-width: 1290px) {
-    .text { font-size: 14px; }
-    .header-text { font-size: 22px; }
+    .text { font-size: 19px; }
+    .header-text { font-size: 25px; }
 
     .quotes-section-title { font-size: 26px; }
     * {--quotes-section-margin-top: 0px; }
@@ -304,9 +310,95 @@ body > main {
     #social-note { font-size: 22px; }
     .slider-3-social-ico { width: 64px;}
     .slider-3-blackline-link { font-size: 32px; }
-    #slide-3-content-container { width: 50%; top: 43%; }
+    #slide-3-content-container { width: 64%; top: 43%; }
 }
 
 @media only screen and (max-width: 1080px) {
     .quotes-section-title { font-size: 22px; }
+    #slide-3-content-container {width: 80%}
+    #preamble {width: 80%}
+    .text {font-size: 14px}
+}
+
+@media only screen and (max-width: 800px) {
+    #quotes-preview .quote {transform: scale(0.9)}
+    .slider-3-social-ico { width: 50px;}
+    .slider-3-blackline-link { font-size: 26px; }
+}
+
+@media only screen and (max-height: 800px) and (max-width: 800px) {
+    #preamble {
+        height: 80%;
+    }
+    #preamble div {
+        overflow: auto;
+        height: 85%;
+        padding: 0px 20px;
+    }
+
+    .text {font-size: 12px;}
+
+    #slide-3-content-container {
+        top: 50%;
+        grid-row-gap: 40px;
+    }
+    .slider-3-social-ico { width: 40px;}
+    .slider-3-blackline-link { font-size: 20px; }
+    #social-note { font-size: 19px; }
+}
+
+@media only screen and (max-width: 645px) {
+    .header-text {font-size: 16px}
+    .slider-3-blackline-link {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .slider {
+        flex-direction: column;
+        width: 100%;
+        font-size: 10px !important;
+        margin-top: 0;
+    }
+    .slider-button.left {
+        margin-top: 60%;
+        margin-right: 60%;
+    }
+
+    .quote-content {
+        margin: 6px 0;
+    }
+
+    .quotation-mark {
+        width: 12px;
+    }
+
+    .fav-count {
+        width: 33px;
+        height: 14px;
+    }
+
+    .fav-ico {height: 16px;}
+    .quote-embed {margin-left: 6px}
+    .embed-ico {height: 16px}
+    .slider-button {margin-top: -9%; margin-left: 30%; width: 32px;}
+    .fav-count span {margin-top: -1px;}
+    .header-text { font-size: 11px; }
+    .text {font-size: 10px;}
+
+    #youtube-previev .header-text {font-style: 14px;}
+    #slide-3-content-container {
+        grid-template-areas: 
+            'title title'
+            'fb-link fb-account'
+            'insta-account insta-link'
+    }
+    #social-note {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 260px) {
+    .header-text {font-size: 49%;}
 }

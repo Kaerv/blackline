@@ -113,7 +113,7 @@
             FROM quotes_authors, quotes 
 
             WHERE quotes.author_id = quotes_authors.author_id
-            GROUP BY id";
+            GROUP BY id ORDER BY likes DESC";
 
         if(!$result = $this->mysqli->query($query)) {
             $this->reportError($this->mysqli->error);
@@ -132,7 +132,7 @@
             $results[] = $author;
         }
         
-        return $results;
+        return array_slice($results, 0, 8);
         }
 
         public function getQuoteById($id) {

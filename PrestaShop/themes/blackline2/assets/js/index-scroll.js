@@ -1,4 +1,4 @@
-var lastScroll = 0;
+/*var lastScroll = 0;
 var currentSection = 0;
 var sections = [
     "#header",
@@ -58,4 +58,4 @@ function scrollBySection(section) {
                 hideScroll();
             }, 50)
         });
-}
+}*/

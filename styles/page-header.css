@@ -345,8 +345,27 @@ header, header > * {
 
 @media only screen and (max-width: 700px) {
     #mobile-menu-button { width: 24px; height: 12px; }
-    .header-ico { width: 22px }
-    #header-favourite-ico { width: 22px; margin-top: 2px }
-    #mobile-search-button img {width: 21px; margin-top: 2px; }
+    .header-ico { width: 18px }
+    #header-favourite-ico { width: 18px; margin-top: 2px }
+    #mobile-search-button img {width: 17px; margin-top: 2px; }
+    .menu-option {font-size: 11px}
+    #mobile-menu-button {top: 60%}
+    .mobile-home {font-size: 14px}
+    #mobile-nav-header img { width: 10px;}
+}
 
+@media only screen and (max-height: 730px) {
+    #mobile-nav {height: 80%; }
+}
+
+@media only screen and (max-width: 400px) {
+    #mobile-menu-button { width: 18px; height: 10px; }
+    .header-ico { width: 14px }
+    #header-favourite-ico { width: 14px;}
+    #mobile-search-button {margin-right: 8px;}
+    #header-favourite {margin-right: 6px;}
+    #header-account {margin-right: 6px}
+    #header-cart {margin-right: 10%}
+    #mobile-search-button img {width: 13px;}
+    #mobile-nav .menu-option { height: 10%;}
 }

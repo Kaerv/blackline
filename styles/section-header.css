@@ -36,3 +36,15 @@
 .section-title-text > div:first-child {
     margin-right: 3%;
 }
+
+@media only screen and (max-height: 500px) {
+    .section-header {
+        height: 40px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .section-title { margin: 0 15px;}
+    .header-line { border-bottom: solid 1px #000;}
+    .section-header {height: 50px;}
+}
