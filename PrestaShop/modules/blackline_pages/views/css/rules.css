@@ -35,3 +35,31 @@ p {
 .rules-end {
     margin-top: 80px;
 }
+
+
+@media only screen and (max-width: 1024px) {
+    p {width: 80%;}
+    .text {font-size: 1.1em !important}
+}
+
+@media only screen and (max-width: 800px) {
+    p {width: 90%;}
+    .text {font-size: 1em !important}
+    .header-text {font-size: 1.5rem !important}
+}
+
+@media only screen and (max-width: 600px) {
+    p {width: 90%;}
+    .text {font-size: 0.9em !important}
+    .header-text {font-size: 1.1rem !important}
+    .section-header { height: 60px !important}
+    .rule-num {margin-top: 40px;}
+}
+
+@media only screen and (max-width: 400px) {
+    p {width: 90%;}
+    .text {font-size: 0.8em !important}
+    .header-text {font-size: 1rem !important}
+    .section-header { height: 60px !important}
+    #menu-separate-line {border: none}
+}
