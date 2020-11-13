@@ -97,7 +97,7 @@
                         <img src="/assets/icons/down-arrow.svg"/>
                     </div>
                     
-                    <select>
+                    <select id="font-size-select">
                         <option value="">Wybierz rozmiar</option>
                         <option value="12pt">12pt</option>
                         <option value="14pt">14pt</option>

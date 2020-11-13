@@ -4,6 +4,7 @@ import { selectInputEvents } from "./creator-select-input";
 import { Canvas } from "./canvas";
 import { CanvasText } from "./canvastext";
 import { CanvasImage } from "./canvasimage";
+import { CanvasSection } from "./canvassection";
  
 class Creator {
     constructor() {
@@ -12,6 +13,7 @@ class Creator {
         this.currentImage;
         this.canvas;
         this.text;
+        this.section;
 
         this.init();
     }
@@ -24,16 +26,20 @@ class Creator {
             this.canvas.init({width: image.width, height: image.height});
             this.changeImage(creator.sides.front);
             this.initEventListeners();
+            this.initSection();
             this.initText();
-            this.canvas.redraw();
-            console.log(`Koniec: ${Date.now() - this.start}ms`);
+            this.canvas.resize();
+            this.canvas.initCursorHandler();
+
+            console.log(`Creator ready: ${Date.now() - this.start}ms`);
         });
     }
 
     initImages() {
+        let canvas = this.canvas;
         return new Promise ((resolve, reject) => {
-            this.sides.front = new CanvasImage();
-            this.sides.back = new CanvasImage();
+            this.sides.front = new CanvasImage({canvas: canvas});
+            this.sides.back = new CanvasImage({canvas: canvas});
 
             Promise.all([
                 this.sides.front.init(images.front),
@@ -47,8 +53,14 @@ class Creator {
         });
     }
 
+    initSection() {
+        this.section = new CanvasSection({canvas: this.canvas});
+        this.section.init();
+    }
+
     initText() {
-        this.text = new CanvasText();
+        this.text = new CanvasText({canvas: this.canvas});
+        this.section.setText = this.text;
 
         let selectedQuote = $(".selected-quote").text();
         let ownText = $("#own-text-editor textarea").val();
@@ -64,8 +76,6 @@ class Creator {
                 self.canvas.redraw();
             });
         }
-
-        this.canvas.elements.text = this.text;
     }
 
     initEventListeners() {
@@ -88,7 +98,12 @@ class Creator {
         $("#font-select").on("change", function(ev) {
             self.text.setFontFamily($("#font-select").val());
             self.canvas.redraw();
-        })
+        });
+
+        $("#font-size-select").on("change", function(ev) {
+            self.text.setFontSize($("#font-size-select").val());
+            self.canvas.redraw();
+        });
     }
 
     changeSide(button) {
@@ -99,7 +114,9 @@ class Creator {
     }
 
     changeImage(image) {
-        this.currentImage = this.canvas.elements.image = image;
+        this.canvas.removeElementByType("image");
+        this.canvas.add(image);
+        this.currentImage = image;
         this.canvas.redraw();
     }
 }

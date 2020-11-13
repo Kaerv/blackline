@@ -1,44 +1,58 @@
-export class CanvasText {
-    constructor() {
+import { CanvasElement } from "./canvaselement";
+export class CanvasText extends CanvasElement {
+    constructor(props) {
+        super(props);
         this.selectedFontSize = 12;
-        this.fontStyle = "normal"; // italic, oblique
-        this.fontVariant = "normal"; //small-caps
-        this.fontWeight = "normal";
-        this.fontSize = "12pt";
-        this.fontFamily = "Arial";
-        this.font = `${this.fontStyle} ${this.fontVariant} ${this.fontWeight} ${this.fontSize} ${this.fontFamily}`;
-        this.fillStyle = "black";
+        this.font = {
+            style: "normal",
+            variant: "normal",
+            weight: "normal",
+            size: `${this.selectedFontSize * this.scale}px`,
+            family: "Arial",
+            color: "black"
+        }
 
-        this.pos = {x: 0, y: 0};
-        this.content;
+        this.pos = {x: 100, y: 100};
+        this.content = "";
         this.scale;
+        this.priority = 100;
+    }
+
+    init() {
+        super.init();
     }
 
     draw(ctx, scale) {
-        ctx.font = this.font;
-        ctx.fillStyle = this.fillStyle;
-        ctx.fillText(this.content, this.pos.x * scale, this.pos.y * scale);
+        if(this.font) {
+            ctx.font = this.generateFont();
+            ctx.fillStyle = this.font.color;
+            ctx.fillText(this.content, this.pos.x * scale, this.pos.y * scale);
+        }
     }
     
     setContent(text) {
-        this.pos = { x: 65, y: 100 };
         this.content = text;
     }
 
-    setFontSize(size) {
+    setPosition(pos) {
+        this.pos = pos;
+    }
+
+    setFontSize(size = this.selectedFontSize) {
         this.selectedFontSize = size;
-        this.fontSize = `${this.selectedFontSize * this.scale}px`;
-        this.font = `${this.fontStyle} ${this.fontVariant} ${this.fontWeight} ${this.fontSize} ${this.fontFamily}`;
+        this.font.size = `${this.selectedFontSize * this.scale}px`;
     }
 
     resize(scale) {
         this.scale = scale;
-        this.fontSize = `${this.selectedFontSize * this.scale}px`;
-        this.font = `${this.fontStyle} ${this.fontVariant} ${this.fontWeight} ${this.fontSize} ${this.fontFamily}`;
+        this.setFontSize();
     }
 
     setFontFamily(family) {
-        this.fontFamily = family;
-        this.font = `${this.fontStyle} ${this.fontVariant} ${this.fontWeight} ${this.fontSize} ${this.fontFamily}`;
+        this.font.family = family;
+    }
+
+    generateFont() {
+        return `${this.font.style} ${this.font.variant} ${this.font.weight} ${this.font.size} ${this.font.family}`
     }
 }

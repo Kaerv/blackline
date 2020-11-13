@@ -16,7 +16,7 @@ export const selectInputEvents = () => {
         event.stopImmediatePropagation();
         let newValue = $(this).text();
         let container = $(this).parents(".custom-select");
-        $("#font-select").val(newValue);
+        $(container).find("select").val(newValue);
         $(container).find(".select-current-option > div").text(newValue);
         $(container).find(".select-current-option > div").css("font-family", newValue);
         $(".custom-select > .select-list").hide();

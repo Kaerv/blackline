@@ -39,5 +39,3 @@
     {/foreach}
   </script>
 {/if}
-
-<script src='/scripts/jquery.scrollbar.min.js'></script>

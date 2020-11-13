@@ -1,11 +1,15 @@
-export class CanvasImage {
-    constructor() {
+import { CanvasElement } from "./canvaselement";
+export class CanvasImage extends CanvasElement {
+    constructor(props) {
+        super(props);
         this.imageHandler = new Image();
         this.width;
         this.height;
+        this.type = "image";
     }
 
     init(src) {
+        super.init();
         let self = this;
         return new Promise((resolve, reject) => {
             this.imageHandler.src = src;

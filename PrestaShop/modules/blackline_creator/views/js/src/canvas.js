@@ -6,7 +6,7 @@ export class Canvas {
         this.scale;
         this.imagesSize;
         this.container;
-        this.elements = {};
+        this.elements = [];
 
         this.isPosShowing = false;
     }
@@ -24,7 +24,6 @@ export class Canvas {
         `);
         this.canvas = $("#product-live-view").get(0);
         this.ctx = this.canvas.getContext("2d");
-        this.initCursorHandler();
     }
 
     resize() {
@@ -89,8 +88,51 @@ export class Canvas {
     }
 
     redraw() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        for(const property in this.elements) 
-            this.elements[property].draw(this.ctx, this.scale);
+        if(this.ctx) {
+            let elements = [];
+            this.elements.forEach((el, index) => {
+                elements.push({
+                    priority: el.priority,
+                    el: el
+                });
+            });
+            elements.sort(compare);
+            
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            elements.forEach((obj, index) => { obj.el.draw(this.ctx, this.scale) });
+        }
+    }
+
+    add(element) {
+        this.elements.push(element);
+        this.redraw();
+    }
+
+    removeElementByType(type) {
+        let el = this.getElementByType(type);
+        let index = this.elements.indexOf(el);
+        if(index > -1) {
+            this.elements.splice(index, 1);
+        }
+    }
+
+    getElementByType(type) {
+        let result;
+        this.elements.forEach((el, index) => {
+            if(el.type == type)
+                result = el;
+        });
+        return result;
     }
 }
+
+
+function compare( a, b ) {
+    if ( a.priority < b.priority ){
+      return -1;
+    }
+    if ( a.priority > b.priority ){
+      return 1;
+    }
+    return 0;
+  }

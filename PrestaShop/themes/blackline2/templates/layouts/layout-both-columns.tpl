@@ -185,6 +185,7 @@
     {block name='hook_before_body_closing_tag'}
       {hook h='displayBeforeBodyClosingTag'}
     {/block}
+    <script src='/scripts/jquery.scrollbar.min.js'></script>
   </body>
 
 </html>
