@@ -9,6 +9,8 @@ export class Canvas {
         this.elements = [];
 
         this.isPosShowing = false;
+        this.drawTimes = 0;
+        this.debug = true;
     }
 
     init(imagesSize) {
@@ -52,17 +54,19 @@ export class Canvas {
         });
 
         this.canvas.addEventListener("mousemove", function(evt) {
-            evt.preventDefault();
-            evt.stopImmediatePropagation();
-            self.isPosShowing = true;
+            if(self.debug) {
+                evt.preventDefault();
+                evt.stopImmediatePropagation();
+                self.isPosShowing = true;
 
-            let rect = self.canvas.getBoundingClientRect();
-            let x = Math.round(evt.clientX - rect.left);
-            let y = Math.round(evt.clientY - rect.top);
+                let rect = self.canvas.getBoundingClientRect();
+                let x = Math.round(evt.clientX - rect.left);
+                let y = Math.round(evt.clientY - rect.top);
 
-            self.redraw();
-            self.drawCircle(x, y, 2, "white");
-            self.drawCursorPos(x, y);
+                self.redraw();
+                self.drawCircle(x, y, 2, "white");
+                self.drawCursorPos(x, y);
+            }
         });
     }
 
@@ -81,6 +85,7 @@ export class Canvas {
         this.ctx.strokeStyle = '#333';
         this.ctx.fillStyle = '#FFF';
         this.ctx.font = "11px Arial";
+        this.ctx.textAlign = "left";
         this.ctx.fillText(`x: ${x}, y: ${y}`, x + 5, y);
         this.ctx.strokeText(`x: ${x}, y: ${y}`, x + 5, y);
         this.ctx.fillText(`ox: ${Math.round(x / this.scale)}, oy: ${Math.round(y / this.scale)}`, x + 5, y + 12);
@@ -89,6 +94,7 @@ export class Canvas {
 
     redraw() {
         if(this.ctx) {
+            this.drawTimes++;
             let elements = [];
             this.elements.forEach((el, index) => {
                 elements.push({
@@ -100,11 +106,24 @@ export class Canvas {
             
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             elements.forEach((obj, index) => { obj.el.draw(this.ctx, this.scale) });
+
+            if(this.debug) {
+                elements.forEach((obj, index) => { obj.el.drawDebug(this.ctx, this.scale) });
+                this.drawDebug();
+            }
         }
+    }
+
+    drawDebug() {
+        this.ctx.fillStyle = "#F00";
+        this.ctx.font = "10px Arial";
+        this.ctx.textAlign = "left";
+        this.ctx.fillText("Tryb debugowania włączony", 10, this.canvas.height - 20);
     }
 
     add(element) {
         this.elements.push(element);
+        element.canvas = this;
         this.redraw();
     }
 

@@ -60,13 +60,14 @@ class Creator {
 
     initText() {
         this.text = new CanvasText({canvas: this.canvas});
-        this.section.setText = this.text;
+        this.section.setText(this.text);
 
         let selectedQuote = $(".selected-quote").text();
         let ownText = $("#own-text-editor textarea").val();
-
-        if(selectedQuote) {
-            this.text.setContent(selectedQuote);
+        this.text.addLine("Jeśli ma się przyjaciół, a mimo to wszystko się traci, jest oczywiste, że przyjaciele ponoszą winę. Za to, co uczynili, względnie za to, czego nie uczynili. Za to, że nie wiedzieli, co należy uczynić.")
+        this.text.addLine("- Andrzej Sapkowski -");
+        /*if(selectedQuote) {
+           this.text.setContent(selectedQuote);
         }
         else if(ownText) {
             self = this;
@@ -75,7 +76,7 @@ class Creator {
                 self.text.setContent($(this).val());
                 self.canvas.redraw();
             });
-        }
+        }*/
     }
 
     initEventListeners() {

@@ -17,4 +17,8 @@ export class CanvasElement {
     resize() {
 
     }
+
+    drawDebug(ctx, scale) {
+
+    }
 }
