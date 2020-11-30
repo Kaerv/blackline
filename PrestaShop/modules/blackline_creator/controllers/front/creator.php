@@ -56,8 +56,21 @@ class Blackline_CreatorCreatorModuleFrontController extends ModuleFrontControlle
         $quote = array();
       }
 
-      $own_text = isset($_GET["own_text"]);
-      
+      $this->mysqli = new mysqli('localhost', 'blackline', 'K)c#@mc!3', 'blackline');
+
+      $this->mysqli->query("SET NAMES utf8");
+      $this->mysqli->set_charset("utf8");
+      $this->mysqli->autocommit(FALSE);   
+
+      $query = "SELECT * FROM creator_configs WHERE product_id = $product_id";
+      if(!$result = $this->mysqli->query($query)) {
+        $config = array();
+      }
+      else {
+        $config = $result->fetch_assoc();
+      }
+
+
       $this->context->smarty->assign(
         array(
           'images' => $images,
@@ -67,7 +80,8 @@ class Blackline_CreatorCreatorModuleFrontController extends ModuleFrontControlle
           'product_color' => $color,
           'product_variant' => $variant,
           'quote' => $quote,
-          'own_text' => $own_text
+          'config' => $config,
+          'add_to_cart' => $this->context->link->getModuleLink('blackline_creator', 'addtocart', array('ajax'=>true))
         ));
       $this->setTemplate('module:blackline_creator/views/templates/front/creator.tpl');
     }

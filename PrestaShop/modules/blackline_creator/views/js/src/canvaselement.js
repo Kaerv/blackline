@@ -4,6 +4,7 @@ export class CanvasElement {
         this.id = "";
         this.type = "";
         this.priority = 0;
+        this.canvas = props.canvas;
     }
 
     init() {

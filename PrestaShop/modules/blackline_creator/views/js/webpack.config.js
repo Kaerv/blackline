@@ -45,6 +45,6 @@ module.exports = {
     chunkIds: "size",
     moduleIds: "size",
     mangleExports: "size",
-    minimize: true,
+    minimize: false,
   },
 }

@@ -56,6 +56,9 @@ class Creator {
     initSection() {
         this.section = new CanvasSection({canvas: this.canvas});
         this.section.init();
+        this.section.addSide("front", config.front);
+        this.section.addSide("back", config.back);
+        this.section.changeSide("front");
     }
 
     initText() {
@@ -63,20 +66,12 @@ class Creator {
         this.section.setText(this.text);
 
         let selectedQuote = $(".selected-quote").text();
-        let ownText = $("#own-text-editor textarea").val();
-        this.text.addLine("Jeśli ma się przyjaciół, a mimo to wszystko się traci, jest oczywiste, że przyjaciele ponoszą winę. Za to, co uczynili, względnie za to, czego nie uczynili. Za to, że nie wiedzieli, co należy uczynić.")
-        this.text.addLine("- Andrzej Sapkowski -");
-        /*if(selectedQuote) {
-           this.text.setContent(selectedQuote);
+
+        if(selectedQuote) {
+           this.text.addLine(",,", "Overpass", 16, 6);
+           this.text.addLine(quote, "Overpass", 4, 3);
+           this.text.addLine(author, "Overpass", 4, 0);
         }
-        else if(ownText) {
-            self = this;
-            this.text.setContent(ownText);
-            $("#own-text-editor textarea").on("input", function() {
-                self.text.setContent($(this).val());
-                self.canvas.redraw();
-            });
-        }*/
     }
 
     initEventListeners() {
@@ -96,20 +91,26 @@ class Creator {
             self.canvas.resize();
         });
 
-        $("#font-select").on("change", function(ev) {
-            self.text.setFontFamily($("#font-select").val());
-            self.canvas.redraw();
-        });
-
-        $("#font-size-select").on("change", function(ev) {
-            self.text.setFontSize($("#font-size-select").val());
-            self.canvas.redraw();
+        $("#continue-button").on("click", function() {
+            let canvasData = self.canvas.canvas.toDataURL();
+            $.ajax({
+                method: "post",
+                url: `${$(this).data("redirect")}`,
+                data: {
+                    id_product: productId,
+                    img: canvasData
+                },
+                success: function(response) {
+                    console.log(response);
+                }
+            });
         });
     }
 
     changeSide(button) {
         let newSide = $(button).data("side");
         this.changeImage(creator.sides[newSide]);
+        this.section.changeSide(newSide);
         $("#product-sides .current").removeClass("current");
         $(button).addClass("current");
     }

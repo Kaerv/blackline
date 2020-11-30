@@ -24,12 +24,13 @@ export class CanvasImage extends CanvasElement {
         });
     } 
 
-    draw(ctx, scale) {
+    draw(ctx) {
+        let canvas = this.canvas;
         ctx.drawImage(
             this.imageHandler, 
             0, 0, 
-            this.width * scale, 
-            this.height * scale
+            canvas.canvas.width / canvas.scale, 
+            canvas.canvas.height/ canvas.scale
         ); 
     }
 

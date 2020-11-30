@@ -20,6 +20,28 @@
         {literal}
         };
         {/literal}
+
+        {if isset($quote.id)}
+            let quote = "{$quote.content}";
+            let author = "- {$quote.author} -";
+            let quoteId = {$quote.id};
+        {/if}
+        {if isset($config.config_id)}
+            {literal} let config = { {/literal}
+                {literal} front: { {/literal}
+                    x: "{$config.front_x}",
+                    y: "{$config.front_y}",
+                    width: "{$config.front_width}",
+                    height: "{$config.front_height}"
+                {literal} }, {/literal}
+                {literal} back: { {/literal}
+                    x: "{$config.back_x}",
+                    y: "{$config.back_y}",
+                    width: "{$config.back_width}",
+                    height: "{$config.back_height}"
+                {literal} } {/literal}
+            {literal} } {/literal}
+        {/if}
     </script>
     <section id="creator">
         <div id="product-preview">
@@ -45,7 +67,7 @@
                     <input type="button" value="Wybierz cytat" class="button-white" id="choose-quote">
                 </div>
             {/if}
-            <input type="button" value="Dalej" id="continue-button">
+            <input type="button" value="Dalej" id="continue-button" data-redirect="{$add_to_cart}">
         </div>
     </section>
 {/block}

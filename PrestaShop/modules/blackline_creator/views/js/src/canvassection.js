@@ -3,9 +3,9 @@ import { CanvasElement } from "./canvaselement";
 export class CanvasSection extends CanvasElement {
     constructor(props) {
         super(props);
-        this.canvas = props.canvas.canvas;
+        this.canvas = props.canvas;
         this.type = "section";
-        this.width = 100;
+        this.width = 120;
         this.height = 60;
         this.pos = {
             x: "center",
@@ -15,31 +15,50 @@ export class CanvasSection extends CanvasElement {
             v: 10,
             h: 10
         }
+
+        this.sides = {};
         this.color = "rgba(50, 50, 50, 0.5)";
         this.text;
-        this.scale;
     }
 
     init() {
         super.init();
     }
 
-    draw(ctx, scale) {
-        if(this.height) {
-            if(this.text)
-                this.text.setPosition(this.getRelativeHCenterPos());
-            this.scale = scale;
+    addSide(side, params) {
+        this.sides[side] = {
+            x: params.x,
+            y: params.y,
+            width: params.width,
+            height: params.height
         }
     }
 
-    drawDebug(ctx, scale) {
+    changeSide(side) {
+        this.pos.x = (this.sides[side].x == "center")? this.sides[side].x : parseInt(this.sides[side].x);
+        this.pos.y =  (this.sides[side].y == "center")? this.sides[side].y : parseInt(this.sides[side].y);
+        this.width = parseInt(this.sides[side].width);
+        this.height = parseInt(this.sides[side].height);
+        this.canvas.redraw();
+    }
+
+    draw(ctx) {
+        if(this.height) {
+            if(this.text) {
+                this.text.setPosition(this.getRelativeHCenterPos());
+            }
+
+        }
+    }
+
+    drawDebug(ctx) {
         if(this.height) {
             super.draw();
             let relPos = this.getRelativeLeftPos();
 
             ctx.strokeStyle = this.color;
             ctx.lineWidth = 1;
-            ctx.rect(relPos.x * this.scale, relPos.y * this.scale, this.width * this.scale, this.height * this.scale);
+            ctx.rect(relPos.x, relPos.y, this.width, this.height);
             ctx.stroke();
         }
     }
@@ -55,16 +74,16 @@ export class CanvasSection extends CanvasElement {
 
     getRelativeLeftPos() {
         let relPos = {
-            x: (this.pos.x == "center")? this.canvas.width / 2 / this.scale - this.width / 2 : this.pos.x,
-            y: (this.pos.y == "center")? this.canvas.height / 2 / this.scale - this.height / 2 : this.pos.y
+            x: (this.pos.x == "center")? this.canvas.canvas.width / 2 / this.canvas.scale - this.width / 2 : this.pos.x,
+            y: (this.pos.y == "center")? this.canvas.canvas.height / 2 / this.canvas.scale - this.height / 2 : this.pos.y
         }
 
         return relPos;
     }
     getRelativeHCenterPos() {
         let relPos = {
-            x: (this.pos.x == "center")? this.canvas.width / 2 / this.scale : this.pos.x,
-            y: (this.pos.y == "center")? this.canvas.height / 2 / this.scale - this.height / 2 : this.pos.y
+            x: (this.pos.x == "center")? this.canvas.canvas.width / 2 / this.canvas.scale : this.pos.x + this.width / 2,
+            y: (this.pos.y == "center")? this.canvas.canvas.height / 2 / this.canvas.scale - this.height / 2 : this.pos.y
         }
 
         return relPos;

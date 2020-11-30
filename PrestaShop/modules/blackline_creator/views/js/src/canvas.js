@@ -10,7 +10,7 @@ export class Canvas {
 
         this.isPosShowing = false;
         this.drawTimes = 0;
-        this.debug = true;
+        this.debug = false;
     }
 
     init(imagesSize) {
@@ -105,20 +105,32 @@ export class Canvas {
             elements.sort(compare);
             
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            elements.forEach((obj, index) => { obj.el.draw(this.ctx, this.scale) });
+            elements.forEach((obj, index) => { 
+                this.ctx.save();
+                this.ctx.scale(this.scale, this.scale);
+                obj.el.draw(this.ctx);
+                this.ctx.restore();
+            });
 
             if(this.debug) {
-                elements.forEach((obj, index) => { obj.el.drawDebug(this.ctx, this.scale) });
+                elements.forEach((obj, index) => { 
+                    this.ctx.save();
+                    this.ctx.scale(this.scale, this.scale);
+                    obj.el.drawDebug(this.ctx, this.scale);
+                    this.ctx.restore();
+                });
                 this.drawDebug();
             }
         }
     }
 
     drawDebug() {
+        this.ctx.save();
         this.ctx.fillStyle = "#F00";
         this.ctx.font = "10px Arial";
         this.ctx.textAlign = "left";
         this.ctx.fillText("Tryb debugowania włączony", 10, this.canvas.height - 20);
+        this.ctx.restore();
     }
 
     add(element) {
